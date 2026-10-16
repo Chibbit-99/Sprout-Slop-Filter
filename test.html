@@ -1,1 +1,39 @@
-<script src="/subsystems/normalise_text.js"></script>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sprout subsystem tests</title>
+</head>
+<body>
+    <h1>normalise_text() test</h1>
+    <pre id="result">Running test…</pre>
+
+    <!-- Use a relative path so this works both from the project folder and on a project-hosted site. -->
+    <script src="./subsystems/normalise_text.js"></script>
+    <script>
+        const output = document.getElementById("result");
+
+        try {
+            if (typeof normalise_text !== "function") {
+                throw new Error("normalise_text was not loaded. Check the script path and browser console.");
+            }
+
+            const input = "  HELLO   WORLD  ";
+            const expected = "hello world";
+            const actual = normalise_text(input);
+
+            output.textContent =
+                "Input:    " + JSON.stringify(input) + "\n" +
+                "Expected: " + JSON.stringify(expected) + "\n" +
+                "Actual:   " + JSON.stringify(actual) + "\n\n" +
+                (actual === expected ? "PASS" : "FAIL");
+            output.style.color = actual === expected ? "green" : "red";
+        } catch (error) {
+            output.textContent = "ERROR: " + error.message;
+            output.style.color = "red";
+            console.error(error);
+        }
+    </script>
+</body>
+</html>
