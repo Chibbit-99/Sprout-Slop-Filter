@@ -6,34 +6,68 @@
     <title>Sprout subsystem tests</title>
 </head>
 <body>
-    <h1>normalise_text() test</h1>
-    <pre id="result">Running test…</pre>
+    <h1>Sprout subsystem tests</h1>
+    <pre id="result">Running tests…</pre>
 
-    <!-- Use a relative path so this works both from the project folder and on a project-hosted site. -->
     <script src="./subsystems/normalise_text.js"></script>
+    <script src="./subsystems/tokeniser.js"></script>
     <script>
         const output = document.getElementById("result");
-
-        try {
-            if (typeof normalise_text !== "function") {
-                throw new Error("normalise_text was not loaded. Check the script path and browser console.");
+        const tests = [
+            {
+                name: "normalise_text: lowercase, trim, and collapse whitespace",
+                run: () => normalise_text("  HELLO   WORLD  "),
+                expected: "hello world"
+            },
+            {
+                name: "tokenise: words and repeated punctuation",
+                run: () => tokenise("buy milk!!!"),
+                expected: ["buy", "milk", "!", "!", "!"]
+            },
+            {
+                name: "tokenise: punctuation gets its own token",
+                run: () => tokenise("Hello, WORLD!"),
+                expected: ["Hello", ",", "WORLD", "!"]
+            },
+            {
+                name: "tokenise: preserve apostrophes inside words",
+                run: () => tokenise("don't stop."),
+                expected: ["don't", "stop", "."]
+            },
+            {
+                name: "tokenise: whitespace-only input",
+                run: () => tokenise("   "),
+                expected: []
             }
+        ];
 
-            const input = "  HELLO   WORLD  ";
-            const expected = "hello world";
-            const actual = normalise_text(input);
+        const results = tests.map(test => {
+            try {
+                const actual = test.run();
+                const passed = JSON.stringify(actual) === JSON.stringify(test.expected);
+                return {
+                    name: test.name,
+                    passed,
+                    details: passed
+                        ? "PASS"
+                        : "FAIL\n  Expected: " + JSON.stringify(test.expected) +
+                          "\n  Actual:   " + JSON.stringify(actual)
+                };
+            } catch (error) {
+                return {
+                    name: test.name,
+                    passed: false,
+                    details: "ERROR: " + error.message
+                };
+            }
+        });
 
-            output.textContent =
-                "Input:    " + JSON.stringify(input) + "\n" +
-                "Expected: " + JSON.stringify(expected) + "\n" +
-                "Actual:   " + JSON.stringify(actual) + "\n\n" +
-                (actual === expected ? "PASS" : "FAIL");
-            output.style.color = actual === expected ? "green" : "red";
-        } catch (error) {
-            output.textContent = "ERROR: " + error.message;
-            output.style.color = "red";
-            console.error(error);
-        }
+        const passedCount = results.filter(result => result.passed).length;
+        output.textContent =
+            results.map(result => (result.passed ? "✓ " : "✗ ") + result.name +
+                "\n  " + result.details).join("\n\n") +
+            "\n\n" + passedCount + "/" + results.length + " tests passed.";
+        output.style.color = passedCount === results.length ? "green" : "red";
     </script>
 </body>
 </html>
