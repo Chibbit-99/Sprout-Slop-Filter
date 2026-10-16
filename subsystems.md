@@ -20,9 +20,9 @@ Cleans up harmless differences, such as surrounding whitespace and inconsistent 
 
 Splits the text into manageable pieces. For example, `"Purchase some milk."` might become `["purchase", "some", "milk"]`. The exact rules should be consistent during both training and prediction.
 
-### 3. `map_synonyms(tokens, vocabulary) -> word_links`
+### 3. `map_synonyms(token, vocabulary) -> word_links`
 
-**Input:** Tokens and the model's known vocabulary.  
+**Input:** Token and the model's known vocabulary.  
 **Output:** Optional links between tokens and known related words.
 
 For words that are not in the vocabulary, this function can query the [Datamuse API](https://www.datamuse.com/api/) for synonyms. For example, a lookup for `purchase` may return `buy`, which could already be known to Sprout. It records that relationship as a clue; it should **not automatically replace every word with a synonym**.
