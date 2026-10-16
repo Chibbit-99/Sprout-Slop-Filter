@@ -16,8 +16,6 @@
 //                  synonym's vector, which dilutes any single bad match
 //                  rather than committing fully to it.
 
-const UNKNOWN_TOKEN = "<UNK>";
-
 function averageVectors(vectors) {
     if (vectors.length === 0) {
         return null;
@@ -36,6 +34,10 @@ function averageVectors(vectors) {
 }
 
 function get_word_vector(token, vocabulary, wordVectors, wordLinks) {
+    // Keep this private constant local because subsystem files are loaded as
+    // classic scripts and share a global lexical scope.
+    const UNKNOWN_TOKEN = "<UNK>";
+
     if (!Array.isArray(vocabulary) || !Array.isArray(wordVectors)) {
         throw new TypeError("get_word_vector: vocabulary and wordVectors must be arrays");
     }
