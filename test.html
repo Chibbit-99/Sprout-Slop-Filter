@@ -4,70 +4,529 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sprout subsystem tests</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 960px; margin: 1.5em auto; padding: 0 1em; }
+        pre  { background: #f5f5f5; padding: 1em; white-space: pre-wrap; line-height: 1.45; }
+        h1   { margin-bottom: 0.25em; }
+        .hint { color: #666; font-size: 0.9em; margin-top: 0; }
+    </style>
 </head>
 <body>
     <h1>Sprout subsystem tests</h1>
+    <p class="hint">Every subsystem from <code>subsystems.md</code> is exercised below. Synonym and data lookups are mocked so the page works offline.</p>
     <pre id="result">Running tests…</pre>
 
+    <!-- Subsystem scripts (loaded in dependency order). -->
     <script src="./subsystems/normalise_text.js"></script>
     <script src="./subsystems/tokeniser.js"></script>
-    <script>
-        const output = document.getElementById("result");
-        const tests = [
-            {
-                name: "normalise_text: lowercase, trim, and collapse whitespace",
-                run: () => normalise_text("  HELLO   WORLD  "),
-                expected: "hello world"
-            },
-            {
-                name: "tokenise: words and repeated punctuation",
-                run: () => tokenise("buy milk!!!"),
-                expected: ["buy", "milk", "!", "!", "!"]
-            },
-            {
-                name: "tokenise: punctuation gets its own token",
-                run: () => tokenise("Hello, WORLD!"),
-                expected: ["Hello", ",", "WORLD", "!"]
-            },
-            {
-                name: "tokenise: preserve apostrophes inside words",
-                run: () => tokenise("don't stop."),
-                expected: ["don't", "stop", "."]
-            },
-            {
-                name: "tokenise: whitespace-only input",
-                run: () => tokenise("   "),
-                expected: []
-            }
-        ];
+    <script src="./subsystems/map_synonyms.js"></script>
+    <script src="./subsystems/get_word_vector.js"></script>
+    <script src="./subsystems/encode_text.js"></script>
+    <script src="./subsystems/predict_slop.js"></script>
+    <script src="./subsystems/calculate_loss.js"></script>
+    <script src="./subsystems/update_parameters.js"></script>
+    <script src="./subsystems/make_prediction_for_training.js"></script>
+    <script src="./subsystems/evaluate_model.js"></script>
+    <script src="./subsystems/train_model.js"></script>
+    <script src="./subsystems/initialise_model.js"></script>
+    <script src="./subsystems/split_dataset.js"></script>
+    <script src="./subsystems/load_training_data.js"></script>
+    <script src="./subsystems/classify_text.js"></script>
+    <script src="./subsystems/save_model.js"></script>
+    <script src="./subsystems/load_model.js"></script>
 
-        const results = tests.map(test => {
+    <script>
+        "use strict";
+
+        // ----- Test helpers --------------------------------------------------
+
+        const output = document.getElementById("result");
+
+        function deepEqual(a, b) {
+            return JSON.stringify(a) === JSON.stringify(b);
+        }
+
+        function approxEqual(a, b, tolerance) {
+            const t = typeof tolerance === "number" ? tolerance : 1e-9;
+            if (typeof a !== "number" || typeof b !== "number") return false;
+            return Math.abs(a - b) <= t;
+        }
+
+        function makeTest(name, run, expected) {
+            return { name, run, expected };
+        }
+
+        // Install a fake fetch so Datamuse and data-file lookups can be
+        // mocked offline. Tests register responses with setFetchResponse
+        // and inspect the call log via fetchCalls.
+        const fakeFetchResponses = new Map();
+        const fakeFetchCalls = [];
+        const originalFetch = window.fetch;
+        window.fetch = function (url) {
+            fakeFetchCalls.push(String(url));
+            const key = String(url);
+            if (fakeFetchResponses.has(key)) {
+                const body = fakeFetchResponses.get(key);
+                return Promise.resolve({
+                    ok: true,
+                    status: 200,
+                    json: () => Promise.resolve(body)
+                });
+            }
+            return Promise.resolve({
+                ok: false,
+                status: 404,
+                json: () => Promise.resolve(null)
+            });
+        };
+
+        function clearFetch() {
+            fakeFetchResponses.clear();
+            fakeFetchCalls.length = 0;
+        }
+
+        function setFetchResponse(url, body) {
+            fakeFetchResponses.set(String(url), body);
+        }
+
+        function datamuseUrl(word) {
+            const u = new URL("https://api.datamuse.com/words");
+            u.searchParams.set("rel_syn", word);
+            u.searchParams.set("max", "20");
+            return u.toString();
+        }
+
+        // ----- Test definitions ---------------------------------------------
+
+        const tests = [];
+
+        // 1. normalise_text
+        tests.push(makeTest(
+            "1. normalise_text: trims, lowercases, collapses whitespace",
+            () => normalise_text("  HELLO   WORLD  "),
+            "hello world"
+        ));
+        tests.push(makeTest(
+            "1. normalise_text: leaves meaningful punctuation alone",
+            () => normalise_text("Buy milk!"),
+            "buy milk!"
+        ));
+
+        // 2. tokenise
+        tests.push(makeTest(
+            "2. tokenise: words and repeated punctuation",
+            () => tokenise("buy milk!!!"),
+            ["buy", "milk", "!", "!", "!"]
+        ));
+        tests.push(makeTest(
+            "2. tokenise: punctuation gets its own token",
+            () => tokenise("Hello, WORLD!"),
+            ["Hello", ",", "WORLD", "!"]
+        ));
+        tests.push(makeTest(
+            "2. tokenise: preserve apostrophes inside words",
+            () => tokenise("don't stop."),
+            ["don't", "stop", "."]
+        ));
+        tests.push(makeTest(
+            "2. tokenise: whitespace-only input returns empty",
+            () => tokenise("   "),
+            []
+        ));
+
+        // 3. map_synonyms + 18. get_synonyms_cached (live in map_synonyms.js)
+        tests.push(makeTest(
+            "3. map_synonyms: returns links to known synonyms",
+            async () => {
+                clearFetch();
+                clear_synonym_cache();
+                setFetchResponse(datamuseUrl("purchase"), [
+                    { word: "buy" },
+                    { word: "acquire" },
+                    { word: "obtain" }
+                ]);
+                const links = await map_synonyms("purchase", ["buy", "milk", "walk"]);
+                return links.length === 1 && links[0].knownWord === "buy" && links[0].token === "purchase";
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "3. map_synonyms: returns an empty list for a known word",
+            async () => {
+                clearFetch();
+                clear_synonym_cache();
+                return map_synonyms("buy", ["buy", "milk"]);
+            },
+            []
+        ));
+        tests.push(makeTest(
+            "3. map_synonyms: returns an empty list on API failure",
+            async () => {
+                clearFetch();
+                clear_synonym_cache();
+                return map_synonyms("purchase", ["buy", "milk"]);
+            },
+            []
+        ));
+        tests.push(makeTest(
+            "18. get_synonyms_cached: same word only triggers one fetch",
+            async () => {
+                clearFetch();
+                clear_synonym_cache();
+                setFetchResponse(datamuseUrl("purchase"), [{ word: "buy" }]);
+                await get_synonyms_cached("purchase");
+                await get_synonyms_cached("purchase");
+                await get_synonyms_cached("purchase");
+                return fakeFetchCalls.length;
+            },
+            1
+        ));
+
+        // 4. get_word_vector
+        tests.push(makeTest(
+            "4. get_word_vector: returns the learned vector for a known word",
+            () => {
+                const vocab = ["<UNK>", "buy", "milk"];
+                const vectors = [[0,0,0,0], [1,1,1,1], [2,2,2,2]];
+                return get_word_vector("buy", vocab, vectors, []);
+            },
+            [1, 1, 1, 1]
+        ));
+        tests.push(makeTest(
+            "4. get_word_vector: falls back to <UNK> for an unknown word with no link",
+            () => {
+                const vocab = ["<UNK>", "buy", "milk"];
+                const vectors = [[9,9,9,9], [1,1,1,1], [2,2,2,2]];
+                return get_word_vector("purchase", vocab, vectors, []);
+            },
+            [9, 9, 9, 9]
+        ));
+        tests.push(makeTest(
+            "4. get_word_vector: averages known words when synonym links exist",
+            () => {
+                const vocab = ["<UNK>", "buy", "milk"];
+                const vectors = [[0,0,0,0], [2,0,0,0], [0,2,0,0]];
+                const links = [
+                    { token: "purchase", knownWord: "buy" },
+                    { token: "purchase", knownWord: "milk" }
+                ];
+                return get_word_vector("purchase", vocab, vectors, links);
+            },
+            [1, 1, 0, 0]
+        ));
+
+        // 5. encode_text
+        tests.push(makeTest(
+            "5. encode_text: averages component vectors",
+            () => encode_text([[1, 2], [3, 4]]),
+            [2, 3]
+        ));
+        tests.push(makeTest(
+            "5. encode_text: returns empty array for empty input",
+            () => encode_text([]),
+            []
+        ));
+
+        // 6. predict_slop
+        tests.push(makeTest(
+            "6. predict_slop: a zero logit yields 0.5",
+            () => predict_slop([0, 0, 0], { weights: [1, 1, 1], bias: 0 }),
+            0.5
+        ));
+        tests.push(makeTest(
+            "6. predict_slop: a large positive logit saturates near 1",
+            () => approxEqual(predict_slop([100, 100, 100], { weights: [1, 1, 1], bias: 0 }), 1, 1e-9),
+            true
+        ));
+        tests.push(makeTest(
+            "6. predict_slop: a large negative logit saturates near 0",
+            () => approxEqual(predict_slop([-100, -100, -100], { weights: [1, 1, 1], bias: 0 }), 0, 1e-9),
+            true
+        ));
+        tests.push(makeTest(
+            "6. predict_slop: bias shifts the score toward 1",
+            () => approxEqual(predict_slop([0, 0, 0], { weights: [0, 0, 0], bias: 10 }), 1, 1e-3),
+            true
+        ));
+
+        // 7. classify_text
+        tests.push(makeTest(
+            "7. classify_text: end-to-end prediction through the public pipeline",
+            async () => {
+                const model = initialise_model({
+                    vocabulary: ["buy", "milk", "walk", "dog"],
+                    vectorSize: 4,
+                    seed: 1
+                });
+                // Force every known word to vector [1,0,0,0] and the
+                // classifier weight to also pick that axis, so the
+                // averaged representation of "buy milk" is [1,0,0,0]
+                // and the resulting logit is 1 → score ≈ 0.731.
+                for (let i = 1; i < model.wordVectors.length; i++) {
+                    model.wordVectors[i] = [1, 0, 0, 0];
+                }
+                model.weights = [1, 0, 0, 0];
+                model.bias = 0;
+                const score = await classify_text("buy milk", model);
+                return approxEqual(score, 1 / (1 + Math.exp(-1)), 1e-9);
+            },
+            true
+        ));
+
+        // 8. load_training_data
+        tests.push(makeTest(
+            "8. load_training_data: parses and validates a JSON dataset",
+            async () => {
+                clearFetch();
+                setFetchResponse("data.json", [
+                    { text: "Buy milk", label: "genuine" },
+                    { text: "asdf",    label: "slop" }
+                ]);
+                const loaded = await load_training_data("data.json");
+                return loaded.length === 2 && loaded[0].label === "genuine" && loaded[1].label === "slop";
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "8. load_training_data: rejects unknown labels loudly",
+            async () => {
+                clearFetch();
+                setFetchResponse("bad.json", [
+                    { text: "Buy milk", label: "maybe" }
+                ]);
+                try {
+                    await load_training_data("bad.json");
+                    return false;
+                } catch (e) {
+                    return /invalid label/i.test(e.message);
+                }
+            },
+            true
+        ));
+
+        // 9. split_dataset
+        tests.push(makeTest(
+            "9. split_dataset: deterministic split that adds up to the input",
+            () => {
+                const examples = [];
+                for (let i = 0; i < 100; i++) {
+                    examples.push({ text: "t" + i, label: i % 2 ? "slop" : "genuine" });
+                }
+                const s1 = split_dataset(examples, { seed: 42 });
+                const s2 = split_dataset(examples, { seed: 42 });
+                const sameTrain = JSON.stringify(s1.trainSet) === JSON.stringify(s2.trainSet);
+                const counts = s1.trainSet.length + s1.validationSet.length + s1.testSet.length;
+                return sameTrain && counts === examples.length;
+            },
+            true
+        ));
+
+        // 10. initialise_model
+        tests.push(makeTest(
+            "10. initialise_model: adds <UNK> at index 0 and matches dimensions",
+            () => {
+                const m = initialise_model({
+                    vocabulary: ["buy", "milk"],
+                    vectorSize: 5,
+                    seed: 1
+                });
+                return m.vocabulary[0] === "<UNK>"
+                    && m.vocabulary.length === 3
+                    && m.wordVectors.length === 3
+                    && m.wordVectors[0].length === 5
+                    && m.weights.length === 5;
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "10. initialise_model: deterministic with the same seed",
+            () => {
+                const a = initialise_model({ vocabulary: ["x", "y"], seed: 9, vectorSize: 3 });
+                const b = initialise_model({ vocabulary: ["x", "y"], seed: 9, vectorSize: 3 });
+                return JSON.stringify(a.wordVectors) === JSON.stringify(b.wordVectors);
+            },
+            true
+        ));
+
+        // 11. make_prediction_for_training
+        tests.push(makeTest(
+            "11. make_prediction_for_training: score lies in [0, 1] and representation matches weights",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy", "milk"], seed: 1, vectorSize: 4 });
+                const { score, representation } = make_prediction_for_training("buy milk", m);
+                return score >= 0 && score <= 1 && representation.length === 4;
+            },
+            true
+        ));
+
+        // 12. calculate_loss
+        tests.push(makeTest(
+            "12. calculate_loss: perfect prediction has near-zero loss and gradient",
+            () => {
+                const r = calculate_loss(1.0, "slop");
+                return r.loss < 1e-6 && approxEqual(r.gradient, 0, 1e-9);
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "12. calculate_loss: wrong prediction has large loss and matching gradient sign",
+            () => {
+                const r = calculate_loss(0.0, "slop");
+                return r.loss > 1 && r.gradient < 0;
+            },
+            true
+        ));
+
+        // 13. update_parameters
+        tests.push(makeTest(
+            "13. update_parameters: weights move to reduce loss for one example",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy", "milk"], seed: 1, vectorSize: 3 });
+                const before = m.weights.slice();
+                const { representation } = make_prediction_for_training("buy milk", m);
+                const { gradient } = calculate_loss(0.1, "slop"); // pred=low, want=high
+                update_parameters(m, { gradient }, 0.5, representation);
+                const moved = m.weights.some((w, i) => w !== before[i]);
+                return moved && m.bias !== 0;
+            },
+            true
+        ));
+
+        // 14. train_model
+        tests.push(makeTest(
+            "14. train_model: average training loss decreases across epochs",
+            () => {
+                const data = [
+                    { text: "buy milk",        label: "genuine" },
+                    { text: "finish homework", label: "genuine" },
+                    { text: "walk dog",        label: "genuine" },
+                    { text: "clean room",      label: "genuine" },
+                    { text: "asdf",            label: "slop" },
+                    { text: "qqq",             label: "slop" },
+                    { text: "zzz",             label: "slop" },
+                    { text: "qwerty",          label: "slop" }
+                ];
+                const m = initialise_model({
+                    vocabulary: ["buy","milk","finish","homework","walk","dog","clean","room","asdf","qqq","zzz","qwerty"],
+                    seed: 7,
+                    vectorSize: 4
+                });
+                train_model(data, [], m, { epochs: 40, learningRate: 0.3 });
+                const firstEpoch = m.history[0].train.averageLoss;
+                const lastEpoch = m.history[m.history.length - 1].train.averageLoss;
+                return lastEpoch < firstEpoch;
+            },
+            true
+        ));
+
+        // 15. evaluate_model
+        tests.push(makeTest(
+            "15. evaluate_model: counts add up under a forced bias",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy","milk","asdf"], seed: 1, vectorSize: 3 });
+                m.weights = [0, 0, 0];
+                m.bias = 10; // always predicts slop
+                const testSet = [
+                    { text: "buy milk", label: "genuine" },
+                    { text: "asdf",     label: "slop" }
+                ];
+                const r = evaluate_model(m, testSet);
+                return r.count === 2
+                    && r.truePositive === 1
+                    && r.falsePositive === 1
+                    && r.trueNegative === 0
+                    && r.falseNegative === 0;
+            },
+            true
+        ));
+
+        // 16 + 17. save_model and load_model
+        tests.push(makeTest(
+            "16+17. save_model/load_model: roundtrip preserves the model",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy","milk"], seed: 1, vectorSize: 4 });
+                let captured = "";
+                const saveResult = save_model(m, "x.json", {
+                    storage: (payload) => { captured = payload; }
+                });
+                const loadResult = load_model("x.json", {
+                    storage: () => captured
+                });
+                if (!saveResult.success || !loadResult.success) return false;
+                return deepEqual(loadResult.model.vocabulary, m.vocabulary)
+                    && deepEqual(loadResult.model.wordVectors, m.wordVectors)
+                    && deepEqual(loadResult.model.weights, m.weights)
+                    && loadResult.model.bias === m.bias;
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "17. load_model: rejects malformed payloads",
+            () => {
+                const r = load_model("x.json", { storage: () => "{not json" });
+                return r.success === false && /json/i.test(r.error);
+            },
+            true
+        ));
+
+        // ----- Runner --------------------------------------------------------
+
+        const results = [];
+
+        function recordSync(test) {
             try {
                 const actual = test.run();
-                const passed = JSON.stringify(actual) === JSON.stringify(test.expected);
-                return {
+                const passed = deepEqual(actual, test.expected);
+                results.push({
                     name: test.name,
                     passed,
                     details: passed
                         ? "PASS"
                         : "FAIL\n  Expected: " + JSON.stringify(test.expected) +
                           "\n  Actual:   " + JSON.stringify(actual)
-                };
+                });
             } catch (error) {
-                return {
-                    name: test.name,
-                    passed: false,
-                    details: "ERROR: " + error.message
-                };
+                results.push({ name: test.name, passed: false, details: "ERROR: " + error.message });
             }
-        });
+        }
 
-        const passedCount = results.filter(result => result.passed).length;
-        output.textContent =
-            results.map(result => (result.passed ? "✓ " : "✗ ") + result.name +
-                "\n  " + result.details).join("\n\n") +
-            "\n\n" + passedCount + "/" + results.length + " tests passed.";
-        output.style.color = passedCount === results.length ? "green" : "red";
+        async function recordAsync(test) {
+            try {
+                const actual = await test.run();
+                const passed = deepEqual(actual, test.expected);
+                results.push({
+                    name: test.name,
+                    passed,
+                    details: passed
+                        ? "PASS"
+                        : "FAIL\n  Expected: " + JSON.stringify(test.expected) +
+                          "\n  Actual:   " + JSON.stringify(actual)
+                });
+            } catch (error) {
+                results.push({ name: test.name, passed: false, details: "ERROR: " + error.message });
+            }
+        }
+
+        (async () => {
+            for (const test of tests) {
+                const result = test.run();
+                if (result && typeof result.then === "function") {
+                    await recordAsync(test);
+                } else {
+                    recordSync(test);
+                }
+            }
+
+            // Restore the real fetch so we don't leak the mock.
+            window.fetch = originalFetch;
+
+            const passedCount = results.filter(r => r.passed).length;
+            output.textContent =
+                results.map(r => (r.passed ? "✓ " : "✗ ") + r.name +
+                    "\n  " + r.details).join("\n\n") +
+                "\n\n" + passedCount + "/" + results.length + " tests passed.";
+            output.style.color = passedCount === results.length ? "green" : "red";
+        })();
     </script>
 </body>
 </html>
