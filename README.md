@@ -1,1 +1,1 @@
-# Sprout---Content-Filter-AI-Slop-
+# Sprout Slop Filter
