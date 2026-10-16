@@ -16,13 +16,57 @@ Given a string, predict how likely it is to be slop, returning a score from **0 
 1. **Training examples** — collect text samples and label each one as either genuine or slop.
 2. **Split text into words** — turn the input string into words the model can work with.
 3. **Represent words with numbers** — give words numerical representations (vectors). These can be learned during training.
-4. **Handle unfamiliar words** — explore looking up unknown words in a thesaurus and connecting them to known related words. Related words are clues, not guaranteed replacements.
+4. **Handle unfamiliar words** — explore looking up unknown words in a thesaurus or word API and connecting them to known related words. Related words are clues, not guaranteed replacements.
 5. **Combine the words** — use the word representations together to make a representation of the full input.
 6. **Make a prediction** — use the combined representation to produce a slop score between 0 and 1.
 7. **Learn from mistakes** — compare predictions with the training labels and adjust the model's numbers to improve future predictions.
 8. **Test it** — check how well it handles examples it was not trained on, including genuine text it should not incorrectly flag.
 
 This is an initial plan, not a claim that all these components have been implemented. The first version should stay small and understandable.
+
+## Synonym lookup experiment
+
+One idea is to use the [Datamuse API](https://www.datamuse.com/api/) to find synonyms and help Sprout deal with words it has not learned yet.
+
+For example, a lookup for `purchase` can return `buy`, while a lookup for `buy` can return `purchase`. This could help Sprout connect different wording that expresses a similar idea.
+
+A small JavaScript example of the lookup:
+
+```js
+async function getSynonyms(word) {
+    const url = new URL("https://api.datamuse.com/words");
+    url.searchParams.set("rel_syn", word);
+    url.searchParams.set("max", "20");
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Datamuse API error: ${response.status}`);
+    }
+
+    const results = await response.json();
+    return results.map(result => result.word);
+}
+
+getSynonyms("purchase").then(console.log);
+```
+
+### How Sprout could use the results
+
+1. Encounter a word that is missing from the model's vocabulary.
+2. Look up its synonyms with Datamuse.
+3. Check whether any returned words are already known to the model.
+4. Use those matches as clues that the unfamiliar word may be related to a known word.
+
+Synonyms are **clues, not perfect replacements**. Results can include different meanings of a word: for example, a lookup for `buy` may also return `steal` or `bribe` because words can have multiple meanings and uses. Sprout should not automatically assume every returned word means exactly the same thing in the current sentence.
+
+To keep the experiment simple and manageable, cache lookup results so the same word is not repeatedly requested, and start with one round of lookups instead of searching synonyms of synonyms forever.
+
+The useful test is to compare the model **with synonym connections** against the same model **without them**, using examples it was not trained on. That will show whether this idea actually improves predictions.
+
+Datamuse currently documents that an API key will be required from **1 February 2027**. Keeping synonym lookup in a separate part of the project would make it easier to change services later if needed. If Sprout uses Datamuse in a public app, its documentation should acknowledge the API.
+
+This is a proposed experiment, not an implemented feature.
 
 ## Example labels
 
