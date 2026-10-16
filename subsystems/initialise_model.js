@@ -17,8 +17,6 @@
 //
 // Returns: { vocabulary, wordVectors, weights, bias, options }
 
-const UNKNOWN_TOKEN = "<UNK>";
-
 function makeRandom(seed) {
     if (typeof seed === "number") {
         let a = seed >>> 0;
@@ -35,6 +33,9 @@ function makeRandom(seed) {
 }
 
 function initialise_model(settings) {
+    // Keep implementation constants local: subsystem files are loaded as
+    // classic scripts, so top-level `const` names share one global scope.
+    const UNKNOWN_TOKEN = "<UNK>";
     const config = settings || {};
     const vectorSize = typeof config.vectorSize === "number" && config.vectorSize > 0
         ? Math.floor(config.vectorSize)
