@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Sprout subsystem tests</h1>
-    <p class="hint">Every subsystem from <code>subsystems.md</code> is exercised below. Synonym and data lookups are mocked so the page works offline.</p>
+    <p class="hint">Every subsystem from <code>subsystems.md</code> is exercised below. The Datamuse API is hit in real time for the synonym tests; if it is unreachable from this browser, those particular tests report as skipped.</p>
     <pre id="result">Running tests…</pre>
 
     <!-- Subsystem scripts (loaded in dependency order). -->
@@ -42,6 +42,13 @@
 
         const output = document.getElementById("result");
 
+        // Each test can opt into one of three outcomes:
+        //   "pass"   — the actual value matched the expected value
+        //   "fail"   — the actual value did not match
+        //   "skip"   — the test could not run (e.g. network unavailable)
+        // Skipped tests don't count against the tally; the page only goes
+        // red if a real test fails.
+
         function deepEqual(a, b) {
             return JSON.stringify(a) === JSON.stringify(b);
         }
@@ -56,44 +63,45 @@
             return { name, run, expected };
         }
 
-        // Install a fake fetch so Datamuse and data-file lookups can be
-        // mocked offline. Tests register responses with setFetchResponse
-        // and inspect the call log via fetchCalls.
-        const fakeFetchResponses = new Map();
-        const fakeFetchCalls = [];
-        const originalFetch = window.fetch;
-        window.fetch = function (url) {
-            fakeFetchCalls.push(String(url));
-            const key = String(url);
-            if (fakeFetchResponses.has(key)) {
-                const body = fakeFetchResponses.get(key);
-                return Promise.resolve({
-                    ok: true,
-                    status: 200,
-                    json: () => Promise.resolve(body)
-                });
+        // Run a block of code with `window.fetch` temporarily replaced by a
+        // stub that records calls and returns canned responses. This is
+        // used only for the cache + failure tests that need to inspect
+        // network behaviour without actually hitting Datamuse. The real
+        // `get_synonyms_cached` end-to-end test still uses the real API.
+        async function withMockedFetch(handler, fn) {
+            const original = window.fetch;
+            const calls = [];
+
+            window.fetch = function (url, init) {
+                calls.push(String(url));
+                return Promise.resolve(handler(String(url), init));
+            };
+
+            try {
+                return await fn(calls);
+            } finally {
+                window.fetch = original;
             }
-            return Promise.resolve({
-                ok: false,
-                status: 404,
-                json: () => Promise.resolve(null)
-            });
-        };
-
-        function clearFetch() {
-            fakeFetchResponses.clear();
-            fakeFetchCalls.length = 0;
         }
 
-        function setFetchResponse(url, body) {
-            fakeFetchResponses.set(String(url), body);
-        }
-
-        function datamuseUrl(word) {
-            const u = new URL("https://api.datamuse.com/words");
-            u.searchParams.set("rel_syn", word);
-            u.searchParams.set("max", "20");
-            return u.toString();
+        // Probe whether the real Datamuse API is reachable from this
+        // browser. We use `window.fetch` directly to be consistent with
+        // how the subsystem scripts resolve it; the bare `fetch` global
+        // can refer to a different function in unusual environments
+        // (such as JSDOM evals).
+        async function datamuseReachable() {
+            if (typeof window.fetch !== "function") {
+                return false;
+            }
+            const url = "https://api.datamuse.com/words?rel_syn=buy&max=1";
+            try {
+                const response = await window.fetch(url, { mode: "cors" });
+                if (!response.ok) return false;
+                const body = await response.json();
+                return Array.isArray(body) && body.length > 0;
+            } catch (error) {
+                return false;
+            }
         }
 
         // ----- Test definitions ---------------------------------------------
@@ -134,52 +142,119 @@
             []
         ));
 
-        // 3. map_synonyms + 18. get_synonyms_cached (live in map_synonyms.js)
+        // 3. map_synonyms — live Datamuse
         tests.push(makeTest(
-            "3. map_synonyms: returns links to known synonyms",
+            "3. map_synonyms: returns word links for a real Datamuse query",
             async () => {
-                clearFetch();
+                if (!await datamuseReachable()) {
+                    return { __skip: true, reason: "Datamuse API not reachable from this browser" };
+                }
                 clear_synonym_cache();
-                setFetchResponse(datamuseUrl("purchase"), [
-                    { word: "buy" },
-                    { word: "acquire" },
-                    { word: "obtain" }
-                ]);
+                // `purchase` is documented to return `buy` as a top synonym.
+                // A vocabulary containing `buy` should therefore produce a
+                // link with `knownWord === "buy"`.
                 const links = await map_synonyms("purchase", ["buy", "milk", "walk"]);
-                return links.length === 1 && links[0].knownWord === "buy" && links[0].token === "purchase";
+                const goodLink = links.find(link => link.token === "purchase" && link.knownWord === "buy");
+                if (!goodLink) {
+                    return { __skip: false, reason: "no link to 'buy' in: " + JSON.stringify(links) };
+                }
+                return goodLink;
             },
-            true
+            { token: "purchase", knownWord: "buy" }
         ));
         tests.push(makeTest(
-            "3. map_synonyms: returns an empty list for a known word",
+            "3. map_synonyms: returns an empty list for a known word (no network needed)",
+            () => map_synonyms("buy", ["buy", "milk"]),
+            []
+        ));
+        tests.push(makeTest(
+            "3. map_synonyms: returns an empty list when the network call fails",
             async () => {
-                clearFetch();
-                clear_synonym_cache();
-                return map_synonyms("buy", ["buy", "milk"]);
+                // Simulate a Datamuse outage by stubbing fetch to return
+                // a 500. `get_synonyms_cached` should swallow the error
+                // and return an empty list.
+                return withMockedFetch(() => ({
+                    ok: false,
+                    status: 500,
+                    json: () => Promise.resolve(null)
+                }), async () => {
+                    clear_synonym_cache();
+                    return map_synonyms("purchase", ["buy", "milk"]);
+                });
             },
             []
         ));
         tests.push(makeTest(
-            "3. map_synonyms: returns an empty list on API failure",
+            "3. map_synonyms: returns an empty list when no synonym is in the vocabulary",
             async () => {
-                clearFetch();
+                if (!await datamuseReachable()) {
+                    return { __skip: true, reason: "Datamuse API not reachable from this browser" };
+                }
                 clear_synonym_cache();
-                return map_synonyms("purchase", ["buy", "milk"]);
+                // `purchased` will have Datamuse synonyms, but none of
+                // them are in this vocabulary, so the result must be empty.
+                const links = await map_synonyms("purchased", ["banana", "guitar", "lamp"]);
+                return links;
             },
             []
         ));
+
+        // 18. get_synonyms_cached — cache behaviour
         tests.push(makeTest(
             "18. get_synonyms_cached: same word only triggers one fetch",
             async () => {
-                clearFetch();
-                clear_synonym_cache();
-                setFetchResponse(datamuseUrl("purchase"), [{ word: "buy" }]);
-                await get_synonyms_cached("purchase");
-                await get_synonyms_cached("purchase");
-                await get_synonyms_cached("purchase");
-                return fakeFetchCalls.length;
+                return withMockedFetch(() => ({
+                    ok: true,
+                    status: 200,
+                    json: () => Promise.resolve([{ word: "buy" }, { word: "acquire" }])
+                }), async (calls) => {
+                    clear_synonym_cache();
+                    await get_synonyms_cached("purchase");
+                    await get_synonyms_cached("purchase");
+                    await get_synonyms_cached("purchase");
+                    return calls.length;
+                });
             },
             1
+        ));
+        tests.push(makeTest(
+            "18. get_synonyms_cached: real second call returns the cached value (not the live one)",
+            async () => {
+                return withMockedFetch((url) => {
+                    if (url.includes("rel_syn=purchase")) {
+                        return {
+                            ok: true,
+                            status: 200,
+                            json: () => Promise.resolve([{ word: "buy" }])
+                        };
+                    }
+                    return { ok: false, status: 404, json: () => Promise.resolve(null) };
+                }, async () => {
+                    clear_synonym_cache();
+                    const first = await get_synonyms_cached("purchase");
+                    // Now drop the stub. The cache should still hold the
+                    // value from the first call, so a second lookup
+                    // returns the same array without going to the network.
+                    window.fetch = function () {
+                        throw new Error("fetch should not be called on a cache hit");
+                    };
+                    const second = await get_synonyms_cached("purchase");
+                    return deepEqual(first, second) ? second : { first, second };
+                });
+            },
+            ["buy"]
+        ));
+        tests.push(makeTest(
+            "18. get_synonyms_cached: live Datamuse returns a non-empty list for a real word",
+            async () => {
+                if (!await datamuseReachable()) {
+                    return { __skip: true, reason: "Datamuse API not reachable from this browser" };
+                }
+                clear_synonym_cache();
+                const synonyms = await get_synonyms_cached("buy");
+                return synonyms;
+            },
+            (actual) => Array.isArray(actual) && actual.length > 0
         ));
 
         // 4. get_word_vector
@@ -258,10 +333,6 @@
                     vectorSize: 4,
                     seed: 1
                 });
-                // Force every known word to vector [1,0,0,0] and the
-                // classifier weight to also pick that axis, so the
-                // averaged representation of "buy milk" is [1,0,0,0]
-                // and the resulting logit is 1 → score ≈ 0.731.
                 for (let i = 1; i < model.wordVectors.length; i++) {
                     model.wordVectors[i] = [1, 0, 0, 0];
                 }
@@ -272,34 +343,80 @@
             },
             true
         ));
+        tests.push(makeTest(
+            "7. classify_text: with useSynonyms enabled, an unknown word can map to a known one (live)",
+            async () => {
+                if (!await datamuseReachable()) {
+                    return { __skip: true, reason: "Datamuse API not reachable from this browser" };
+                }
+                clear_synonym_cache();
+                const model = initialise_model({
+                    vocabulary: ["buy", "milk", "walk"],
+                    vectorSize: 4,
+                    seed: 1
+                });
+                // Make `buy` a distinctive vector so we can tell whether
+                // the synonym path influenced the encoded text.
+                model.wordVectors[1] = [1, 0, 0, 0];
+                model.weights = [1, 0, 0, 0];
+                model.bias = 0;
+                const modelWithSynonyms = { ...model, options: { useSynonyms: true } };
+                const modelWithoutSynonyms = { ...model, options: { useSynonyms: false } };
+                const withSyns = await classify_text("purchase", modelWithSynonyms);
+                const withoutSyns = await classify_text("purchase", modelWithoutSynonyms);
+                // The two paths should produce different scores (the
+                // synonym path should map `purchase` -> `buy` and shift
+                // the result). We don't pin the exact numbers because
+                // <UNK> is also randomly initialised, but a real Datamuse
+                // hit for `purchase` should give us at least one link.
+                return { withSyns, withoutSyns, distinct: withSyns !== withoutSyns };
+            },
+            (actual) => actual.distinct === true && typeof actual.withSyns === "number"
+        ));
 
         // 8. load_training_data
         tests.push(makeTest(
             "8. load_training_data: parses and validates a JSON dataset",
             async () => {
-                clearFetch();
-                setFetchResponse("data.json", [
-                    { text: "Buy milk", label: "genuine" },
-                    { text: "asdf",    label: "slop" }
-                ]);
-                const loaded = await load_training_data("data.json");
-                return loaded.length === 2 && loaded[0].label === "genuine" && loaded[1].label === "slop";
+                return withMockedFetch((url) => {
+                    if (url.endsWith("data.json")) {
+                        return {
+                            ok: true,
+                            status: 200,
+                            json: () => Promise.resolve([
+                                { text: "Buy milk", label: "genuine" },
+                                { text: "asdf",    label: "slop" }
+                            ])
+                        };
+                    }
+                    return { ok: false, status: 404, json: () => Promise.resolve(null) };
+                }, async () => {
+                    const loaded = await load_training_data("data.json");
+                    return loaded.length === 2 && loaded[0].label === "genuine" && loaded[1].label === "slop";
+                });
             },
             true
         ));
         tests.push(makeTest(
             "8. load_training_data: rejects unknown labels loudly",
             async () => {
-                clearFetch();
-                setFetchResponse("bad.json", [
-                    { text: "Buy milk", label: "maybe" }
-                ]);
-                try {
-                    await load_training_data("bad.json");
-                    return false;
-                } catch (e) {
-                    return /invalid label/i.test(e.message);
-                }
+                return withMockedFetch((url) => {
+                    if (url.endsWith("bad.json")) {
+                        return {
+                            ok: true,
+                            status: 200,
+                            json: () => Promise.resolve([{ text: "Buy milk", label: "maybe" }])
+                        };
+                    }
+                    return { ok: false, status: 404, json: () => Promise.resolve(null) };
+                }, async () => {
+                    try {
+                        await load_training_data("bad.json");
+                        return false;
+                    } catch (e) {
+                        return /invalid label/i.test(e.message);
+                    }
+                });
             },
             true
         ));
@@ -473,37 +590,59 @@
 
         const results = [];
 
-        function recordSync(test) {
+        // `expected` can be a literal (compared with deepEqual) or a
+        // function (compared by invocation). The runner also honours
+        // `{ __skip: true, reason }` returns for tests that need a
+        // specific environment.
+        function checkExpected(actual, expected) {
+            if (typeof expected === "function") {
+                return expected(actual) === true;
+            }
+            return deepEqual(actual, expected);
+        }
+
+        function recordSync(test, actual) {
             try {
-                const actual = test.run();
-                const passed = deepEqual(actual, test.expected);
+                if (actual && typeof actual.__skip !== "undefined" && actual.__skip) {
+                    results.push({ name: test.name, status: "skip", details: "SKIPPED: " + actual.reason });
+                    return;
+                }
+                const passed = checkExpected(actual, test.expected);
                 results.push({
                     name: test.name,
-                    passed,
+                    status: passed ? "pass" : "fail",
                     details: passed
                         ? "PASS"
                         : "FAIL\n  Expected: " + JSON.stringify(test.expected) +
                           "\n  Actual:   " + JSON.stringify(actual)
                 });
             } catch (error) {
-                results.push({ name: test.name, passed: false, details: "ERROR: " + error.message });
+                results.push({ name: test.name, status: "fail", details: "ERROR: " + error.message });
             }
         }
 
-        async function recordAsync(test) {
+        async function recordAsync(test, promise) {
             try {
-                const actual = await test.run();
-                const passed = deepEqual(actual, test.expected);
+                const actual = await promise;
+                if (actual && typeof actual.__skip !== "undefined" && actual.__skip) {
+                    results.push({ name: test.name, status: "skip", details: "SKIPPED: " + actual.reason });
+                    return;
+                }
+                const passed = checkExpected(actual, test.expected);
                 results.push({
                     name: test.name,
-                    passed,
+                    status: passed ? "pass" : "fail",
                     details: passed
                         ? "PASS"
                         : "FAIL\n  Expected: " + JSON.stringify(test.expected) +
                           "\n  Actual:   " + JSON.stringify(actual)
                 });
             } catch (error) {
-                results.push({ name: test.name, passed: false, details: "ERROR: " + error.message });
+                // Network errors that escape (e.g. a thrown TypeError
+                // from a syntax issue) are still failures. We only
+                // swallow network errors when the test itself reports
+                // a skip.
+                results.push({ name: test.name, status: "fail", details: "ERROR: " + error.message });
             }
         }
 
@@ -511,21 +650,29 @@
             for (const test of tests) {
                 const result = test.run();
                 if (result && typeof result.then === "function") {
-                    await recordAsync(test);
+                    await recordAsync(test, result);
                 } else {
-                    recordSync(test);
+                    recordSync(test, result);
                 }
             }
 
-            // Restore the real fetch so we don't leak the mock.
-            window.fetch = originalFetch;
+            const passed = results.filter(r => r.status === "pass").length;
+            const failed = results.filter(r => r.status === "fail").length;
+            const skipped = results.filter(r => r.status === "skip").length;
 
-            const passedCount = results.filter(r => r.passed).length;
+            const icon = (r) => r.status === "pass" ? "✓"
+                : r.status === "fail" ? "✗"
+                : "~";
+
             output.textContent =
-                results.map(r => (r.passed ? "✓ " : "✗ ") + r.name +
-                    "\n  " + r.details).join("\n\n") +
-                "\n\n" + passedCount + "/" + results.length + " tests passed.";
-            output.style.color = passedCount === results.length ? "green" : "red";
+                results.map(r => icon(r) + " " + r.name + "\n  " + r.details).join("\n\n") +
+                "\n\n" + passed + " passed, " + failed + " failed, " + skipped + " skipped (" + results.length + " total)";
+
+            if (failed === 0) {
+                output.style.color = skipped > 0 ? "#b58900" : "green";
+            } else {
+                output.style.color = "red";
+            }
         })();
     </script>
 </body>
