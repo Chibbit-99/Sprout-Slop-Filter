@@ -112,15 +112,9 @@ export function balanced(count, random, pools) {
 }
 
 // Vocabulary = every token the training set actually used, plus <UNK>.
-export function buildVocabulary(examples) {
-    const seen = new Set();
-    for (const example of examples) {
-        for (const token of sprout.tokenise(sprout.normalise_text(example.text))) {
-            seen.add(token);
-        }
-    }
-    return [...seen];
-}
+// The builder itself lives in subsystems/ so the browser app and the
+// command-line trainer build vocabularies the same way.
+export { buildVocabulary } from "./sprout.mjs";
 
 export function metricsFor(model, testSet) {
     const result = sprout.evaluate_model(model, testSet);

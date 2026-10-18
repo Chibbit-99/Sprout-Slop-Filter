@@ -1,0 +1,8 @@
+# Dependencies are never needed to run the app or the trainer.
+node_modules/
+
+# Editor and OS noise.
+.DS_Store
+*.swp
+.idea/
+.vscode/

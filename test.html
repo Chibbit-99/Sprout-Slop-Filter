@@ -31,6 +31,7 @@
     <script src="./subsystems/initialise_model.js"></script>
     <script src="./subsystems/split_dataset.js"></script>
     <script src="./subsystems/load_training_data.js"></script>
+    <script src="./subsystems/build_vocabulary.js"></script>
     <script src="./subsystems/classify_text.js"></script>
     <script src="./subsystems/save_model.js"></script>
     <script src="./subsystems/load_model.js"></script>
@@ -434,6 +435,68 @@
                 const sameTrain = JSON.stringify(s1.trainSet) === JSON.stringify(s2.trainSet);
                 const counts = s1.trainSet.length + s1.validationSet.length + s1.testSet.length;
                 return sameTrain && counts === examples.length;
+            },
+            true
+        ));
+
+        // 10. build_vocabulary
+        tests.push(makeTest(
+            "10. build_vocabulary: collects every token, in first-seen order",
+            () => build_vocabulary([
+                { text: "Buy milk", label: "genuine" },
+                { text: "buy bread", label: "genuine" }
+            ]),
+            ["buy", "milk", "bread"]
+        ));
+        tests.push(makeTest(
+            "10. build_vocabulary: normalises the text the same way training does",
+            () => build_vocabulary([
+                { text: "  BUY   Milk! ", label: "genuine" }
+            ]),
+            ["buy", "milk", "!"]
+        ));
+        tests.push(makeTest(
+            "10. build_vocabulary: the same examples always give the same vocabulary",
+            () => {
+                const examples = [
+                    { text: "Walk the dog", label: "genuine" },
+                    { text: "Pay the bill", label: "genuine" }
+                ];
+                return deepEqual(build_vocabulary(examples), build_vocabulary(examples));
+            },
+            true
+        ));
+
+        // 8. parse_training_data — the validation half of load_training_data
+        tests.push(makeTest(
+            "8. parse_training_data: accepts a valid array and normalises the labels",
+            () => parse_training_data([
+                { text: "Buy milk", label: "genuine" },
+                { text: "asdf",    label: " SLOP " }
+            ], "test.json"),
+            [{ text: "Buy milk", label: "genuine" }, { text: "asdf", label: "slop" }]
+        ));
+        tests.push(makeTest(
+            "8. parse_training_data: rejects an unknown label",
+            () => {
+                try {
+                    parse_training_data([{ text: "Buy milk", label: "maybe" }], "test.json");
+                    return false;
+                } catch (e) {
+                    return /invalid label/i.test(e.message) && /test\.json/.test(e.message);
+                }
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "8. parse_training_data: rejects an example with no text",
+            () => {
+                try {
+                    parse_training_data([{ text: "", label: "slop" }], "test.json");
+                    return false;
+                } catch (e) {
+                    return /missing valid text/i.test(e.message);
+                }
             },
             true
         ));

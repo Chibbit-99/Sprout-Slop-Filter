@@ -75,35 +75,42 @@ Loads labelled examples, such as `("Buy milk", genuine)` and `("asdfghjkl", slop
 
 Keeps some examples aside so the model can be checked on text it did not learn from. The test set should not be used to adjust the model during training.
 
-### 10. `initialise_model(vocabulary, settings) -> model_parameters`
+### 10. `build_vocabulary(examples) -> vocabulary`
+
+**Input:** A list of labelled examples.
+**Output:** The list of words the model knows.
+
+Collects every token the examples use, in the order they are first seen. The index of a word in this list is the index of its vector in `wordVectors`, so the vocabulary has to be built the same way at training time and at prediction time. It is shared by the browser app and the command-line trainer rather than written out by each of them, because two vocabularies that disagree produce a model that scores nonsense.
+
+### 11. `initialise_model(vocabulary, settings) -> model_parameters`
 
 **Input:** The vocabulary and model settings, including vector size.  
 **Output:** The model's starting numerical values.
 
 Creates the word vectors and classifier parameters. The initial values should be set in a controlled way so training can adjust them.
 
-### 11. `make_prediction_for_training(text, model_parameters) -> score`
+### 12. `make_prediction_for_training(text, model_parameters) -> score`
 
 **Input:** A training example's text and the current model parameters.  
 **Output:** The predicted slop score, the encoded representation, and the vocabulary indices of the tokens that contributed to it.
 
 Runs the same text-processing and prediction steps used during normal use. Training must use consistent tokenisation and vocabulary rules so the model learns from the representation it will later receive. The representation and the token indices are returned alongside the score because `update_parameters` needs them to adjust both the classifier and the word vectors.
 
-### 12. `calculate_loss(score, correct_label) -> error`
+### 13. `calculate_loss(score, correct_label) -> error`
 
 **Input:** The predicted score and the example's correct label.  
 **Output:** A numerical measure of how wrong the prediction was.
 
 Produces a larger error when the prediction disagrees strongly with the label and a smaller error when it agrees. A suitable loss function for binary classification can be chosen for the first implementation.
 
-### 13. `update_parameters(model_parameters, error_information, learning_rate) -> updated_parameters`
+### 14. `update_parameters(model_parameters, error_information, learning_rate) -> updated_parameters`
 
 **Input:** The model parameters and information about how they contributed to the error — the gradient from `calculate_loss`, the encoded representation, and the vocabulary indices of the tokens that were averaged into it.  
 **Output:** Adjusted parameters.
 
 Changes the word vectors and classifier values a little at a time to make similar mistakes less likely. This requires calculating how each parameter contributed to the error; the exact method depends on the chosen model. Each word vector that participated in the representation receives a share of the error weighted by how often it participated; the token indices are what make that possible.
 
-### 14. `train_model(train_set, validation_set, settings) -> trained_model`
+### 15. `train_model(train_set, validation_set, settings) -> trained_model`
 
 **Input:** Training examples, validation examples, and settings such as number of training rounds.  
 **Output:** A trained model.
@@ -112,28 +119,28 @@ Repeats prediction, error calculation, and parameter updates over the training e
 
 ## Testing and model storage
 
-### 15. `evaluate_model(model, test_set) -> metrics`
+### 16. `evaluate_model(model, test_set) -> metrics`
 
 **Input:** A trained model and held-out test examples.  
 **Output:** Measurements of how well it performs.
 
 Checks performance on examples the model did not train on. Useful measurements include how often it correctly identifies slop and, importantly, how often it wrongly flags genuine text. Tests should cover varied wording, including words that were not in the training vocabulary.
 
-### 16. `save_model(model, path) -> result`
+### 17. `save_model(model, path) -> result`
 
 **Input:** The trained model and a destination path.  
 **Output:** A success or failure result.
 
 Saves the learned vectors, classifier parameters, and necessary vocabulary/settings so the model can be used again without retraining.
 
-### 17. `load_model(path) -> model`
+### 18. `load_model(path) -> model`
 
 **Input:** A saved model path.  
 **Output:** A ready-to-use model, or a clear error if loading fails.
 
 Restores the parameters and vocabulary needed by `classify_text`.
 
-### 18. `get_synonyms_cached(word) -> synonyms`
+### 19. `get_synonyms_cached(word) -> synonyms`
 
 **Input:** A word.  
 **Output:** A list of synonym results, or an empty list if lookup fails or returns nothing useful.
@@ -146,7 +153,7 @@ Supports `map_synonyms` by checking a local cache before requesting Datamuse. Th
 `classify_text` → `normalise_text` → `tokenise` → `map_synonyms` → `get_word_vector` → `encode_text` → `predict_slop`
 
 **When training:**  
-`load_training_data` → `split_dataset` → `initialise_model` → repeat prediction, `calculate_loss`, and `update_parameters` → `evaluate_model` → `save_model`
+`load_training_data` → `split_dataset` → `build_vocabulary` → `initialise_model` → repeat prediction, `calculate_loss`, and `update_parameters` → `evaluate_model` → `save_model`
 
 The names are illustrative. Functions may be combined or renamed in the actual code, and the synonym lookup is optional: Sprout should still be able to make a prediction when the API is unavailable.
 
@@ -155,7 +162,7 @@ The names are illustrative. Functions may be combined or renamed in the actual c
 Start with the smallest useful version:
 
 1. `normalise_text` and `tokenise`
-2. `load_training_data` and `split_dataset`
+2. `load_training_data`, `split_dataset`, and `build_vocabulary`
 3. Word vectors, a simple `encode_text`, and `predict_slop`
 4. `calculate_loss`, `update_parameters`, and `train_model`
 5. `evaluate_model`, `save_model`, and `load_model`

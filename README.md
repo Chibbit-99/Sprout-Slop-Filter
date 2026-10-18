@@ -11,6 +11,92 @@ Given a string, predict how likely it is to be slop, returning a score from **0 
 
 "Slop" means meaningless, nonsensical, or empty filler—not something unethical or bad. For example, `Steal someone's wallet` describes a genuine intention even though the action is unethical.
 
+## Running it
+
+```bash
+npm start          # serve the folder at http://localhost:8000
+```
+
+Then open <http://localhost:8000>. The page loads the trained `model.json`
+and the `training.json` dataset, and lets you train a fresh model, watch it
+learn, score text, and save or load models — all in the browser, with no
+build step and no dependencies.
+
+The page has to be served over HTTP: browsers block `fetch` for pages opened
+straight from disk (`file://`), and the page needs to read `training.json`
+and `model.json`. If you open it that way anyway, it falls back to a small
+built-in demo set and says so.
+
+To retrain the shipped model from the command line:
+
+```bash
+npm run train                       # training.json -> model.json
+node train.mjs --epochs 200 --lr 0.2 --vector-size 24 --seed 7
+node train.mjs --help               # every option
+```
+
+| File | What it is |
+| --- | --- |
+| `index.html` | The browser app: train, evaluate, test, save. |
+| `training.json` | 524 labelled examples (262 genuine, 262 slop). |
+| `model.json` | The trained model, ready to use — the app loads it on start. |
+| `train.mjs` | Command-line trainer that produces `model.json`. |
+| `serve.mjs` | A tiny dependency-free static server. |
+| `subsystems/` | The model itself: tokenising, encoding, training, scoring. |
+| `test.html` | The subsystem test suite. |
+| `experiments/` | Measurements behind `experiments/FINDINGS.md`. |
+
+### Checking it works
+
+```bash
+npm test          # the learning-curve experiment (subsystem regression check)
+npm run measure   # the measurements in FINDINGS.md section 5
+npm run test:app  # a headless pass over the browser app
+```
+
+The app smoke test needs jsdom, which is the only thing in this project that
+is not dependency-free:
+
+```bash
+npm install --no-save jsdom
+npm run test:app
+```
+
+Without jsdom it prints a note and exits, so it never blocks anything.
+
+## The browser app
+
+`index.html` is the main way to work with Sprout.
+
+- **Train** — set the epochs, learning rate, vector size and seeds, then
+  watch the loss and validation accuracy move as the model learns. Training
+  runs in small chunks so the page stays responsive.
+- **Evaluate** — the test split is held back from training and scored
+  afterwards: accuracy, how much slop is caught, how much genuine text is
+  wrongly flagged, and a confusion matrix. Every held-out example is listed
+  with its score.
+- **Test** — type a task description and read the score, the verdict, and
+  which of its words the model actually knows (anything outside the
+  training vocabulary collapses to a single `<UNK>` vector, which is the
+  model's main blind spot).
+- **Edit the data** — add labelled examples in the page and retrain, or
+  import and export a dataset as JSON.
+- **Save the model** — download it as JSON, keep it in the browser, or load
+  one back in.
+
+The app uses the real subsystem code in `subsystems/`, the same files the
+test page and the experiments use, so what you train in the browser is what
+the command-line trainer produces.
+
+### Score softening
+
+The training data is cleanly separable, so a freshly trained model is very
+confident: almost every score lands on 0.000 or 1.000. Dividing the
+classifier weights and the bias by a temperature spreads the scores out
+again, so the gauge is worth reading. It cannot change a single decision —
+the sign of the logit is untouched, so the 0.5 boundary and every metric
+stay exactly where they were.
+
 ## Basic architecture plan
 
 1. **Training examples** — collect text samples and label each one as either genuine or slop.
@@ -66,7 +152,7 @@ The useful test is to compare the model **with synonym connections** against the
 
 Datamuse currently documents that an API key will be required from **1 February 2027**. Keeping synonym lookup in a separate part of the project would make it easier to change services later if needed. If Sprout uses Datamuse in a public app, its documentation should acknowledge the API.
 
-This is a proposed experiment, not an implemented feature.
+The lookup itself is now implemented in `subsystems/map_synonyms.js` and used by `classify_text` when a model has `options.useSynonyms` switched on — the app has a checkbox for it. What has **not** been done yet is the measurement above: there is no experiment showing whether the synonym connections actually improve held-out predictions, so treat the feature as untested.
 
 ## Example labels
 
@@ -80,10 +166,29 @@ This is a proposed experiment, not an implemented feature.
 
 The labels used for training will determine what the model learns, so examples should cover varied wording and avoid treating vagueness or ethics as automatically meaning slop.
 
+`training.json` follows that table. The definition it uses is:
+
+> **Genuine** — names a concrete action on a concrete target, so someone could pick it up and do it.
+> **Slop** — keyboard mash, or filler that names no target: `asdfghjkl`, `do something`, `align stakeholders`.
+
+Being unethical is not the same as being slop, so the dataset keeps deliberately awkward genuine examples (`Steal someone's wallet`, `Delete the customer records`). Borderline phrases are labelled one way and stay that way — `experiments/FINDINGS.md` §4 shows that mixed labels cap accuracy no matter how much data you add.
+
 ## Possible future use
 
 The same general training code could later be used for other text-classification tasks, such as checking whether GitHub commit messages are informative. That would need its own examples and labels: a message that is acceptable as a task description may still be a poor commit message.
 
 ## Current status
 
-Architecture planning. The model, training data, and thesaurus-based vocabulary expansion are not yet implemented.
+The model, the training data and the browser app are implemented. A trained
+model ships in `model.json` and scores **96.3%** on a held-out test split
+with a 0% false-positive rate — see `experiments/FINDINGS.md` §5 for the
+measurement and its limits.
+
+Still open:
+
+- The synonym lookup is wired up but unmeasured (§Synonym lookup experiment).
+- The encoding still averages word vectors, so word order is lost and
+  negation is invisible.
+- Unknown words still collapse to a single `<UNK>` vector, which is the
+  ceiling on how the model handles wording it has not seen.
+

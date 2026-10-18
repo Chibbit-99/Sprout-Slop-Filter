@@ -1,0 +1,14 @@
+{
+  "name": "sprout-slop-filter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small model that scores how likely a piece of text is to be meaningless filler ('slop'), with a browser app to train and test it.",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs",
+    "train": "node train.mjs",
+    "test": "node experiments/learning_curve.mjs",
+    "test:app": "node experiments/app_smoke.mjs",
+    "measure": "node experiments/real_dataset.mjs"
+  }
+}

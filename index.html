@@ -1,0 +1,1582 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sprout Slop Filter — train and test the model</title>
+    <style>
+        :root {
+            --bg: #f4f7f4;
+            --card: #ffffff;
+            --border: #e0e8e1;
+            --border-strong: #cbd8ce;
+            --ink: #17231b;
+            --muted: #66786c;
+            --accent: #2f9e5f;
+            --accent-dark: #1d7444;
+            --accent-soft: #e8f6ed;
+            --slop: #d9534f;
+            --slop-soft: #fdeceb;
+            --genuine: #2f9e5f;
+            --warn: #b7791f;
+            --warn-soft: #fdf6e7;
+            --radius: 12px;
+            --shadow: 0 1px 2px rgba(23, 35, 27, .05), 0 6px 18px rgba(23, 35, 27, .05);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0 0 3rem;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3 { margin: 0; font-weight: 650; letter-spacing: -.01em; }
+        h1 { font-size: 1.4rem; }
+        h2 { font-size: 1.02rem; }
+        h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+        p { margin: 0; }
+        code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; }
+
+        /* ---------- layout ---------- */
+
+        .page { max-width: 1500px; margin: 0 auto; padding: 0 1.25rem; }
+
+        header.top {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.4rem 0 1.1rem;
+        }
+
+        .brand { display: flex; align-items: center; gap: .7rem; }
+        .brand .logo {
+            width: 40px; height: 40px; flex: 0 0 40px;
+            border-radius: 12px;
+            background: linear-gradient(150deg, #43b874, #1d7444);
+            color: #fff;
+            display: grid; place-items: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+        }
+        .brand h1 { line-height: 1.15; }
+        .brand p { color: var(--muted); font-size: .86rem; }
+
+        .status-strip { display: flex; flex-wrap: wrap; gap: .45rem; margin-left: auto; }
+
+        .pill {
+            display: inline-flex; align-items: center; gap: .4rem;
+            padding: .3rem .65rem;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .8rem;
+            white-space: nowrap;
+        }
+        .pill b { color: var(--ink); font-weight: 600; }
+        .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: #b9c4bd; }
+        .pill.ok .dot { background: var(--accent); }
+        .pill.warn .dot { background: var(--warn); }
+        .pill.bad .dot { background: var(--slop); }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 330px minmax(0, 1fr) 380px;
+            gap: 1rem;
+            align-items: start;
+        }
+        .col { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+
+        @media (max-width: 1240px) {
+            .grid { grid-template-columns: 320px minmax(0, 1fr); }
+            .col.right { grid-column: 1 / -1; }
+        }
+        @media (max-width: 860px) {
+            .grid { grid-template-columns: minmax(0, 1fr); }
+            .col.right { grid-column: auto; }
+        }
+
+        /* ---------- cards ---------- */
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        .card > header {
+            display: flex; align-items: center; gap: .6rem;
+            padding: .8rem 1rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(#fff, #fbfdfb);
+        }
+        .card > header .spacer { margin-left: auto; }
+        .card .body { padding: 1rem; }
+        .card .body.tight { padding: .75rem; }
+
+        .hint { color: var(--muted); font-size: .84rem; }
+        .hint.small { font-size: .78rem; }
+        .row { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+        .row + .row { margin-top: .6rem; }
+        .stack > * + * { margin-top: .6rem; }
+
+        /* ---------- controls ---------- */
+
+        button, .btn {
+            font: inherit;
+            font-size: .88rem;
+            font-weight: 550;
+            padding: .45rem .8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-strong);
+            background: #fff;
+            color: var(--ink);
+            cursor: pointer;
+            transition: background .12s ease, border-color .12s ease, transform .05s ease;
+        }
+        button:hover:not(:disabled) { background: #f2f6f3; border-color: #b6c8bb; }
+        button:active:not(:disabled) { transform: translateY(1px); }
+        button:disabled { opacity: .5; cursor: not-allowed; }
+        button.primary {
+            background: var(--accent); border-color: var(--accent-dark); color: #fff;
+        }
+        button.primary:hover:not(:disabled) { background: var(--accent-dark); }
+        button.ghost { border-color: transparent; background: transparent; color: var(--muted); padding: .3rem .5rem; }
+        button.ghost:hover:not(:disabled) { background: #f0f4f1; color: var(--ink); }
+        button.danger { color: var(--slop); border-color: #eccbc9; }
+        button.tiny { font-size: .78rem; padding: .25rem .55rem; }
+
+        label.field { display: block; }
+        label.field > span {
+            display: block; font-size: .76rem; text-transform: uppercase;
+            letter-spacing: .05em; color: var(--muted); margin-bottom: .2rem;
+        }
+        input[type="text"], input[type="number"], input[type="search"], textarea, select {
+            font: inherit; font-size: .88rem;
+            width: 100%;
+            padding: .42rem .55rem;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--ink);
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: 2px solid rgba(47, 158, 95, .35);
+            outline-offset: 1px;
+            border-color: var(--accent);
+        }
+        textarea { resize: vertical; min-height: 64px; line-height: 1.45; }
+        input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+        .grid-fields { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+        .grid-fields.three { grid-template-columns: 1fr 1fr 1fr; }
+
+        .check { display: inline-flex; align-items: center; gap: .4rem; font-size: .85rem; cursor: pointer; }
+        .check input { accent-color: var(--accent); }
+
+        .seg { display: inline-flex; border: 1px solid var(--border-strong); border-radius: 8px; overflow: hidden; }
+        .seg button { border: 0; border-radius: 0; padding: .3rem .7rem; font-size: .82rem; }
+        .seg button + button { border-left: 1px solid var(--border-strong); }
+        .seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+        /* ---------- progress ---------- */
+
+        .progress {
+            height: 8px; border-radius: 999px; background: #e8eee9; overflow: hidden;
+        }
+        .progress > div {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, #43b874, var(--accent-dark));
+            transition: width .12s linear;
+        }
+
+        /* ---------- metrics ---------- */
+
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: .6rem; }
+        .metric {
+            background: #fbfdfb; border: 1px solid var(--border);
+            border-radius: 10px; padding: .6rem .7rem;
+        }
+        .metric .k { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+        .metric .v { font-size: 1.28rem; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.25; }
+        .metric .v.good { color: var(--accent-dark); }
+        .metric .v.bad { color: var(--slop); }
+
+        table.data { width: 100%; border-collapse: collapse; font-size: .84rem; }
+        table.data th, table.data td {
+            text-align: left; padding: .35rem .5rem; border-bottom: 1px solid var(--border);
+        }
+        table.data th { color: var(--muted); font-weight: 600; font-size: .74rem; text-transform: uppercase; letter-spacing: .04em; }
+        table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
+        table.data tr:last-child td { border-bottom: 0; }
+        .scroll { max-height: 300px; overflow: auto; border: 1px solid var(--border); border-radius: 10px; }
+        .scroll.tall { max-height: 420px; }
+
+        .tag {
+            display: inline-block; padding: .05rem .4rem; border-radius: 5px;
+            font-size: .72rem; font-weight: 600; letter-spacing: .02em;
+        }
+        .tag.genuine { background: var(--accent-soft); color: var(--accent-dark); }
+        .tag.slop { background: var(--slop-soft); color: #a33a37; }
+
+        /* ---------- score readout ---------- */
+
+        .gauge {
+            position: relative; height: 14px; border-radius: 999px;
+            background: linear-gradient(90deg, #43b874 0%, #d8c14a 50%, #d9534f 100%);
+            margin: .55rem 0 .35rem;
+        }
+        .gauge .needle {
+            position: absolute; top: -5px; width: 4px; height: 24px; border-radius: 3px;
+            background: #17231b; box-shadow: 0 0 0 2px #fff;
+            transform: translateX(-50%); transition: left .18s ease;
+        }
+        .gauge .threshold {
+            position: absolute; top: -3px; width: 2px; height: 20px;
+            background: rgba(23, 35, 27, .45);
+        }
+        .score-readout { display: flex; align-items: baseline; gap: .5rem; }
+        .score-readout .num { font-size: 2.2rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+        .score-readout .verdict { font-size: .95rem; font-weight: 600; }
+        .scale { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; }
+
+        .tokens { display: flex; flex-wrap: wrap; gap: .3rem; }
+        .token {
+            padding: .1rem .4rem; border-radius: 6px; font-size: .78rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            border: 1px solid var(--border);
+        }
+        .token.known { background: var(--accent-soft); border-color: #c9e6d4; color: var(--accent-dark); }
+        .token.unknown { background: var(--slop-soft); border-color: #f0cdcb; color: #a33a37; }
+
+        /* ---------- charts ---------- */
+
+        .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+        @media (max-width: 700px) { .chart-grid { grid-template-columns: 1fr; } }
+        .chart-box { border: 1px solid var(--border); border-radius: 10px; padding: .5rem; background: #fbfdfb; }
+        .chart-box h3 { margin-bottom: .25rem; }
+        canvas { display: block; width: 100%; height: 150px; }
+        .legend { display: flex; gap: .8rem; flex-wrap: wrap; font-size: .76rem; color: var(--muted); margin-top: .2rem; }
+        .legend span { display: inline-flex; align-items: center; gap: .3rem; }
+        .legend i { width: 10px; height: 3px; border-radius: 2px; display: inline-block; }
+
+        /* ---------- log ---------- */
+
+        pre.log {
+            margin: 0; max-height: 190px; overflow: auto;
+            background: #12201a; color: #cfe6d8;
+            border-radius: 10px; padding: .6rem .7rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: .76rem; line-height: 1.5;
+        }
+
+        /* ---------- matrix ---------- */
+
+        .matrix { display: grid; grid-template-columns: auto 1fr 1fr; gap: 4px; font-size: .8rem; }
+        .matrix div { padding: .4rem .5rem; border-radius: 8px; text-align: center; }
+        .matrix .corner { background: transparent; }
+        .matrix .head { background: transparent; color: var(--muted); font-weight: 600; }
+        .matrix .cell { background: #f4f8f5; border: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+        .matrix .cell.good { background: var(--accent-soft); border-color: #c9e6d4; }
+        .matrix .cell.bad { background: var(--slop-soft); border-color: #f0cdcb; }
+
+        /* ---------- messages ---------- */
+
+        .msg {
+            padding: .55rem .7rem; border-radius: 9px; font-size: .85rem;
+            border: 1px solid var(--border); background: #f8faf8;
+        }
+        .msg.error { background: var(--slop-soft); border-color: #f0cdcb; color: #8e2f2c; }
+        .msg.warn { background: var(--warn-soft); border-color: #ecd9ae; color: #8a5c12; }
+        .msg.ok { background: var(--accent-soft); border-color: #c9e6d4; color: var(--accent-dark); }
+        .msg[hidden] { display: none; }
+        .msg:empty { display: none; }
+
+        details.help { margin-top: 1.25rem; }
+        details.help summary { cursor: pointer; font-weight: 600; color: var(--muted); }
+        details.help .body { padding: .75rem 0 0; color: var(--muted); font-size: .88rem; }
+        details.help .body code { color: var(--ink); }
+        details.help li { margin-bottom: .3rem; }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <header class="top">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">🌱</div>
+            <div>
+                <h1>Sprout Slop Filter</h1>
+                <p>Train the model in your browser, then test it on real text.</p>
+            </div>
+        </div>
+        <div class="status-strip" id="statusStrip">
+            <span class="pill" id="pillDataset"><span class="dot"></span> dataset: <b>…</b></span>
+            <span class="pill" id="pillModel"><span class="dot"></span> model: <b>…</b></span>
+            <span class="pill" id="pillVocab"><span class="dot"></span> vocabulary: <b>…</b></span>
+            <span class="pill" id="pillAccuracy"><span class="dot"></span> test accuracy: <b>…</b></span>
+        </div>
+    </header>
+
+    <div class="grid">
+
+        <!-- ================= LEFT: dataset + model files ================= -->
+        <div class="col left">
+
+            <section class="card">
+                <header>
+                    <h2>Training data</h2>
+                    <span class="spacer"></span>
+                    <button class="ghost tiny" id="btnReloadDataset" title="Reload training.json from disk">reload</button>
+                </header>
+                <div class="body stack">
+                    <div class="msg" id="datasetMessage"></div>
+
+                    <div class="metric-grid">
+                        <div class="metric"><div class="k">Examples</div><div class="v" id="statExamples">0</div></div>
+                        <div class="metric"><div class="k">Genuine</div><div class="v good" id="statGenuine">0</div></div>
+                        <div class="metric"><div class="k">Slop</div><div class="v bad" id="statSlop">0</div></div>
+                    </div>
+
+                    <label class="field">
+                        <span>Filter</span>
+                        <input type="search" id="datasetFilter" placeholder="search text or label…">
+                    </label>
+
+                    <div class="scroll">
+                        <table class="data">
+                            <thead><tr><th>Text</th><th style="width:5.5rem">Label</th></tr></thead>
+                            <tbody id="datasetRows"></tbody>
+                        </table>
+                    </div>
+
+                    <details>
+                        <summary class="hint">Add an example</summary>
+                        <div class="stack" style="margin-top:.5rem">
+                            <label class="field">
+                                <span>Text</span>
+                                <input type="text" id="newExampleText" placeholder="Water the plants">
+                            </label>
+                            <div class="row">
+                                <div class="seg" role="group" aria-label="Label for the new example">
+                                    <button type="button" id="btnNewGenuine" aria-pressed="true">Genuine</button>
+                                    <button type="button" id="btnNewSlop" aria-pressed="false">Slop</button>
+                                </div>
+                                <button class="primary" id="btnAddExample">Add</button>
+                            </div>
+                            <p class="hint small">Added examples are kept in the page only. Use <b>Download dataset</b> to save them to a file.</p>
+                        </div>
+                    </details>
+
+                    <div class="row">
+                        <button class="tiny" id="btnDownloadDataset">Download dataset</button>
+                        <button class="tiny" id="btnImportDataset">Import JSON…</button>
+                        <input type="file" id="fileImportDataset" accept=".json,application/json" class="sr-only">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <header><h2>Model file</h2></header>
+                <div class="body stack">
+                    <p class="hint small">The model can be saved to your device and loaded again — no retraining needed.</p>
+                    <div class="row">
+                        <button class="tiny" id="btnDownloadModel">Download model</button>
+                        <button class="tiny" id="btnUploadModel">Load model file…</button>
+                        <input type="file" id="fileUploadModel" accept=".json,application/json" class="sr-only">
+                    </div>
+                    <div class="row">
+                        <button class="tiny" id="btnSaveLocal">Save in browser</button>
+                        <button class="tiny" id="btnLoadLocal">Load from browser</button>
+                        <button class="tiny" id="btnResetModel">Reset to shipped model</button>
+                    </div>
+                    <div class="msg small" id="modelMessage"></div>
+                    <p class="hint small" id="modelDetails"></p>
+                    <label class="field">
+                        <span>Decision threshold</span>
+                        <input type="range" id="threshold" min="0.05" max="0.95" step="0.05" value="0.5">
+                    </label>
+                    <p class="hint small">Text scoring at or above the threshold is called <b>slop</b>. The trained model itself is measured at 0.5.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= CENTER: train + results ================= -->
+        <div class="col center">
+
+            <section class="card">
+                <header>
+                    <h2>Train the model</h2>
+                    <span class="spacer"></span>
+                    <span class="hint small" id="trainStatus">idle</span>
+                </header>
+                <div class="body stack">
+                    <div class="grid-fields three">
+                        <label class="field"><span>Epochs</span><input type="number" id="cfgEpochs" value="60" min="1" max="5000" step="10"></label>
+                        <label class="field"><span>Learning rate</span><input type="number" id="cfgLr" value="0.2" min="0.001" max="2" step="0.01"></label>
+                        <label class="field"><span>Vector size</span><input type="number" id="cfgVectorSize" value="24" min="2" max="64" step="1"></label>
+                        <label class="field"><span>Seed</span><input type="number" id="cfgSeed" value="7" min="1" step="1"></label>
+                        <label class="field"><span>Split seed</span><input type="number" id="cfgSplitSeed" value="1" min="1" step="1"></label>
+                        <label class="field"><span>Train / val / test</span>
+                            <input type="text" id="cfgRatios" value="0.7 / 0.15 / 0.15" inputmode="decimal">
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <button class="primary" id="btnTrain">Train model</button>
+                        <button id="btnStop" disabled>Stop</button>
+                        <label class="check"><input type="checkbox" id="cfgAutoEvaluate" checked> evaluate on the test split afterwards</label>
+                    </div>
+
+                    <div class="row">
+                        <label class="field" style="flex:0 0 auto">
+                            <span>Score softening</span>
+                            <select id="cfgTemperature" style="min-width:8.5rem; width:auto">
+                                <option value="1">off (×1)</option>
+                                <option value="2">×2</option>
+                                <option value="4" selected>×4</option>
+                                <option value="8">×8</option>
+                            </select>
+                        </label>
+                        <p class="hint small" style="flex:1 1 16rem; align-self:flex-end">
+                            The training data is cleanly separable, so raw scores end up pinned at 0.000 or 1.000.
+                            Softening divides the classifier weights by this factor, which spreads the scores out again.
+                            It never changes a decision — the 0.5 boundary stays exactly where it was.
+                        </p>
+                    </div>
+
+                    <div class="progress"><div id="trainProgress"></div></div>
+
+                    <div class="chart-grid">
+                        <div class="chart-box">
+                            <h3>Loss per epoch</h3>
+                            <canvas id="chartLoss"></canvas>
+                            <div class="legend">
+                                <span><i style="background:#2f9e5f"></i>train</span>
+                                <span><i style="background:#b7791f"></i>validation</span>
+                            </div>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Accuracy per epoch</h3>
+                            <canvas id="chartAccuracy"></canvas>
+                            <div class="legend">
+                                <span><i style="background:#2f9e5f"></i>validation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <pre class="log" id="trainLog">Ready. Press “Train model” to start, or test the shipped model on the right.</pre>
+                </div>
+            </section>
+
+            <section class="card">
+                <header>
+                    <h2>Results</h2>
+                    <span class="spacer"></span>
+                    <span class="hint small" id="resultsSource">no model evaluated yet</span>
+                </header>
+                <div class="body stack">
+                    <div class="msg" id="resultsMessage" hidden></div>
+
+                    <div class="metric-grid">
+                        <div class="metric"><div class="k">Test accuracy</div><div class="v" id="mTestAcc">—</div></div>
+                        <div class="metric"><div class="k">Slop recall</div><div class="v" id="mRecall">—</div></div>
+                        <div class="metric"><div class="k">False positives</div><div class="v" id="mFpr">—</div></div>
+                        <div class="metric"><div class="k">Precision</div><div class="v" id="mPrecision">—</div></div>
+                        <div class="metric"><div class="k">Avg loss</div><div class="v" id="mLoss">—</div></div>
+                    </div>
+
+                    <div class="chart-grid">
+                        <div class="chart-box">
+                            <h3>Confusion matrix (test split)</h3>
+                            <div class="matrix" id="matrix" style="margin-top:.4rem"></div>
+                        </div>
+                        <div class="chart-box">
+                            <h3>Split sizes &amp; coverage</h3>
+                            <table class="data" id="splitTable">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <details>
+                        <summary class="hint">Every test example, scored</summary>
+                        <div class="scroll tall" style="margin-top:.5rem">
+                            <table class="data">
+                                <thead><tr><th>Text</th><th>Truth</th><th class="num">Score</th><th>Result</th></tr></thead>
+                                <tbody id="testRows"></tbody>
+                            </table>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= RIGHT: test the model ================= -->
+        <div class="col right">
+
+            <section class="card">
+                <header>
+                    <h2>Test a piece of text</h2>
+                </header>
+                <div class="body stack">
+                    <textarea id="testInput" rows="3" placeholder="Type a task description, e.g. “Water the plants on the balcony”"></textarea>
+                    <div class="row">
+                        <button class="primary" id="btnScore">Score it</button>
+                        <label class="check"><input type="checkbox" id="useSynonyms"> use Datamuse synonyms</label>
+                    </div>
+
+                    <div id="scoreArea" hidden>
+                        <div class="score-readout">
+                            <span class="num" id="scoreValue">—</span>
+                            <span class="verdict" id="scoreVerdict"></span>
+                        </div>
+                        <div class="gauge">
+                            <div class="needle" id="scoreNeedle" style="left:50%"></div>
+                            <div class="threshold" id="scoreThreshold" style="left:50%"></div>
+                        </div>
+                        <div class="scale"><span>0 · genuine</span><span>1 · slop</span></div>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom:.3rem">Tokens the model saw</h3>
+                        <div class="tokens" id="tokenList"><span class="hint small">score some text to see its tokens</span></div>
+                    </div>
+
+                    <div class="msg small" id="scoreMessage"></div>
+                </div>
+            </section>
+
+            <section class="card">
+                <header>
+                    <h2>Score a list</h2>
+                    <span class="spacer"></span>
+                    <button class="ghost tiny" id="btnSampleList">use samples</button>
+                </header>
+                <div class="body stack">
+                    <p class="hint small">One item per line. The list is scored with the model in memory.</p>
+                    <textarea id="batchInput" rows="5" placeholder="Buy milk&#10;asdfghjkl&#10;drive alignment across teams"></textarea>
+                    <div class="row">
+                        <button id="btnScoreList">Score list</button>
+                        <span class="hint small" id="batchSummary"></span>
+                    </div>
+                    <div class="scroll">
+                        <table class="data">
+                            <thead><tr><th>Text</th><th class="num">Score</th><th>Verdict</th></tr></thead>
+                            <tbody id="batchRows"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <header><h2>How this works</h2></header>
+                <div class="body">
+                    <details class="help" open style="margin-top:0">
+                        <summary>What counts as slop</summary>
+                        <div class="body">
+                            <ul>
+                                <li><b>Genuine</b> — names a concrete action on a concrete target, so someone could pick it up and do it: “Renew the passport”, “Fix the leaking tap”.</li>
+                                <li><b>Slop</b> — keyboard mash, or filler that names no target: “asdfghjkl”, “do something”, “align stakeholders”.</li>
+                                <li>Being <em>unethical</em> is not the same as being slop. “Steal someone's wallet” is a clear instruction, so it is genuine text.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="help">
+                        <summary>How the model scores</summary>
+                        <div class="body">
+                            <p>Each word gets a learned vector. A text is encoded by averaging the vectors of its words, and a logistic regression turns that average into a score from 0 (genuine) to 1 (slop).</p>
+                            <p style="margin-top:.4rem">Because the encoding averages words, word order is lost — “buy milk” and “milk buy” score the same. Words the model never saw in training collapse to a single <code>&lt;UNK&gt;</code> vector, which is why the coverage figures matter.</p>
+                        </div>
+                    </details>
+                    <details class="help">
+                        <summary>Where the numbers come from</summary>
+                        <div class="body">
+                            <p>Training, evaluation and scoring all use the subsystem code in <code>subsystems/</code> — the same files the test page and the experiments use. <code>train.mjs</code> trains the shipped <code>model.json</code> from <code>training.json</code> on the command line; this page trains the very same model in your browser.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <details class="help">
+        <summary>Keyboard shortcuts</summary>
+        <div class="body">
+            <p><b>Ctrl/Cmd + Enter</b> in the test box scores the text. <b>Ctrl/Cmd + Enter</b> in the batch box scores the whole list.</p>
+        </div>
+    </details>
+</div>
+
+<!-- Subsystem scripts (loaded in dependency order) — the real implementation. -->
+<script src="./subsystems/normalise_text.js"></script>
+<script src="./subsystems/tokeniser.js"></script>
+<script src="./subsystems/map_synonyms.js"></script>
+<script src="./subsystems/get_word_vector.js"></script>
+<script src="./subsystems/encode_text.js"></script>
+<script src="./subsystems/predict_slop.js"></script>
+<script src="./subsystems/calculate_loss.js"></script>
+<script src="./subsystems/update_parameters.js"></script>
+<script src="./subsystems/make_prediction_for_training.js"></script>
+<script src="./subsystems/evaluate_model.js"></script>
+<script src="./subsystems/train_model.js"></script>
+<script src="./subsystems/initialise_model.js"></script>
+<script src="./subsystems/split_dataset.js"></script>
+<script src="./subsystems/load_training_data.js"></script>
+<script src="./subsystems/build_vocabulary.js"></script>
+<script src="./subsystems/classify_text.js"></script>
+<script src="./subsystems/save_model.js"></script>
+<script src="./subsystems/load_model.js"></script>
+
+<script>
+(function () {
+    "use strict";
+
+    // =====================================================================
+    // State
+    // =====================================================================
+
+    const state = {
+        dataset: [],
+        datasetSource: "",
+        model: null,
+        rawModel: null,
+        modelSource: "",
+        temperature: 4,
+        threshold: 0.5,
+        useSynonyms: false,
+        newLabel: "genuine",
+        training: false,
+        stopRequested: false,
+        lastSplit: null,
+        lastMetrics: null,
+        lastScoredText: null,
+        history: []
+    };
+
+    // A tiny built-in set so the page is usable even when `training.json`
+    // cannot be fetched (for example when the file is opened straight from
+    // disk with the file:// protocol, where fetch is blocked by the browser).
+    const FALLBACK_DATASET = [
+        { text: "Buy milk", label: "genuine" },
+        { text: "asdfghjkl", label: "slop" },
+        { text: "Renew the passport", label: "genuine" },
+        { text: "do something", label: "slop" },
+        { text: "Call the dentist at three", label: "genuine" },
+        { text: "fix stuff", label: "slop" },
+        { text: "Pay the electricity bill", label: "genuine" },
+        { text: "align stakeholders", label: "slop" },
+        { text: "Fix the leaking tap", label: "genuine" },
+        { text: "move the needle", label: "slop" },
+        { text: "Book the flight to Berlin", label: "genuine" },
+        { text: "etc", label: "slop" },
+        { text: "Water the seedlings", label: "genuine" },
+        { text: "unlock potential", label: "slop" },
+        { text: "Send the receipt to the landlord", label: "genuine" },
+        { text: "circle back", label: "slop" },
+        { text: "Cancel the gym membership", label: "genuine" },
+        { text: "qwerty", label: "slop" },
+        { text: "Order more printer paper", label: "genuine" },
+        { text: "some stuff", label: "slop" },
+        { text: "Sign the tenancy agreement", label: "genuine" },
+        { text: "bandwidth", label: "slop" },
+        { text: "Replace the broken lightbulb", label: "genuine" },
+        { text: "tbd", label: "slop" }
+    ];
+
+    const SAMPLE_LIST = [
+        "Buy milk",
+        "Renew the passport",
+        "Fix the leaking tap in the bathroom",
+        "asdfghjkl",
+        "do something",
+        "align stakeholders",
+        "move the needle",
+        "misc"
+    ];
+
+    // =====================================================================
+    // Small helpers
+    // =====================================================================
+
+    const $ = id => document.getElementById(id);
+
+    function pct(value) {
+        if (typeof value !== "number" || Number.isNaN(value)) return "—";
+        return `${(value * 100).toFixed(1)}%`;
+    }
+
+    function setPill(id, ok, text) {
+        const pill = $(id);
+        pill.classList.remove("ok", "warn", "bad");
+        if (ok !== null) pill.classList.add(ok ? "ok" : "warn");
+        pill.querySelector("b").textContent = text;
+    }
+
+    function download(filename, text, type) {
+        const blob = new Blob([text], { type: type || "application/json" });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement("a");
+        anchor.href = url;
+        anchor.download = filename;
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    // Scaling the classifier weights and the bias is a temperature change:
+    // it leaves the sign of every logit (and therefore every decision at
+    // the 0.5 boundary) untouched, and only changes how sharp the scores
+    // are. A factor below 1 softens the scores, a factor above 1 sharpens
+    // them, and multiplying by the temperature undoes the softening.
+    function scaleModel(model, factor) {
+        if (!model || !Array.isArray(model.weights)) return model;
+        return {
+            ...model,
+            weights: model.weights.map(weight => weight * factor),
+            bias: (typeof model.bias === "number" ? model.bias : 0) * factor,
+            options: { ...(model.options || {}) }
+        };
+    }
+
+    // Keep `state.model` (the softened model that scores text) and
+    // `state.rawModel` (the model exactly as training left it) in step.
+    function setTemperature(temperature, options) {
+        const settings = options || {};
+        state.temperature = temperature;
+
+        if (state.rawModel) {
+            state.model = scaleModel(state.rawModel, 1 / temperature);
+            if (state.model.options) {
+                state.model.options.temperature = temperature;
+            }
+        }
+
+        if (settings.updateControl !== false && $("cfgTemperature")) {
+            $("cfgTemperature").value = String(temperature);
+        }
+
+        renderModel();
+
+        if (settings.reevaluate && state.lastSplit) {
+            evaluate(state.model, state.lastSplit.testSet, state.lastSplit.trainSet, state.lastSplit.validationSet);
+        }
+    }
+
+    // =====================================================================
+    // Dataset
+    // =====================================================================
+
+    async function loadDataset() {
+        const message = $("datasetMessage");
+
+        try {
+            const examples = await load_training_data("./training.json");
+            state.dataset = examples;
+            state.datasetSource = "training.json";
+            message.className = "msg ok";
+            message.textContent = `Loaded ${examples.length} labelled examples from training.json.`;
+        } catch (error) {
+            state.dataset = FALLBACK_DATASET.map(entry => ({ ...entry }));
+            state.datasetSource = "built-in demo set";
+            message.className = "msg warn";
+            message.innerHTML =
+                `Could not load <code>training.json</code> (${error.message}).<br>` +
+                `Using the small built-in demo set instead — serve the folder over HTTP ` +
+                `(<code>npm start</code>) to get the full ${"524"}-example dataset.`;
+        }
+
+        renderDataset();
+    }
+
+    function renderDataset() {
+        const filter = $("datasetFilter").value.trim().toLowerCase();
+        const rows = [];
+
+        for (const example of state.dataset) {
+            if (filter && !example.text.toLowerCase().includes(filter) && !example.label.includes(filter)) continue;
+            rows.push(
+                `<tr><td>${escapeHtml(example.text)}</td>` +
+                `<td><span class="tag ${example.label}">${example.label}</span></td></tr>`
+            );
+        }
+
+        const genuine = state.dataset.filter(e => e.label === "genuine").length;
+        const slop = state.dataset.length - genuine;
+
+        $("statExamples").textContent = state.dataset.length;
+        $("statGenuine").textContent = genuine;
+        $("statSlop").textContent = slop;
+        $("datasetRows").innerHTML = rows.join("") ||
+            `<tr><td colspan="2" class="hint">No examples match the filter.</td></tr>`;
+
+        setPill("pillDataset", true, `${state.dataset.length} (${genuine} genuine / ${slop} slop)`);
+    }
+
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+    }
+
+    // =====================================================================
+    // Model loading
+    // =====================================================================
+
+    async function loadShippedModel() {
+        const message = $("modelMessage");
+
+        try {
+            const result = await load_model("./model.json");
+            if (!result.success) throw new Error(result.error);
+            adoptModel(result.model, "model.json");
+            const meta = (state.model.options || {}).trainedFrom;
+            message.className = "msg ok";
+            message.textContent = meta
+                ? `Loaded model.json — trained on ${meta.trainSet} examples, ${pct(meta.testAccuracy)} test accuracy.`
+                : "Loaded model.json.";
+        } catch (error) {
+            message.className = "msg warn";
+            message.textContent = `No shipped model could be loaded (${error.message}). Train one below to get started.`;
+        }
+
+        renderModel();
+    }
+
+    // Take a model that was trained elsewhere (or saved earlier) and put it
+    // into the page. A model saved with softening carries the factor it was
+    // saved with, so the raw model can be recovered exactly and the
+    // softening control keeps working.
+    function adoptModel(model, source) {
+        const temperature = (model.options || {}).temperature;
+        const factor = typeof temperature === "number" && temperature > 0 ? temperature : 1;
+
+        state.rawModel = factor === 1 ? model : scaleModel(model, factor);
+        state.model = model;
+        state.modelSource = source;
+        state.temperature = factor;
+
+        if ($("cfgTemperature")) $("cfgTemperature").value = String(factor);
+    }
+
+    function renderModel() {
+        const hasModel = Boolean(state.model);
+        setPill("pillModel", hasModel, hasModel ? state.modelSource : "not loaded");
+        setPill("pillVocab", hasModel, hasModel ? `${state.model.vocabulary.length} words` : "—");
+
+        const meta = (state.model && state.model.options || {}).trainedFrom;
+        setPill("pillAccuracy", Boolean(meta), meta ? pct(meta.testAccuracy) : "—");
+
+        const details = $("modelDetails");
+        if (!details) return;
+
+        if (!hasModel) {
+            details.textContent = "";
+            return;
+        }
+
+        const options = state.model.options || {};
+        const bits = [
+            `${state.model.vocabulary.length} words`,
+            `${state.model.weights.length} dimensions`,
+            `softening ×${state.temperature}`
+        ];
+        if (options.trainedFrom) {
+            bits.push(`trained on ${options.trainedFrom.trainSet} examples`);
+            bits.push(`seed ${options.trainedFrom.seed}`);
+        }
+        details.textContent = bits.join(" · ");
+    }
+
+    // =====================================================================
+    // Training
+    // =====================================================================
+
+    function log(message) {
+        const box = $("trainLog");
+        box.textContent += message + "\n";
+        box.scrollTop = box.scrollHeight;
+    }
+
+    function readConfig() {
+        return {
+            epochs: clampInt($("cfgEpochs").value, 1, 5000, 60),
+            learningRate: clampNumber($("cfgLr").value, 0.001, 2, 0.2),
+            vectorSize: clampInt($("cfgVectorSize").value, 2, 64, 24),
+            seed: clampInt($("cfgSeed").value, 1, 100000, 7),
+            splitSeed: clampInt($("cfgSplitSeed").value, 1, 100000, 1),
+            temperature: clampNumber($("cfgTemperature").value, 1, 20, 4),
+            ratios: parseRatios($("cfgRatios").value)
+        };
+    }
+
+    // "0.7 / 0.15 / 0.15" -> { trainRatio, validationRatio }. Anything that
+    // does not parse falls back to the subsystem defaults.
+    function parseRatios(value) {
+        const parts = String(value).split(/[^0-9.]+/).filter(part => part.length > 0).map(Number);
+        if (parts.length !== 3 || parts.some(part => Number.isNaN(part))) {
+            return { trainRatio: 0.7, validationRatio: 0.15 };
+        }
+        return { trainRatio: parts[0], validationRatio: parts[1] };
+    }
+
+    function clampInt(value, min, max, fallback) {
+        const number = parseInt(value, 10);
+        if (Number.isNaN(number)) return fallback;
+        return Math.min(max, Math.max(min, number));
+    }
+
+    function clampNumber(value, min, max, fallback) {
+        const number = parseFloat(value);
+        if (Number.isNaN(number)) return fallback;
+        return Math.min(max, Math.max(min, number));
+    }
+
+    async function train() {
+        if (state.training) return;
+        if (state.dataset.length < 4) {
+            $("resultsMessage").hidden = false;
+            $("resultsMessage").className = "msg error";
+            $("resultsMessage").textContent = "Not enough examples to train on.";
+            return;
+        }
+
+        const config = readConfig();
+
+        state.training = true;
+        state.stopRequested = false;
+        $("btnTrain").disabled = true;
+        $("btnStop").disabled = false;
+        $("trainStatus").textContent = "training…";
+        $("trainProgress").style.width = "0%";
+        $("trainLog").textContent = "";
+
+        let split;
+        try {
+            split = split_dataset(state.dataset, {
+                seed: config.splitSeed,
+                trainRatio: config.ratios.trainRatio,
+                validationRatio: config.ratios.validationRatio
+            });
+        } catch (error) {
+            state.training = false;
+            $("btnTrain").disabled = false;
+            $("btnStop").disabled = true;
+            $("trainStatus").textContent = "invalid split";
+            $("trainLog").textContent = `Could not split the data: ${error.message}\n`;
+            return;
+        }
+
+        const { trainSet, validationSet, testSet } = split;
+
+        const vocabulary = build_vocabulary(trainSet);
+        const model = initialise_model({
+            vocabulary,
+            vectorSize: config.vectorSize,
+            seed: config.seed,
+            learningRate: config.learningRate,
+            epochs: config.epochs
+        });
+
+        log(`training data : ${trainSet.length} examples`);
+        log(`validation    : ${validationSet.length} examples`);
+        log(`test          : ${testSet.length} examples`);
+        log(`vocabulary    : ${model.vocabulary.length} entries (including <UNK>)`);
+        log(`settings      : epochs=${config.epochs} lr=${config.learningRate} vectorSize=${config.vectorSize} seed=${config.seed}`);
+        log("");
+
+        const history = [];
+        const chunkSize = 10;
+        const started = performance.now();
+
+        // Training runs in chunks so the page stays responsive and the
+        // chart updates while the model learns.
+        for (let done = 0; done < config.epochs && !state.stopRequested; done += chunkSize) {
+            const epochs = Math.min(chunkSize, config.epochs - done);
+
+            train_model(trainSet, validationSet, model, {
+                epochs,
+                learningRate: config.learningRate,
+                onEpoch: (epoch, record) => history.push(record)
+            });
+
+            const percent = ((done + epochs) / config.epochs) * 100;
+            $("trainProgress").style.width = `${percent.toFixed(1)}%`;
+            $("trainStatus").textContent = `epoch ${done + epochs} / ${config.epochs}`;
+            drawCharts(history);
+
+            await new Promise(resolve => setTimeout(resolve, 0));
+        }
+
+        model.history = history;
+        state.rawModel = model;
+        state.modelSource = state.stopRequested ? "partially trained" : "trained in this page";
+        state.history = history;
+        setTemperature(readConfig().temperature, { updateControl: false, reevaluate: false });
+
+        const seconds = ((performance.now() - started) / 1000).toFixed(1);
+        const last = history[history.length - 1];
+        log("");
+        log(`finished in ${seconds}s after ${history.length} epochs`);
+        if (last) {
+            log(`train loss      : ${last.train.averageLoss.toFixed(4)}`);
+            log(`validation loss : ${last.validation.averageLoss.toFixed(4)}`);
+            log(`validation acc  : ${pct(last.validation.accuracy)}`);
+        }
+
+        state.training = false;
+        $("btnTrain").disabled = false;
+        $("btnStop").disabled = true;
+        $("trainStatus").textContent = state.stopRequested ? "stopped" : "finished";
+
+        renderModel();
+
+        if ($("cfgAutoEvaluate").checked && !state.stopRequested) {
+            evaluate(state.model, testSet, trainSet, validationSet);
+        } else {
+            $("resultsMessage").hidden = false;
+            $("resultsMessage").className = "msg warn";
+            $("resultsMessage").textContent = "Training finished. The held-out test split was not evaluated.";
+        }
+    }
+
+    // =====================================================================
+    // Evaluation
+    // =====================================================================
+
+    function evaluate(model, testSet, trainSet, validationSet) {
+        const testMetrics = evaluate_model(model, testSet);
+        const trainMetrics = trainSet.length ? evaluate_model(model, trainSet) : null;
+        const validationMetrics = validationSet.length ? evaluate_model(model, validationSet) : null;
+
+        state.lastSplit = { trainSet, validationSet, testSet };
+        state.lastMetrics = { test: testMetrics, train: trainMetrics, validation: validationMetrics };
+
+        const slopTotal = testMetrics.truePositive + testMetrics.falseNegative;
+        const genuineTotal = testMetrics.trueNegative + testMetrics.falsePositive;
+        const recall = slopTotal === 0 ? 0 : testMetrics.truePositive / slopTotal;
+        const fpr = genuineTotal === 0 ? 0 : testMetrics.falsePositive / genuineTotal;
+        const f1 = (testMetrics.precision + recall) === 0
+            ? 0
+            : 2 * testMetrics.precision * recall / (testMetrics.precision + recall);
+
+        $("mTestAcc").textContent = pct(testMetrics.accuracy);
+        $("mTestAcc").className = "v " + (testMetrics.accuracy >= 0.8 ? "good" : "bad");
+        $("mRecall").textContent = pct(recall);
+        $("mRecall").className = "v " + (recall >= 0.8 ? "good" : "bad");
+        $("mFpr").textContent = pct(fpr);
+        $("mFpr").className = "v " + (fpr <= 0.1 ? "good" : "bad");
+        $("mPrecision").textContent = pct(testMetrics.precision);
+        $("mPrecision").className = "v";
+        $("mLoss").textContent = testMetrics.averageLoss.toFixed(4);
+        $("mLoss").className = "v";
+
+        $("resultsSource").textContent =
+            `${testSet.length} held-out examples · ${model.vocabulary.length} word vectors`;
+        $("resultsMessage").hidden = false;
+        $("resultsMessage").className = "msg ok";
+        $("resultsMessage").textContent =
+            `Evaluated on ${testSet.length} examples the model never trained on. ` +
+            `Recall ${pct(recall)} of the slop, ${pct(fpr)} of the genuine text wrongly flagged.`;
+
+        renderMatrix(testMetrics);
+        renderSplitTable(trainSet, validationSet, testSet, model);
+        renderTestRows(model, testSet);
+        drawCharts(state.history);
+    }
+
+    function renderMatrix(metrics) {
+        const cells = [
+            ["", "predicted genuine", "predicted slop"],
+            ["actually genuine", ["true negative", metrics.trueNegative, "good"],
+                                  ["false positive", metrics.falsePositive, "bad"]],
+            ["actually slop", ["false negative", metrics.falseNegative, "bad"],
+                              ["true positive", metrics.truePositive, "good"]]
+        ];
+
+        $("matrix").innerHTML = cells.map((row, rowIndex) => row.map((cell, cellIndex) => {
+            if (rowIndex === 0) return `<div class="head">${cell}</div>`;
+            if (cellIndex === 0) return `<div class="head">${cell}</div>`;
+            return `<div class="cell ${cell[2]}"><strong>${cell[1]}</strong><br><span class="hint small">${cell[0]}</span></div>`;
+        }).join(""));
+    }
+
+    function renderSplitTable(trainSet, validationSet, testSet, model) {
+        const known = new Set(model.vocabulary);
+        let totalTokens = 0;
+        let unknownTokens = 0;
+
+        for (const example of testSet) {
+            for (const token of tokenise(normalise_text(example.text))) {
+                totalTokens++;
+                if (!known.has(token)) unknownTokens++;
+            }
+        }
+
+        const coverage = totalTokens === 0 ? 0 : 1 - unknownTokens / totalTokens;
+
+        const rows = [
+            ["Train examples", trainSet.length],
+            ["Validation examples", validationSet.length],
+            ["Test examples", testSet.length],
+            ["Vocabulary size", model.vocabulary.length],
+            ["Test token coverage", pct(coverage)],
+            ["Unknown test tokens", `${unknownTokens} / ${totalTokens}`]
+        ];
+
+        $("splitTable").querySelector("tbody").innerHTML = rows.map(([key, value]) =>
+            `<tr><td>${key}</td><td class="num"><strong>${value}</strong></td></tr>`
+        ).join("");
+    }
+
+    function renderTestRows(model, testSet) {
+        const rows = testSet.map(example => {
+            const { score } = make_prediction_for_training(example.text, model);
+            const predicted = score >= 0.5 ? "slop" : "genuine";
+            const correct = predicted === example.label;
+            return `<tr>
+                <td>${escapeHtml(example.text)}</td>
+                <td><span class="tag ${example.label}">${example.label}</span></td>
+                <td class="num">${score.toFixed(3)}</td>
+                <td>${correct
+                    ? '<span class="tag genuine">correct</span>'
+                    : `<span class="tag slop">wrong (${predicted})</span>`}</td>
+            </tr>`;
+        });
+
+        $("testRows").innerHTML = rows.join("") ||
+            `<tr><td colspan="4" class="hint">No test examples.</td></tr>`;
+    }
+
+    // =====================================================================
+    // Charts
+    // =====================================================================
+
+    function drawCharts(history) {
+        drawChart($("chartLoss"), [
+            { label: "train loss", color: "#2f9e5f", values: history.map(h => h.train.averageLoss) },
+            { label: "validation loss", color: "#b7791f", values: history.map(h => h.validation.averageLoss) }
+        ], { zeroBased: true });
+
+        drawChart($("chartAccuracy"), [
+            { label: "validation accuracy", color: "#2f9e5f", values: history.map(h => h.validation.accuracy) }
+        ], { min: 0, max: 1 });
+    }
+
+    function drawChart(canvas, series, options) {
+        const settings = options || {};
+        const dpr = window.devicePixelRatio || 1;
+        const width = canvas.clientWidth || 300;
+        const height = canvas.clientHeight || 150;
+
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+
+        const values = series.flatMap(s => s.values).filter(v => typeof v === "number" && !Number.isNaN(v));
+
+        if (values.length === 0) {
+            ctx.fillStyle = "#8a978e";
+            ctx.font = "12px system-ui, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("no training data yet", width / 2, height / 2);
+            return;
+        }
+
+        let min = settings.min !== undefined ? settings.min : Math.min(...values);
+        let max = settings.max !== undefined ? settings.max : Math.max(...values);
+        if (settings.zeroBased) min = 0;
+        if (max === min) max = min + 1;
+        const padding = (max - min) * 0.1;
+        if (settings.max === undefined) max += padding;
+        if (settings.min === undefined) min = Math.max(0, min - padding);
+
+        const padLeft = 34;
+        const padBottom = 16;
+        const padTop = 8;
+        const plotWidth = width - padLeft - 6;
+        const plotHeight = height - padTop - padBottom;
+
+        // Grid and axis labels.
+        ctx.strokeStyle = "#e6ece7";
+        ctx.lineWidth = 1;
+        ctx.fillStyle = "#7b8a80";
+        ctx.font = "10px system-ui, sans-serif";
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+
+        for (let i = 0; i <= 4; i++) {
+            const value = min + (max - min) * (i / 4);
+            const y = padTop + plotHeight - (i / 4) * plotHeight;
+            ctx.beginPath();
+            ctx.moveTo(padLeft, y);
+            ctx.lineTo(width - 6, y);
+            ctx.stroke();
+            ctx.fillText(value.toFixed(max - min < 1 ? 2 : 1), padLeft - 5, y);
+        }
+
+        const count = Math.max(...series.map(s => s.values.length));
+
+        for (const entry of series) {
+            if (entry.values.length === 0) continue;
+            ctx.strokeStyle = entry.color;
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+
+            entry.values.forEach((value, index) => {
+                const x = padLeft + (count === 1 ? plotWidth / 2 : (index / (count - 1)) * plotWidth);
+                const y = padTop + plotHeight - ((value - min) / (max - min)) * plotHeight;
+                if (index === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+            });
+
+            ctx.stroke();
+        }
+
+        ctx.fillStyle = "#7b8a80";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+        ctx.fillText(`epoch 1`, padLeft, height - padBottom + 3);
+        ctx.textAlign = "right";
+        ctx.fillText(`epoch ${count}`, width - 6, height - padBottom + 3);
+    }
+
+    // =====================================================================
+    // Scoring
+    // =====================================================================
+
+    async function scoreText() {
+        const text = $("testInput").value;
+
+        if (!state.model) {
+            $("scoreMessage").className = "msg error";
+            $("scoreMessage").textContent = "No model loaded — train one first.";
+            return;
+        }
+
+        if (!text.trim()) {
+            $("scoreMessage").className = "msg warn";
+            $("scoreMessage").textContent = "Type some text to score it.";
+            return;
+        }
+
+        const model = state.model;
+        const withSynonyms = { ...model, options: { ...(model.options || {}), useSynonyms: state.useSynonyms } };
+
+        state.lastScoredText = text;
+
+        let score;
+        try {
+            score = await classify_text(text, withSynonyms);
+        } catch (error) {
+            $("scoreMessage").className = "msg error";
+            $("scoreMessage").textContent = `Could not score the text: ${error.message}`;
+            return;
+        }
+
+        const verdict = score >= state.threshold ? "slop" : "genuine";
+
+        $("scoreArea").hidden = false;
+        $("scoreValue").textContent = score.toFixed(3);
+        $("scoreValue").style.color = verdict === "slop" ? "#d9534f" : "#1d7444";
+        $("scoreVerdict").textContent = verdict === "slop"
+            ? "reads like slop"
+            : "reads like genuine text";
+        $("scoreVerdict").style.color = verdict === "slop" ? "#a33a37" : "#1d7444";
+        $("scoreNeedle").style.left = `${score * 100}%`;
+        $("scoreThreshold").style.left = `${state.threshold * 100}%`;
+
+        const tokens = tokenise(normalise_text(text));
+        const known = new Set(model.vocabulary);
+        const unknown = tokens.filter(token => !known.has(token));
+
+        $("tokenList").innerHTML = tokens.length
+            ? tokens.map(token => known.has(token)
+                ? `<span class="token known">${escapeHtml(token)}</span>`
+                : `<span class="token unknown">${escapeHtml(token)}</span>`).join("")
+            : `<span class="hint small">no tokens</span>`;
+
+        $("scoreMessage").className = unknown.length
+            ? "msg warn"
+            : "msg ok";
+        $("scoreMessage").textContent = unknown.length
+            ? `${unknown.length} of ${tokens.length} tokens are outside the model's vocabulary and count as <UNK>.`
+            : `Every token is in the model's vocabulary.`;
+    }
+
+    async function scoreList() {
+        if (!state.model) {
+            $("batchSummary").textContent = "no model loaded";
+            return;
+        }
+
+        const lines = $("batchInput").value
+            .split("\n")
+            .map(line => line.trim())
+            .filter(line => line.length > 0);
+
+        if (lines.length === 0) {
+            $("batchRows").innerHTML = "";
+            $("batchSummary").textContent = "nothing to score";
+            return;
+        }
+
+        const model = state.model;
+        const withSynonyms = { ...model, options: { ...(model.options || {}), useSynonyms: state.useSynonyms } };
+
+        const rows = [];
+        for (const line of lines) {
+            const score = await classify_text(line, withSynonyms);
+            const verdict = score >= state.threshold ? "slop" : "genuine";
+            rows.push(
+                `<tr><td>${escapeHtml(line)}</td>` +
+                `<td class="num">${score.toFixed(3)}</td>` +
+                `<td><span class="tag ${verdict}">${verdict}</span></td></tr>`
+            );
+        }
+
+        $("batchRows").innerHTML = rows.join("");
+        $("batchSummary").textContent = `${lines.length} scored`;
+    }
+
+    // =====================================================================
+    // Model files
+    // =====================================================================
+
+    function downloadModel() {
+        if (!state.model) return;
+        // `save_model` is the subsystem's own serialiser; in the browser it
+        // triggers a download through an anchor.
+        const result = save_model(state.model, "sprout-model.json");
+        $("modelMessage").className = result.success ? "msg ok" : "msg error";
+        $("modelMessage").textContent = result.success
+            ? "Model downloaded as sprout-model.json."
+            : `Could not save the model: ${result.error}`;
+    }
+
+    function saveLocal() {
+        if (!state.model) return;
+        try {
+            localStorage.setItem("sprout-model", JSON.stringify({
+                version: 1,
+                vocabulary: state.model.vocabulary,
+                wordVectors: state.model.wordVectors,
+                weights: state.model.weights,
+                bias: state.model.bias,
+                options: state.model.options
+            }));
+            $("modelMessage").className = "msg ok";
+            $("modelMessage").textContent = "Model saved in this browser.";
+        } catch (error) {
+            $("modelMessage").className = "msg error";
+            $("modelMessage").textContent = `Could not save locally: ${error.message}`;
+        }
+    }
+
+    function loadLocal() {
+        const raw = localStorage.getItem("sprout-model");
+        if (!raw) {
+            $("modelMessage").className = "msg warn";
+            $("modelMessage").textContent = "No model saved in this browser yet.";
+            return;
+        }
+        // `load_model` accepts a storage hook, so the subsystem's own
+        // parser validates the payload.
+        const result = load_model("sprout-model.json", { storage: () => raw });
+        if (!result.success) {
+            $("modelMessage").className = "msg error";
+            $("modelMessage").textContent = `Could not load the saved model: ${result.error}`;
+            return;
+        }
+        adoptModel(result.model, "browser storage");
+        $("modelMessage").className = "msg ok";
+        $("modelMessage").textContent = "Model loaded from this browser.";
+        renderModel();
+    }
+
+    function uploadModel(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            const result = load_model(file.name, { storage: () => String(reader.result) });
+            if (!result.success) {
+                $("modelMessage").className = "msg error";
+                $("modelMessage").textContent = `Could not load that file: ${result.error}`;
+                return;
+            }
+            adoptModel(result.model, file.name);
+            $("modelMessage").className = "msg ok";
+            $("modelMessage").textContent = `Loaded ${file.name}.`;
+            renderModel();
+        };
+        reader.onerror = () => {
+            $("modelMessage").className = "msg error";
+            $("modelMessage").textContent = "Could not read that file.";
+        };
+        reader.readAsText(file);
+    }
+
+    function importDataset(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            try {
+                const parsed = JSON.parse(String(reader.result));
+                state.dataset = parse_training_data(parsed, file.name);
+                state.datasetSource = file.name;
+                $("datasetMessage").className = "msg ok";
+                $("datasetMessage").textContent = `Loaded ${state.dataset.length} examples from ${file.name}.`;
+                renderDataset();
+            } catch (error) {
+                $("datasetMessage").className = "msg error";
+                $("datasetMessage").textContent = `Could not read that file: ${error.message}`;
+            }
+        };
+        reader.onerror = () => {
+            $("datasetMessage").className = "msg error";
+            $("datasetMessage").textContent = "Could not read that file.";
+        };
+        reader.readAsText(file);
+    }
+
+    // =====================================================================
+    // Wiring
+    // =====================================================================
+
+    function bind() {
+        $("btnReloadDataset").addEventListener("click", loadDataset);
+        $("datasetFilter").addEventListener("input", renderDataset);
+
+        $("btnNewGenuine").addEventListener("click", () => setNewLabel("genuine"));
+        $("btnNewSlop").addEventListener("click", () => setNewLabel("slop"));
+
+        $("btnAddExample").addEventListener("click", () => {
+            const input = $("newExampleText");
+            const text = input.value.trim();
+            if (!text) {
+                input.focus();
+                return;
+            }
+            state.dataset.push({ text, label: state.newLabel });
+            input.value = "";
+            renderDataset();
+            $("datasetMessage").className = "msg ok";
+            $("datasetMessage").textContent =
+                `Added "${text}" as ${state.newLabel}. ${state.dataset.length} examples in total.`;
+        });
+
+        $("btnDownloadDataset").addEventListener("click", () => {
+            download("training.json", JSON.stringify(state.dataset, null, 2) + "\n");
+        });
+
+        $("btnImportDataset").addEventListener("click", () => $("fileImportDataset").click());
+        $("fileImportDataset").addEventListener("change", event => {
+            const file = event.target.files[0];
+            if (file) importDataset(file);
+            event.target.value = "";
+        });
+
+        $("btnDownloadModel").addEventListener("click", downloadModel);
+        $("btnSaveLocal").addEventListener("click", saveLocal);
+        $("btnLoadLocal").addEventListener("click", loadLocal);
+        $("btnResetModel").addEventListener("click", loadShippedModel);
+        $("btnUploadModel").addEventListener("click", () => $("fileUploadModel").click());
+        $("fileUploadModel").addEventListener("change", event => {
+            const file = event.target.files[0];
+            if (file) uploadModel(file);
+            event.target.value = "";
+        });
+
+        $("threshold").addEventListener("input", event => {
+            state.threshold = parseFloat(event.target.value);
+            $("scoreThreshold").style.left = `${state.threshold * 100}%`;
+            // Re-read the last scored text so the verdict follows the slider.
+            if (state.lastScoredText) scoreText();
+        });
+
+        $("cfgTemperature").addEventListener("change", event => {
+            const temperature = parseFloat(event.target.value);
+            setTemperature(temperature, { reevaluate: true });
+            if (state.lastScoredText) scoreText();
+            $("trainLog").textContent +=
+                `score softening set to x${temperature} — decisions are unchanged, the scores are spread out\n`;
+        });
+
+        $("btnTrain").addEventListener("click", train);
+        $("btnStop").addEventListener("click", () => {
+            state.stopRequested = true;
+            $("btnStop").disabled = true;
+        });
+
+        $("btnScore").addEventListener("click", scoreText);
+        $("btnScoreList").addEventListener("click", scoreList);
+        $("btnSampleList").addEventListener("click", () => {
+            $("batchInput").value = SAMPLE_LIST.join("\n");
+            scoreList();
+        });
+
+        $("useSynonyms").addEventListener("change", event => {
+            state.useSynonyms = event.target.checked;
+        });
+
+        $("testInput").addEventListener("keydown", event => {
+            if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+                event.preventDefault();
+                scoreText();
+            }
+        });
+
+        $("batchInput").addEventListener("keydown", event => {
+            if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+                event.preventDefault();
+                scoreList();
+            }
+        });
+
+        window.addEventListener("resize", () => drawCharts(state.history));
+    }
+
+    function setNewLabel(label) {
+        state.newLabel = label;
+        $("btnNewGenuine").setAttribute("aria-pressed", String(label === "genuine"));
+        $("btnNewSlop").setAttribute("aria-pressed", String(label === "slop"));
+    }
+
+    // =====================================================================
+    // Boot
+    // =====================================================================
+
+    async function boot() {
+        bind();
+        setNewLabel("genuine");
+        drawCharts([]);
+        await loadDataset();
+        await loadShippedModel();
+
+        // A first example to try, so the score panel is not empty.
+        $("testInput").value = "Water the plants on the balcony";
+        if (state.model) scoreText();
+    }
+
+    boot();
+})();
+</script>
+</body>
+</html>
