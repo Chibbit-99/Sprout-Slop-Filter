@@ -72,10 +72,10 @@ function parseArgs(argv) {
 
 // ----- Data ----------------------------------------------------------------
 
-// Mirrors `load_training_data` in subsystems/: the same file shape, the same
-// validation, the same "fail loudly on a bad label" behaviour. The browser
-// uses the subsystem version; this script reads from disk directly because
-// `fetch` cannot open a `file://` path in Node.
+// The validation rules live in `subsystems/load_training_data.js`, so the
+// trainer and the browser app accept exactly the same files. This script
+// reads from disk directly because `fetch` cannot open a `file://` path in
+// Node.
 function loadExamples(file) {
     const fullPath = path.resolve(here, file);
     let parsed;
@@ -86,26 +86,7 @@ function loadExamples(file) {
         throw new Error(`Could not read ${file}: ${error.message}`);
     }
 
-    if (!Array.isArray(parsed)) {
-        throw new TypeError(`${file}: expected an array of examples`);
-    }
-
-    return parsed.map((entry, index) => {
-        if (!entry || typeof entry.text !== "string" || entry.text.length === 0) {
-            throw new Error(`${file}: example ${index} is missing valid text`);
-        }
-
-        const label = typeof entry.label === "string" ? entry.label.trim().toLowerCase() : "";
-
-        if (label !== "genuine" && label !== "slop") {
-            throw new Error(
-                `${file}: example ${index} has invalid label "${entry.label}" ` +
-                `(expected "genuine" or "slop")`
-            );
-        }
-
-        return { text: entry.text, label };
-    });
+    return sprout.parse_training_data(parsed, file);
 }
 
 // ----- Training ------------------------------------------------------------

@@ -26,7 +26,8 @@ vm.runInContext(
          calculate_loss, update_parameters, make_prediction_for_training,
          evaluate_model, train_model, initialise_model, get_word_vector,
          split_dataset, save_model, load_model, classify_text,
-         map_synonyms, get_synonyms_cached, clear_synonym_cache
+         map_synonyms, get_synonyms_cached, clear_synonym_cache,
+         build_vocabulary, parse_training_data
      };`,
     context
 );
@@ -40,15 +41,9 @@ export const sprout = context.__sprout;
 // Every token the examples use, in first-seen order. The vocabulary is
 // built the same way at training time and at prediction time, so the
 // model's word vectors line up with the tokens it will later receive.
-export function buildVocabulary(examples) {
-    const seen = new Set();
-    for (const example of examples) {
-        for (const token of sprout.tokenise(sprout.normalise_text(example.text))) {
-            seen.add(token);
-        }
-    }
-    return [...seen];
-}
+// This is `build_vocabulary` from subsystems/, under the camelCase name the
+// experiments have always used.
+export const buildVocabulary = sprout.build_vocabulary;
 
 // Percentage of a set that is predicted as slop, broken down by the true
 // label. Used to report the false-positive rate separately from accuracy.

@@ -636,6 +636,7 @@
 <script src="./subsystems/initialise_model.js"></script>
 <script src="./subsystems/split_dataset.js"></script>
 <script src="./subsystems/load_training_data.js"></script>
+<script src="./subsystems/build_vocabulary.js"></script>
 <script src="./subsystems/classify_text.js"></script>
 <script src="./subsystems/save_model.js"></script>
 <script src="./subsystems/load_model.js"></script>
@@ -735,36 +736,6 @@
         anchor.click();
         document.body.removeChild(anchor);
         setTimeout(() => URL.revokeObjectURL(url), 1000);
-    }
-
-    // The vocabulary is built from the tokens the model will actually meet.
-    function buildVocabulary(examples) {
-        const seen = new Set();
-        for (const example of examples) {
-            for (const token of tokenise(normalise_text(example.text))) {
-                seen.add(token);
-            }
-        }
-        return [...seen];
-    }
-
-    // Same validation rules as `load_training_data` in subsystems/, used
-    // for data that arrives from a file or from the page itself.
-    function validateExamples(entries, source) {
-        if (!Array.isArray(entries)) {
-            throw new TypeError(`${source}: expected an array of examples`);
-        }
-
-        return entries.map((entry, index) => {
-            if (!entry || typeof entry.text !== "string" || entry.text.trim().length === 0) {
-                throw new Error(`${source}: example ${index} is missing valid text`);
-            }
-            const label = typeof entry.label === "string" ? entry.label.trim().toLowerCase() : "";
-            if (label !== "genuine" && label !== "slop") {
-                throw new Error(`${source}: example ${index} has invalid label "${entry.label}"`);
-            }
-            return { text: entry.text, label };
-        });
     }
 
     // Scaling the classifier weights and the bias is a temperature change:
@@ -1014,7 +985,7 @@
 
         const { trainSet, validationSet, testSet } = split;
 
-        const vocabulary = buildVocabulary(trainSet);
+        const vocabulary = build_vocabulary(trainSet);
         const model = initialise_model({
             vocabulary,
             vectorSize: config.vectorSize,
@@ -1468,7 +1439,7 @@
         reader.onload = () => {
             try {
                 const parsed = JSON.parse(String(reader.result));
-                state.dataset = validateExamples(parsed, file.name);
+                state.dataset = parse_training_data(parsed, file.name);
                 state.datasetSource = file.name;
                 $("datasetMessage").className = "msg ok";
                 $("datasetMessage").textContent = `Loaded ${state.dataset.length} examples from ${file.name}.`;
