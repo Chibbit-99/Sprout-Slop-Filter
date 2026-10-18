@@ -85,9 +85,9 @@ Creates the word vectors and classifier parameters. The initial values should be
 ### 11. `make_prediction_for_training(text, model_parameters) -> score`
 
 **Input:** A training example's text and the current model parameters.  
-**Output:** The predicted slop score.
+**Output:** The predicted slop score, the encoded representation, and the vocabulary indices of the tokens that contributed to it.
 
-Runs the same text-processing and prediction steps used during normal use. Training must use consistent tokenisation and vocabulary rules so the model learns from the representation it will later receive.
+Runs the same text-processing and prediction steps used during normal use. Training must use consistent tokenisation and vocabulary rules so the model learns from the representation it will later receive. The representation and the token indices are returned alongside the score because `update_parameters` needs them to adjust both the classifier and the word vectors.
 
 ### 12. `calculate_loss(score, correct_label) -> error`
 
@@ -98,10 +98,10 @@ Produces a larger error when the prediction disagrees strongly with the label an
 
 ### 13. `update_parameters(model_parameters, error_information, learning_rate) -> updated_parameters`
 
-**Input:** The model parameters and information about how they contributed to the error.  
+**Input:** The model parameters and information about how they contributed to the error — the gradient from `calculate_loss`, the encoded representation, and the vocabulary indices of the tokens that were averaged into it.  
 **Output:** Adjusted parameters.
 
-Changes the word vectors and classifier values a little at a time to make similar mistakes less likely. This requires calculating how each parameter contributed to the error; the exact method depends on the chosen model.
+Changes the word vectors and classifier values a little at a time to make similar mistakes less likely. This requires calculating how each parameter contributed to the error; the exact method depends on the chosen model. Each word vector that participated in the representation receives a share of the error weighted by how often it participated; the token indices are what make that possible.
 
 ### 14. `train_model(train_set, validation_set, settings) -> trained_model`
 

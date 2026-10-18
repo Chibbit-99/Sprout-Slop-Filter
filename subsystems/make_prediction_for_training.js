@@ -9,8 +9,13 @@
 // The classifier still benefits from whatever vectors the model has
 // learned for its vocabulary.
 //
-// Returns the predicted score (0..1) and the encoded representation, which
-// `update_parameters` needs to backpropagate the error.
+// Returns the predicted score (0..1), the encoded representation, and the
+// `tokenIndices` — the vocabulary index of every token that contributed to
+// the representation, mirroring the lookup rules of `get_word_vector`
+// (a known token maps to its own entry, an unknown token to the shared
+// `<UNK>` entry). `update_parameters` needs both the representation and
+// the token indices to backpropagate the error into the classifier weights
+// AND the word vectors.
 
 function make_prediction_for_training(text, modelParameters) {
     if (typeof text !== "string") {
@@ -21,12 +26,32 @@ function make_prediction_for_training(text, modelParameters) {
         throw new TypeError("make_prediction_for_training: modelParameters missing");
     }
 
+    // Keep this private constant local because subsystem files are loaded as
+    // classic scripts and share a global lexical scope.
+    const UNKNOWN_TOKEN = "<UNK>";
+
     const clean = normalise_text(text);
     const tokens = tokenise(clean);
 
-    const vectors = tokens.map(token =>
-        get_word_vector(token, modelParameters.vocabulary, modelParameters.wordVectors, [])
-    );
+    const unknownIndex = modelParameters.vocabulary.indexOf(UNKNOWN_TOKEN);
+
+    const vectors = [];
+    const tokenIndices = [];
+
+    for (const token of tokens) {
+        vectors.push(get_word_vector(token, modelParameters.vocabulary, modelParameters.wordVectors, []));
+
+        // Record which learnable vector this token used. If a token is
+        // unknown and the vocabulary has no `<UNK>` entry, `get_word_vector`
+        // falls back to an unlearnable zero vector, so there is no index to
+        // record for it.
+        const index = modelParameters.vocabulary.indexOf(token);
+        if (index !== -1) {
+            tokenIndices.push(index);
+        } else if (unknownIndex !== -1) {
+            tokenIndices.push(unknownIndex);
+        }
+    }
 
     const representation = encode_text(vectors);
     const score = predict_slop(representation, {
@@ -34,5 +59,5 @@ function make_prediction_for_training(text, modelParameters) {
         bias: modelParameters.bias
     });
 
-    return { score, representation };
+    return { score, representation, tokenIndices };
 }

@@ -475,6 +475,18 @@
             },
             true
         ));
+        tests.push(makeTest(
+            "11. make_prediction_for_training: tokenIndices map known tokens to their vocabulary entry and unknown tokens to <UNK>",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy", "milk"], seed: 1, vectorSize: 4 });
+                // vocabulary becomes ["<UNK>", "buy", "milk"]
+                const known = make_prediction_for_training("buy milk", m);
+                const mixed = make_prediction_for_training("buy zzz", m);
+                return deepEqual(known.tokenIndices, [1, 2])
+                    && deepEqual(mixed.tokenIndices, [1, 0]);
+            },
+            true
+        ));
 
         // 12. calculate_loss
         tests.push(makeTest(
@@ -508,6 +520,33 @@
             },
             true
         ));
+        tests.push(makeTest(
+            "13. update_parameters: word vectors of participating tokens move when tokenIndices are supplied",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy", "milk"], seed: 1, vectorSize: 3 });
+                const before = m.wordVectors.map(v => v.slice());
+                const { representation, tokenIndices } = make_prediction_for_training("buy milk", m);
+                const { gradient } = calculate_loss(0.1, "slop");
+                update_parameters(m, { gradient }, 0.5, representation, tokenIndices);
+                const buyMoved = m.wordVectors[1].some((v, i) => v !== before[1][i]);
+                const milkMoved = m.wordVectors[2].some((v, i) => v !== before[2][i]);
+                const unkUntouched = m.wordVectors[0].every((v, i) => v === before[0][i]);
+                return buyMoved && milkMoved && unkUntouched;
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "13. update_parameters: without tokenIndices only the classifier changes (backwards compatible)",
+            () => {
+                const m = initialise_model({ vocabulary: ["buy", "milk"], seed: 1, vectorSize: 3 });
+                const before = JSON.stringify(m.wordVectors);
+                const { representation } = make_prediction_for_training("buy milk", m);
+                const { gradient } = calculate_loss(0.1, "slop");
+                update_parameters(m, { gradient }, 0.5, representation);
+                return JSON.stringify(m.wordVectors) === before && m.bias !== 0;
+            },
+            true
+        ));
 
         // 14. train_model
         tests.push(makeTest(
@@ -532,6 +571,26 @@
                 const firstEpoch = m.history[0].train.averageLoss;
                 const lastEpoch = m.history[m.history.length - 1].train.averageLoss;
                 return lastEpoch < firstEpoch;
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "14. train_model: word vectors change during training (FINDINGS.md section 1 regression)",
+            () => {
+                const data = [
+                    { text: "buy milk",        label: "genuine" },
+                    { text: "finish homework", label: "genuine" },
+                    { text: "asdf",            label: "slop" },
+                    { text: "qqq",             label: "slop" }
+                ];
+                const m = initialise_model({
+                    vocabulary: ["buy","milk","finish","homework","asdf","qqq"],
+                    seed: 7,
+                    vectorSize: 4
+                });
+                const before = JSON.stringify(m.wordVectors);
+                train_model(data, [], m, { epochs: 40, learningRate: 0.3 });
+                return JSON.stringify(m.wordVectors) !== before;
             },
             true
         ));

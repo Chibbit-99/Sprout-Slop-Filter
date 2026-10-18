@@ -11,10 +11,13 @@
 // and the amount of data needed to approach that ceiling rises.
 //
 // Run: node experiments/ambiguity.mjs
+//
+// Trains with the real subsystem trainer (`sprout.train_model`), which since
+// the word-vector fix (FINDINGS.md section 1) trains word vectors alongside
+// the classifier.
 
 import { sprout } from "./lib/sprout.mjs";
 import { makeRandom, buildVocabulary, metricsFor, average, standardDeviation, pct } from "./lib/data.mjs";
-import { trainWithWordVectors } from "./lib/trainer_v2.mjs";
 
 const GENUINE = [
     "rotate the api key", "email the landlord about the leak",
@@ -84,7 +87,9 @@ const HELD_OUT_AMBIGUOUS = [
 ];
 
 const TRAIN_SIZES = [40, 80, 160, 320, 640, 1280];
-const SEEDS = [1, 2, 3];
+// Contradictory labels make per-seed results noisy, so this experiment uses
+// more seeds than the others (it originally ran with 3).
+const SEEDS = [1, 2, 3, 4, 5];
 const EPOCHS = 300;
 const LEARNING_RATE = 0.2;
 
@@ -135,9 +140,7 @@ for (const share of SHARES) {
             const trainSet = sampleSet(size, share, random);
             const model = sprout.initialise_model({ vocabulary: buildVocabulary(trainSet), seed });
 
-            trainWithWordVectors(trainSet, [], model, sprout, {
-                epochs: EPOCHS, learningRate: LEARNING_RATE, seed
-            });
+            sprout.train_model(trainSet, [], model, { epochs: EPOCHS, learningRate: LEARNING_RATE });
 
             const m = metricsFor(model, testSet);
             seen.push(m.accuracy);

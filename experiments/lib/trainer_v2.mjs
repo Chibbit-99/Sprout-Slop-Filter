@@ -1,18 +1,22 @@
-// PROPOSED PATCH — reference implementation only, does not touch subsystems/.
+// REFERENCE IMPLEMENTATION — cross-check for the fix now landed in subsystems/.
 //
-// `subsystems/update_parameters.js` documents that "word vectors get a small
-// share of the error too, weighted by how often they participated in the
-// representation", but the function never receives `wordVectors` and never
-// writes to them. `train_model.js` passes only the averaged `representation`,
-// so the only parameters that ever change are the 8 classifier weights and
-// the bias.
+// `subsystems/update_parameters.js` always documented that "word vectors get
+// a small share of the error too, weighted by how often they participated in
+// the representation", but originally the function never received
+// `wordVectors` and never wrote to them, and `train_model.js` passed only the
+// averaged `representation` — so the only parameters that ever changed were
+// the 8 classifier weights and the bias (see FINDINGS.md section 1).
 //
-// Consequence: every word vector stays at its initial random value forever.
-// The model can only learn a single linear boundary in a fixed random 8-D
-// space, so held-out accuracy sits near chance-plus-a-bit no matter how much
-// training data you supply.
+// That update is now implemented in the real subsystems:
+// `make_prediction_for_training` returns the participating `tokenIndices`
+// and `train_model` passes them to `update_parameters`, so word vectors
+// learn alongside the classifier.
 //
-// This module implements the update described in those existing comments:
+// This module is kept as an independent cross-check of that fix. It differs
+// from the subsystem trainer in two incidental ways: it pre-tokenises once
+// and shuffles the training order each epoch, and it applies the
+// word-vector step with the just-updated weights instead of the
+// forward-pass weights. `learning_curve.mjs` runs both and compares:
 //
 //   r   = (1/n) * sum(v_t)             averaged word vectors
 //   p   = sigmoid(w . r + b)
