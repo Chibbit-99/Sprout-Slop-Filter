@@ -6,8 +6,12 @@
 // Method: train the real subsystem code at increasing dataset sizes and
 // measure held-out accuracy, under two conditions:
 //
-//   AS-IS   — subsystems as they exist today
-//   PATCHED — with word vectors actually trained (see lib/trainer_v2.mjs)
+//   AS-IS   — the real subsystem trainer in subsystems/. Since the
+//             word-vector fix (FINDINGS.md section 1) this trains the word
+//             vectors alongside the classifier.
+//   PATCHED — the independent reference trainer (lib/trainer_v2.mjs), kept
+//             as a cross-check that the subsystem fix reproduces it. The
+//             two curves should now sit on top of each other.
 //
 // Two test regimes:
 //   SEEN WORDS   — new combinations of words that appeared in training

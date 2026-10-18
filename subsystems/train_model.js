@@ -16,9 +16,9 @@
 // and accuracy evolved across epochs.
 
 function defaultLoss(model, example) {
-    const { score, representation } = make_prediction_for_training(example.text, model);
+    const { score, representation, tokenIndices } = make_prediction_for_training(example.text, model);
     const errorInfo = calculate_loss(score, example.label);
-    return { errorInfo, representation };
+    return { errorInfo, representation, tokenIndices };
 }
 
 function evaluateOnSet(model, set) {
@@ -74,8 +74,11 @@ function train_model(trainSet, validationSet, model, options) {
         let epochLoss = 0;
 
         for (const example of trainSet) {
-            const { errorInfo, representation } = defaultLoss(model, example);
-            update_parameters(model, errorInfo, learningRate, representation);
+            const { errorInfo, representation, tokenIndices } = defaultLoss(model, example);
+            // Passing `tokenIndices` lets `update_parameters` train the word
+            // vectors of every token that contributed to this prediction,
+            // not just the classifier weights (see FINDINGS.md section 1).
+            update_parameters(model, errorInfo, learningRate, representation, tokenIndices);
             epochLoss += errorInfo.loss;
         }
 

@@ -15,10 +15,13 @@
 // warns about.
 //
 // Run: node experiments/realistic_hard.mjs
+//
+// Trains with the real subsystem trainer (`sprout.train_model`), which since
+// the word-vector fix (FINDINGS.md section 1) trains word vectors alongside
+// the classifier.
 
 import { sprout } from "./lib/sprout.mjs";
 import { makeRandom, buildVocabulary, metricsFor, average, standardDeviation, pct } from "./lib/data.mjs";
-import { trainWithWordVectors } from "./lib/trainer_v2.mjs";
 
 // Genuine: specific and checkable.
 const GENUINE = [
@@ -119,9 +122,7 @@ for (const size of TRAIN_SIZES) {
         const trainSet = sampleSet(size, random, GENUINE, SLOP);
         const model = sprout.initialise_model({ vocabulary: buildVocabulary(trainSet), seed });
 
-        trainWithWordVectors(trainSet, [], model, sprout, {
-            epochs: EPOCHS, learningRate: LEARNING_RATE, seed
-        });
+        sprout.train_model(trainSet, [], model, { epochs: EPOCHS, learningRate: LEARNING_RATE });
 
         const s = metricsFor(model, testSeen);
         const u = metricsFor(model, testUnseen);
