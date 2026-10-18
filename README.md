@@ -1,4 +1,4 @@
-# Sprout Slop Filter
+# Sprout: Slop Filter
 
 A small machine-learning project exploring how to detect meaningless or low-effort text ("slop"), starting with task descriptions in a task tracker.
 
