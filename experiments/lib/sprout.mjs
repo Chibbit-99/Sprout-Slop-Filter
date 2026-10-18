@@ -24,9 +24,43 @@ vm.runInContext(
      globalThis.__sprout = {
          normalise_text, tokenise, encode_text, predict_slop,
          calculate_loss, update_parameters, make_prediction_for_training,
-         evaluate_model, train_model, initialise_model, get_word_vector
+         evaluate_model, train_model, initialise_model, get_word_vector,
+         split_dataset, save_model, load_model, classify_text,
+         map_synonyms, get_synonyms_cached, clear_synonym_cache
      };`,
     context
 );
 
 export const sprout = context.__sprout;
+
+// Shared helpers for the CLI tools (`train.mjs`) and the experiments, so
+// every entry point agrees on how a vocabulary is derived and how a model
+// is written to disk.
+
+// Every token the examples use, in first-seen order. The vocabulary is
+// built the same way at training time and at prediction time, so the
+// model's word vectors line up with the tokens it will later receive.
+export function buildVocabulary(examples) {
+    const seen = new Set();
+    for (const example of examples) {
+        for (const token of sprout.tokenise(sprout.normalise_text(example.text))) {
+            seen.add(token);
+        }
+    }
+    return [...seen];
+}
+
+// Percentage of a set that is predicted as slop, broken down by the true
+// label. Used to report the false-positive rate separately from accuracy.
+export function slopBreakdown(result) {
+    const slopTotal = result.truePositive + result.falseNegative;
+    const genuineTotal = result.trueNegative + result.falsePositive;
+    return {
+        accuracy: result.accuracy,
+        precision: result.precision,
+        recall: result.recall,
+        slopRecall: slopTotal === 0 ? 0 : result.truePositive / slopTotal,
+        falsePositiveRate: genuineTotal === 0 ? 0 : result.falsePositive / genuineTotal,
+        averageLoss: result.averageLoss
+    };
+}

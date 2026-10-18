@@ -193,6 +193,119 @@ re-checked at any time.
 
 ---
 
+---
+
+## 5. The same questions, measured on the real dataset
+
+Everything above uses synthetic pools, because that is the only way to vary
+one thing at a time. The project now also ships a hand-written dataset —
+`training.json`, 524 labelled examples (262 genuine, 262 slop) — and a
+trained model, `model.json`. This section repeats the measurements on that
+real data, through the same real subsystem trainer.
+
+Reproduce with:
+
+```bash
+node experiments/real_dataset.mjs
+```
+
+### 5.1 How much of the real data does it need?
+
+Fixed 70/15/15 split of the 524 examples (366 train / 78 validation / 80
+test), 5 seeds, 60 epochs, learning rate 0.2, 24 dimensions:
+
+| training examples | held-out accuracy | slop recall | false positives |
+|---|---|---|---|
+| 25 | 75.0% ± 13.3 pts | 47.6% | 1.4% |
+| 50 | 84.3% ± 9.0 pts | 68.6% | 2.3% |
+| 100 | 93.8% ± 0.0 pts | 89.2% | 2.3% |
+| 200 | 96.3% ± 0.0 pts | 91.9% | 0.0% |
+| 366 (all) | 96.3% ± 0.0 pts | 91.9% | 0.0% |
+
+The shape matches §2: usable by ~50, solid by ~100–200, and **flat after
+200**. Everything past 200 examples buys nothing on this data, which is
+exactly the coverage ceiling of §3 — the training split already contains
+every word the model can use.
+
+The shipped `model.json` is trained on all 366 training examples and scores
+**96.3%** on the 80 held-out ones: 34 true positives, 3 false negatives,
+43 true negatives, **0 false positives**. The false-positive rate is the
+number that matters most for a filter — a model that flags genuine work is
+worse than useless — and at this size it is zero.
+
+### 5.2 Coverage is the real constraint, and it is worse than it looks
+
+| training examples | vocabulary | test tokens the model knows | accuracy |
+|---|---|---|---|
+| 25 | 77 | 32.6% | 75.0% |
+| 50 | 143 | 41.3% | 84.3% |
+| 100 | 244 | 53.4% | 93.8% |
+| 200 | 397 | 67.1% | 96.3% |
+| 366 | 603 | 75.8% | 96.3% |
+
+Even with the whole training split, **only 75.8% of the tokens in the
+held-out test split are words the model has seen**. The dataset is 524
+distinct phrasings, so most content words appear in exactly one example and
+cannot be learned from the rest.
+
+The model still reaches 96.3% because the words it *does* know carry the
+signal: the function words (`the`, `to`, `my`) and the recurring task verbs
+lean genuine, and the recurring filler words lean slop. The three examples
+it still gets wrong are the interesting ones:
+
+```
+0.002  truth=slop  "close the loop"             (1/3 tokens unknown)
+0.001  truth=slop  "consider the options"       (1/3 tokens unknown)
+0.004  truth=slop  "off the top of my head"     (1/6 tokens unknown)
+```
+
+Each is a slop phrase built entirely from words that never appear in
+training, so every content token collapses to `<UNK>` and only the function
+words are left to judge it by — and function words lean genuine, because
+most genuine task descriptions contain them. This is §3's coverage ceiling
+in its purest form: **a phrase made only of unseen words is judged by the
+few words it shares with the training data**, and if those are function
+words, slop will be called genuine.
+
+The practical fix is unchanged from §3: more *examples* of the same kind
+will not help, but more *distinct wordings of the words you expect to see*
+will. For this dataset the honest next step is to write more slop phrases
+that reuse the same filler words, and more genuine phrases that reuse the
+same task verbs.
+
+### 5.3 Score softening
+
+The real data is cleanly separable, so the trained model is extremely
+confident — 78.8% of held-out scores sit at 0.00 or 1.00, and the
+median genuine score is 0.001. The scores are technically correct and
+completely useless to read.
+
+Dividing the classifier weights and the bias by a temperature spreads them
+out again:
+
+| temperature | accuracy | median genuine | median slop | scores at the extremes |
+|---|---|---|---|---|
+| ×1 (off) | 96.3% | 0.001 | 0.998 | 78.8% |
+| ×2 | 96.3% | 0.022 | 0.957 | 27.5% |
+| **×4** | **96.3%** | **0.131** | **0.824** | **0.0%** |
+| ×8 | 96.3% | 0.280 | 0.684 | 0.0% |
+
+Every accuracy figure is identical, and that is not a rounding artefact:
+scaling the weights and the bias leaves the sign of every logit untouched,
+so the 0.5 boundary and every confusion-matrix cell are exactly where they
+were. Only the confidence moves. The shipped model uses **×4**, which
+leaves no score pinned at either end.
+
+### 5.4 What this does not tell us
+
+These are single-split numbers on 80 held-out examples, so one example is
+1.25 points. The dataset was also written by the same person who wrote the
+model, and the definition was fixed before the labels were assigned — which
+is the one thing §4 says matters most. A dataset collected from real task
+trackers, labelled by several people, will not behave like this one.
+
+---
+
 ## Recommendation
 
 1. **Fix the trainer before collecting more data.** ✅ Done — the
@@ -201,9 +314,12 @@ re-checked at any time.
    `train_model`), with regression tests in `test.html`. Extra examples now
    actually teach the model something.
 2. **Start with ~150–300 labelled examples**, balanced, with varied wording.
-   That is enough to tell whether the approach works at all.
+   That is enough to tell whether the approach works at all. §5 confirms the
+   same shape on the real dataset: 100 examples reach 93.8%, 200 reach 96.3%.
 3. **Grow toward ~1,000 only if coverage demands it** — specifically, if your
    real inputs contain content words that rarely or never appear in training.
+   §5.2 is the clearest case so far: on `training.json`, going from 200 to
+   366 examples adds 206 vocabulary words and **no** accuracy at all.
 4. **Write down a precise slop definition first**, and label borderline cases
    consistently. §4 shows that even the fixed trainer cannot get past the
    ambiguity band; consistency of labels matters more than their volume.
@@ -217,6 +333,13 @@ re-checked at any time.
      accuracy flat at ~72–82% no matter how much training data is added.
      The README's synonym plan is one way to address this; character-level
      subword features are another.
+6. **The dataset that ships with the project is a starting point, not a
+   finished corpus.** `training.json` holds 524 examples and reaches 96.3%
+   held-out accuracy with a 0% false-positive rate, but 24% of the tokens in
+   its own held-out split are words the model never saw, and the three
+   examples it still gets wrong are exactly those. More *phrasings* of the
+   words people actually use will help; more examples of the phrases
+   already in the file will not.
 
 ### Staging table
 
@@ -227,7 +350,8 @@ re-checked at any time.
 | 500–1,000 | plateau on familiar wording | add only to raise coverage |
 | 2,000+ | no gain without architecture changes | fix encoding/subwords instead |
 
-All figures are single-machine measurements on synthetic data generated by
-`experiments/lib/data.mjs`, re-measured on 2026-10-18 with the fixed
-subsystem trainer. They bound the *shape* of the answer; your real numbers
+All figures in §1–§4 are single-machine measurements on synthetic data
+generated by `experiments/lib/data.mjs`, re-measured on 2026-10-18 with the
+fixed subsystem trainer. §5 repeats the measurements on the real
+`training.json`. They bound the *shape* of the answer; your real numbers
 will depend on how separable your definition of slop turns out to be.
