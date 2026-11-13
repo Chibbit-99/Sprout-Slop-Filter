@@ -18,6 +18,11 @@
 
     <!-- Subsystem scripts (loaded in dependency order). -->
     <script src="./subsystems/normalise_text.js"></script>
+    <script src="./subsystems/hashed_features.js"></script>
+<script src="./subsystems/structured_features.js"></script>
+<script src="./subsystems/richer_features.js"></script>
+<script src="./subsystems/blend_models.js"></script>
+<script src="./subsystems/model_parameter_stats.js"></script>
     <script src="./subsystems/tokeniser.js"></script>
     <script src="./subsystems/map_synonyms.js"></script>
     <script src="./subsystems/get_word_vector.js"></script>
@@ -704,6 +709,118 @@
             () => {
                 const r = load_model("x.json", { storage: () => "{not json" });
                 return r.success === false && /json/i.test(r.error);
+            },
+            true
+        ));
+
+        // v2: local subword features, order and persistence
+        tests.push(makeTest(
+            "v2: unseen words produce distinct features, and word order matters",
+            () => !deepEqual(hashed_features("glimmers", 32768), hashed_features("fluxes", 32768))
+                && !deepEqual(hashed_features("buy milk", 32768), hashed_features("milk buy", 32768)),
+            true
+        ));
+        tests.push(makeTest(
+            "v2: training and async inference agree after save/load",
+            async () => {
+                const examples = [
+                    { text: "Repair the broken tap", label: "genuine" },
+                    { text: "Do some stuff", label: "slop" }
+                ];
+                const m = initialise_model({ vocabulary: build_vocabulary(examples), encoder: "hashed-subword-v2" });
+                train_model(examples, [], m, { epochs: 20, learningRate: 0.8 });
+                const saved = save_model(m, "v2.json", { storage: () => {} });
+                const loaded = load_model("v2.json", { storage: () => saved.payload });
+                return loaded.success && loaded.model.version === 2 &&
+                    await classify_text("Repair the broken tap", loaded.model) ===
+                        make_prediction_for_training("Repair the broken tap", m).score;
+            },
+            true
+        ));
+
+        // v3: named, disjoint hash namespaces and measurable model capacity
+        tests.push(makeTest(
+            "v3: counts 131073 trainable parameters, separate from trained weights",
+            () => {
+                const m = initialise_model({ encoder: "structured-subword-v3" });
+                const stats = model_parameter_stats(m);
+                return stats.trainable === 131073 && stats.nonZeroWeights === 0 &&
+                    Object.values(stats.families).every(family => family.slots === 32768);
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "v3: namespaces and saved weights survive a roundtrip",
+            async () => {
+                const features = structured_features("Repair the spectrometer", 131072);
+                const ranges = [0, 1, 2, 3].map(i =>
+                    features.some(([id]) => id >= i * 32768 && id < (i + 1) * 32768));
+                const examples = [
+                    { text: "Repair the spectrometer", label: "genuine" },
+                    { text: "Improve things somehow", label: "slop" }
+                ];
+                const m = initialise_model({ vocabulary: build_vocabulary(examples), encoder: "structured-subword-v3" });
+                train_model(examples, [], m, { epochs: 10, learningRate: 0.8 });
+                const saved = save_model(m, "v3.json", { storage: () => {} });
+                const loaded = load_model("v3.json", { storage: () => saved.payload });
+                return ranges.every(Boolean) && loaded.success && loaded.model.version === 3 &&
+                    model_parameter_stats(loaded.model).trainable === 131073 &&
+                    model_parameter_stats(loaded.model).nonZeroWeights > 0 &&
+                    await classify_text("Repair the spectrometer", loaded.model) ===
+                        make_prediction_for_training("Repair the spectrometer", m).score;
+            },
+            true
+        ));
+
+        tests.push(makeTest(
+            "v4: eight distinct feature banks give 524289 trainable scalars",
+            () => {
+                const model = initialise_model({ encoder: "richer-subword-v4" });
+                const stats = model_parameter_stats(model);
+                const ids = richer_features("Repair the spectrometer at noon", 524288);
+                return stats.trainable === 524289 && stats.nonZeroWeights === 0 &&
+                    Object.keys(stats.families).length === 8 &&
+                    Object.values(stats.families).every(family => family.slots === 65536) &&
+                    [0, 1, 2, 3, 4, 5, 6, 7].every(family =>
+                        ids.some(([id]) => id >= family * 65536 && id < (family + 1) * 65536));
+            },
+            true
+        ));
+        tests.push(makeTest(
+            "v4: inference and training agree through save/load",
+            async () => {
+                const rows = [
+                    { text: "Repair the quartz holder", label: "genuine" },
+                    { text: "Improve things somehow", label: "slop" }
+                ];
+                const model = initialise_model({ vocabulary: build_vocabulary(rows), encoder: "richer-subword-v4" });
+                train_model(rows, [], model, { epochs: 10, learningRate: 0.8 });
+                const saved = save_model(model, "v4.json", { storage: () => {} });
+                const loaded = load_model("v4.json", { storage: () => saved.payload });
+                return loaded.success && model_parameter_stats(loaded.model).nonZeroWeights > 0 &&
+                    await classify_text("Repair the quartz holder", loaded.model) ===
+                        make_prediction_for_training("Repair the quartz holder", model).score;
+            },
+            true
+        ));
+
+        tests.push(makeTest(
+            "v4: blending compatible checkpoints uses one unchanged parameter array",
+            () => {
+                const a = initialise_model({ encoder: "richer-subword-v4" });
+                const b = initialise_model({ encoder: "richer-subword-v4" });
+                a.weights[123] = 2;
+                b.weights[123] = 6;
+                b.weights[999] = 4;
+                a.bias = 1;
+                b.bias = 3;
+                const result = blend_models(a, b, 0.25);
+                let rejectsLegacy = false;
+                try { blend_models(a, initialise_model({ encoder: "structured-subword-v3" }), 0.25); }
+                catch (error) { rejectsLegacy = /compatible v4/.test(error.message); }
+                return result === a && a.weights.length === 524288 && a.weights[123] === 3 &&
+                    a.weights[999] === 1 && a.bias === 1.5 &&
+                    model_parameter_stats(a).trainable === 524289 && rejectsLegacy;
             },
             true
         ));

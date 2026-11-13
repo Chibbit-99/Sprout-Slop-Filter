@@ -1,0 +1,322 @@
+[
+  {
+    "text": "Avoid duplicate retries after a gateway timeout",
+    "label": "genuine"
+  },
+  {
+    "text": "Update a few things around here",
+    "label": "slop"
+  },
+  {
+    "text": "Include tenant ID in audit event payload",
+    "label": "genuine"
+  },
+  {
+    "text": "Some more fixes after review",
+    "label": "slop"
+  },
+  {
+    "text": "Return 422 when invoice currency is missing",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the code a bit nicer",
+    "label": "slop"
+  },
+  {
+    "text": "Cache the compiled templates by locale",
+    "label": "genuine"
+  },
+  {
+    "text": "General progress on the application",
+    "label": "slop"
+  },
+  {
+    "text": "Strip null bytes from uploaded file names",
+    "label": "genuine"
+  },
+  {
+    "text": "Apply miscellaneous improvements",
+    "label": "slop"
+  },
+  {
+    "text": "Render an empty-state card when no reports exist",
+    "label": "genuine"
+  },
+  {
+    "text": "Do more work on the project",
+    "label": "slop"
+  },
+  {
+    "text": "Invalidate refresh tokens when the account closes",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the remaining stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Update the parser to accept quoted CSV fields",
+    "label": "genuine"
+  },
+  {
+    "text": "Update whatever needs updating",
+    "label": "slop"
+  },
+  {
+    "text": "Skip pagination when the results array is empty",
+    "label": "genuine"
+  },
+  {
+    "text": "Another round of changes",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the dropdown clipping inside mobile Safari",
+    "label": "genuine"
+  },
+  {
+    "text": "Get things working again",
+    "label": "slop"
+  },
+  {
+    "text": "Log the database query duration on slow requests",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the overall implementation",
+    "label": "slop"
+  },
+  {
+    "text": "Display a warning for expired invitation links",
+    "label": "genuine"
+  },
+  {
+    "text": "Refine the existing solution",
+    "label": "slop"
+  },
+  {
+    "text": "Bump the TLS minimum version in the proxy config",
+    "label": "genuine"
+  },
+  {
+    "text": "Address feedback and suggestions",
+    "label": "slop"
+  },
+  {
+    "text": "Add migration to index the purchase order column",
+    "label": "genuine"
+  },
+  {
+    "text": "Various updates to the system",
+    "label": "slop"
+  },
+  {
+    "text": "Prevent duplicate alerts after a websocket reconnect",
+    "label": "genuine"
+  },
+  {
+    "text": "Minor changes to several files",
+    "label": "slop"
+  },
+  {
+    "text": "Restore keyboard focus after dismissing the dialog",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the UI a little better",
+    "label": "slop"
+  },
+  {
+    "text": "Document the rate limit for the export endpoint",
+    "label": "genuine"
+  },
+  {
+    "text": "Some general cleanup work",
+    "label": "slop"
+  },
+  {
+    "text": "Reject password resets for suspended accounts",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the tests and docs",
+    "label": "slop"
+  },
+  {
+    "text": "Write a regression test for the UTC rollover",
+    "label": "genuine"
+  },
+  {
+    "text": "Continue with the next step",
+    "label": "slop"
+  },
+  {
+    "text": "Stop the worker when the queue lease expires",
+    "label": "genuine"
+  },
+  {
+    "text": "Handle a few issues in the app",
+    "label": "slop"
+  },
+  {
+    "text": "Escape user input in the email preview template",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the project more robust",
+    "label": "slop"
+  },
+  {
+    "text": "Reduce the image thumbnail width to 240 pixels",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix things that were broken",
+    "label": "slop"
+  },
+  {
+    "text": "Add tracing headers to outgoing payment requests",
+    "label": "genuine"
+  },
+  {
+    "text": "More refactoring and improvements",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the search highlight for accented characters",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the configuration a bit",
+    "label": "slop"
+  },
+  {
+    "text": "Close file descriptors after failed archive extraction",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the performance in general",
+    "label": "slop"
+  },
+  {
+    "text": "Check storage quota before uploading an attachment",
+    "label": "genuine"
+  },
+  {
+    "text": "Do another pass over the code",
+    "label": "slop"
+  },
+  {
+    "text": "Use a bounded channel for audit events",
+    "label": "genuine"
+  },
+  {
+    "text": "Finish the important work",
+    "label": "slop"
+  },
+  {
+    "text": "Remove the unused invoice status enum",
+    "label": "genuine"
+  },
+  {
+    "text": "Implement the necessary changes",
+    "label": "slop"
+  },
+  {
+    "text": "Rename the dashboard metric to active users",
+    "label": "genuine"
+  },
+  {
+    "text": "Work towards better quality",
+    "label": "slop"
+  },
+  {
+    "text": "Add a warning when the API key is near expiration",
+    "label": "genuine"
+  },
+  {
+    "text": "Change the architecture as needed",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the offscreen tooltip on narrow screens",
+    "label": "genuine"
+  },
+  {
+    "text": "Resolve all outstanding concerns",
+    "label": "slop"
+  },
+  {
+    "text": "Avoid serving cached responses after a logout",
+    "label": "genuine"
+  },
+  {
+    "text": "Tidy up some rough edges",
+    "label": "slop"
+  },
+  {
+    "text": "Move the billing retry handler to the scheduler",
+    "label": "genuine"
+  },
+  {
+    "text": "More work on the interface",
+    "label": "slop"
+  },
+  {
+    "text": "Add a smoke test for the signup confirmation link",
+    "label": "genuine"
+  },
+  {
+    "text": "Polish the product further",
+    "label": "slop"
+  },
+  {
+    "text": "Ignore whitespace-only comments in the importer",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the documentation somewhat",
+    "label": "slop"
+  },
+  {
+    "text": "Return a helpful error when the YAML file is blank",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the code for maintainability",
+    "label": "slop"
+  },
+  {
+    "text": "Refresh the session cookie after a password change",
+    "label": "genuine"
+  },
+  {
+    "text": "Make small tweaks everywhere",
+    "label": "slop"
+  },
+  {
+    "text": "Update the schema docs for new account roles",
+    "label": "genuine"
+  },
+  {
+    "text": "Prepare for the next release",
+    "label": "slop"
+  },
+  {
+    "text": "Use integer cents when calculating the order subtotal",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the user experience broadly",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the race in the background thumbnail worker",
+    "label": "genuine"
+  },
+  {
+    "text": "Get the application ready",
+    "label": "slop"
+  }
+]

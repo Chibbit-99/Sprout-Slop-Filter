@@ -10,7 +10,7 @@
 //          { success: false, error: string } on failure.
 
 function save_model(model, path, options) {
-    if (!model || !Array.isArray(model.vocabulary) || !Array.isArray(model.wordVectors)) {
+    if (!model || !Array.isArray(model.vocabulary) || (model.version !== 2 && model.version !== 3 && model.version !== 4 && !Array.isArray(model.wordVectors))) {
         return { success: false, error: "save_model: model is missing vocabulary or wordVectors" };
     }
 
@@ -18,7 +18,15 @@ function save_model(model, path, options) {
         return { success: false, error: "save_model: model is missing weights" };
     }
 
-    const payload = JSON.stringify({
+    const payload = JSON.stringify((model.version === 2 || model.version === 3 || model.version === 4) ? {
+        version: model.version,
+        featureSize: model.featureSize,
+        vocabulary: model.vocabulary,
+        // Sparse on disk; the fixed-size array is expanded once at load time.
+        weights: model.weights.flatMap((weight, id) => weight !== 0 ? [[id, weight]] : []),
+        bias: model.bias,
+        options: model.options || {}
+    } : {
         version: 1,
         vocabulary: model.vocabulary,
         wordVectors: model.wordVectors,

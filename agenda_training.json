@@ -1,0 +1,242 @@
+[
+  {
+    "text": "Decide whether to renew the Acme lease before July",
+    "label": "genuine"
+  },
+  {
+    "text": "Review the Q3 budget variance with finance",
+    "label": "genuine"
+  },
+  {
+    "text": "Approve the wireframes for the mobile checkout",
+    "label": "genuine"
+  },
+  {
+    "text": "Assign owners for the three failed audit controls",
+    "label": "genuine"
+  },
+  {
+    "text": "Compare two vendors for the office router purchase",
+    "label": "genuine"
+  },
+  {
+    "text": "Choose a launch date for the Spanish help center",
+    "label": "genuine"
+  },
+  {
+    "text": "Reconcile last week's inventory count at the warehouse",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the accessibility defects in the login modal",
+    "label": "genuine"
+  },
+  {
+    "text": "Approve the revised data-retention policy",
+    "label": "genuine"
+  },
+  {
+    "text": "Review the incident timeline for the 502 outage",
+    "label": "genuine"
+  },
+  {
+    "text": "Pick an owner for the invoice reconciliation job",
+    "label": "genuine"
+  },
+  {
+    "text": "Sign off on the new hire's onboarding checklist",
+    "label": "genuine"
+  },
+  {
+    "text": "Compare proposed pricing for the fleet insurance",
+    "label": "genuine"
+  },
+  {
+    "text": "Review customer complaints about the returns form",
+    "label": "genuine"
+  },
+  {
+    "text": "Set the migration window for the orders database",
+    "label": "genuine"
+  },
+  {
+    "text": "Agree on acceptance tests for password reset",
+    "label": "genuine"
+  },
+  {
+    "text": "Select the Saturday shift supervisor for the depot",
+    "label": "genuine"
+  },
+  {
+    "text": "Plan the April fire drill for the west building",
+    "label": "genuine"
+  },
+  {
+    "text": "Approve three translations for the signup flow",
+    "label": "genuine"
+  },
+  {
+    "text": "Prioritize bug 716 in the search filter",
+    "label": "genuine"
+  },
+  {
+    "text": "Decide which metrics go on the support dashboard",
+    "label": "genuine"
+  },
+  {
+    "text": "Review the lab safety checklist with the technician",
+    "label": "genuine"
+  },
+  {
+    "text": "Allocate conference tickets between teams",
+    "label": "genuine"
+  },
+  {
+    "text": "Compare two quotes for the roof repair",
+    "label": "genuine"
+  },
+  {
+    "text": "Finalize the SLA wording for enterprise accounts",
+    "label": "genuine"
+  },
+  {
+    "text": "Agree on a rollback plan for the new API release",
+    "label": "genuine"
+  },
+  {
+    "text": "Inspect the trial survey results from 48 participants",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss seating changes for the fourth floor",
+    "label": "genuine"
+  },
+  {
+    "text": "Choose a response to the supplier's late shipment",
+    "label": "genuine"
+  },
+  {
+    "text": "Vote on the proposed timetable for the next sprint",
+    "label": "genuine"
+  },
+  {
+    "text": "Catch up on everything",
+    "label": "slop"
+  },
+  {
+    "text": "General team sync",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss various issues",
+    "label": "slop"
+  },
+  {
+    "text": "Alignment meeting",
+    "label": "slop"
+  },
+  {
+    "text": "Plan next steps",
+    "label": "slop"
+  },
+  {
+    "text": "Talk about stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Check in on progress",
+    "label": "slop"
+  },
+  {
+    "text": "Meeting to improve the process",
+    "label": "slop"
+  },
+  {
+    "text": "Review the situation",
+    "label": "slop"
+  },
+  {
+    "text": "Brainstorm opportunities",
+    "label": "slop"
+  },
+  {
+    "text": "Weekly touch base",
+    "label": "slop"
+  },
+  {
+    "text": "Determine general priorities",
+    "label": "slop"
+  },
+  {
+    "text": "Explore possibilities",
+    "label": "slop"
+  },
+  {
+    "text": "Follow up about everything",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the roadmap at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Set up some time to chat",
+    "label": "slop"
+  },
+  {
+    "text": "Improve cross-team communication",
+    "label": "slop"
+  },
+  {
+    "text": "Review miscellaneous matters",
+    "label": "slop"
+  },
+  {
+    "text": "Talk through what's going on",
+    "label": "slop"
+  },
+  {
+    "text": "Prepare for whatever comes next",
+    "label": "slop"
+  },
+  {
+    "text": "Strategize together",
+    "label": "slop"
+  },
+  {
+    "text": "Share general updates",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle",
+    "label": "slop"
+  },
+  {
+    "text": "Learn about the big picture",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss initiatives in general",
+    "label": "slop"
+  },
+  {
+    "text": "Keep the momentum going",
+    "label": "slop"
+  },
+  {
+    "text": "Go over some things",
+    "label": "slop"
+  },
+  {
+    "text": "Get everyone on the same page",
+    "label": "slop"
+  },
+  {
+    "text": "Drive strategic alignment",
+    "label": "slop"
+  },
+  {
+    "text": "General planning session",
+    "label": "slop"
+  }
+]

@@ -327,7 +327,7 @@
             <span class="pill" id="pillDataset"><span class="dot"></span> dataset: <b>…</b></span>
             <span class="pill" id="pillModel"><span class="dot"></span> model: <b>…</b></span>
             <span class="pill" id="pillVocab"><span class="dot"></span> vocabulary: <b>…</b></span>
-            <span class="pill" id="pillAccuracy"><span class="dot"></span> test accuracy: <b>…</b></span>
+            <span class="pill" id="pillAccuracy"><span class="dot"></span> illustrative test: <b>…</b></span>
         </div>
     </header>
 
@@ -425,9 +425,9 @@
                 </header>
                 <div class="body stack">
                     <div class="grid-fields three">
-                        <label class="field"><span>Epochs</span><input type="number" id="cfgEpochs" value="60" min="1" max="5000" step="10"></label>
-                        <label class="field"><span>Learning rate</span><input type="number" id="cfgLr" value="0.2" min="0.001" max="2" step="0.01"></label>
-                        <label class="field"><span>Vector size</span><input type="number" id="cfgVectorSize" value="24" min="2" max="64" step="1"></label>
+                        <label class="field"><span>Epochs</span><input type="number" id="cfgEpochs" value="120" min="1" max="5000" step="10"></label>
+                        <label class="field"><span>Learning rate</span><input type="number" id="cfgLr" value="0.8" min="0.001" max="2" step="0.01"></label>
+                        <label class="field"><span>Vector size (legacy only)</span><input type="number" id="cfgVectorSize" value="24" min="2" max="64" step="1"></label>
                         <label class="field"><span>Seed</span><input type="number" id="cfgSeed" value="7" min="1" step="1"></label>
                         <label class="field"><span>Split seed</span><input type="number" id="cfgSplitSeed" value="1" min="1" step="1"></label>
                         <label class="field"><span>Train / val / test</span>
@@ -435,10 +435,16 @@
                         </label>
                     </div>
 
+                    <label class="field"><span>Encoder</span><select id="cfgEncoder">
+                        <option value="richer-subword-v4">Eight feature banks (524,289 params, recommended)</option>
+                        <option value="structured-subword-v3">Earlier structured subwords (131,073 params)</option>
+                        <option value="hashed-subword-v2">Earlier hashed subwords (32,769 params)</option>
+                        <option value="legacy">Legacy word vectors</option></select></label>
                     <div class="row">
                         <button class="primary" id="btnTrain">Train model</button>
                         <button id="btnStop" disabled>Stop</button>
                         <label class="check"><input type="checkbox" id="cfgAutoEvaluate" checked> evaluate on the test split afterwards</label>
+                        <label class="check"><input type="checkbox" id="cfgUseSupplement" checked> include training-only vocabulary examples (<span id="supplementCount">loading…</span>)</label>
                     </div>
 
                     <div class="row">
@@ -536,7 +542,7 @@
                     <textarea id="testInput" rows="3" placeholder="Type a task description, e.g. “Water the plants on the balcony”"></textarea>
                     <div class="row">
                         <button class="primary" id="btnScore">Score it</button>
-                        <label class="check"><input type="checkbox" id="useSynonyms"> use Datamuse synonyms</label>
+                        <label class="check"><input type="checkbox" id="useSynonyms"> use Datamuse synonyms (legacy only)</label>
                     </div>
 
                     <div id="scoreArea" hidden>
@@ -552,7 +558,7 @@
                     </div>
 
                     <div>
-                        <h3 style="margin-bottom:.3rem">Tokens the model saw</h3>
+                        <h3 style="margin-bottom:.3rem">Tokens observed in training (unseen tokens still have subword features in v2/v3/v4)</h3>
                         <div class="tokens" id="tokenList"><span class="hint small">score some text to see its tokens</span></div>
                     </div>
 
@@ -588,24 +594,21 @@
                     <details class="help" open style="margin-top:0">
                         <summary>What counts as slop</summary>
                         <div class="body">
-                            <ul>
-                                <li><b>Genuine</b> — names a concrete action on a concrete target, so someone could pick it up and do it: “Renew the passport”, “Fix the leaking tap”.</li>
-                                <li><b>Slop</b> — keyboard mash, or filler that names no target: “asdfghjkl”, “do something”, “align stakeholders”.</li>
-                                <li>Being <em>unethical</em> is not the same as being slop. “Steal someone's wallet” is a clear instruction, so it is genuine text.</li>
-                            </ul>
+                            <p><b>Genuine</b> means an actionable request with a concrete target (such as “Replace the broken lightbulb”), not an ethically approved action. <b>Slop</b> means generic filler or nonsensical text (such as “do something” or “asdfghjkl”).</p>
+                            <p class="hint small" style="margin-top:.4rem">This page uses one task-trained model; it does not switch between situations. A score cannot verify truth, authorship or whether an action happened. Other label policies are available through the CLI experiments.</p>
                         </div>
                     </details>
                     <details class="help">
                         <summary>How the model scores</summary>
                         <div class="body">
-                            <p>Each word gets a learned vector. A text is encoded by averaging the vectors of its words, and a logistic regression turns that average into a score from 0 (genuine) to 1 (slop).</p>
-                            <p style="margin-top:.4rem">Because the encoding averages words, word order is lost — “buy milk” and “milk buy” score the same. Words the model never saw in training collapse to a single <code>&lt;UNK&gt;</code> vector, which is why the coverage figures matter.</p>
+                            <p>The default model learns word, adjacent-word and character n-gram clues. A small logistic classifier combines them into a score from 0 (informative) to 1 (filler). It runs locally, without a word API.</p>
+                            <p style="margin-top:.4rem">Adjacent-word features capture some order; subword features give unseen words clues from their spelling. This is not general language understanding: unfamiliar meaning, sarcasm and project-specific jargon can still fool it. The legacy encoder still uses averaged vectors and &lt;UNK&gt;.</p>
                         </div>
                     </details>
                     <details class="help">
                         <summary>Where the numbers come from</summary>
                         <div class="body">
-                            <p>Training, evaluation and scoring all use the subsystem code in <code>subsystems/</code> — the same files the test page and the experiments use. <code>train.mjs</code> trains the shipped <code>model.json</code> from <code>training.json</code> on the command line; this page trains the very same model in your browser.</p>
+                            <p>Training, evaluation and scoring all use the subsystem code in <code>subsystems/</code>. This page loads <code>model.json</code> and <code>training.json</code>; imported datasets and uploaded models can be used without switching modes. Browser retraining uses a fresh split of the loaded examples, not an independent real-world test.</p>
                         </div>
                     </details>
                 </div>
@@ -623,6 +626,11 @@
 
 <!-- Subsystem scripts (loaded in dependency order) — the real implementation. -->
 <script src="./subsystems/normalise_text.js"></script>
+<script src="./subsystems/hashed_features.js"></script>
+<script src="./subsystems/structured_features.js"></script>
+<script src="./subsystems/richer_features.js"></script>
+<script src="./subsystems/blend_models.js"></script>
+<script src="./subsystems/model_parameter_stats.js"></script>
 <script src="./subsystems/tokeniser.js"></script>
 <script src="./subsystems/map_synonyms.js"></script>
 <script src="./subsystems/get_word_vector.js"></script>
@@ -652,6 +660,8 @@
     const state = {
         dataset: [],
         datasetSource: "",
+        supplement: [],
+        datasetDirty: false,
         model: null,
         rawModel: null,
         modelSource: "",
@@ -707,6 +717,13 @@
         "move the needle",
         "misc"
     ];
+
+    // A single default task-trained classifier; separate policies are CLI experiments.
+    const DATA_FILE = "training.json";
+    const MODEL_FILE = "model.json";
+    const SUPPLEMENT_FILE = "./experiments/task_supplement.json";
+    const ANCHOR_FILE = "./experiments/task_baseline_model.json";
+    const ANCHOR_MIX = 0.45;
 
     // =====================================================================
     // Small helpers
@@ -781,26 +798,52 @@
     // Dataset
     // =====================================================================
 
+    function clearEvaluation() {
+        if (!state.lastSplit) return;
+        state.lastSplit = state.lastMetrics = null;
+        state.history = [];
+        $("resultsMessage").hidden = false;
+        $("resultsMessage").className = "msg warn";
+        $("resultsMessage").textContent = "The examples changed; earlier evaluation results no longer describe this dataset. Retrain and evaluate again.";
+        $("resultsSource").textContent = "no current evaluation";
+        $("testRows").innerHTML = "";
+        $("matrix").innerHTML = "";
+        $("splitTable").querySelector("tbody").innerHTML = "";
+        for (const id of ["mTestAcc", "mRecall", "mFpr", "mPrecision", "mLoss"]) $(id).textContent = "—";
+        drawCharts([]);
+    }
+
     async function loadDataset() {
         const message = $("datasetMessage");
-
+        state.supplement = [];
+        state.datasetDirty = false;
+        $("supplementCount").textContent = "unavailable";
         try {
-            const examples = await load_training_data("./training.json");
+            const examples = await load_training_data("./" + DATA_FILE);
             state.dataset = examples;
-            state.datasetSource = "training.json";
+            state.datasetSource = DATA_FILE;
             message.className = "msg ok";
-            message.textContent = `Loaded ${examples.length} labelled examples from training.json.`;
+            message.textContent = `Loaded ${examples.length} labelled examples from ${DATA_FILE}.`;
+            try {
+                const rows = await load_training_data(SUPPLEMENT_FILE);
+                state.supplement = rows;
+                $("supplementCount").textContent = `${state.supplement.length} extra rows`;
+            } catch (extraError) {
+                message.className = "msg warn";
+                message.textContent += ` Supplemental training examples unavailable (${extraError.message}).`;
+            }
         } catch (error) {
             state.dataset = FALLBACK_DATASET.map(entry => ({ ...entry }));
             state.datasetSource = "built-in demo set";
             message.className = "msg warn";
             message.innerHTML =
-                `Could not load <code>training.json</code> (${error.message}).<br>` +
+                `Could not load <code>${DATA_FILE}</code> (${error.message}).<br>` +
                 `Using the small built-in demo set instead — serve the folder over HTTP ` +
-                `(<code>npm start</code>) to get the full ${"524"}-example dataset.`;
+                `(<code>npm start</code>) to get the full dataset.`;
         }
-
+        clearEvaluation();
         renderDataset();
+        renderModel();
     }
 
     function renderDataset() {
@@ -840,20 +883,21 @@
     // =====================================================================
 
     async function loadShippedModel() {
+        const file = MODEL_FILE;
         const message = $("modelMessage");
 
         try {
-            const result = await load_model("./model.json");
+            const result = await load_model("./" + file);
             if (!result.success) throw new Error(result.error);
-            adoptModel(result.model, "model.json");
+            adoptModel(result.model, file);
             const meta = (state.model.options || {}).trainedFrom;
             message.className = "msg ok";
-            message.textContent = meta
-                ? `Loaded model.json — trained on ${meta.trainSet} examples, ${pct(meta.testAccuracy)} test accuracy.`
-                : "Loaded model.json.";
+            message.textContent = meta && Number.isFinite(meta.testAccuracy)
+                ? `Loaded ${file} — trained on ${meta.trainSet} examples, ${pct(meta.testAccuracy)} on developer-authored held-out rows (not deployment accuracy).`
+                : `Loaded ${file}${meta ? ` — trained on ${meta.trainSet} examples; no held-out score recorded.` : "."}`;
         } catch (error) {
             message.className = "msg warn";
-            message.textContent = `No shipped model could be loaded (${error.message}). Train one below to get started.`;
+            message.textContent = `No ${file} could be loaded (${error.message}). Train one below to get started.`;
         }
 
         renderModel();
@@ -878,10 +922,13 @@
     function renderModel() {
         const hasModel = Boolean(state.model);
         setPill("pillModel", hasModel, hasModel ? state.modelSource : "not loaded");
-        setPill("pillVocab", hasModel, hasModel ? `${state.model.vocabulary.length} words` : "—");
+        setPill("pillVocab", hasModel, hasModel
+            ? `${state.model.vocabulary.filter(word => /^\p{L}+$/u.test(word)).length} words`
+            : "—");
 
         const meta = (state.model && state.model.options || {}).trainedFrom;
-        setPill("pillAccuracy", Boolean(meta), meta ? pct(meta.testAccuracy) : "—");
+        setPill("pillAccuracy", Number.isFinite(meta?.testAccuracy),
+            Number.isFinite(meta?.testAccuracy) ? pct(meta.testAccuracy) : "not measured here");
 
         const details = $("modelDetails");
         if (!details) return;
@@ -892,14 +939,23 @@
         }
 
         const options = state.model.options || {};
+        const stats = model_parameter_stats(state.model);
         const bits = [
-            `${state.model.vocabulary.length} words`,
-            `${state.model.weights.length} dimensions`,
+            `${stats.trainable.toLocaleString()} trainable parameters (${stats.nonZeroWeights.toLocaleString()} nonzero weights)`,
+            `${state.model.vocabulary.length - 1} observed tokens`,
+            (state.model.version === 2 || state.model.version === 3 || state.model.version === 4) ? `${state.model.featureSize} hashed features` : `${state.model.weights.length} dimensions`,
             `softening ×${state.temperature}`
         ];
         if (options.trainedFrom) {
             bits.push(`trained on ${options.trainedFrom.trainSet} examples`);
             bits.push(`seed ${options.trainedFrom.seed}`);
+            if (options.trainedFrom.extraRows) bits.push(`${options.trainedFrom.extraRows} training-only supplemental rows`);
+        }
+        if (options.extraRows) bits.push(`${options.extraRows} training-only supplemental rows`);
+        const anchorMix = options.anchorMix ?? options.trainedFrom?.anchorMix;
+        if (anchorMix) bits.push(`${Math.round(anchorMix * 100)}% baseline-anchored weights (one model)`);
+        if (options.domain && options.domain !== state.datasetSource) {
+            bits.push(`WARNING: model trained for ${options.domain}; current examples come from ${state.datasetSource}`);
         }
         details.textContent = bits.join(" · ");
     }
@@ -916,8 +972,9 @@
 
     function readConfig() {
         return {
-            epochs: clampInt($("cfgEpochs").value, 1, 5000, 60),
-            learningRate: clampNumber($("cfgLr").value, 0.001, 2, 0.2),
+            epochs: clampInt($("cfgEpochs").value, 1, 5000, 120),
+            learningRate: clampNumber($("cfgLr").value, 0.001, 2, 0.8),
+            encoder: $("cfgEncoder").value,
             vectorSize: clampInt($("cfgVectorSize").value, 2, 64, 24),
             seed: clampInt($("cfgSeed").value, 1, 100000, 7),
             splitSeed: clampInt($("cfgSplitSeed").value, 1, 100000, 1),
@@ -983,22 +1040,33 @@
             return;
         }
 
-        const { trainSet, validationSet, testSet } = split;
+        const { trainSet: baseTrainSet, validationSet, testSet } = split;
+        const supplement = $("cfgUseSupplement").checked && !state.datasetDirty
+            ? state.supplement : [];
+        const original = new Set(state.dataset.map(row => normalise_text(row.text)));
+        const extraRows = supplement.filter(row => !original.has(normalise_text(row.text)));
+        const trainSet = baseTrainSet.concat(extraRows);
 
         const vocabulary = build_vocabulary(trainSet);
         const model = initialise_model({
             vocabulary,
+            encoder: config.encoder,
             vectorSize: config.vectorSize,
             seed: config.seed,
             learningRate: config.learningRate,
             epochs: config.epochs
         });
+        model.options.domain = state.datasetSource;
+        model.options.extraRows = extraRows.length;
 
-        log(`training data : ${trainSet.length} examples`);
+        log(`training data : ${trainSet.length} examples (${baseTrainSet.length} base + ${extraRows.length} supplemental)`);
+        if (state.datasetDirty && $("cfgUseSupplement").checked) {
+            log("supplement skipped: dataset was edited/imported; retrain on your own examples");
+        }
         log(`validation    : ${validationSet.length} examples`);
         log(`test          : ${testSet.length} examples`);
-        log(`vocabulary    : ${model.vocabulary.length} entries (including <UNK>)`);
-        log(`settings      : epochs=${config.epochs} lr=${config.learningRate} vectorSize=${config.vectorSize} seed=${config.seed}`);
+        log(`observed words: ${model.vocabulary.length - 1} (encoder: ${config.encoder})`);
+        log(`settings      : encoder=${config.encoder} epochs=${config.epochs} lr=${config.learningRate} seed=${config.seed}`);
         log("");
 
         const history = [];
@@ -1022,6 +1090,28 @@
             drawCharts(history);
 
             await new Promise(resolve => setTimeout(resolve, 0));
+        }
+
+        // A training-time prior, NOT a second inference model: blend two
+        // compatible v4 weight arrays into the same 524,288 slots. Only use
+        // the task anchor when the untouched default split and all of its
+        // training-only examples are present. A custom corpus stands alone.
+        if (!state.stopRequested && config.encoder === "richer-subword-v4" &&
+            state.datasetSource === DATA_FILE && !state.datasetDirty &&
+            extraRows.length === state.supplement.length && extraRows.length > 0) {
+            try {
+                const loaded = await load_model(ANCHOR_FILE);
+                if (!loaded.success) throw new Error(loaded.error);
+                if (loaded.model.options?.domain !== DATA_FILE || !(loaded.model.options.temperature > 0)) {
+                    throw new Error("baseline model has an incompatible label policy or temperature");
+                }
+                blend_models(model, loaded.model, ANCHOR_MIX, loaded.model.options.temperature);
+                model.options.anchorMix = ANCHOR_MIX;
+                log(`anchor        : ${Math.round(ANCHOR_MIX * 100)}% old task checkpoint; final metrics use one blended v4 model`);
+                log("history       : training curves are pre-blend; final evaluation is post-blend");
+            } catch (error) {
+                log(`anchor skipped : ${error.message}; using the unanchored trained model`);
+            }
         }
 
         model.history = history;
@@ -1088,11 +1178,11 @@
         $("mLoss").className = "v";
 
         $("resultsSource").textContent =
-            `${testSet.length} held-out examples · ${model.vocabulary.length} word vectors`;
+            `${testSet.length} held-out examples · ${model.vocabulary.length - 1} observed tokens · ${model.version === 2 || model.version === 3 || model.version === 4 ? "subword encoder" : "word vectors"}`;
         $("resultsMessage").hidden = false;
         $("resultsMessage").className = "msg ok";
         $("resultsMessage").textContent =
-            `Evaluated on ${testSet.length} examples the model never trained on. ` +
+            `Evaluated on ${testSet.length} rows held out from this browser training run (not an external test). ` +
             `Recall ${pct(recall)} of the slop, ${pct(fpr)} of the genuine text wrongly flagged.`;
 
         renderMatrix(testMetrics);
@@ -1298,9 +1388,7 @@
         $("scoreArea").hidden = false;
         $("scoreValue").textContent = score.toFixed(3);
         $("scoreValue").style.color = verdict === "slop" ? "#d9534f" : "#1d7444";
-        $("scoreVerdict").textContent = verdict === "slop"
-            ? "reads like slop"
-            : "reads like genuine text";
+        $("scoreVerdict").textContent = (verdict === "slop" ? "reads like slop" : "reads like genuine text");
         $("scoreVerdict").style.color = verdict === "slop" ? "#a33a37" : "#1d7444";
         $("scoreNeedle").style.left = `${score * 100}%`;
         $("scoreThreshold").style.left = `${state.threshold * 100}%`;
@@ -1315,11 +1403,11 @@
                 : `<span class="token unknown">${escapeHtml(token)}</span>`).join("")
             : `<span class="hint small">no tokens</span>`;
 
-        $("scoreMessage").className = unknown.length
+        $("scoreMessage").className = unknown.length && ![2, 3, 4].includes(model.version)
             ? "msg warn"
             : "msg ok";
         $("scoreMessage").textContent = unknown.length
-            ? `${unknown.length} of ${tokens.length} tokens are outside the model's vocabulary and count as <UNK>.`
+            ? `${unknown.length} of ${tokens.length} tokens were unseen in training; ${(model.version === 2 || model.version === 3 || model.version === 4) ? "subword clues still apply (not a meaning guarantee)" : "they count as <UNK>"}.`
             : `Every token is in the model's vocabulary.`;
     }
 
@@ -1376,14 +1464,10 @@
     function saveLocal() {
         if (!state.model) return;
         try {
-            localStorage.setItem("sprout-model", JSON.stringify({
-                version: 1,
-                vocabulary: state.model.vocabulary,
-                wordVectors: state.model.wordVectors,
-                weights: state.model.weights,
-                bias: state.model.bias,
-                options: state.model.options
-            }));
+            const result = save_model(state.model, "sprout-model.json", {
+                storage: payload => localStorage.setItem("sprout-model", payload)
+            });
+            if (!result.success) throw new Error(result.error);
             $("modelMessage").className = "msg ok";
             $("modelMessage").textContent = "Model saved in this browser.";
         } catch (error) {
@@ -1441,9 +1525,12 @@
                 const parsed = JSON.parse(String(reader.result));
                 state.dataset = parse_training_data(parsed, file.name);
                 state.datasetSource = file.name;
+                state.datasetDirty = true;
                 $("datasetMessage").className = "msg ok";
                 $("datasetMessage").textContent = `Loaded ${state.dataset.length} examples from ${file.name}.`;
+                clearEvaluation();
                 renderDataset();
+                renderModel();
             } catch (error) {
                 $("datasetMessage").className = "msg error";
                 $("datasetMessage").textContent = `Could not read that file: ${error.message}`;
@@ -1475,7 +1562,9 @@
                 return;
             }
             state.dataset.push({ text, label: state.newLabel });
+            state.datasetDirty = true;
             input.value = "";
+            clearEvaluation();
             renderDataset();
             $("datasetMessage").className = "msg ok";
             $("datasetMessage").textContent =
@@ -1483,7 +1572,7 @@
         });
 
         $("btnDownloadDataset").addEventListener("click", () => {
-            download("training.json", JSON.stringify(state.dataset, null, 2) + "\n");
+            download(state.datasetSource, JSON.stringify(state.dataset, null, 2) + "\n");
         });
 
         $("btnImportDataset").addEventListener("click", () => $("fileImportDataset").click());

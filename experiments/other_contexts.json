@@ -1,0 +1,1083 @@
+{
+  "helpdesk": {
+    "policy": "genuine: a report with a reproducible symptom, error, location or device and enough detail to investigate; slop: a generic request without a diagnostic clue. Not a judgement about whether the reporter is honest.",
+    "train": [
+      {
+        "text": "Checkout shows 502 after I apply coupon SAVE10",
+        "label": "genuine"
+      },
+      {
+        "text": "My laptop freezes when I connect the second monitor",
+        "label": "genuine"
+      },
+      {
+        "text": "Uploading a 12 MB PDF returns 413 on the claims page",
+        "label": "genuine"
+      },
+      {
+        "text": "The Reset password link in yesterday's email has expired",
+        "label": "genuine"
+      },
+      {
+        "text": "Invoice 4821 appears twice in the April export",
+        "label": "genuine"
+      },
+      {
+        "text": "Cannot open the dashboard in Firefox 126 on Windows",
+        "label": "genuine"
+      },
+      {
+        "text": "Printer in room 208 jams on double-sided A4 sheets",
+        "label": "genuine"
+      },
+      {
+        "text": "Search omits order 883 when filtered by customer",
+        "label": "genuine"
+      },
+      {
+        "text": "Calendar invite to Mara has the wrong timezone",
+        "label": "genuine"
+      },
+      {
+        "text": "iOS app crashes when opening an empty cart",
+        "label": "genuine"
+      },
+      {
+        "text": "SMTP rejects our mail with error 550 after the DNS change",
+        "label": "genuine"
+      },
+      {
+        "text": "Account settings won't save a phone number with +61 prefix",
+        "label": "genuine"
+      },
+      {
+        "text": "The blue Save button is covered by the footer on my Pixel",
+        "label": "genuine"
+      },
+      {
+        "text": "The thermostat shows error E17 when I set 22 degrees",
+        "label": "genuine"
+      },
+      {
+        "text": "After the update, the sidebar stays open on narrow screens",
+        "label": "genuine"
+      },
+      {
+        "text": "CSV export cuts off rows beyond 1000 on the reports page",
+        "label": "genuine"
+      },
+      {
+        "text": "API returns an empty list for the archived projects filter",
+        "label": "genuine"
+      },
+      {
+        "text": "The doorbell rings but the camera feed stays black",
+        "label": "genuine"
+      },
+      {
+        "text": "I see a blank page after accepting invitation 913",
+        "label": "genuine"
+      },
+      {
+        "text": "Nightly backup failed at 02:14 with disk full",
+        "label": "genuine"
+      },
+      {
+        "text": "The receipt email went to an address I removed yesterday",
+        "label": "genuine"
+      },
+      {
+        "text": "Maps label our Bondi shop as closed on weekdays",
+        "label": "genuine"
+      },
+      {
+        "text": "The cursor jumps to the start when editing the bio field",
+        "label": "genuine"
+      },
+      {
+        "text": "Saving a profile with an apostrophe produces a 400 error",
+        "label": "genuine"
+      },
+      {
+        "text": "Payment of $19.50 was charged three times on 12 June",
+        "label": "genuine"
+      },
+      {
+        "text": "Chrome screen reader skips the first navigation item",
+        "label": "genuine"
+      },
+      {
+        "text": "In staging, the webhook signature check rejects valid events",
+        "label": "genuine"
+      },
+      {
+        "text": "Desktop notifications arrive fifteen minutes late on macOS",
+        "label": "genuine"
+      },
+      {
+        "text": "A deleted team still appears in the member dropdown",
+        "label": "genuine"
+      },
+      {
+        "text": "The warehouse scanner cannot read labels printed at 300 dpi",
+        "label": "genuine"
+      },
+      {
+        "text": "Something is wrong with the app",
+        "label": "slop"
+      },
+      {
+        "text": "Please fix my problem ASAP",
+        "label": "slop"
+      },
+      {
+        "text": "Everything feels broken today",
+        "label": "slop"
+      },
+      {
+        "text": "I am having issues with something",
+        "label": "slop"
+      },
+      {
+        "text": "Can you make things work again",
+        "label": "slop"
+      },
+      {
+        "text": "The dashboard needs general improvement",
+        "label": "slop"
+      },
+      {
+        "text": "My printer is acting weird",
+        "label": "slop"
+      },
+      {
+        "text": "Please look into various customer issues",
+        "label": "slop"
+      },
+      {
+        "text": "Things are slow, somehow",
+        "label": "slop"
+      },
+      {
+        "text": "I need help with my account",
+        "label": "slop"
+      },
+      {
+        "text": "The payment situation needs attention",
+        "label": "slop"
+      },
+      {
+        "text": "It didn't work, please fix it",
+        "label": "slop"
+      },
+      {
+        "text": "There is a bug somewhere in the portal",
+        "label": "slop"
+      },
+      {
+        "text": "Do a general cleanup of support tickets",
+        "label": "slop"
+      },
+      {
+        "text": "This needs to be more user friendly",
+        "label": "slop"
+      },
+      {
+        "text": "Please improve the email experience",
+        "label": "slop"
+      },
+      {
+        "text": "Some numbers are strange",
+        "label": "slop"
+      },
+      {
+        "text": "Help me with the website stuff",
+        "label": "slop"
+      },
+      {
+        "text": "My login isn't great",
+        "label": "slop"
+      },
+      {
+        "text": "The interface could be better",
+        "label": "slop"
+      },
+      {
+        "text": "Sort out the booking issues",
+        "label": "slop"
+      },
+      {
+        "text": "Make the scanner behave properly",
+        "label": "slop"
+      },
+      {
+        "text": "Something happened to the shipment",
+        "label": "slop"
+      },
+      {
+        "text": "Everything is glitchy in general",
+        "label": "slop"
+      },
+      {
+        "text": "Please review the bug I mentioned",
+        "label": "slop"
+      },
+      {
+        "text": "Our checkout could use some polish",
+        "label": "slop"
+      },
+      {
+        "text": "Fix the configuration somehow",
+        "label": "slop"
+      },
+      {
+        "text": "The API is not very good",
+        "label": "slop"
+      },
+      {
+        "text": "I need someone to investigate",
+        "label": "slop"
+      },
+      {
+        "text": "Take care of the miscellaneous errors",
+        "label": "slop"
+      }
+    ],
+    "test": [
+      {
+        "text": "On Fedora 41, the audio driver cuts out after hibernation",
+        "label": "genuine",
+        "unseen": [
+          "fedora",
+          "hibernation"
+        ]
+      },
+      {
+        "text": "A 4K HEIC attachment produces error IMG-022 in Safari",
+        "label": "genuine",
+        "unseen": [
+          "heic",
+          "img"
+        ]
+      },
+      {
+        "text": "When I delete a draft, the conversation counter stays at six",
+        "label": "genuine",
+        "unseen": [
+          "conversation"
+        ]
+      },
+      {
+        "text": "The barcode for pallet QX-77 scans as the wrong SKU",
+        "label": "genuine",
+        "unseen": [
+          "qx",
+          "sku"
+        ]
+      },
+      {
+        "text": "Pressing Enter on the sign-in form creates two sessions",
+        "label": "genuine",
+        "unseen": [
+          "sessions"
+        ]
+      },
+      {
+        "text": "On a Samsung A55, push alerts appear only after unlocking",
+        "label": "genuine",
+        "unseen": [
+          "samsung",
+          "a55"
+        ]
+      },
+      {
+        "text": "Refund 729 has been pending since Tuesday despite a success notice",
+        "label": "genuine",
+        "unseen": [
+          "refund"
+        ]
+      },
+      {
+        "text": "La página de facturas muestra error 503 al guardar",
+        "label": "genuine",
+        "unseen": [
+          "página",
+          "facturas"
+        ]
+      },
+      {
+        "text": "The PDF generated for case LM-411 is missing the final page",
+        "label": "genuine",
+        "unseen": [
+          "lm"
+        ]
+      },
+      {
+        "text": "A screen reader pronounces the IPv6 address as separate letters",
+        "label": "genuine",
+        "unseen": [
+          "ipv6"
+        ]
+      },
+      {
+        "text": "Opening the February statement in Edge returns 403",
+        "label": "genuine",
+        "unseen": [
+          "february",
+          "edge"
+        ]
+      },
+      {
+        "text": "The coffee machine flashes code 12B after descaling",
+        "label": "genuine",
+        "unseen": [
+          "12b",
+          "descaling"
+        ]
+      },
+      {
+        "text": "The new release needs some attention",
+        "label": "slop",
+        "unseen": [
+          "release"
+        ]
+      },
+      {
+        "text": "Could you address the Fedora situation in general",
+        "label": "slop",
+        "unseen": [
+          "fedora"
+        ]
+      },
+      {
+        "text": "Help me with my HEIC stuff",
+        "label": "slop",
+        "unseen": [
+          "heic"
+        ]
+      },
+      {
+        "text": "Make the Samsung app better somehow",
+        "label": "slop",
+        "unseen": [
+          "samsung"
+        ]
+      },
+      {
+        "text": "Various issues with the conversation thing",
+        "label": "slop",
+        "unseen": [
+          "conversation"
+        ]
+      },
+      {
+        "text": "Please solve the LM-411 problem",
+        "label": "slop",
+        "unseen": [
+          "lm"
+        ]
+      },
+      {
+        "text": "The IPv6 experience could be improved",
+        "label": "slop",
+        "unseen": [
+          "ipv6"
+        ]
+      },
+      {
+        "text": "Do something about the descaling process",
+        "label": "slop",
+        "unseen": [
+          "descaling"
+        ]
+      },
+      {
+        "text": "There is a mysterious issue with our product",
+        "label": "slop",
+        "unseen": [
+          "mysterious"
+        ]
+      },
+      {
+        "text": "Someone should improve this service eventually",
+        "label": "slop",
+        "unseen": [
+          "eventually"
+        ]
+      },
+      {
+        "text": "All the February stuff is problematic",
+        "label": "slop",
+        "unseen": [
+          "february"
+        ]
+      },
+      {
+        "text": "Need help with QX-77, not sure what",
+        "label": "slop",
+        "unseen": [
+          "qx"
+        ]
+      }
+    ],
+    "stress": [
+      {
+        "text": "QZ-914: why is the spectrometer reading zero after calibration?",
+        "label": "genuine",
+        "unseen": [
+          "qz",
+          "spectrometer"
+        ]
+      },
+      {
+        "text": "The SSO callback returns 401 only for Åsa on iPadOS 18",
+        "label": "genuine",
+        "unseen": [
+          "sso",
+          "åsa",
+          "ipados"
+        ]
+      },
+      {
+        "text": "The CX-88 ticket says 09:30 but exports as 21:30",
+        "label": "genuine",
+        "unseen": [
+          "cx"
+        ]
+      },
+      {
+        "text": "Al adjuntar el archivo HEIC aparece error 415",
+        "label": "genuine",
+        "unseen": [
+          "adjuntar",
+          "archivo",
+          "heic"
+        ]
+      },
+      {
+        "text": "K8s pod payments-2 OOMs after 3 minutes of traffic",
+        "label": "genuine",
+        "unseen": [
+          "k8s",
+          "ooms"
+        ]
+      },
+      {
+        "text": "Screenshot upload for invoice AB-88 silently clears the form",
+        "label": "genuine",
+        "unseen": [
+          "ab"
+        ]
+      },
+      {
+        "text": "All captions vanish after toggling accessibility mode twice",
+        "label": "genuine",
+        "unseen": [
+          "captions",
+          "toggling"
+        ]
+      },
+      {
+        "text": "Our drone loses telemetry whenever the compass is recalibrated",
+        "label": "genuine",
+        "unseen": [
+          "drone",
+          "telemetry"
+        ]
+      },
+      {
+        "text": "QZ-914: the spectrometer needs a better experience somehow",
+        "label": "slop",
+        "unseen": [
+          "qz",
+          "spectrometer"
+        ]
+      },
+      {
+        "text": "A 401 happened with the Zephyr thing, please help",
+        "label": "slop",
+        "unseen": [
+          "zephyr"
+        ]
+      },
+      {
+        "text": "The CX-88 ticket seems suboptimal in general",
+        "label": "slop",
+        "unseen": [
+          "cx",
+          "suboptimal"
+        ]
+      },
+      {
+        "text": "I want the HEIC workflow to feel innovative",
+        "label": "slop",
+        "unseen": [
+          "heic"
+        ]
+      },
+      {
+        "text": "K8s payments-2 could be more efficient overall",
+        "label": "slop",
+        "unseen": [
+          "k8s"
+        ]
+      },
+      {
+        "text": "Fix the AB-88 issue when you can",
+        "label": "slop",
+        "unseen": [
+          "ab"
+        ]
+      },
+      {
+        "text": "Some accessibility things should be improved soon",
+        "label": "slop",
+        "unseen": [
+          "accessibility"
+        ]
+      },
+      {
+        "text": "The drone experience needs alignment",
+        "label": "slop",
+        "unseen": [
+          "drone"
+        ]
+      }
+    ]
+  },
+  "meeting_agendas": {
+    "policy": "genuine: an agenda identifying a decision, document or concrete subject for attendees; slop: an agenda placeholder or generic meeting goal. Not a claim that a meeting will happen.",
+    "train": [
+      {
+        "text": "Decide whether to renew the Acme lease before July",
+        "label": "genuine"
+      },
+      {
+        "text": "Review the Q3 budget variance with finance",
+        "label": "genuine"
+      },
+      {
+        "text": "Approve the wireframes for the mobile checkout",
+        "label": "genuine"
+      },
+      {
+        "text": "Assign owners for the three failed audit controls",
+        "label": "genuine"
+      },
+      {
+        "text": "Compare two vendors for the office router purchase",
+        "label": "genuine"
+      },
+      {
+        "text": "Choose a launch date for the Spanish help center",
+        "label": "genuine"
+      },
+      {
+        "text": "Reconcile last week's inventory count at the warehouse",
+        "label": "genuine"
+      },
+      {
+        "text": "Discuss the accessibility defects in the login modal",
+        "label": "genuine"
+      },
+      {
+        "text": "Approve the revised data-retention policy",
+        "label": "genuine"
+      },
+      {
+        "text": "Review the incident timeline for the 502 outage",
+        "label": "genuine"
+      },
+      {
+        "text": "Pick an owner for the invoice reconciliation job",
+        "label": "genuine"
+      },
+      {
+        "text": "Sign off on the new hire's onboarding checklist",
+        "label": "genuine"
+      },
+      {
+        "text": "Compare proposed pricing for the fleet insurance",
+        "label": "genuine"
+      },
+      {
+        "text": "Review customer complaints about the returns form",
+        "label": "genuine"
+      },
+      {
+        "text": "Set the migration window for the orders database",
+        "label": "genuine"
+      },
+      {
+        "text": "Agree on acceptance tests for password reset",
+        "label": "genuine"
+      },
+      {
+        "text": "Select the Saturday shift supervisor for the depot",
+        "label": "genuine"
+      },
+      {
+        "text": "Plan the April fire drill for the west building",
+        "label": "genuine"
+      },
+      {
+        "text": "Approve three translations for the signup flow",
+        "label": "genuine"
+      },
+      {
+        "text": "Prioritize bug 716 in the search filter",
+        "label": "genuine"
+      },
+      {
+        "text": "Decide which metrics go on the support dashboard",
+        "label": "genuine"
+      },
+      {
+        "text": "Review the lab safety checklist with the technician",
+        "label": "genuine"
+      },
+      {
+        "text": "Allocate conference tickets between teams",
+        "label": "genuine"
+      },
+      {
+        "text": "Compare two quotes for the roof repair",
+        "label": "genuine"
+      },
+      {
+        "text": "Finalize the SLA wording for enterprise accounts",
+        "label": "genuine"
+      },
+      {
+        "text": "Agree on a rollback plan for the new API release",
+        "label": "genuine"
+      },
+      {
+        "text": "Inspect the trial survey results from 48 participants",
+        "label": "genuine"
+      },
+      {
+        "text": "Discuss seating changes for the fourth floor",
+        "label": "genuine"
+      },
+      {
+        "text": "Choose a response to the supplier's late shipment",
+        "label": "genuine"
+      },
+      {
+        "text": "Vote on the proposed timetable for the next sprint",
+        "label": "genuine"
+      },
+      {
+        "text": "Catch up on everything",
+        "label": "slop"
+      },
+      {
+        "text": "General team sync",
+        "label": "slop"
+      },
+      {
+        "text": "Discuss various issues",
+        "label": "slop"
+      },
+      {
+        "text": "Alignment meeting",
+        "label": "slop"
+      },
+      {
+        "text": "Plan next steps",
+        "label": "slop"
+      },
+      {
+        "text": "Talk about stuff",
+        "label": "slop"
+      },
+      {
+        "text": "Check in on progress",
+        "label": "slop"
+      },
+      {
+        "text": "Meeting to improve the process",
+        "label": "slop"
+      },
+      {
+        "text": "Review the situation",
+        "label": "slop"
+      },
+      {
+        "text": "Brainstorm opportunities",
+        "label": "slop"
+      },
+      {
+        "text": "Weekly touch base",
+        "label": "slop"
+      },
+      {
+        "text": "Determine general priorities",
+        "label": "slop"
+      },
+      {
+        "text": "Explore possibilities",
+        "label": "slop"
+      },
+      {
+        "text": "Follow up about everything",
+        "label": "slop"
+      },
+      {
+        "text": "Discuss the roadmap at a high level",
+        "label": "slop"
+      },
+      {
+        "text": "Set up some time to chat",
+        "label": "slop"
+      },
+      {
+        "text": "Improve cross-team communication",
+        "label": "slop"
+      },
+      {
+        "text": "Review miscellaneous matters",
+        "label": "slop"
+      },
+      {
+        "text": "Talk through what's going on",
+        "label": "slop"
+      },
+      {
+        "text": "Prepare for whatever comes next",
+        "label": "slop"
+      },
+      {
+        "text": "Strategize together",
+        "label": "slop"
+      },
+      {
+        "text": "Share general updates",
+        "label": "slop"
+      },
+      {
+        "text": "Move the needle",
+        "label": "slop"
+      },
+      {
+        "text": "Learn about the big picture",
+        "label": "slop"
+      },
+      {
+        "text": "Discuss initiatives in general",
+        "label": "slop"
+      },
+      {
+        "text": "Keep the momentum going",
+        "label": "slop"
+      },
+      {
+        "text": "Go over some things",
+        "label": "slop"
+      },
+      {
+        "text": "Get everyone on the same page",
+        "label": "slop"
+      },
+      {
+        "text": "Drive strategic alignment",
+        "label": "slop"
+      },
+      {
+        "text": "General planning session",
+        "label": "slop"
+      }
+    ],
+    "test": [
+      {
+        "text": "Decide whether to decommission the cryostat by October",
+        "label": "genuine",
+        "unseen": [
+          "decommission",
+          "cryostat"
+        ]
+      },
+      {
+        "text": "Assign the SAML metadata review to Priyanka",
+        "label": "genuine",
+        "unseen": [
+          "saml",
+          "priyanka"
+        ]
+      },
+      {
+        "text": "Approve the mezzanine evacuation map with facilities",
+        "label": "genuine",
+        "unseen": [
+          "mezzanine",
+          "evacuation"
+        ]
+      },
+      {
+        "text": "Choose the keynote speaker for symposium QX-77",
+        "label": "genuine",
+        "unseen": [
+          "keynote",
+          "symposium"
+        ]
+      },
+      {
+        "text": "Evaluate the beta telemetry from the riscv64 fleet",
+        "label": "genuine",
+        "unseen": [
+          "telemetry",
+          "riscv64"
+        ]
+      },
+      {
+        "text": "Vote on a concrete maintenance window for Postgres 17",
+        "label": "genuine",
+        "unseen": [
+          "postgres"
+        ]
+      },
+      {
+        "text": "Review the French wording for the medicine recall notice",
+        "label": "genuine",
+        "unseen": [
+          "medicine"
+        ]
+      },
+      {
+        "text": "Decide who repairs the leaking aquarium pipe",
+        "label": "genuine",
+        "unseen": [
+          "aquarium"
+        ]
+      },
+      {
+        "text": "Review the JIRA-407 incident report before noon",
+        "label": "genuine",
+        "unseen": [
+          "jira"
+        ]
+      },
+      {
+        "text": "Pick a supplier for 300 replacement cuvettes",
+        "label": "genuine",
+        "unseen": [
+          "cuvettes"
+        ]
+      },
+      {
+        "text": "Compare the accessibility audit for Android and iOS",
+        "label": "genuine",
+        "unseen": [
+          "android"
+        ]
+      },
+      {
+        "text": "Sign off the revised winter vaccination schedule",
+        "label": "genuine",
+        "unseen": [
+          "vaccination"
+        ]
+      },
+      {
+        "text": "Discuss the cryostat situation generally",
+        "label": "slop",
+        "unseen": [
+          "cryostat"
+        ]
+      },
+      {
+        "text": "Align everyone around SAML excellence",
+        "label": "slop",
+        "unseen": [
+          "saml"
+        ]
+      },
+      {
+        "text": "Think about the mezzanine and next steps",
+        "label": "slop",
+        "unseen": [
+          "mezzanine"
+        ]
+      },
+      {
+        "text": "Explore keynote opportunities in general",
+        "label": "slop",
+        "unseen": [
+          "keynote"
+        ]
+      },
+      {
+        "text": "A session on vague telemetry priorities",
+        "label": "slop",
+        "unseen": [
+          "telemetry"
+        ]
+      },
+      {
+        "text": "Postgres sync about some things",
+        "label": "slop",
+        "unseen": [
+          "postgres"
+        ]
+      },
+      {
+        "text": "Get on the same page about the aquarium",
+        "label": "slop",
+        "unseen": [
+          "aquarium"
+        ]
+      },
+      {
+        "text": "Go over miscellaneous JIRA-407 matters",
+        "label": "slop",
+        "unseen": [
+          "jira"
+        ]
+      },
+      {
+        "text": "Improve the cuvettes experience somehow",
+        "label": "slop",
+        "unseen": [
+          "cuvettes"
+        ]
+      },
+      {
+        "text": "Share general Android thoughts",
+        "label": "slop",
+        "unseen": [
+          "android"
+        ]
+      },
+      {
+        "text": "Plan more meetings about something",
+        "label": "slop",
+        "unseen": [
+          "meetings"
+        ]
+      },
+      {
+        "text": "Find ways to improve vaccination outcomes",
+        "label": "slop",
+        "unseen": [
+          "vaccination"
+        ]
+      }
+    ],
+    "stress": [
+      {
+        "text": "Decide what to do about the failed RX-43 temperature sensor",
+        "label": "genuine",
+        "unseen": [
+          "rx"
+        ]
+      },
+      {
+        "text": "Review the draft incident postmortem for the SSO outage",
+        "label": "genuine",
+        "unseen": [
+          "postmortem",
+          "sso"
+        ]
+      },
+      {
+        "text": "Pick the July owner for the Reykjavík data center",
+        "label": "genuine",
+        "unseen": [
+          "reykjavík"
+        ]
+      },
+      {
+        "text": "Sign off on the cryostat replacement quote",
+        "label": "genuine",
+        "unseen": [
+          "cryostat"
+        ]
+      },
+      {
+        "text": "Sort out the agenda for the WebAuthn rollout with Kai",
+        "label": "genuine",
+        "unseen": [
+          "webauthn"
+        ]
+      },
+      {
+        "text": "Compare the HEIC converter prototypes by end of day",
+        "label": "genuine",
+        "unseen": [
+          "heic"
+        ]
+      },
+      {
+        "text": "Decide if we should remove the 50 MB attachment limit",
+        "label": "genuine",
+        "unseen": [
+          "attachment"
+        ]
+      },
+      {
+        "text": "Resolve who will contact the spectrometer vendor about warranty",
+        "label": "genuine",
+        "unseen": [
+          "spectrometer"
+        ]
+      },
+      {
+        "text": "Discuss RX-43 and general priorities",
+        "label": "slop",
+        "unseen": [
+          "rx"
+        ]
+      },
+      {
+        "text": "Share thoughts on the SSO initiative, no set agenda",
+        "label": "slop",
+        "unseen": [
+          "sso"
+        ]
+      },
+      {
+        "text": "Reykjavík data center status and other things",
+        "label": "slop",
+        "unseen": [
+          "reykjavík"
+        ]
+      },
+      {
+        "text": "Use the cryostat meeting to align stakeholders",
+        "label": "slop",
+        "unseen": [
+          "cryostat"
+        ]
+      },
+      {
+        "text": "WebAuthn sync: explore broad possibilities",
+        "label": "slop",
+        "unseen": [
+          "webauthn"
+        ]
+      },
+      {
+        "text": "Talk through the HEIC situation sometime",
+        "label": "slop",
+        "unseen": [
+          "heic"
+        ]
+      },
+      {
+        "text": "Catch up on the 50 MB issue and more",
+        "label": "slop",
+        "unseen": [
+          "mb"
+        ]
+      },
+      {
+        "text": "Strategize about the spectrometer roadmap",
+        "label": "slop",
+        "unseen": [
+          "spectrometer"
+        ]
+      }
+    ]
+  }
+}
