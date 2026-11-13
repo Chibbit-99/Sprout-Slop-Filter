@@ -26,6 +26,8 @@ function make_prediction_for_training(text, modelParameters) {
         throw new TypeError("make_prediction_for_training: modelParameters missing");
     }
 
+    if (modelParameters.version === 2 || modelParameters.version === 3 || modelParameters.version === 4) return hashed_predict(text, modelParameters);
+
     // Keep this private constant local because subsystem files are loaded as
     // classic scripts and share a global lexical scope.
     const UNKNOWN_TOKEN = "<UNK>";

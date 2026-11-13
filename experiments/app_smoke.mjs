@@ -83,9 +83,18 @@ console.log("");
 
 const booted = await waitFor(() => $("pillModel").textContent.includes("model.json"));
 check("the page boots and loads the shipped model", booted, $("pillModel").textContent.trim());
+check("the browser reports v4 parameter capacity and active weights",
+    $("modelDetails").textContent.includes("524,289 trainable parameters") &&
+    $("modelDetails").textContent.includes("nonzero weights"),
+    $("modelDetails").textContent.trim());
+check("browser counts actual training words and rows, not padded capacity",
+    $("pillVocab").textContent.includes("3402 words") &&
+    $("modelDetails").textContent.includes("3424 observed tokens") &&
+    $("modelDetails").textContent.includes("trained on 3686 examples"));
 
 const datasetLoaded = await waitFor(() => $("statExamples").textContent !== "0");
 check("training.json is loaded", datasetLoaded, `${$("statExamples").textContent} examples`);
+check("task training-only vocabulary set loads", $("supplementCount").textContent === "2900 extra rows");
 check("the dataset is balanced",
     $("statGenuine").textContent === $("statSlop").textContent,
     `${$("statGenuine").textContent} genuine / ${$("statSlop").textContent} slop`);
@@ -118,6 +127,13 @@ $("cfgVectorSize").value = "8";
 $("btnTrain").click();
 const trained = await waitFor(() => $("trainStatus").textContent === "finished", 120000);
 check("training runs and finishes", trained, $("trainStatus").textContent);
+check("browser trains on supplement without leaking into held-out rows",
+    $("trainLog").textContent.includes("786 base + 2900 supplemental"),
+    $("trainLog").textContent.split("\n").find(line => line.includes("training data")));
+check("browser retraining uses the same v4 parameter budget and anchor recipe",
+    $("modelDetails").textContent.includes("524,289 trainable parameters") &&
+    $("modelDetails").textContent.includes("45% baseline-anchored") &&
+    $("trainLog").textContent.includes("anchor        : 45% old task checkpoint"));
 check("the held-out split is evaluated", $("mTestAcc").textContent !== "—", `test accuracy ${$("mTestAcc").textContent}`);
 check("the confusion matrix is rendered", $("matrix").children.length === 9, `${$("matrix").children.length} cells`);
 check("every held-out example is listed", $("testRows").children.length > 0, `${$("testRows").children.length} rows`);
@@ -154,8 +170,10 @@ $("newExampleText").value = "Water the allotment";
 $("btnNewSlop").click();
 $("btnAddExample").click();
 await wait(200);
-check("an example can be added",
-    parseInt($("statExamples").textContent, 10) === before + 1,
+check("an example can be added and stale evaluation is cleared",
+    parseInt($("statExamples").textContent, 10) === before + 1 &&
+    $("mTestAcc").textContent === "—" &&
+    $("resultsMessage").textContent.includes("earlier evaluation"),
     `${before} → ${$("statExamples").textContent}`);
 
 $("btnSaveLocal").click();
@@ -165,6 +183,61 @@ await wait(200);
 check("the model can be saved and reloaded in the browser",
     $("modelMessage").textContent.includes("loaded from this browser"),
     $("modelMessage").textContent.trim());
+
+// A single default workflow: there is no mode picker or automatic domain switching.
+check("no situation selector or preset model switch exists",
+    !$("datasetPreset") && !window.document.querySelector("[name=datasetPreset]") &&
+    $("pillModel").textContent.includes("browser storage"));
+check("the default policy is explained without claiming general truth detection",
+    window.document.querySelector(".help").textContent.includes("actionable request") &&
+    window.document.querySelector(".help").textContent.includes("task-trained model"));
+
+// Reset the trained model without changing the dataset or its label policy.
+$("btnResetModel").click();
+await waitFor(() => $("pillModel").textContent.includes("model.json"));
+check("reset restores the one shipped model and its examples",
+    $("statExamples").textContent === "1125" &&
+    $("pillModel").textContent.includes("model.json") &&
+    $("supplementCount").textContent === "2900 extra rows");
+$("btnReloadDataset").click();
+await waitFor(() => $("statExamples").textContent === "1124");
+check("reload restores the default corpus without a preset selector",
+    $("statExamples").textContent === "1124" && !$("datasetPreset"));
+$("testInput").value = "asdfghjkl";
+$("btnScore").click();
+await waitFor(() => $("scoreVerdict").textContent === "reads like slop");
+check("the reset model still scores text", $("scoreVerdict").textContent === "reads like slop");
+
+// Any compatible labelled JSON can be imported directly, with no mode selector.
+const imported = Array.from({ length: 12 }, (_, i) => ({
+    text: i < 6 ? `Repair the damaged panel number ${i}` : `Handle miscellaneous matters number ${i}`,
+    label: i < 6 ? "genuine" : "slop"
+}));
+const input = $("fileImportDataset");
+Object.defineProperty(input, "files", { configurable: true, value: [
+    new window.File([JSON.stringify(imported)], "my-examples.json", { type: "application/json" })
+] });
+input.dispatchEvent(new window.Event("change"));
+const importedOK = await waitFor(() => $("statExamples").textContent === "12");
+check("custom JSON imports without selecting a situation",
+    importedOK && $("datasetMessage").textContent.includes("my-examples.json") &&
+    !$("datasetPreset"));
+check("import warns when the current model uses another corpus",
+    $("modelDetails").textContent.includes("WARNING") &&
+    $("modelDetails").textContent.includes("my-examples.json"));
+$("cfgEpochs").value = "10";
+$("btnTrain").click();
+const customTrained = await waitFor(() => $("trainStatus").textContent === "finished" &&
+    $("pillModel").textContent.includes("trained in this page"), 120000);
+check("custom dataset trains without task-only supplements or baseline anchor", customTrained &&
+    $("trainLog").textContent.includes("0 supplemental") &&
+    !$("trainLog").textContent.includes("anchor        :") &&
+    $("modelDetails").textContent.includes("524,289 trainable parameters"));
+$("btnReloadDataset").click();
+await waitFor(() => $("statExamples").textContent === "1124");
+check("returning to default corpus clears custom evaluation",
+    $("mTestAcc").textContent === "—" &&
+    $("resultsMessage").textContent.includes("earlier evaluation"));
 
 console.log("");
 console.log(`${total - failures.length} passed, ${failures.length} failed`);

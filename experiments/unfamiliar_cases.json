@@ -1,0 +1,55 @@
+{
+  "policy": "genuine names an actionable, specific task; slop is generic filler. These are manually authored stress probes, not natural-language ground truth.",
+  "groups": {
+    "inflections_and_derivations": [
+      {"text":"Regrout the powder-room backsplash on Saturday", "label":"genuine", "unseen":["regrout","backsplash"]},
+      {"text":"Reupholster the armchair with velvet offcuts", "label":"genuine", "unseen":["reupholster","offcuts"]},
+      {"text":"Unjam the photocopier's feed rollers", "label":"genuine", "unseen":["unjam","photocopier's"]},
+      {"text":"Reorganise the herbarium specimen drawers", "label":"genuine", "unseen":["reorganise","herbarium"]},
+      {"text":"Optimising things across departments", "label":"slop", "unseen":["optimising","departments"]},
+      {"text":"Synergising all the important efforts", "label":"slop", "unseen":["synergising","efforts"]},
+      {"text":"Reimagine various unspecified opportunities", "label":"slop", "unseen":["reimagine"]},
+      {"text":"Recapturing excellence somehow", "label":"slop", "unseen":["recapturing"]}
+    ],
+    "scientific_and_technical": [
+      {"text":"Calibrate the spectrophotometer with a blank cuvette", "label":"genuine", "unseen":["spectrophotometer","cuvette"]},
+      {"text":"Sequence the plasmid with nanopore reads", "label":"genuine", "unseen":["plasmid","nanopore"]},
+      {"text":"Inspect the cryostat for cracked seals", "label":"genuine", "unseen":["cryostat"]},
+      {"text":"Replace the worn gyroscope bearing on rover two", "label":"genuine", "unseen":["gyroscope"]},
+      {"text":"Leverage proteomics for maximum synergies", "label":"slop", "unseen":["proteomics"]},
+      {"text":"Do something meaningful with metagenomics", "label":"slop", "unseen":["metagenomics"]},
+      {"text":"Enhance the cryostat vibe in general", "label":"slop", "unseen":["cryostat"]},
+      {"text":"Optimise nanopore innovation across everything", "label":"slop", "unseen":["nanopore"]}
+    ],
+    "names_and_identifiers": [
+      {"text":"Send ticket QZ-914 to Nkiru for signoff", "label":"genuine", "unseen":["qz","nkiru"]},
+      {"text":"Rotate the VORTEX_API_KEY in ZephyrVault", "label":"genuine", "unseen":["vortex","zephyrvault"]},
+      {"text":"Collect the birch panels from Åsa in Malmö", "label":"genuine", "unseen":["åsa","malmö"]},
+      {"text":"Rebuild libquartz.so for riscv64", "label":"genuine", "unseen":["libquartz","riscv64"]},
+      {"text":"Do some work for Nkiru eventually", "label":"slop", "unseen":["nkiru"]},
+      {"text":"Align the ZephyrVault stakeholders", "label":"slop", "unseen":["zephyrvault"]},
+      {"text":"Make QZ-914 better somehow", "label":"slop", "unseen":["qz"]},
+      {"text":"Handle the Malmö situation", "label":"slop", "unseen":["malmö"]}
+    ],
+    "multilingual_and_code_switching": [
+      {"text":"Enviar la factura a Camila antes del viernes", "label":"genuine", "unseen":["enviar","factura","camila"]},
+      {"text":"Réparer la serrure de la porte arrière", "label":"genuine", "unseen":["réparer","serrure"]},
+      {"text":"ビルドログを佐藤に送る", "label":"genuine", "unseen":["ビルドログを佐藤に送る"]},
+      {"text":"请把账单发给李明", "label":"genuine", "unseen":["请把账单发给李明"]},
+      {"text":"Hacer varias cosas por ahí", "label":"slop", "unseen":["hacer","varias"]},
+      {"text":"Améliorer les choses en général", "label":"slop", "unseen":["améliorer","choses"]},
+      {"text":"いろいろ適当にやる", "label":"slop", "unseen":["いろいろ適当にやる"]},
+      {"text":"做点什么事情", "label":"slop", "unseen":["做点什么事情"]}
+    ],
+    "context_and_genericity": [
+      {"text":"Write the exact reagent batch number in lab notebook 7", "label":"genuine", "unseen":["reagent"]},
+      {"text":"Book a technician to resolder the BGA socket", "label":"genuine", "unseen":["resolder","bga"]},
+      {"text":"Print 200 barcode labels for shipment RX-43", "label":"genuine", "unseen":["rx"]},
+      {"text":"Report the missing M.2 standoff to Dinesh", "label":"genuine", "unseen":["standoff","dinesh"]},
+      {"text":"Think strategically about the reagent problem", "label":"slop", "unseen":["reagent"]},
+      {"text":"Unlock value from the BGA roadmap", "label":"slop", "unseen":["bga"]},
+      {"text":"Do a general RX-43 improvement", "label":"slop", "unseen":["rx"]},
+      {"text":"Follow up on Dinesh's unspecified stuff", "label":"slop", "unseen":["dinesh's"]}
+    ]
+  }
+}

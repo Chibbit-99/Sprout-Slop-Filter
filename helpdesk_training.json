@@ -1,0 +1,242 @@
+[
+  {
+    "text": "Checkout shows 502 after I apply coupon SAVE10",
+    "label": "genuine"
+  },
+  {
+    "text": "My laptop freezes when I connect the second monitor",
+    "label": "genuine"
+  },
+  {
+    "text": "Uploading a 12 MB PDF returns 413 on the claims page",
+    "label": "genuine"
+  },
+  {
+    "text": "The Reset password link in yesterday's email has expired",
+    "label": "genuine"
+  },
+  {
+    "text": "Invoice 4821 appears twice in the April export",
+    "label": "genuine"
+  },
+  {
+    "text": "Cannot open the dashboard in Firefox 126 on Windows",
+    "label": "genuine"
+  },
+  {
+    "text": "Printer in room 208 jams on double-sided A4 sheets",
+    "label": "genuine"
+  },
+  {
+    "text": "Search omits order 883 when filtered by customer",
+    "label": "genuine"
+  },
+  {
+    "text": "Calendar invite to Mara has the wrong timezone",
+    "label": "genuine"
+  },
+  {
+    "text": "iOS app crashes when opening an empty cart",
+    "label": "genuine"
+  },
+  {
+    "text": "SMTP rejects our mail with error 550 after the DNS change",
+    "label": "genuine"
+  },
+  {
+    "text": "Account settings won't save a phone number with +61 prefix",
+    "label": "genuine"
+  },
+  {
+    "text": "The blue Save button is covered by the footer on my Pixel",
+    "label": "genuine"
+  },
+  {
+    "text": "The thermostat shows error E17 when I set 22 degrees",
+    "label": "genuine"
+  },
+  {
+    "text": "After the update, the sidebar stays open on narrow screens",
+    "label": "genuine"
+  },
+  {
+    "text": "CSV export cuts off rows beyond 1000 on the reports page",
+    "label": "genuine"
+  },
+  {
+    "text": "API returns an empty list for the archived projects filter",
+    "label": "genuine"
+  },
+  {
+    "text": "The doorbell rings but the camera feed stays black",
+    "label": "genuine"
+  },
+  {
+    "text": "I see a blank page after accepting invitation 913",
+    "label": "genuine"
+  },
+  {
+    "text": "Nightly backup failed at 02:14 with disk full",
+    "label": "genuine"
+  },
+  {
+    "text": "The receipt email went to an address I removed yesterday",
+    "label": "genuine"
+  },
+  {
+    "text": "Maps label our Bondi shop as closed on weekdays",
+    "label": "genuine"
+  },
+  {
+    "text": "The cursor jumps to the start when editing the bio field",
+    "label": "genuine"
+  },
+  {
+    "text": "Saving a profile with an apostrophe produces a 400 error",
+    "label": "genuine"
+  },
+  {
+    "text": "Payment of $19.50 was charged three times on 12 June",
+    "label": "genuine"
+  },
+  {
+    "text": "Chrome screen reader skips the first navigation item",
+    "label": "genuine"
+  },
+  {
+    "text": "In staging, the webhook signature check rejects valid events",
+    "label": "genuine"
+  },
+  {
+    "text": "Desktop notifications arrive fifteen minutes late on macOS",
+    "label": "genuine"
+  },
+  {
+    "text": "A deleted team still appears in the member dropdown",
+    "label": "genuine"
+  },
+  {
+    "text": "The warehouse scanner cannot read labels printed at 300 dpi",
+    "label": "genuine"
+  },
+  {
+    "text": "Something is wrong with the app",
+    "label": "slop"
+  },
+  {
+    "text": "Please fix my problem ASAP",
+    "label": "slop"
+  },
+  {
+    "text": "Everything feels broken today",
+    "label": "slop"
+  },
+  {
+    "text": "I am having issues with something",
+    "label": "slop"
+  },
+  {
+    "text": "Can you make things work again",
+    "label": "slop"
+  },
+  {
+    "text": "The dashboard needs general improvement",
+    "label": "slop"
+  },
+  {
+    "text": "My printer is acting weird",
+    "label": "slop"
+  },
+  {
+    "text": "Please look into various customer issues",
+    "label": "slop"
+  },
+  {
+    "text": "Things are slow, somehow",
+    "label": "slop"
+  },
+  {
+    "text": "I need help with my account",
+    "label": "slop"
+  },
+  {
+    "text": "The payment situation needs attention",
+    "label": "slop"
+  },
+  {
+    "text": "It didn't work, please fix it",
+    "label": "slop"
+  },
+  {
+    "text": "There is a bug somewhere in the portal",
+    "label": "slop"
+  },
+  {
+    "text": "Do a general cleanup of support tickets",
+    "label": "slop"
+  },
+  {
+    "text": "This needs to be more user friendly",
+    "label": "slop"
+  },
+  {
+    "text": "Please improve the email experience",
+    "label": "slop"
+  },
+  {
+    "text": "Some numbers are strange",
+    "label": "slop"
+  },
+  {
+    "text": "Help me with the website stuff",
+    "label": "slop"
+  },
+  {
+    "text": "My login isn't great",
+    "label": "slop"
+  },
+  {
+    "text": "The interface could be better",
+    "label": "slop"
+  },
+  {
+    "text": "Sort out the booking issues",
+    "label": "slop"
+  },
+  {
+    "text": "Make the scanner behave properly",
+    "label": "slop"
+  },
+  {
+    "text": "Something happened to the shipment",
+    "label": "slop"
+  },
+  {
+    "text": "Everything is glitchy in general",
+    "label": "slop"
+  },
+  {
+    "text": "Please review the bug I mentioned",
+    "label": "slop"
+  },
+  {
+    "text": "Our checkout could use some polish",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the configuration somehow",
+    "label": "slop"
+  },
+  {
+    "text": "The API is not very good",
+    "label": "slop"
+  },
+  {
+    "text": "I need someone to investigate",
+    "label": "slop"
+  },
+  {
+    "text": "Take care of the miscellaneous errors",
+    "label": "slop"
+  }
+]

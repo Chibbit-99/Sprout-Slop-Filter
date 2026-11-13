@@ -22,7 +22,7 @@ const context = vm.createContext({ console, fetch, URL, Set, Map, Math, JSON, Pr
 vm.runInContext(
     `${source}
      globalThis.__sprout = {
-         normalise_text, tokenise, encode_text, predict_slop,
+         normalise_text, tokenise, encode_text, predict_slop, hashed_features, structured_features, richer_features, blend_models, model_parameter_stats,
          calculate_loss, update_parameters, make_prediction_for_training,
          evaluate_model, train_model, initialise_model, get_word_vector,
          split_dataset, save_model, load_model, classify_text,

@@ -1,526 +1,4498 @@
 [
-  { "text": "Buy milk", "label": "genuine" },
-  { "text": "asdfghjkl", "label": "slop" },
-  { "text": "Renew the passport", "label": "genuine" },
-  { "text": "qwertyuiop", "label": "slop" },
-  { "text": "Call the dentist about the appointment", "label": "genuine" },
-  { "text": "hjkl;asdf", "label": "slop" },
-  { "text": "File the tax return online", "label": "genuine" },
-  { "text": "zxcvbnm", "label": "slop" },
-  { "text": "Email Sam about the invoice", "label": "genuine" },
-  { "text": "aaaaaaaaaa", "label": "slop" },
-  { "text": "Replace the kitchen tap washer", "label": "genuine" },
-  { "text": "lorem ipsum", "label": "slop" },
-  { "text": "Water the plants on the balcony", "label": "genuine" },
-  { "text": "asdf asdf", "label": "slop" },
-  { "text": "Book the flight to Berlin", "label": "genuine" },
-  { "text": "foo bar baz", "label": "slop" },
-  { "text": "Pay the electricity bill", "label": "genuine" },
-  { "text": "blah blah blah", "label": "slop" },
-  { "text": "Submit the expense report", "label": "genuine" },
-  { "text": "hello world", "label": "slop" },
-  { "text": "Print twenty copies of the contract", "label": "genuine" },
-  { "text": "undefined null", "label": "slop" },
-  { "text": "Collect the parcel from the depot", "label": "genuine" },
-  { "text": "1234567890", "label": "slop" },
-  { "text": "Cancel the gym membership", "label": "genuine" },
-  { "text": "xxxxxxxxx", "label": "slop" },
-  { "text": "Return the library book", "label": "genuine" },
-  { "text": "qqq", "label": "slop" },
-  { "text": "Clean the bathroom tiles", "label": "genuine" },
-  { "text": "wwww", "label": "slop" },
-  { "text": "Fix the leaking radiator", "label": "genuine" },
-  { "text": "eeeee", "label": "slop" },
-  { "text": "Charge the laptop", "label": "genuine" },
-  { "text": "aaa", "label": "slop" },
-  { "text": "Sort the recycling by type", "label": "genuine" },
-  { "text": "a1b2c3", "label": "slop" },
-  { "text": "Label the moving boxes", "label": "genuine" },
-  { "text": "!@#$%^&*", "label": "slop" },
-  { "text": "Deliver the parcel to number twelve", "label": "genuine" },
-  { "text": "zzzzzzzzzz", "label": "slop" },
-  { "text": "Hire a plumber for the boiler", "label": "genuine" },
-  { "text": "hhhhhhhhhh", "label": "slop" },
-  { "text": "Wash the car", "label": "genuine" },
-  { "text": "passw0rd", "label": "slop" },
-  { "text": "Iron the shirts", "label": "genuine" },
-  { "text": "temp", "label": "slop" },
-  { "text": "Mend the torn sleeve", "label": "genuine" },
-  { "text": "tmp", "label": "slop" },
-  { "text": "Pack the suitcase for Friday", "label": "genuine" },
-  { "text": "foo", "label": "slop" },
-  { "text": "Post the letter to grandma", "label": "genuine" },
-  { "text": "bar", "label": "slop" },
-  { "text": "Review the draft contract", "label": "genuine" },
-  { "text": "baz", "label": "slop" },
-  { "text": "Download the tax form", "label": "genuine" },
-  { "text": "qux quux", "label": "slop" },
-  { "text": "Install the new shelf", "label": "genuine" },
-  { "text": "blah", "label": "slop" },
-  { "text": "Update the emergency contact details", "label": "genuine" },
-  { "text": "n/a", "label": "slop" },
-  { "text": "Confirm the flight booking", "label": "genuine" },
-  { "text": "tbc", "label": "slop" },
-  { "text": "Schedule the dentist appointment", "label": "genuine" },
-  { "text": "??", "label": "slop" },
-  { "text": "Compare the insurance quotes", "label": "genuine" },
-  { "text": "...", "label": "slop" },
-  { "text": "Photograph the damage for the claim", "label": "genuine" },
-  { "text": "!!!", "label": "slop" },
-  { "text": "Order more printer paper", "label": "genuine" },
-  { "text": "do something", "label": "slop" },
-  { "text": "Change the wifi password", "label": "genuine" },
-  { "text": "do something useful", "label": "slop" },
-  { "text": "Back up the photos to the hard drive", "label": "genuine" },
-  { "text": "fix stuff", "label": "slop" },
-  { "text": "Renew the car insurance", "label": "genuine" },
-  { "text": "handle it", "label": "slop" },
-  { "text": "Sign the tenancy agreement", "label": "genuine" },
-  { "text": "sort it out", "label": "slop" },
-  { "text": "Return the borrowed drill", "label": "genuine" },
-  { "text": "work on the project", "label": "slop" },
-  { "text": "Set up the new router", "label": "genuine" },
-  { "text": "improve things", "label": "slop" },
-  { "text": "Fix the squeaky door hinge", "label": "genuine" },
-  { "text": "do the needful", "label": "slop" },
-  { "text": "Pick up the dry cleaning", "label": "genuine" },
-  { "text": "as needed", "label": "slop" },
-  { "text": "Refill the prescription", "label": "genuine" },
-  { "text": "etc", "label": "slop" },
-  { "text": "Pay the parking fine", "label": "genuine" },
-  { "text": "misc", "label": "slop" },
-  { "text": "Book the hotel for the trip", "label": "genuine" },
-  { "text": "tbd", "label": "slop" },
-  { "text": "Buy birthday presents for the twins", "label": "genuine" },
-  { "text": "later", "label": "slop" },
-  { "text": "Repair the torn shopping bag", "label": "genuine" },
-  { "text": "ongoing", "label": "slop" },
-  { "text": "Replace the broken lightbulb", "label": "genuine" },
-  { "text": "various tasks", "label": "slop" },
-  { "text": "Vacuum the car interior", "label": "genuine" },
-  { "text": "some stuff", "label": "slop" },
-  { "text": "Take the recycling to the tip", "label": "genuine" },
-  { "text": "the usual", "label": "slop" },
-  { "text": "Reply to the landlord's email", "label": "genuine" },
-  { "text": "follow up", "label": "slop" },
-  { "text": "Sort out the visa application", "label": "genuine" },
-  { "text": "touch base", "label": "slop" },
-  { "text": "Call the bank about the fee", "label": "genuine" },
-  { "text": "circle back", "label": "slop" },
-  { "text": "Report the broken streetlight", "label": "genuine" },
-  { "text": "move the needle", "label": "slop" },
-  { "text": "Fix the leaking tap in the bathroom", "label": "genuine" },
-  { "text": "drive alignment across teams", "label": "slop" },
-  { "text": "Pick up the prescription from the chemist", "label": "genuine" },
-  { "text": "align stakeholders", "label": "slop" },
-  { "text": "Send the contract back signed", "label": "genuine" },
-  { "text": "align the roadmap", "label": "slop" },
-  { "text": "Charge the electric drill", "label": "genuine" },
-  { "text": "synergize our core competencies", "label": "slop" },
-  { "text": "Dig the vegetable patch", "label": "genuine" },
-  { "text": "unlock synergies across the org", "label": "slop" },
-  { "text": "Mow the lawn", "label": "genuine" },
-  { "text": "deliver value", "label": "slop" },
-  { "text": "Wash the car windows", "label": "genuine" },
-  { "text": "unlock potential", "label": "slop" },
-  { "text": "Brew coffee for the guests", "label": "genuine" },
-  { "text": "think outside the box", "label": "slop" },
-  { "text": "Plan the birthday party", "label": "genuine" },
-  { "text": "low hanging fruit", "label": "slop" },
-  { "text": "Book a taxi to the airport", "label": "genuine" },
-  { "text": "quick win", "label": "slop" },
-  { "text": "Pay the deposit on the flat", "label": "genuine" },
-  { "text": "at scale", "label": "slop" },
-  { "text": "Return the library books", "label": "genuine" },
-  { "text": "bandwidth", "label": "slop" },
-  { "text": "Call the plumber about the leak", "label": "genuine" },
-  { "text": "deep dive", "label": "slop" },
-  { "text": "Write the review for the restaurant", "label": "genuine" },
-  { "text": "ping me", "label": "slop" },
-  { "text": "Update the bank details", "label": "genuine" },
-  { "text": "reach out", "label": "slop" },
-  { "text": "File the trip expenses", "label": "genuine" },
-  { "text": "next steps", "label": "slop" },
-  { "text": "Check the tyre pressure", "label": "genuine" },
-  { "text": "action items", "label": "slop" },
-  { "text": "Drain the gutters before winter", "label": "genuine" },
-  { "text": "off the top of my head", "label": "slop" },
-  { "text": "Clean the bike chain", "label": "genuine" },
-  { "text": "keep moving forward", "label": "slop" },
-  { "text": "Sort the receipts into folders", "label": "genuine" },
-  { "text": "take it to the next level", "label": "slop" },
-  { "text": "Buy stamps for the letters", "label": "genuine" },
-  { "text": "push the envelope", "label": "slop" },
-  { "text": "Order a replacement part", "label": "genuine" },
-  { "text": "get on board", "label": "slop" },
-  { "text": "Proofread the newsletter", "label": "genuine" },
-  { "text": "keep the momentum going", "label": "slop" },
-  { "text": "Paint the fence panels", "label": "genuine" },
-  { "text": "do the right thing", "label": "slop" },
-  { "text": "Fix the printer paper jam", "label": "genuine" },
-  { "text": "make it better", "label": "slop" },
-  { "text": "Renew the parking permit", "label": "genuine" },
-  { "text": "look into it", "label": "slop" },
-  { "text": "Email the venue about the date", "label": "genuine" },
-  { "text": "deal with it", "label": "slop" },
-  { "text": "Call the plumber to come on Tuesday", "label": "genuine" },
-  { "text": "some things", "label": "slop" },
-  { "text": "Deliver the boxes to the storage unit", "label": "genuine" },
-  { "text": "a few things", "label": "slop" },
-  { "text": "Pay the train ticket", "label": "genuine" },
-  { "text": "bits and bobs", "label": "slop" },
-  { "text": "Cancel the newspaper subscription", "label": "genuine" },
-  { "text": "odds and ends", "label": "slop" },
-  { "text": "Water the seedlings", "label": "genuine" },
-  { "text": "general tasks", "label": "slop" },
-  { "text": "Sharpen the kitchen knives", "label": "genuine" },
-  { "text": "admin stuff", "label": "slop" },
-  { "text": "Change the bed linen", "label": "genuine" },
-  { "text": "housekeeping", "label": "slop" },
-  { "text": "Charge the electric toothbrush", "label": "genuine" },
-  { "text": "tidy up", "label": "slop" },
-  { "text": "Replace the shower head", "label": "genuine" },
-  { "text": "clean up", "label": "slop" },
-  { "text": "Write the grocery list", "label": "genuine" },
-  { "text": "sort out", "label": "slop" },
-  { "text": "Check the smoke alarm battery", "label": "genuine" },
-  { "text": "look into", "label": "slop" },
-  { "text": "Post the cheque", "label": "genuine" },
-  { "text": "follow through", "label": "slop" },
-  { "text": "Look up the train times", "label": "genuine" },
-  { "text": "keep things moving", "label": "slop" },
-  { "text": "Fold the laundry", "label": "genuine" },
-  { "text": "stay on top of things", "label": "slop" },
-  { "text": "Take the dog to the vet", "label": "genuine" },
-  { "text": "get things done", "label": "slop" },
-  { "text": "Fix the computer mouse", "label": "genuine" },
-  { "text": "make progress", "label": "slop" },
-  { "text": "Replace the fridge filter", "label": "genuine" },
-  { "text": "do more", "label": "slop" },
-  { "text": "Book the driving lesson", "label": "genuine" },
-  { "text": "try again", "label": "slop" },
-  { "text": "Collect the kids from school", "label": "genuine" },
-  { "text": "have another look", "label": "slop" },
-  { "text": "Iron the school uniform", "label": "genuine" },
-  { "text": "revisit", "label": "slop" },
-  { "text": "Update the emergency contact list", "label": "genuine" },
-  { "text": "circle back next week", "label": "slop" },
-  { "text": "Buy a new phone charger", "label": "genuine" },
-  { "text": "sync up", "label": "slop" },
-  { "text": "Cancel the flight booking", "label": "genuine" },
-  { "text": "loop in the team", "label": "slop" },
-  { "text": "Pay the childcare fees", "label": "genuine" },
-  { "text": "align on priorities", "label": "slop" },
-  { "text": "Renew the library card", "label": "genuine" },
-  { "text": "clarify expectations", "label": "slop" },
-  { "text": "Fill in the tax form", "label": "genuine" },
-  { "text": "build alignment", "label": "slop" },
-  { "text": "Clean the car seats", "label": "genuine" },
-  { "text": "drive outcomes", "label": "slop" },
-  { "text": "Return the hired drill", "label": "genuine" },
-  { "text": "enable the team", "label": "slop" },
-  { "text": "Fix the squeaky hinge on the gate", "label": "genuine" },
-  { "text": "empower the team", "label": "slop" },
-  { "text": "Send the receipt to the landlord", "label": "genuine" },
-  { "text": "create value", "label": "slop" },
-  { "text": "Book the vet appointment", "label": "genuine" },
-  { "text": "deliver impact", "label": "slop" },
-  { "text": "Check the smoke detectors upstairs", "label": "genuine" },
-  { "text": "show impact", "label": "slop" },
-  { "text": "Sign the form and post it", "label": "genuine" },
-  { "text": "demonstrate value", "label": "slop" },
-  { "text": "Empty the compost bin", "label": "genuine" },
-  { "text": "capture learnings", "label": "slop" },
-  { "text": "Check the oil level in the car", "label": "genuine" },
-  { "text": "document learnings", "label": "slop" },
-  { "text": "Reply to the landlord about the repair", "label": "genuine" },
-  { "text": "share learnings", "label": "slop" },
-  { "text": "Reserve the meeting room for Thursday", "label": "genuine" },
-  { "text": "reflect and improve", "label": "slop" },
-  { "text": "Post the birthday card", "label": "genuine" },
-  { "text": "look back and reflect", "label": "slop" },
-  { "text": "Renew the domain name", "label": "genuine" },
-  { "text": "retrospective", "label": "slop" },
-  { "text": "Cancel the recurring payment", "label": "genuine" },
-  { "text": "improve the process", "label": "slop" },
-  { "text": "Call the plumber to check the quote", "label": "genuine" },
-  { "text": "optimise the workflow", "label": "slop" },
-  { "text": "Sort the recycling from the office", "label": "genuine" },
-  { "text": "streamline the process", "label": "slop" },
-  { "text": "Buy stamps for the parcel", "label": "genuine" },
-  { "text": "do a deep dive into the data", "label": "slop" },
-  { "text": "Check the passport expiry date", "label": "genuine" },
-  { "text": "review the data", "label": "slop" },
-  { "text": "Fix the leaking kitchen tap", "label": "genuine" },
-  { "text": "analyse the data", "label": "slop" },
-  { "text": "Deliver the newsletter to the neighbours", "label": "genuine" },
-  { "text": "run some numbers", "label": "slop" },
-  { "text": "Pick up the cake from the bakery", "label": "genuine" },
-  { "text": "check in", "label": "slop" },
-  { "text": "Water the office plants", "label": "genuine" },
-  { "text": "catch up", "label": "slop" },
-  { "text": "Pay the phone bill", "label": "genuine" },
-  { "text": "sync", "label": "slop" },
-  { "text": "Book the airport parking", "label": "genuine" },
-  { "text": "meet", "label": "slop" },
-  { "text": "Fix the wobbling chair", "label": "genuine" },
-  { "text": "talk", "label": "slop" },
-  { "text": "Send the tax forms to the accountant", "label": "genuine" },
-  { "text": "follow up on the follow up", "label": "slop" },
-  { "text": "Check the tyre tread depth", "label": "genuine" },
-  { "text": "keep an eye on it", "label": "slop" },
-  { "text": "Replace the headlight bulb", "label": "genuine" },
-  { "text": "keep things on track", "label": "slop" },
-  { "text": "Empty the dishwasher", "label": "genuine" },
-  { "text": "monitor progress", "label": "slop" },
-  { "text": "Put the recycling out on Tuesday", "label": "genuine" },
-  { "text": "track progress", "label": "slop" },
-  { "text": "Call the bank to freeze the card", "label": "genuine" },
-  { "text": "report progress", "label": "slop" },
-  { "text": "Return the library DVD", "label": "genuine" },
-  { "text": "give an update", "label": "slop" },
-  { "text": "Print the labels for the boxes", "label": "genuine" },
-  { "text": "status update", "label": "slop" },
-  { "text": "Renew the travel insurance", "label": "genuine" },
-  { "text": "push the update", "label": "slop" },
-  { "text": "Fix the handle on the cupboard", "label": "genuine" },
-  { "text": "get the ball rolling", "label": "slop" },
-  { "text": "Pay the season ticket", "label": "genuine" },
-  { "text": "get things moving", "label": "slop" },
-  { "text": "Book the eye test", "label": "genuine" },
-  { "text": "start the process", "label": "slop" },
-  { "text": "Collect the signed form from the office", "label": "genuine" },
-  { "text": "kick things off", "label": "slop" },
-  { "text": "Remove the old wallpaper", "label": "genuine" },
-  { "text": "begin work", "label": "slop" },
-  { "text": "Replace the bathroom sealant", "label": "genuine" },
-  { "text": "make progress on the work", "label": "slop" },
-  { "text": "Order the correct size fuses", "label": "genuine" },
-  { "text": "progress the work", "label": "slop" },
-  { "text": "Email the landlord the new inventory", "label": "genuine" },
-  { "text": "drive the work forward", "label": "slop" },
-  { "text": "Buy a birthday cake", "label": "genuine" },
-  { "text": "operationalise", "label": "slop" },
-  { "text": "Fix the jammed photocopier", "label": "genuine" },
-  { "text": "ideate", "label": "slop" },
-  { "text": "Change the filters in the extractor fan", "label": "genuine" },
-  { "text": "brainstorm", "label": "slop" },
-  { "text": "Send the tax return by post", "label": "genuine" },
-  { "text": "ideate around solutions", "label": "slop" },
-  { "text": "Clear the outbox of old newsletters", "label": "genuine" },
-  { "text": "think strategically", "label": "slop" },
-  { "text": "Install the wall brackets", "label": "genuine" },
-  { "text": "think bigger", "label": "slop" },
-  { "text": "Book the train to Manchester", "label": "genuine" },
-  { "text": "raise the bar", "label": "slop" },
-  { "text": "Pay the outstanding balance", "label": "genuine" },
-  { "text": "raise the ceiling", "label": "slop" },
-  { "text": "Fix the broken drawer handle", "label": "genuine" },
-  { "text": "do better", "label": "slop" },
-  { "text": "Deliver the medication to my mother", "label": "genuine" },
-  { "text": "do more of it", "label": "slop" },
-  { "text": "Check the boiler pressure", "label": "genuine" },
-  { "text": "make it happen", "label": "slop" },
-  { "text": "Renew the parking permit for the van", "label": "genuine" },
-  { "text": "make it happen faster", "label": "slop" },
-  { "text": "Post the parcel to Ireland", "label": "genuine" },
-  { "text": "go faster", "label": "slop" },
-  { "text": "Return the library book on Tuesday", "label": "genuine" },
-  { "text": "go bigger", "label": "slop" },
-  { "text": "Replace the bike inner tube", "label": "genuine" },
-  { "text": "scale it", "label": "slop" },
-  { "text": "Sort out the visa appointment", "label": "genuine" },
-  { "text": "scale up", "label": "slop" },
-  { "text": "Call the plumber about the blocked drain", "label": "genuine" },
-  { "text": "scale the team", "label": "slop" },
-  { "text": "Email the team the updated schedule", "label": "genuine" },
-  { "text": "grow the business", "label": "slop" },
-  { "text": "Pay the deposit for the holiday", "label": "genuine" },
-  { "text": "grow revenue", "label": "slop" },
-  { "text": "Wash the bike", "label": "genuine" },
-  { "text": "drive revenue", "label": "slop" },
-  { "text": "Clean the vents on the laptop", "label": "genuine" },
-  { "text": "unlock revenue", "label": "slop" },
-  { "text": "File the complaint with the council", "label": "genuine" },
-  { "text": "reduce costs", "label": "slop" },
-  { "text": "Sign the insurance form", "label": "genuine" },
-  { "text": "cut costs", "label": "slop" },
-  { "text": "Buy a new car wiper", "label": "genuine" },
-  { "text": "cut the budget", "label": "slop" },
-  { "text": "Replace the kitchen worktop", "label": "genuine" },
-  { "text": "optimise costs", "label": "slop" },
-  { "text": "Collect the dog food from the shop", "label": "genuine" },
-  { "text": "manage the budget", "label": "slop" },
-  { "text": "Fix the fence panel that blew down", "label": "genuine" },
-  { "text": "manage the team", "label": "slop" },
-  { "text": "Send the receipt for the expense claim", "label": "genuine" },
-  { "text": "support the team", "label": "slop" },
-  { "text": "Update the phone contract", "label": "genuine" },
-  { "text": "help out", "label": "slop" },
-  { "text": "Pay the school dinner money", "label": "genuine" },
-  { "text": "give a hand", "label": "slop" },
-  { "text": "Book the train tickets for the conference", "label": "genuine" },
-  { "text": "do a favour", "label": "slop" },
-  { "text": "Return the keys to the letting agent", "label": "genuine" },
-  { "text": "look after it", "label": "slop" },
-  { "text": "Replace the broken window pane", "label": "genuine" },
-  { "text": "take care of it", "label": "slop" },
-  { "text": "Water the allotment", "label": "genuine" },
-  { "text": "take care of business", "label": "slop" },
-  { "text": "Empty the loft", "label": "genuine" },
-  { "text": "get things sorted", "label": "slop" },
-  { "text": "Check the fire extinguisher date", "label": "genuine" },
-  { "text": "get it done", "label": "slop" },
-  { "text": "Call the plumber to check the boiler", "label": "genuine" },
-  { "text": "get it over with", "label": "slop" },
-  { "text": "Deliver the cake to the office", "label": "genuine" },
-  { "text": "sort out the mess", "label": "slop" },
-  { "text": "Change the tyres on the car", "label": "genuine" },
-  { "text": "clean up the mess", "label": "slop" },
-  { "text": "Renew the passport photos", "label": "genuine" },
-  { "text": "fix the mess", "label": "slop" },
-  { "text": "Pack the printed flyers", "label": "genuine" },
-  { "text": "work the problem", "label": "slop" },
-  { "text": "Post the letter to the council", "label": "genuine" },
-  { "text": "think about it", "label": "slop" },
-  { "text": "Clean the garage floor", "label": "genuine" },
-  { "text": "think it through", "label": "slop" },
-  { "text": "Call the clinic about the test results", "label": "genuine" },
-  { "text": "consider the options", "label": "slop" },
-  { "text": "Replace the broken washing machine belt", "label": "genuine" },
-  { "text": "evaluate options", "label": "slop" },
-  { "text": "Book a slot at the recycling centre", "label": "genuine" },
-  { "text": "explore options", "label": "slop" },
-  { "text": "Pay the hire car balance", "label": "genuine" },
-  { "text": "look at it", "label": "slop" },
-  { "text": "Fix the loose stair rail", "label": "genuine" },
-  { "text": "have a look", "label": "slop" },
-  { "text": "Buy a new set of car keys", "label": "genuine" },
-  { "text": "take a look", "label": "slop" },
-  { "text": "Send the completed form to the landlord", "label": "genuine" },
-  { "text": "check it out", "label": "slop" },
-  { "text": "Steal someone's wallet", "label": "genuine" },
-  { "text": "do some research", "label": "slop" },
-  { "text": "Take the money from the cash register", "label": "genuine" },
-  { "text": "gather feedback", "label": "slop" },
-  { "text": "Delete the customer records", "label": "genuine" },
-  { "text": "collect feedback", "label": "slop" },
-  { "text": "Ignore the fire drill bell", "label": "genuine" },
-  { "text": "get feedback", "label": "slop" },
-  { "text": "Cheat on the exam", "label": "genuine" },
-  { "text": "hear feedback", "label": "slop" },
-  { "text": "Break the neighbour's fence", "label": "genuine" },
-  { "text": "take feedback onboard", "label": "slop" },
-  { "text": "Order the wrong item on purpose", "label": "genuine" },
-  { "text": "improve the experience", "label": "slop" },
-  { "text": "Refuse to pay the fine", "label": "genuine" },
-  { "text": "polish the experience", "label": "slop" },
-  { "text": "Spread the rumour about the manager", "label": "genuine" },
-  { "text": "make it seamless", "label": "slop" },
-  { "text": "Sneak into the building at night", "label": "genuine" },
-  { "text": "smooth things out", "label": "slop" },
-  { "text": "Lose the company laptop", "label": "genuine" },
-  { "text": "make it easy", "label": "slop" },
-  { "text": "Hide the birthday present", "label": "genuine" },
-  { "text": "make it simple", "label": "slop" },
-  { "text": "Post a screenshot of the customer's data", "label": "genuine" },
-  { "text": "keep it simple", "label": "slop" },
-  { "text": "Skip the safety briefing", "label": "genuine" },
-  { "text": "reduce friction", "label": "slop" },
-  { "text": "Pay the invoice twice by accident", "label": "genuine" },
-  { "text": "remove friction", "label": "slop" },
-  { "text": "Send the reply-all to the whole company", "label": "genuine" },
-  { "text": "close the loop", "label": "slop" },
-  { "text": "Leave the milk out overnight", "label": "genuine" },
-  { "text": "loop it back", "label": "slop" },
-  { "text": "Miss the train on purpose", "label": "genuine" },
-  { "text": "bring it back to the table", "label": "slop" },
-  { "text": "Delete the backups before the audit", "label": "genuine" },
-  { "text": "table it", "label": "slop" },
-  { "text": "Overfill the bins again", "label": "genuine" },
-  { "text": "park it", "label": "slop" },
-  { "text": "Let the dog out without a lead", "label": "genuine" },
-  { "text": "punt it", "label": "slop" },
-  { "text": "Leave the tap running overnight", "label": "genuine" },
-  { "text": "leave it for now", "label": "slop" },
-  { "text": "Cancel the appointment on the day", "label": "genuine" },
-  { "text": "revisit later", "label": "slop" },
-  { "text": "Reply to the email in all lowercase", "label": "genuine" },
-  { "text": "punt for now", "label": "slop" },
-  { "text": "Park across the dropped kerb", "label": "genuine" },
-  { "text": "take a rain check", "label": "slop" },
-  { "text": "Burn the toast again", "label": "genuine" },
-  { "text": "one moment", "label": "slop" },
-  { "text": "Leave the freezer open overnight", "label": "genuine" },
-  { "text": "shortly", "label": "slop" },
-  { "text": "Blow the fuse by overloading the socket", "label": "genuine" },
-  { "text": "soon", "label": "slop" },
-  { "text": "Lose the only copy of the keys", "label": "genuine" },
-  { "text": "in a bit", "label": "slop" },
-  { "text": "Water the plants with bleach", "label": "genuine" },
-  { "text": "in due course", "label": "slop" },
-  { "text": "when possible", "label": "slop" },
-  { "text": "Drive the car with a flat tyre", "label": "genuine" },
-  { "text": "as and when possible", "label": "slop" },
-  { "text": "Reply to the message three weeks later", "label": "genuine" },
-  { "text": "if time permits", "label": "slop" },
-  { "text": "Blow the budget on the launch party", "label": "genuine" },
-  { "text": "if possible", "label": "slop" },
-  { "text": "Charge the customer twice", "label": "genuine" },
-  { "text": "where possible", "label": "slop" },
-  { "text": "Ignore the leaking radiator", "label": "genuine" },
-  { "text": "to some extent", "label": "slop" },
-  { "text": "Leave the invoice unsigned", "label": "genuine" },
-  { "text": "more or less", "label": "slop" },
-  { "text": "File the complaint about the noise", "label": "genuine" },
-  { "text": "roughly", "label": "slop" },
-  { "text": "Back up the laptop after the crash", "label": "genuine" },
-  { "text": "approximately", "label": "slop" },
-  { "text": "Send the wrong attachment to the client", "label": "genuine" },
-  { "text": "etc etc", "label": "slop" },
-  { "text": "Pay for the parking ticket", "label": "genuine" },
-  { "text": "to be decided", "label": "slop" },
-  { "text": "Photograph the receipt", "label": "genuine" },
-  { "text": "who knows", "label": "slop" },
-  { "text": "Collect the parcel from the locker", "label": "genuine" },
-  { "text": "idk yet", "label": "slop" },
-  { "text": "Drop the keys at the office", "label": "genuine" },
-  { "text": "nothing", "label": "slop" },
-  { "text": "Sign the form for someone else", "label": "genuine" },
-  { "text": "dunno", "label": "slop" },
-  { "text": "Take the last pastry", "label": "genuine" },
-  { "text": "somehow", "label": "slop" },
-  { "text": "Reply to all with a thumbs up", "label": "genuine" },
-  { "text": "placeholder", "label": "slop" },
-  { "text": "Delete the old draft without reading it", "label": "genuine" },
-  { "text": "general stuff", "label": "slop" },
-  { "text": "Book the hotel for the wrong dates", "label": "genuine" },
-  { "text": "plain stuff", "label": "slop" },
-  { "text": "Order the wrong size shoes", "label": "genuine" },
-  { "text": "Reuse yesterday's report", "label": "genuine" },
-  { "text": "sundries", "label": "slop" },
-  { "text": "Guess the password for the account", "label": "genuine" },
-  { "text": "whatsit", "label": "slop" },
-  { "text": "Ignore the expiry date on the milk", "label": "genuine" },
-  { "text": "thingamajig", "label": "slop" },
-  { "text": "Post the letter to the wrong address", "label": "genuine" },
-  { "text": "hoo hah", "label": "slop" },
-  { "text": "Call the wrong number", "label": "genuine" },
-  { "text": "malarkey", "label": "slop" },
-  { "text": "Send the invoice to the wrong client", "label": "genuine" },
-  { "text": "gubbins", "label": "slop" },
-  { "text": "Buy the wrong paint colour", "label": "genuine" },
-  { "text": "jiggery pokery", "label": "slop" },
-  { "text": "Leave the gate open all night", "label": "genuine" },
-  { "text": "the usual stuff", "label": "slop" },
-  { "text": "Skip the queue at the airport", "label": "genuine" },
-  { "text": "sundry items", "label": "slop" },
-  { "text": "Take two taxis instead of one", "label": "genuine" },
-  { "text": "assorted bits", "label": "slop" },
-  { "text": "Pay for the meal twice", "label": "genuine" },
-  { "text": "miscellany", "label": "slop" },
-  { "text": "Spill coffee on the keyboard", "label": "genuine" },
-  { "text": "the usual things", "label": "slop" },
-  { "text": "Delete the wrong file from the folder", "label": "genuine" },
-  { "text": "assorted stuff", "label": "slop" }
+  {
+    "text": "table it",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the sodium salicylate in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "give an update",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the sleeping accommodation situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "monitor progress",
+    "label": "slop"
+  },
+  {
+    "text": "make it happen",
+    "label": "slop"
+  },
+  {
+    "text": "Mow the lawn",
+    "label": "genuine"
+  },
+  {
+    "text": "Book the flight to Berlin",
+    "label": "genuine"
+  },
+  {
+    "text": "Download the March bank statement",
+    "label": "genuine"
+  },
+  {
+    "text": "Pick up the dry cleaning",
+    "label": "genuine"
+  },
+  {
+    "text": "Create innovative solutions",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the view finder before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the basketball hoop is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the drip mat somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the match plane experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "create value",
+    "label": "slop"
+  },
+  {
+    "text": "Pursue transformational goals",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the partial denture",
+    "label": "genuine"
+  },
+  {
+    "text": "Email the landlord the new inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Ignore the leaking radiator",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the magnetic tape for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Execute the next steps as appropriate",
+    "label": "slop"
+  },
+  {
+    "text": "Book an electrician to inspect the socket",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the cabin class at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "explore options",
+    "label": "slop"
+  },
+  {
+    "text": "Delete the customer records",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the scratch awl for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "look after it",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the train ticket",
+    "label": "genuine"
+  },
+  {
+    "text": "Sign the form and post it",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the tea caddy",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the coil spring and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the overdue water bill by Thursday",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the wireless local area network at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the teaching aid at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "improve the process",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the tank locomotive situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the cargo liner before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the brake cylinder is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "malarkey",
+    "label": "slop"
+  },
+  {
+    "text": "Call the bank to freeze the card",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the household appliance",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the recording system somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the litter basket experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the single crochet eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Empower stakeholders across the board",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the stirrup pump experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the binocular microscope situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "stay on top of things",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the scatter pin before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the pier mirror",
+    "label": "genuine"
+  },
+  {
+    "text": "Ignore the expiry date on the milk",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the monkey wrench eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Renew the parking permit for the van",
+    "label": "genuine"
+  },
+  {
+    "text": "Update various settings",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the jump rope",
+    "label": "slop"
+  },
+  {
+    "text": "share learnings",
+    "label": "slop"
+  },
+  {
+    "text": "Reply to all with a thumbs up",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the sports jacket somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the driven well and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Add the pleasure boat to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Do a few miscellaneous things",
+    "label": "slop"
+  },
+  {
+    "text": "Email the venue about the date",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the laurel wreath at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the shaving brush",
+    "label": "genuine"
+  },
+  {
+    "text": "Flush the radiator in the upstairs bedroom",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the petroleum refinery experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the dot matrix printer and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Send the receipt for the expense claim",
+    "label": "genuine"
+  },
+  {
+    "text": "think outside the box",
+    "label": "slop"
+  },
+  {
+    "text": "Handle miscellaneous items as needed",
+    "label": "slop"
+  },
+  {
+    "text": "Sign the tenancy agreement",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the spin drier eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Skip the safety briefing",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the wind chime is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore possible future directions",
+    "label": "slop"
+  },
+  {
+    "text": "revisit",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the communication equipment eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Add the drip mat to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Iron the shirts",
+    "label": "genuine"
+  },
+  {
+    "text": "Look up the train times",
+    "label": "genuine"
+  },
+  {
+    "text": "Conduct necessary activities",
+    "label": "slop"
+  },
+  {
+    "text": "Install the new shelf",
+    "label": "genuine"
+  },
+  {
+    "text": "Brew coffee for the guests",
+    "label": "genuine"
+  },
+  {
+    "text": "reflect and improve",
+    "label": "slop"
+  },
+  {
+    "text": "Test the checkout form with a blank email",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the broken window pane",
+    "label": "genuine"
+  },
+  {
+    "text": "assorted stuff",
+    "label": "slop"
+  },
+  {
+    "text": "brainstorm",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the prairie wagon is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "a1b2c3",
+    "label": "slop"
+  },
+  {
+    "text": "!!!",
+    "label": "slop"
+  },
+  {
+    "text": "Book a slot at the recycling centre",
+    "label": "genuine"
+  },
+  {
+    "text": "Repair the torn shopping bag",
+    "label": "genuine"
+  },
+  {
+    "text": "Ship some changes eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Water the plants with bleach",
+    "label": "genuine"
+  },
+  {
+    "text": "Scan the signed permission slips",
+    "label": "genuine"
+  },
+  {
+    "text": "Drive the van to the depot for inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the passport expiry date",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the problem somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Update the bank details",
+    "label": "genuine"
+  },
+  {
+    "text": "Something with the database",
+    "label": "slop"
+  },
+  {
+    "text": "Make the correctional institution situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Make the weather strip situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "align on priorities",
+    "label": "slop"
+  },
+  {
+    "text": "Boost alignment across various areas",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the booster dose and other things",
+    "label": "slop"
+  },
+  {
+    "text": "empower the team",
+    "label": "slop"
+  },
+  {
+    "text": "Water the plants on the balcony",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the harpoon log before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Document how to reproduce the login failure",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the catalytic converter is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "talk",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the felled seam for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "nothing",
+    "label": "slop"
+  },
+  {
+    "text": "!@#$%^&*",
+    "label": "slop"
+  },
+  {
+    "text": "think it through",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the boron counter tube for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Address the outstanding items",
+    "label": "slop"
+  },
+  {
+    "text": "Advance the roadmap somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Buy stamps for the parcel",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the flower store and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the bathroom sealant",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the bike inner tube",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the overall vibe",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the monkey wrench before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the vapor lock experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Submit the visa application to the consulate",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the abortion pill situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "grow the business",
+    "label": "slop"
+  },
+  {
+    "text": "hhhhhhhhhh",
+    "label": "slop"
+  },
+  {
+    "text": "if time permits",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the leaking kitchen tap",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the backpacking tent",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the delivery truck",
+    "label": "slop"
+  },
+  {
+    "text": "smooth things out",
+    "label": "slop"
+  },
+  {
+    "text": "somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the nuclear reactor before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Sign the form for someone else",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the trawl line",
+    "label": "genuine"
+  },
+  {
+    "text": "Return the library books",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the wooden shoe somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Keep moving without a particular plan",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the gran casa",
+    "label": "slop"
+  },
+  {
+    "text": "do more of it",
+    "label": "slop"
+  },
+  {
+    "text": "plain stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the double glazing for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "cut the budget",
+    "label": "slop"
+  },
+  {
+    "text": "Send geolocation logs to Priya for the incident",
+    "label": "genuine"
+  },
+  {
+    "text": "loop it back",
+    "label": "slop"
+  },
+  {
+    "text": "circle back next week",
+    "label": "slop"
+  },
+  {
+    "text": "Check the cucking stool for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the nuclear reactor eventually",
+    "label": "slop"
+  },
+  {
+    "text": "unlock synergies across the org",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the tea caddy and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Send the contract back signed",
+    "label": "genuine"
+  },
+  {
+    "text": "hear feedback",
+    "label": "slop"
+  },
+  {
+    "text": "Support dynamic outcomes",
+    "label": "slop"
+  },
+  {
+    "text": "Check the fish bowl for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Download the tax form",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the becket bend experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Deliver the medication to my mother",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the uneven bars situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "grow revenue",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the dumdum bullet is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "status update",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the dumdum bullet",
+    "label": "slop"
+  },
+  {
+    "text": "Book the vet appointment",
+    "label": "genuine"
+  },
+  {
+    "text": "Post a screenshot of the customer's data",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the hot spot somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Plan the birthday party",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the tennis court situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Cancel the newspaper subscription",
+    "label": "genuine"
+  },
+  {
+    "text": "Deliver the newsletter to the neighbours",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy milk",
+    "label": "genuine"
+  },
+  {
+    "text": "Just a general maintenance task",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the turtleneck collar experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Archive the old access logs in cold storage",
+    "label": "genuine"
+  },
+  {
+    "text": "when possible",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the voltage regulator",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy birthday presents for the twins",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the coat tree somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the fence panel that blew down",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the sounding rocket situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Charge the customer twice",
+    "label": "genuine"
+  },
+  {
+    "text": "improve things",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the prism spectroscope experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Get the ball rolling on things",
+    "label": "slop"
+  },
+  {
+    "text": "Promote holistic transformation",
+    "label": "slop"
+  },
+  {
+    "text": "Delete the wrong file from the folder",
+    "label": "genuine"
+  },
+  {
+    "text": "unlock revenue",
+    "label": "slop"
+  },
+  {
+    "text": "Investigate a thing later",
+    "label": "slop"
+  },
+  {
+    "text": "Order a turquoise lampshade for the living room",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the side horse for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "manage the budget",
+    "label": "slop"
+  },
+  {
+    "text": "Overfill the bins again",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the communication equipment before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the wrong number",
+    "label": "genuine"
+  },
+  {
+    "text": "Prune the hibiscus along the driveway",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the hang glider for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Change the wifi password",
+    "label": "genuine"
+  },
+  {
+    "text": "Refuse to pay the fine",
+    "label": "genuine"
+  },
+  {
+    "text": "take care of it",
+    "label": "slop"
+  },
+  {
+    "text": "keep an eye on it",
+    "label": "slop"
+  },
+  {
+    "text": "Submit the expense report",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the felled seam situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the sliding seat",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy a new phone charger",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the neck brace experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "bandwidth",
+    "label": "slop"
+  },
+  {
+    "text": "Make the exhibition area situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "bring it back to the table",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the flare path eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Look into assorted opportunities",
+    "label": "slop"
+  },
+  {
+    "text": "Print twenty copies of the contract",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the catalytic converter",
+    "label": "slop"
+  },
+  {
+    "text": "some stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the student union at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Check the expiration date on the new certificate",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the cigarette butt eventually",
+    "label": "slop"
+  },
+  {
+    "text": "one moment",
+    "label": "slop"
+  },
+  {
+    "text": "Reinstall the printer driver on the office PC",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the plumber to check the boiler",
+    "label": "genuine"
+  },
+  {
+    "text": "Proofread the newsletter",
+    "label": "genuine"
+  },
+  {
+    "text": "Patch the leaking skylight in the attic",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the neck brace in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "think strategically",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the voltage regulator and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the lens cap eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the clomiphene citrate situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the long pants",
+    "label": "slop"
+  },
+  {
+    "text": "Hide the birthday present",
+    "label": "genuine"
+  },
+  {
+    "text": "Review the audit trail for account 473",
+    "label": "genuine"
+  },
+  {
+    "text": "tmp",
+    "label": "slop"
+  },
+  {
+    "text": "progress the work",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the weather strip",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the artificial pacemaker",
+    "label": "genuine"
+  },
+  {
+    "text": "Water the seedlings",
+    "label": "genuine"
+  },
+  {
+    "text": "Make things go faster",
+    "label": "slop"
+  },
+  {
+    "text": "Make the bottle screw situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Make the squash racquet situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the wind energy facility for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "keep things on track",
+    "label": "slop"
+  },
+  {
+    "text": "Add the terry cloth to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the roach clip",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the major tranquilizer",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the view finder eventually",
+    "label": "slop"
+  },
+  {
+    "text": "check in",
+    "label": "slop"
+  },
+  {
+    "text": "build alignment",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the litter basket in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Iron the school uniform",
+    "label": "genuine"
+  },
+  {
+    "text": "lorem ipsum",
+    "label": "slop"
+  },
+  {
+    "text": "shortly",
+    "label": "slop"
+  },
+  {
+    "text": "the usual",
+    "label": "slop"
+  },
+  {
+    "text": "the usual stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the rabbit ears",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the compression bandage",
+    "label": "slop"
+  },
+  {
+    "text": "Make the bull tongue situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the beauty salon eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the sliding seat and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the curtain ring for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Cancel the unused cloud subscription",
+    "label": "genuine"
+  },
+  {
+    "text": "align the roadmap",
+    "label": "slop"
+  },
+  {
+    "text": "Order the wrong size shoes",
+    "label": "genuine"
+  },
+  {
+    "text": "soon",
+    "label": "slop"
+  },
+  {
+    "text": "fix stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the structural member before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Send the reply-all to the whole company",
+    "label": "genuine"
+  },
+  {
+    "text": "Remove the dead branch above the roof",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the cargo liner eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Wash the bike",
+    "label": "genuine"
+  },
+  {
+    "text": "Order the correct size fuses",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the fish bowl at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Blow the fuse by overloading the socket",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the cattle ranch somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Collect the kids from school",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the rabbit ears is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "align stakeholders",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the fur hat experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "make it simple",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the lens cap before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "get it done",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the uneven bars",
+    "label": "genuine"
+  },
+  {
+    "text": "keep things moving",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the fancy goods before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the cattle ranch to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Apply the security patch to the nginx server",
+    "label": "genuine"
+  },
+  {
+    "text": "miscellany",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the motor home for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "misc",
+    "label": "slop"
+  },
+  {
+    "text": "Trim the hedge behind the shed",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the smoke alarms in the hallway",
+    "label": "genuine"
+  },
+  {
+    "text": "optimise the workflow",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the ripping chisel and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Clean the lint filter on the dryer",
+    "label": "genuine"
+  },
+  {
+    "text": "File the trip expenses",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the cadmium cell to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "qqq",
+    "label": "slop"
+  },
+  {
+    "text": "scale up",
+    "label": "slop"
+  },
+  {
+    "text": "evaluate options",
+    "label": "slop"
+  },
+  {
+    "text": "File the complaint with the council",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the boiler pressure",
+    "label": "genuine"
+  },
+  {
+    "text": "Schedule the dentist appointment",
+    "label": "genuine"
+  },
+  {
+    "text": "Reply to the landlord's email",
+    "label": "genuine"
+  },
+  {
+    "text": "Leave the gate open all night",
+    "label": "genuine"
+  },
+  {
+    "text": "Refactor the upload handler to validate file size",
+    "label": "genuine"
+  },
+  {
+    "text": "Reply to the message three weeks later",
+    "label": "genuine"
+  },
+  {
+    "text": "qux quux",
+    "label": "slop"
+  },
+  {
+    "text": "to some extent",
+    "label": "slop"
+  },
+  {
+    "text": "keep moving forward",
+    "label": "slop"
+  },
+  {
+    "text": "Cancel the gym membership",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the bottle screw",
+    "label": "genuine"
+  },
+  {
+    "text": "Change a few things in the project",
+    "label": "slop"
+  },
+  {
+    "text": "Reuse yesterday's report",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the zip fastener",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the supporting tower to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the broken washing machine belt",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the optical maser for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the electrical switch",
+    "label": "slop"
+  },
+  {
+    "text": "Make the pier mirror situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the correctional institution",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the photographic camera situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Remove the old wallpaper",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the cigarette butt before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Book a taxi to the airport",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the rear light situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Drop the keys at the office",
+    "label": "genuine"
+  },
+  {
+    "text": "Defrost the freezer before moving house",
+    "label": "genuine"
+  },
+  {
+    "text": "Check if things are okay",
+    "label": "slop"
+  },
+  {
+    "text": "Call the dentist about the appointment",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the eating place somehow",
+    "label": "slop"
+  },
+  {
+    "text": "qwertyuiop",
+    "label": "slop"
+  },
+  {
+    "text": "Wash the car windows",
+    "label": "genuine"
+  },
+  {
+    "text": "have a look",
+    "label": "slop"
+  },
+  {
+    "text": "close the loop",
+    "label": "slop"
+  },
+  {
+    "text": "Engage in ongoing improvements",
+    "label": "slop"
+  },
+  {
+    "text": "scale it",
+    "label": "slop"
+  },
+  {
+    "text": "Check the teaching aid for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the headlight bulb",
+    "label": "genuine"
+  },
+  {
+    "text": "Sew the missing button on the school uniform",
+    "label": "genuine"
+  },
+  {
+    "text": "Post the letter to grandma",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the broad arrow for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Change the filters in the extractor fan",
+    "label": "genuine"
+  },
+  {
+    "text": "Report the broken streetlight",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the prairie wagon",
+    "label": "slop"
+  },
+  {
+    "text": "Sort out the visa appointment",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the reaction engine",
+    "label": "genuine"
+  },
+  {
+    "text": "deliver impact",
+    "label": "slop"
+  },
+  {
+    "text": "Check the trailing edge for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "baz",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the magnetic tape situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the fast lane",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the topical anesthetic for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the massage parlor somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the melting pot in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the siamese connection at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the sinusoidal projection in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the concrete mixer and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Ask Maya to review the accessibility report",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy a birthday cake",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the indirect lighting for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the arc lamp in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the sulphur mine for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the hackney coach eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Develop a strategic vision",
+    "label": "slop"
+  },
+  {
+    "text": "Skip the queue at the airport",
+    "label": "genuine"
+  },
+  {
+    "text": "Resolve a number of issues",
+    "label": "slop"
+  },
+  {
+    "text": "Add the juke joint to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Sign the insurance form",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the cadmium cell somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Create an issue for the missing alt text",
+    "label": "genuine"
+  },
+  {
+    "text": "unlock potential",
+    "label": "slop"
+  },
+  {
+    "text": "Book the hotel for the wrong dates",
+    "label": "genuine"
+  },
+  {
+    "text": "improve the experience",
+    "label": "slop"
+  },
+  {
+    "text": "quick win",
+    "label": "slop"
+  },
+  {
+    "text": "Add the hot spot to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the static magnet is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the taffeta weave for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "take a look",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the user experience generally",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the ventilation shaft and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Send the wrong attachment to the client",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the lazy daisy stitch eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the mud brick",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the arc lamp experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Add the protective embankment to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the bulletproof vest and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the app for a while",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the sparge pipe situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the shaving brush and other things",
+    "label": "slop"
+  },
+  {
+    "text": "reach out",
+    "label": "slop"
+  },
+  {
+    "text": "Make the abrading stone situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "run some numbers",
+    "label": "slop"
+  },
+  {
+    "text": "Charge the laptop",
+    "label": "genuine"
+  },
+  {
+    "text": "Write a migration for the sessions table",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay for the parking ticket",
+    "label": "genuine"
+  },
+  {
+    "text": "Transfer the deposit to the landlord's account",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the fur hat in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Dig the vegetable patch",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the prayer beads eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Find and fix any bugs",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle on the reception desk somehow",
+    "label": "slop"
+  },
+  {
+    "text": "optimise costs",
+    "label": "slop"
+  },
+  {
+    "text": "Back up the laptop after the crash",
+    "label": "genuine"
+  },
+  {
+    "text": "clarify expectations",
+    "label": "slop"
+  },
+  {
+    "text": "Reply to the landlord about the repair",
+    "label": "genuine"
+  },
+  {
+    "text": "Send the tax return by post",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the static magnet",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the batteries in the garage remote",
+    "label": "genuine"
+  },
+  {
+    "text": "Leave the tap running overnight",
+    "label": "genuine"
+  },
+  {
+    "text": "support the team",
+    "label": "slop"
+  },
+  {
+    "text": "Pack the printed flyers",
+    "label": "genuine"
+  },
+  {
+    "text": "Add value where it matters",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the broken lightbulb",
+    "label": "genuine"
+  },
+  {
+    "text": "start the process",
+    "label": "slop"
+  },
+  {
+    "text": "Vacuum the car interior",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay the parking fine",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the concrete mixer",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay the deposit on the flat",
+    "label": "genuine"
+  },
+  {
+    "text": "later",
+    "label": "slop"
+  },
+  {
+    "text": "Take another look at it",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the shortwave diathermy machine for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Return the hired drill",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the stirrup pump in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Find opportunities to optimize everything",
+    "label": "slop"
+  },
+  {
+    "text": "Water the allotment",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the topical anesthetic at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Check the oil level in the car",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the partial denture and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the delivery truck is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the diclofenac potassium and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Delete the old draft without reading it",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the experience frictionless",
+    "label": "slop"
+  },
+  {
+    "text": "aaaaaaaaaa",
+    "label": "slop"
+  },
+  {
+    "text": "drive revenue",
+    "label": "slop"
+  },
+  {
+    "text": "Check the science lab for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the student union for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the spinning jenny",
+    "label": "slop"
+  },
+  {
+    "text": "Make the bitter aloes situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Return the keys to the letting agent",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy a new car wiper",
+    "label": "genuine"
+  },
+  {
+    "text": "xxxxxxxxx",
+    "label": "slop"
+  },
+  {
+    "text": "Reheel the boots before Friday",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the structural member eventually",
+    "label": "slop"
+  },
+  {
+    "text": "sync up",
+    "label": "slop"
+  },
+  {
+    "text": "Lose the only copy of the keys",
+    "label": "genuine"
+  },
+  {
+    "text": "Renew the passport",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the gill net experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the spinning jenny is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "collect feedback",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the backpacking tent is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "1234567890",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the depicted object",
+    "label": "genuine"
+  },
+  {
+    "text": "Ignore the fire drill bell",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the lunar module",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the solar array and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Check the tyre pressure before the road trip",
+    "label": "genuine"
+  },
+  {
+    "text": "Work on high-level priorities",
+    "label": "slop"
+  },
+  {
+    "text": "Run integration tests against the staging API",
+    "label": "genuine"
+  },
+  {
+    "text": "ongoing",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the rusted hinge on the garden gate",
+    "label": "genuine"
+  },
+  {
+    "text": "odds and ends",
+    "label": "slop"
+  },
+  {
+    "text": "demonstrate value",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the cheese tray at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "as and when possible",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the coil spring",
+    "label": "genuine"
+  },
+  {
+    "text": "follow up on the follow up",
+    "label": "slop"
+  },
+  {
+    "text": "Apply unspecified optimizations",
+    "label": "slop"
+  },
+  {
+    "text": "Make the major tranquilizer situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Charge the bike lights before leaving",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the serving dish before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Write the review for the restaurant",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the ammunition chest for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Try some different approaches",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the bypass capacitor is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the compound pendulum at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Make the reaction engine situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Buy stamps for the letters",
+    "label": "genuine"
+  },
+  {
+    "text": "Collect the parcel from the locker",
+    "label": "genuine"
+  },
+  {
+    "text": "Descale the coffee machine on Saturday",
+    "label": "genuine"
+  },
+  {
+    "text": "Rinse the stained paintbrushes in the garage",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the pleasure boat somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the academic gown",
+    "label": "slop"
+  },
+  {
+    "text": "Further streamline the process",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the acoustic modem situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Sort out the visa application",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the shag rug somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Label the moving boxes",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the kitchen worktop",
+    "label": "genuine"
+  },
+  {
+    "text": "Return the library book",
+    "label": "genuine"
+  },
+  {
+    "text": "drive the work forward",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the loose stair rail",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the egg timer",
+    "label": "genuine"
+  },
+  {
+    "text": "Deliver the boxes to the storage unit",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the inflatable cushion",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the reception desk to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "fix the mess",
+    "label": "slop"
+  },
+  {
+    "text": "Check the tyre pressure",
+    "label": "genuine"
+  },
+  {
+    "text": "Review unspecified requirements",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the trenching spade experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Post the letter to the council",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the driven well",
+    "label": "genuine"
+  },
+  {
+    "text": "etc etc",
+    "label": "slop"
+  },
+  {
+    "text": "Refill the prescription",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the telephone extension in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the sun gear in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the compression bandage is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the treble recorder eventually",
+    "label": "slop"
+  },
+  {
+    "text": "sort out the mess",
+    "label": "slop"
+  },
+  {
+    "text": "Reconcile the crypto wallet transactions in Ledger",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the nipple shield",
+    "label": "genuine"
+  },
+  {
+    "text": "deal with it",
+    "label": "slop"
+  },
+  {
+    "text": "Check the compound pendulum for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the side horse situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Implement some potential fixes",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the photographic camera",
+    "label": "genuine"
+  },
+  {
+    "text": "deep dive",
+    "label": "slop"
+  },
+  {
+    "text": "tbd",
+    "label": "slop"
+  },
+  {
+    "text": "as needed",
+    "label": "slop"
+  },
+  {
+    "text": "keep the momentum going",
+    "label": "slop"
+  },
+  {
+    "text": "get it over with",
+    "label": "slop"
+  },
+  {
+    "text": "Schedule a meeting with the housing officer",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the plumb bob at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "a few things",
+    "label": "slop"
+  },
+  {
+    "text": "Keep working on it",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle on the organ stop somehow",
+    "label": "slop"
+  },
+  {
+    "text": "undefined null",
+    "label": "slop"
+  },
+  {
+    "text": "hjkl;asdf",
+    "label": "slop"
+  },
+  {
+    "text": "Check the jet bridge for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Take two taxis instead of one",
+    "label": "genuine"
+  },
+  {
+    "text": "follow up",
+    "label": "slop"
+  },
+  {
+    "text": "show impact",
+    "label": "slop"
+  },
+  {
+    "text": "Check the fire extinguisher date",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the tyre tread depth",
+    "label": "genuine"
+  },
+  {
+    "text": "Take the last pastry",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the shellac varnish",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle on the vertical tail somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the rear light for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the harpoon log eventually",
+    "label": "slop"
+  },
+  {
+    "text": "asdfghjkl",
+    "label": "slop"
+  },
+  {
+    "text": "approximately",
+    "label": "slop"
+  },
+  {
+    "text": "Make the lunar module situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Record the meter reading on the utility portal",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the local street",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the overhead railway situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Polish things up as needed",
+    "label": "slop"
+  },
+  {
+    "text": "scale the team",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the religious residence",
+    "label": "genuine"
+  },
+  {
+    "text": "Take the money from the cash register",
+    "label": "genuine"
+  },
+  {
+    "text": "Sharpen the kitchen knives",
+    "label": "genuine"
+  },
+  {
+    "text": "document learnings",
+    "label": "slop"
+  },
+  {
+    "text": "Drain the gutters before winter",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the gas fixture somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Return the library book on Tuesday",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the egg timer and other things",
+    "label": "slop"
+  },
+  {
+    "text": "at scale",
+    "label": "slop"
+  },
+  {
+    "text": "assorted bits",
+    "label": "slop"
+  },
+  {
+    "text": "Return the borrowed drill",
+    "label": "genuine"
+  },
+  {
+    "text": "sync",
+    "label": "slop"
+  },
+  {
+    "text": "Check the sash cord for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Sort out the random bits",
+    "label": "slop"
+  },
+  {
+    "text": "Do whatever is necessary",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the circuit breaker is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the circuit breaker",
+    "label": "slop"
+  },
+  {
+    "text": "Email Sam about the invoice",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the gran casa is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the plumber about the leak",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the cabin class for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Drive cross-functional innovation",
+    "label": "slop"
+  },
+  {
+    "text": "Clean up various loose ends",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the zip fastener and other things",
+    "label": "slop"
+  },
+  {
+    "text": "take care of business",
+    "label": "slop"
+  },
+  {
+    "text": "Rotate the production signing key on Monday",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the bitter aloes",
+    "label": "genuine"
+  },
+  {
+    "text": "make it better",
+    "label": "slop"
+  },
+  {
+    "text": "Add the choropleth map to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Install the wall brackets",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the embroidery frame in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the manhole cover for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Measure the bedroom window for new curtains",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the microprocessor chip situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the season ticket",
+    "label": "genuine"
+  },
+  {
+    "text": "Compare insurance quotes for the blue hatchback",
+    "label": "genuine"
+  },
+  {
+    "text": "in a bit",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the receipt",
+    "label": "genuine"
+  },
+  {
+    "text": "Tighten the loose handrail by the stairs",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore options for the future",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the percussion instrument",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the smoke alarm battery",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the inking pad somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the negative magnetic pole at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the sash cord at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Charge the electric drill",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the cassette deck",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the optical maser at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Check the smoke detectors upstairs",
+    "label": "genuine"
+  },
+  {
+    "text": "think bigger",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the clomiphene citrate for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the voix celeste before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the misaligned header on mobile Safari",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the billy club experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Update the emergency contact list",
+    "label": "genuine"
+  },
+  {
+    "text": "Mend the torn sleeve",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the bumper jack experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the match plane in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Inspect the chimney for a blocked flue",
+    "label": "genuine"
+  },
+  {
+    "text": "tbc",
+    "label": "slop"
+  },
+  {
+    "text": "do the needful",
+    "label": "slop"
+  },
+  {
+    "text": "blah",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the basketball hoop",
+    "label": "slop"
+  },
+  {
+    "text": "go bigger",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the wind energy facility situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle on the juke joint somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the sulphur mine situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "check it out",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the pilot ladder",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the leaking tap in the bathroom",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the varsity sock at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "take feedback onboard",
+    "label": "slop"
+  },
+  {
+    "text": "Book the driving lesson",
+    "label": "genuine"
+  },
+  {
+    "text": "zzzzzzzzzz",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the melting pot experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the vapor lock in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Pack the suitcase for Friday",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the voix celeste eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Email the team the updated schedule",
+    "label": "genuine"
+  },
+  {
+    "text": "Maybe fix the server or whatever",
+    "label": "slop"
+  },
+  {
+    "text": "Refill the bird feeder beside the fence",
+    "label": "genuine"
+  },
+  {
+    "text": "Let the dog out without a lead",
+    "label": "genuine"
+  },
+  {
+    "text": "Empty the dishwasher",
+    "label": "genuine"
+  },
+  {
+    "text": "zxcvbnm",
+    "label": "slop"
+  },
+  {
+    "text": "Email the invoice PDF to the accountant",
+    "label": "genuine"
+  },
+  {
+    "text": "Collect the dog food from the shop",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the wind chime",
+    "label": "slop"
+  },
+  {
+    "text": "loop in the team",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the cow pen eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Write instructions for resetting the admin password",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the diclofenac potassium",
+    "label": "genuine"
+  },
+  {
+    "text": "Leave the milk out overnight",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the household appliance situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Make miscellaneous progress",
+    "label": "slop"
+  },
+  {
+    "text": "Review the draft contract",
+    "label": "genuine"
+  },
+  {
+    "text": "next steps",
+    "label": "slop"
+  },
+  {
+    "text": "gubbins",
+    "label": "slop"
+  },
+  {
+    "text": "do something",
+    "label": "slop"
+  },
+  {
+    "text": "Book the hotel for the trip",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the becket bend in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Find a way to do better",
+    "label": "slop"
+  },
+  {
+    "text": "bits and bobs",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the telephone extension experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the jump rope is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Renew the car insurance",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the gas fixture to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay for the meal twice",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the biology laboratory and other things",
+    "label": "slop"
+  },
+  {
+    "text": "File the complaint about the noise",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the jet bridge at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Have a think about some stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Add the whizbang shell to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Back up the photos to the hard drive",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the cheese tray for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the electron accelerator eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the shellac varnish is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay the outstanding balance",
+    "label": "genuine"
+  },
+  {
+    "text": "do a favour",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the shower head",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the plastic film situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Guess the password for the account",
+    "label": "genuine"
+  },
+  {
+    "text": "Clean the car seats",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the resistance pyrometer eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the flower store",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the meat grinder for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Break the neighbour's fence",
+    "label": "genuine"
+  },
+  {
+    "text": "Wash the car",
+    "label": "genuine"
+  },
+  {
+    "text": "Deliver a paradigm shift",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the computer mouse",
+    "label": "genuine"
+  },
+  {
+    "text": "Deliver the parcel to number twelve",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the bus terminal in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "general stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Email the draft contract to the solicitor",
+    "label": "genuine"
+  },
+  {
+    "text": "revisit later",
+    "label": "slop"
+  },
+  {
+    "text": "the usual things",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the outdoor stage in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the bulletproof vest",
+    "label": "genuine"
+  },
+  {
+    "text": "Deploy the patched gateway after the health check",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the toilet kit somehow",
+    "label": "slop"
+  },
+  {
+    "text": "some things",
+    "label": "slop"
+  },
+  {
+    "text": "Export the Q2 invoices as a CSV",
+    "label": "genuine"
+  },
+  {
+    "text": "operationalise",
+    "label": "slop"
+  },
+  {
+    "text": "tidy up",
+    "label": "slop"
+  },
+  {
+    "text": "retrospective",
+    "label": "slop"
+  },
+  {
+    "text": "Add the vertical tail to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "make progress on the work",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the pocket lighter is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the jammed photocopier",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the meat grinder situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Unclog the kitchen drain with a plunger",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the bus terminal experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Order the wrong item on purpose",
+    "label": "genuine"
+  },
+  {
+    "text": "Change the tyres on the car",
+    "label": "genuine"
+  },
+  {
+    "text": "get things done",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the durable press",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the evening clothes",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the broken drawer handle",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the armoured combat vehicle eventually",
+    "label": "slop"
+  },
+  {
+    "text": "foo",
+    "label": "slop"
+  },
+  {
+    "text": "Steal someone's wallet",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the little theater eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the dot matrix printer",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the breast implant and other things",
+    "label": "slop"
+  },
+  {
+    "text": "clean up",
+    "label": "slop"
+  },
+  {
+    "text": "Delete the backups before the audit",
+    "label": "genuine"
+  },
+  {
+    "text": "Fold the laundry",
+    "label": "genuine"
+  },
+  {
+    "text": "Move forward with the plan",
+    "label": "slop"
+  },
+  {
+    "text": "make it happen faster",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the treble recorder before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "cut costs",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the cassette deck is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the sinusoidal projection experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Make the parallel interface situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Send the receipt to the landlord",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the fitted sheet situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the fancy goods eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the prison farm in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "blah blah blah",
+    "label": "slop"
+  },
+  {
+    "text": "Deliver the cake to the office",
+    "label": "genuine"
+  },
+  {
+    "text": "action items",
+    "label": "slop"
+  },
+  {
+    "text": "Back up the database before changing the schema",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the indirect lighting at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Consider all relevant factors",
+    "label": "slop"
+  },
+  {
+    "text": "kick things off",
+    "label": "slop"
+  },
+  {
+    "text": "File the tax return online",
+    "label": "genuine"
+  },
+  {
+    "text": "thingamajig",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the curtain ring situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Add the recording system to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "reduce friction",
+    "label": "slop"
+  },
+  {
+    "text": "consider the options",
+    "label": "slop"
+  },
+  {
+    "text": "make it seamless",
+    "label": "slop"
+  },
+  {
+    "text": "Add the toilet kit to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the billy club in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Pick up the prescription from the chemist",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the depicted object and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the shortwave diathermy machine situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Improve quality across the platform",
+    "label": "slop"
+  },
+  {
+    "text": "Arrange a locksmith for the front door",
+    "label": "genuine"
+  },
+  {
+    "text": "Translate the welcome email into Spanish",
+    "label": "genuine"
+  },
+  {
+    "text": "Tinker with something",
+    "label": "slop"
+  },
+  {
+    "text": "Take care of all the tasks",
+    "label": "slop"
+  },
+  {
+    "text": "Post the cheque",
+    "label": "genuine"
+  },
+  {
+    "text": "Circle back on the bigger picture",
+    "label": "slop"
+  },
+  {
+    "text": "Post the birthday card",
+    "label": "genuine"
+  },
+  {
+    "text": "Collect the broken kettle from the repair shop",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the mechanical device",
+    "label": "slop"
+  },
+  {
+    "text": "sort out",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the electrical switch is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the bank about the fee",
+    "label": "genuine"
+  },
+  {
+    "text": "Return the borrowed surfboard to Casey",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the organ stop to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Collect the signed form from the office",
+    "label": "genuine"
+  },
+  {
+    "text": "Amplify strategic synergy",
+    "label": "slop"
+  },
+  {
+    "text": "passw0rd",
+    "label": "slop"
+  },
+  {
+    "text": "Reply to the email in all lowercase",
+    "label": "genuine"
+  },
+  {
+    "text": "Park across the dropped kerb",
+    "label": "genuine"
+  },
+  {
+    "text": "Sneak into the building at night",
+    "label": "genuine"
+  },
+  {
+    "text": "Maintain momentum on the initiative",
+    "label": "slop"
+  },
+  {
+    "text": "who knows",
+    "label": "slop"
+  },
+  {
+    "text": "Post the parcel to Ireland",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the fridge filter",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the plumber about the blocked drain",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the religious residence and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Check the spike heel for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "capture learnings",
+    "label": "slop"
+  },
+  {
+    "text": "Fill in the tax form",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the coat tree to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the hackney coach before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the biology laboratory",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the squash racquet",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the block diagram experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the abrading stone",
+    "label": "genuine"
+  },
+  {
+    "text": "track progress",
+    "label": "slop"
+  },
+  {
+    "text": "aaa",
+    "label": "slop"
+  },
+  {
+    "text": "placeholder",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the packing case",
+    "label": "slop"
+  },
+  {
+    "text": "Do something useful with files",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the consumer durables for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "general tasks",
+    "label": "slop"
+  },
+  {
+    "text": "Sort the recycling by type",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the plumb bob for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "n/a",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the wrist watch at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Book the train to Manchester",
+    "label": "genuine"
+  },
+  {
+    "text": "admin stuff",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the outdoor stage experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the roach clip and other things",
+    "label": "slop"
+  },
+  {
+    "text": "keep it simple",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the plastic film",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the science lab at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Add the square nut to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Deliver on key objectives",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the sodium salicylate experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "temp",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the ripping chisel",
+    "label": "genuine"
+  },
+  {
+    "text": "drive alignment across teams",
+    "label": "slop"
+  },
+  {
+    "text": "Empty the compost bin",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the drawing string somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Add the massage parlor to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Compare the insurance quotes",
+    "label": "genuine"
+  },
+  {
+    "text": "Cancel the flight booking",
+    "label": "genuine"
+  },
+  {
+    "text": "Clean the garage floor",
+    "label": "genuine"
+  },
+  {
+    "text": "hello world",
+    "label": "slop"
+  },
+  {
+    "text": "Renew the library card",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the whizbang shell somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the squeaky hinge on the gate",
+    "label": "genuine"
+  },
+  {
+    "text": "Prepare receipts for the tax accountant",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the acoustic modem for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Spread the rumour about the manager",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the damage for the claim",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the spin drier before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the gyro horizon before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the live load is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Order a replacement part",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the choropleth map somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the power loom situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "park it",
+    "label": "slop"
+  },
+  {
+    "text": "Paint the fence panels",
+    "label": "genuine"
+  },
+  {
+    "text": "Upgrade the postgres cluster to version 16",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the block diagram in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the tennis court for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Ensure everything is optimal",
+    "label": "slop"
+  },
+  {
+    "text": "Check the varsity sock for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the plumber to check the quote",
+    "label": "genuine"
+  },
+  {
+    "text": "sundries",
+    "label": "slop"
+  },
+  {
+    "text": "circle back",
+    "label": "slop"
+  },
+  {
+    "text": "deliver value",
+    "label": "slop"
+  },
+  {
+    "text": "Order more printer paper",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the sports jacket to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the turtleneck collar in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the recycling bin to the kerb",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the soothing syrup and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the candle holder for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Book the airport parking",
+    "label": "genuine"
+  },
+  {
+    "text": "Leave the invoice unsigned",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the cucking stool at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Post the signed lease to the estate agent",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the single crochet before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the spider web experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "make it easy",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the little theater before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Clear the outbox of old newsletters",
+    "label": "genuine"
+  },
+  {
+    "text": "Send the completed form to the landlord",
+    "label": "genuine"
+  },
+  {
+    "text": "clean up the mess",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the deposit for the holiday",
+    "label": "genuine"
+  },
+  {
+    "text": "Return the library DVD",
+    "label": "genuine"
+  },
+  {
+    "text": "low hanging fruit",
+    "label": "slop"
+  },
+  {
+    "text": "Check the laurel wreath for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Write the grocery list",
+    "label": "genuine"
+  },
+  {
+    "text": "Buy a new set of car keys",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the parlour grand piano before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the mud brick situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the gyro horizon eventually",
+    "label": "slop"
+  },
+  {
+    "text": "do some research",
+    "label": "slop"
+  },
+  {
+    "text": "get on board",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the prayer beads before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the printer paper jam",
+    "label": "genuine"
+  },
+  {
+    "text": "Take care of that situation",
+    "label": "slop"
+  },
+  {
+    "text": "Remove expired tokens from the auth table",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the supporting tower somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Update the DNS record for the backup host",
+    "label": "genuine"
+  },
+  {
+    "text": "jiggery pokery",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the hire car balance",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the leaking radiator",
+    "label": "genuine"
+  },
+  {
+    "text": "bar",
+    "label": "slop"
+  },
+  {
+    "text": "push the envelope",
+    "label": "slop"
+  },
+  {
+    "text": "touch base",
+    "label": "slop"
+  },
+  {
+    "text": "analyse the data",
+    "label": "slop"
+  },
+  {
+    "text": "have another look",
+    "label": "slop"
+  },
+  {
+    "text": "ideate around solutions",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the inflatable cushion and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the prison farm experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the academic gown is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "do something useful",
+    "label": "slop"
+  },
+  {
+    "text": "reduce costs",
+    "label": "slop"
+  },
+  {
+    "text": "Consider some possible changes",
+    "label": "slop"
+  },
+  {
+    "text": "Blow the budget on the launch party",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the percussion instrument situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "take a rain check",
+    "label": "slop"
+  },
+  {
+    "text": "if possible",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the brake cylinder",
+    "label": "slop"
+  },
+  {
+    "text": "Put the recycling out on Tuesday",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the local street is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "sort it out",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the resistance pyrometer before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Pick up the cake from the bakery",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the squeaky door hinge",
+    "label": "genuine"
+  },
+  {
+    "text": "Confirm the flight booking",
+    "label": "genuine"
+  },
+  {
+    "text": "gather feedback",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the booster dose",
+    "label": "genuine"
+  },
+  {
+    "text": "Improve the stove poker experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the digital voltmeter",
+    "label": "slop"
+  },
+  {
+    "text": "Add the inking pad to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Attach the meeting transcript to ticket 42",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the solar array",
+    "label": "genuine"
+  },
+  {
+    "text": "Discuss the pilot ladder and other things",
+    "label": "slop"
+  },
+  {
+    "text": "Diagnose the broken USB port on the laptop",
+    "label": "genuine"
+  },
+  {
+    "text": "Fix the wobbling chair",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the sparge pipe for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Print labels for the conference name tags",
+    "label": "genuine"
+  },
+  {
+    "text": "Call the clinic about the test results",
+    "label": "genuine"
+  },
+  {
+    "text": "Perform the required steps",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the school dinner money",
+    "label": "genuine"
+  },
+  {
+    "text": "Work through various challenges",
+    "label": "slop"
+  },
+  {
+    "text": "etc",
+    "label": "slop"
+  },
+  {
+    "text": "Check the negative magnetic pole for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the broad arrow situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the webhook signature in the worker",
+    "label": "genuine"
+  },
+  {
+    "text": "take it to the next level",
+    "label": "slop"
+  },
+  {
+    "text": "Make progress on the deliverables",
+    "label": "slop"
+  },
+  {
+    "text": "Set up the new router",
+    "label": "genuine"
+  },
+  {
+    "text": "Sharpen the chisels in the workshop",
+    "label": "genuine"
+  },
+  {
+    "text": "Update some documentation eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Check the glyptic art for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "look into",
+    "label": "slop"
+  },
+  {
+    "text": "Make the evening clothes situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "A range of general updates",
+    "label": "slop"
+  },
+  {
+    "text": "Provide end-to-end excellence",
+    "label": "slop"
+  },
+  {
+    "text": "Renew the travel insurance",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the armoured combat vehicle before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "whatsit",
+    "label": "slop"
+  },
+  {
+    "text": "catch up",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the flare path before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the electron accelerator before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the boron counter tube situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the invoice twice by accident",
+    "label": "genuine"
+  },
+  {
+    "text": "Clean the bike chain",
+    "label": "genuine"
+  },
+  {
+    "text": "meet",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the trailing edge at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Miss the train on purpose",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the eating place to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "drive outcomes",
+    "label": "slop"
+  },
+  {
+    "text": "work on the project",
+    "label": "slop"
+  },
+  {
+    "text": "Pay the electricity bill",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the manhole cover at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the naval chart in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Charge the electric toothbrush",
+    "label": "genuine"
+  },
+  {
+    "text": "Drive the car with a flat tyre",
+    "label": "genuine"
+  },
+  {
+    "text": "begin work",
+    "label": "slop"
+  },
+  {
+    "text": "look back and reflect",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the spike heel at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "raise the bar",
+    "label": "slop"
+  },
+  {
+    "text": "Make the trawl line situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the failing test in the search parser",
+    "label": "genuine"
+  },
+  {
+    "text": "Rebase the payment branch onto main",
+    "label": "genuine"
+  },
+  {
+    "text": "Book the eye test",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the digital voltmeter is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay the phone bill",
+    "label": "genuine"
+  },
+  {
+    "text": "do a deep dive into the data",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the embroidery frame experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Move the needle on the terry cloth somehow",
+    "label": "slop"
+  },
+  {
+    "text": "...",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the sounding rocket",
+    "label": "genuine"
+  },
+  {
+    "text": "Enable new possibilities",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the glyptic art at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "do better",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the double glazing situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "push the update",
+    "label": "slop"
+  },
+  {
+    "text": "look into it",
+    "label": "slop"
+  },
+  {
+    "text": "Leave the freezer open overnight",
+    "label": "genuine"
+  },
+  {
+    "text": "punt for now",
+    "label": "slop"
+  },
+  {
+    "text": "roughly",
+    "label": "slop"
+  },
+  {
+    "text": "various tasks",
+    "label": "slop"
+  },
+  {
+    "text": "Add the wooden shoe to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the router firmware to version 2.1",
+    "label": "genuine"
+  },
+  {
+    "text": "Locate the prism spectroscope in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "remove friction",
+    "label": "slop"
+  },
+  {
+    "text": "Verify the packing case is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "dunno",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the trenching spade in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "punt it",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the bull tongue",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the mechanical device is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Delete customer records after the retention window",
+    "label": "genuine"
+  },
+  {
+    "text": "Burn the toast again",
+    "label": "genuine"
+  },
+  {
+    "text": "to be decided",
+    "label": "slop"
+  },
+  {
+    "text": "Clean the vents on the laptop",
+    "label": "genuine"
+  },
+  {
+    "text": "get the ball rolling",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the carpet tack situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Fix the handle on the cupboard",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the durable press situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "give a hand",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the overhead railway for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the covered stadium to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "do more",
+    "label": "slop"
+  },
+  {
+    "text": "Update the maintenance record for the fishing rig",
+    "label": "genuine"
+  },
+  {
+    "text": "make progress",
+    "label": "slop"
+  },
+  {
+    "text": "Make things more robust somehow",
+    "label": "slop"
+  },
+  {
+    "text": "eeeee",
+    "label": "slop"
+  },
+  {
+    "text": "enable the team",
+    "label": "slop"
+  },
+  {
+    "text": "Update the phone contract",
+    "label": "genuine"
+  },
+  {
+    "text": "polish the experience",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the scatter pin eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Take the dog to the vet",
+    "label": "genuine"
+  },
+  {
+    "text": "get feedback",
+    "label": "slop"
+  },
+  {
+    "text": "housekeeping",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the soothing syrup",
+    "label": "genuine"
+  },
+  {
+    "text": "streamline the process",
+    "label": "slop"
+  },
+  {
+    "text": "work the problem",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the carpet tack for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "asdf asdf",
+    "label": "slop"
+  },
+  {
+    "text": "Renew the parking permit",
+    "label": "genuine"
+  },
+  {
+    "text": "Water the office plants",
+    "label": "genuine"
+  },
+  {
+    "text": "move the needle",
+    "label": "slop"
+  },
+  {
+    "text": "Change the bed linen",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the protective embankment somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the gill net in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the candle holder situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Sort the receipts into folders",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the parallel interface",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the bypass capacitor",
+    "label": "slop"
+  },
+  {
+    "text": "Sort the recycling from the office",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the wireless local area network for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Hire a plumber for the boiler",
+    "label": "genuine"
+  },
+  {
+    "text": "Write an inspection note for the ventilation shaft",
+    "label": "genuine"
+  },
+  {
+    "text": "Make the nipple shield situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Discuss the fast lane and other things",
+    "label": "slop"
+  },
+  {
+    "text": "synergize our core competencies",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the sleeping accommodation for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "get things moving",
+    "label": "slop"
+  },
+  {
+    "text": "Post the letter to the wrong address",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the abortion pill for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the dishwasher hose under the sink",
+    "label": "genuine"
+  },
+  {
+    "text": "manage the team",
+    "label": "slop"
+  },
+  {
+    "text": "ideate",
+    "label": "slop"
+  },
+  {
+    "text": "Cancel the appointment on the day",
+    "label": "genuine"
+  },
+  {
+    "text": "idk yet",
+    "label": "slop"
+  },
+  {
+    "text": "Make the fishing rig situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Do something with the parlour grand piano eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Make the artificial pacemaker situation better somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Repair the cracked screen on my tablet",
+    "label": "genuine"
+  },
+  {
+    "text": "Revisit the situation at some point",
+    "label": "slop"
+  },
+  {
+    "text": "Do a bit of the usual",
+    "label": "slop"
+  },
+  {
+    "text": "wwww",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the motor home situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Call the plumber to come on Tuesday",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the wrist watch for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the square nut somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the power loom for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "help out",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the mefloquine hydrochloride at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Align the team around success",
+    "label": "slop"
+  },
+  {
+    "text": "Take the recycling to the tip",
+    "label": "genuine"
+  },
+  {
+    "text": "do the right thing",
+    "label": "slop"
+  },
+  {
+    "text": "where possible",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the stove poker in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Pay the childcare fees",
+    "label": "genuine"
+  },
+  {
+    "text": "Explore vague opportunities involving the live load",
+    "label": "slop"
+  },
+  {
+    "text": "Investigate the failed build on Linux ARM",
+    "label": "genuine"
+  },
+  {
+    "text": "Move the needle on the covered stadium somehow",
+    "label": "slop"
+  },
+  {
+    "text": "Collect the parcel from the depot",
+    "label": "genuine"
+  },
+  {
+    "text": "Replace the kitchen tap washer",
+    "label": "genuine"
+  },
+  {
+    "text": "go faster",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the hang glider at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the tank locomotive for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "handle it",
+    "label": "slop"
+  },
+  {
+    "text": "Buy the wrong paint colour",
+    "label": "genuine"
+  },
+  {
+    "text": "think about it",
+    "label": "slop"
+  },
+  {
+    "text": "Photograph the binocular microscope for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "report progress",
+    "label": "slop"
+  },
+  {
+    "text": "hoo hah",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the sun gear experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Reserve the meeting room for Thursday",
+    "label": "genuine"
+  },
+  {
+    "text": "Vacuum the sand from the car boot",
+    "label": "genuine"
+  },
+  {
+    "text": "Cheat on the exam",
+    "label": "genuine"
+  },
+  {
+    "text": "ping me",
+    "label": "slop"
+  },
+  {
+    "text": "Send the tax forms to the accountant",
+    "label": "genuine"
+  },
+  {
+    "text": "Consider possibilities around the ammunition chest at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Print the labels for the boxes",
+    "label": "genuine"
+  },
+  {
+    "text": "Add the shag rug to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Think about the consumer durables situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Write an inspection note for the breast implant",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the beauty salon before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Book the train tickets for the conference",
+    "label": "genuine"
+  },
+  {
+    "text": "in due course",
+    "label": "slop"
+  },
+  {
+    "text": "Improve the naval chart experience in general",
+    "label": "slop"
+  },
+  {
+    "text": "Record the condition of the cow pen before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the mefloquine hydrochloride for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the fitted sheet",
+    "label": "genuine"
+  },
+  {
+    "text": "try again",
+    "label": "slop"
+  },
+  {
+    "text": "Think about the scratch awl situation sometime",
+    "label": "slop"
+  },
+  {
+    "text": "Renew the domain name",
+    "label": "genuine"
+  },
+  {
+    "text": "Count remaining stock of size 8 shoes",
+    "label": "genuine"
+  },
+  {
+    "text": "get things sorted",
+    "label": "slop"
+  },
+  {
+    "text": "sundry items",
+    "label": "slop"
+  },
+  {
+    "text": "look at it",
+    "label": "slop"
+  },
+  {
+    "text": "Update the emergency contact details",
+    "label": "genuine"
+  },
+  {
+    "text": "Apply best practices throughout",
+    "label": "slop"
+  },
+  {
+    "text": "review the data",
+    "label": "slop"
+  },
+  {
+    "text": "Consider possibilities around the taffeta weave at a high level",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the bumper jack in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Photograph the microprocessor chip for the equipment inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "Verify the long pants is listed on the property inventory",
+    "label": "genuine"
+  },
+  {
+    "text": "foo bar baz",
+    "label": "slop"
+  },
+  {
+    "text": "Send the invoice to the wrong client",
+    "label": "genuine"
+  },
+  {
+    "text": "Update the maintenance record for the exhibition area",
+    "label": "genuine"
+  },
+  {
+    "text": "more or less",
+    "label": "slop"
+  },
+  {
+    "text": "Replace the worn belt in the washing machine",
+    "label": "genuine"
+  },
+  {
+    "text": "follow through",
+    "label": "slop"
+  },
+  {
+    "text": "off the top of my head",
+    "label": "slop"
+  },
+  {
+    "text": "Spill coffee on the keyboard",
+    "label": "genuine"
+  },
+  {
+    "text": "Enhance the product overall",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the spider web in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Do something with the serving dish eventually",
+    "label": "slop"
+  },
+  {
+    "text": "Add the drawing string to the asset catalogue",
+    "label": "genuine"
+  },
+  {
+    "text": "Lose the company laptop",
+    "label": "genuine"
+  },
+  {
+    "text": "leave it for now",
+    "label": "slop"
+  },
+  {
+    "text": "Locate the petroleum refinery in the storage register",
+    "label": "genuine"
+  },
+  {
+    "text": "Check the siamese connection for damage during inspection",
+    "label": "genuine"
+  },
+  {
+    "text": "Cancel the recurring payment",
+    "label": "genuine"
+  },
+  {
+    "text": "Record the condition of the lazy daisy stitch before the site visit",
+    "label": "genuine"
+  },
+  {
+    "text": "Clean the bathroom tiles",
+    "label": "genuine"
+  },
+  {
+    "text": "??",
+    "label": "slop"
+  },
+  {
+    "text": "raise the ceiling",
+    "label": "slop"
+  },
+  {
+    "text": "Explore vague opportunities involving the pocket lighter",
+    "label": "slop"
+  },
+  {
+    "text": "Empty the loft",
+    "label": "genuine"
+  },
+  {
+    "text": "Renew the passport photos",
+    "label": "genuine"
+  }
 ]

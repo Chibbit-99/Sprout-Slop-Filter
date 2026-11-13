@@ -6,7 +6,17 @@
   "type": "module",
   "scripts": {
     "start": "node serve.mjs",
-    "train": "node train.mjs",
+    "train": "node train.mjs --extra experiments/task_supplement.json --anchor-model experiments/task_baseline_model.json --anchor-mix 0.45",
+    "test:model": "node experiments/model_regression.mjs",
+    "test:anchor": "node experiments/anchor_benchmark.mjs",
+    "test:contexts": "node experiments/context_challenge.mjs",
+    "test:domains": "node experiments/domain_benchmark.mjs",
+    "test:architecture": "node experiments/architecture_comparison.mjs",
+    "test:vocab": "node experiments/vocabulary_growth.mjs",
+    "stats": "node model_stats.mjs",
+    "train:commits": "node train.mjs --data commit_training.json --out commit_model.json --extra experiments/commit_supplement.json",
+    "train:contexts": "node experiments/train_context_models.mjs",
+    "build:task-data": "node experiments/build_task_expansion.mjs",
     "test": "node experiments/learning_curve.mjs",
     "test:app": "node experiments/app_smoke.mjs",
     "measure": "node experiments/real_dataset.mjs"

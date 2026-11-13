@@ -1,0 +1,54 @@
+{
+  "tasks": {
+    "genuine": [
+      "Refactor the proxy handler for multipart uploads",
+      "Reconfigure the webserver timeout for long requests",
+      "Inspect the condenser coil in the refrigerator",
+      "Proofread the annual compliance report",
+      "Repair the cracked hose on the compressor",
+      "Replace the aquarium heater on Wednesday",
+      "Renew the domain registration for example.org",
+      "Migrate the dashboard from Vue to Svelte",
+      "Scan the barcode on the shipping label",
+      "Record the serial number on the warranty form"
+    ],
+    "slop": [
+      "Sort out some assorted concerns",
+      "Do a few vaguely important things",
+      "Improve cross-team collaboration in general",
+      "Drive innovation throughout the organization",
+      "Anything else as required",
+      "Handle the remaining bits and pieces",
+      "Deliver better outcomes somehow",
+      "Make a few unspecified tweaks",
+      "Revisit various open matters later",
+      "Make everything great again"
+    ]
+  },
+  "commits": {
+    "genuine": [
+      "Guard empty GraphQL response before mapping nodes",
+      "Fix segmentation fault when zlib stream closes",
+      "Document SAML assertion expiry behavior",
+      "Add retry jitter to fetch worker",
+      "Reduce N+1 queries in team dashboard",
+      "Fix flaky e2e test by awaiting router navigation",
+      "Set max age on CDN cache for thumbnails",
+      "Deduplicate user IDs before sending notifications",
+      "Escape backslashes in Windows file paths",
+      "Fix missing newline in generated changelog"
+    ],
+    "slop": [
+      "Everything should work now",
+      "Small fixes to stuff",
+      "Improve the experience",
+      "Address some concerns",
+      "Make adjustments as needed",
+      "More changes to various files",
+      "Finish up some work",
+      "Tidy things up a little",
+      "Improve code quality overall",
+      "Implement new capability"
+    ]
+  }
+}

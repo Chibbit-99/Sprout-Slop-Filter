@@ -25,9 +25,11 @@ async function classify_text(text, model) {
         throw new TypeError("classify_text: text must be a string");
     }
 
-    if (!model || !Array.isArray(model.vocabulary) || !Array.isArray(model.wordVectors)) {
+    if (!model || !Array.isArray(model.vocabulary) || (model.version !== 2 && model.version !== 3 && model.version !== 4 && !Array.isArray(model.wordVectors))) {
         throw new TypeError("classify_text: model is missing vocabulary or wordVectors");
     }
+
+    if (model.version === 2 || model.version === 3 || model.version === 4) return hashed_predict(text, model).score;
 
     const clean = normalise_text(text);
     const tokens = tokenise(clean);

@@ -1,5 +1,10 @@
 # Sprout Slop Filter — Subsystems
 
+> This is the original word-vector architecture plan. The shipped v4 model
+> instead uses local hashed word, word-pair and character n-gram features;
+> see [README](README.md). These legacy subsystems remain for old models.
+
+
 This document lists the systems Sprout may need and describes each one as a function: what it receives, what it returns, and what it does. These are design sketches, not implemented code. The first version should be kept small; some training and testing systems are only needed while building the model.
 
 ## Main prediction pipeline

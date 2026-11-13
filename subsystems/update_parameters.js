@@ -43,6 +43,10 @@ function update_parameters(modelParameters, errorInformation, learningRate, repr
     }
 
     const rate = typeof learningRate === "number" ? learningRate : 0.1;
+    if (modelParameters.version === 2 || modelParameters.version === 3 || modelParameters.version === 4) {
+        hashed_update(modelParameters, errorInformation, rate, representation);
+        return modelParameters;
+    }
 
     if (!Array.isArray(representation) || representation.length !== modelParameters.weights.length) {
         throw new Error("update_parameters: representation length must match weights length");

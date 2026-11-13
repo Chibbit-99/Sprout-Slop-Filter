@@ -1,5 +1,11 @@
 # How many training examples does Sprout need?
 
+> **Historical v1 audit (2026-10-18).** The results in this document refer to
+> the old 524-example task dataset and averaged word-vector encoder. The
+> shipped model and dataset have since changed; see [README](../README.md)
+> and [TRAINING_EXPANSION.md](TRAINING_EXPANSION.md) for current v4 counts and limitations.
+
+
 **Short answer: roughly 150–400 well-varied labelled examples is the practical
 target — and *vocabulary coverage* matters more than raw count. That answer
 only became measurable after fixing a trainer bug that made dataset size

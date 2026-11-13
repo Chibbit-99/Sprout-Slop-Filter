@@ -37,12 +37,39 @@ function initialise_model(settings) {
     // classic scripts, so top-level `const` names share one global scope.
     const UNKNOWN_TOKEN = "<UNK>";
     const config = settings || {};
+    if (config.encoder && !["richer-subword-v4", "structured-subword-v3", "hashed-subword-v2", "legacy"].includes(config.encoder)) {
+        throw new RangeError("initialise_model: unsupported encoder " + config.encoder);
+    }
     const vectorSize = typeof config.vectorSize === "number" && config.vectorSize > 0
         ? Math.floor(config.vectorSize)
         : 8;
     const random = typeof config.random === "function"
         ? config.random
         : makeRandom(typeof config.seed === "number" ? config.seed : undefined);
+
+    if (["richer-subword-v4", "structured-subword-v3", "hashed-subword-v2"].includes(config.encoder)) {
+        const v4 = config.encoder === "richer-subword-v4";
+        const v3 = config.encoder === "structured-subword-v3";
+        if (v4 && config.featureSize !== undefined && config.featureSize !== 524288) {
+            throw new RangeError("initialise_model: v4 requires 524288 features (eight namespaces)");
+        }
+        if (v3 && config.featureSize !== undefined && config.featureSize !== 131072) {
+            throw new RangeError("initialise_model: v3 requires 131072 features (four namespaces)");
+        }
+        const featureSize = v4 ? 524288 : v3 ? 131072 :
+            Number.isInteger(config.featureSize) && config.featureSize >= 1024
+                && config.featureSize <= 262144 ? config.featureSize : 32768;
+        return {
+            version: v4 ? 4 : v3 ? 3 : 2,
+            featureSize,
+            vocabulary: ["<UNK>", ...(config.vocabulary || []).filter(word => word !== "<UNK>")],
+            weights: new Array(featureSize).fill(0),
+            accumulators: new Array(featureSize).fill(0),
+            bias: 0,
+            options: { encoder: config.encoder, useSynonyms: false,
+                learningRate: config.learningRate ?? 0.8, epochs: config.epochs ?? 120 }
+        };
+    }
 
     const baseVocabulary = Array.isArray(config.vocabulary)
         ? config.vocabulary.slice()
