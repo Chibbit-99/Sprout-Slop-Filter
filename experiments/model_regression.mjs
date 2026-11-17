@@ -27,7 +27,7 @@ for (const [domain, dataFile, modelFile] of [
     assert.ok(stats.nonZeroWeights > 1000 && stats.nonZeroWeights < stats.trainable,
         "capacity is not the same as learned, nonzero weights");
     assert.equal(model.weights.length, model.featureSize);
-    assert.ok(Buffer.byteLength(raw) < (domain === "tasks" ? 2_000_000 : 600_000), "model should remain small on disk");
+    assert.ok(Buffer.byteLength(raw) < (domain === "tasks" ? 3_000_000 : 600_000), "model should remain small on disk");
 
     if (domain === "tasks") {
         const loadCheckpoint = file => {
@@ -37,23 +37,47 @@ for (const [domain, dataFile, modelFile] of [
             return result.model;
         };
         const old = loadCheckpoint("task_baseline_model.json");
-        const plain = loadCheckpoint("task_unanchored_model.json");
+        const plain = loadCheckpoint("task_real_unanchored_model.json");
         const reconstructed = { ...plain, weights: plain.weights.slice() };
-        assert.equal(model.options.trainedFrom.anchorMix, 0.45);
+        assert.equal(model.options.trainedFrom.anchorMix, 0.5);
+        assert.equal(model.options.trainedFrom.feedbackRows, 131);
+        assert.equal(model.options.trainedFrom.feedback, "experiments/real_issue_training.json");
         assert.equal(model.options.trainedFrom.anchorModel, "experiments/task_baseline_model.json");
-        sprout.blend_models(reconstructed, old, 0.45);
-        assert.deepEqual(reconstructed.weights, model.weights, "one blended checkpoint reproduces shipped weights");
-        assert.equal(reconstructed.bias, model.bias);
+        sprout.blend_models(reconstructed, old, 0.5);
+        assert.equal(model.bias, reconstructed.bias);
+        const lexicon = model.options.lexicon;
+        assert.equal(Object.keys(lexicon).length, 34037);
+        assert.equal(sprout.lexicon_entry_for("__proto__", lexicon), null,
+            "prototype properties must not be confused with lexical entries");
+        assert.deepEqual(sprout.lexicon_entry_for("ammeters", lexicon), lexicon.ammeter);
+        assert.ok(model.options.lexiconLicense.includes("Princeton University"),
+            "bundled lookup must carry its redistribution notice");
+        const recognised = new Set([...model.vocabulary, ...Object.keys(lexicon)]);
+        assert.equal([...recognised].filter(word => /^\p{L}+$/u.test(word)).length, 34679);
+        const head = JSON.parse(fs.readFileSync(new URL("lexicon_class_weights.json", import.meta.url)));
+        const classSlots = new Set(Object.keys(head).map(category =>
+            7 * 65536 + sprout.hashed_feature_index("lex:" + category, 65536)));
+        assert.equal(classSlots.size, 45);
+        for (let i = 0; i < model.weights.length; i++) {
+            if (classSlots.has(i)) {
+                const category = Object.keys(head).find(key =>
+                    7 * 65536 + sprout.hashed_feature_index("lex:" + key, 65536) === i);
+                assert.equal(model.weights[i], head[category]);
+            } else assert.equal(model.weights[i], reconstructed.weights[i]);
+        }
+        assert.notEqual(await sprout.classify_text("Verify the ammeter before Monday", model),
+            await sprout.classify_text("Verify the ammeter before Monday", reconstructed),
+            "WordNet cues must actually affect inference, not just inflate a count");
         assert.equal(sprout.model_parameter_stats(reconstructed).trainable, stats.trainable);
         const logit = p => Math.log(p / (1 - p));
         for (const text of ["Reupholster the armchair with velvet offcuts", "Fix the leaking tap", "Do something eventually"]) {
-            const score = sprout.make_prediction_for_training(text, model).score;
+            const score = sprout.make_prediction_for_training(text, reconstructed).score;
             const original = sprout.make_prediction_for_training(text, plain).score;
             const prior = sprout.make_prediction_for_training(text, old).score;
-            assert.ok(Math.abs(logit(score) - (0.55 * logit(original) + 0.45 * logit(prior))) < 1e-8,
+            assert.ok(Math.abs(logit(score) - (0.5 * logit(original) + 0.5 * logit(prior))) < 1e-8,
                 "one weight array exactly represents a convex blend of logits");
         }
-        assert.throws(() => sprout.blend_models(reconstructed, { ...old, version: 3 }, 0.45), /compatible v4/);
+        assert.throws(() => sprout.blend_models(reconstructed, { ...old, version: 3 }, 0.5), /compatible v4/);
         assert.throws(() => sprout.blend_models(reconstructed, old, -0.1), /compatible v4/);
         assert.throws(() => sprout.blend_models(reconstructed,
             { ...old, options: { ...old.options, domain: "commit_training.json" } }, 0.45),
@@ -72,13 +96,20 @@ for (const [domain, dataFile, modelFile] of [
     const extraFile = domain === "tasks" ? "task_supplement.json" : "commit_supplement.json";
     const extras = JSON.parse(fs.readFileSync(new URL(extraFile, import.meta.url), "utf8"));
     const usedExtras = extras.slice(0, domain === "tasks" ? extras.length : 80);
-    const trainWords = buildVocabulary(split.trainSet.concat(usedExtras));
+    const realRowsForVocab = domain === "tasks"
+        ? JSON.parse(fs.readFileSync(new URL("real_issue_training.json", import.meta.url))) : [];
+    const trainWords = buildVocabulary(split.trainSet.concat(usedExtras, realRowsForVocab));
     if (domain === "tasks") {
         const old = JSON.parse(fs.readFileSync(new URL("task_baseline_training.json", import.meta.url)));
         const frozen = sprout.split_dataset(old, { seed: 1 });
         const trainTexts = new Set(split.trainSet.concat(usedExtras).map(row => sprout.normalise_text(row.text)));
         for (const row of [...frozen.validationSet, ...frozen.testSet]) {
             assert.ok(!trainTexts.has(sprout.normalise_text(row.text)), "original held-out row leaked into expanded training");
+        }
+        const realRows = JSON.parse(fs.readFileSync(new URL("real_issue_training.json", import.meta.url)));
+        const realTexts = new Set(realRows.map(row => sprout.normalise_text(row.text)));
+        for (const row of [...split.validationSet, ...split.testSet, ...frozen.validationSet, ...frozen.testSet]) {
+            assert.ok(!realTexts.has(sprout.normalise_text(row.text)), "real title leaked into protected evaluation");
         }
         const newTest = new Set(split.testSet.map(row => sprout.normalise_text(row.text)));
         for (const row of frozen.testSet) {

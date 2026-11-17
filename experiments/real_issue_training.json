@@ -1,0 +1,657 @@
+[
+  {
+    "text": "Empty proxy target silently sends requests to external domain (dummy.org)",
+    "url": "https://github.com/vitejs/vite/issues/20889",
+    "label": "genuine"
+  },
+  {
+    "text": "v7.1.8 cannot be run as a spawned process while ignoring stdin",
+    "url": "https://github.com/vitejs/vite/issues/20884",
+    "label": "genuine"
+  },
+  {
+    "text": "Double invocation of `transform` when saving a file",
+    "url": "https://github.com/vitejs/vite/issues/20882",
+    "label": "genuine"
+  },
+  {
+    "text": "Type errors with plugins in vite>=7.1.6",
+    "url": "https://github.com/vitejs/vite/issues/20868",
+    "label": "genuine"
+  },
+  {
+    "text": "`.less` files as input errors after 7.1.3",
+    "url": "https://github.com/vitejs/vite/issues/20862",
+    "label": "genuine"
+  },
+  {
+    "text": "amd: relative base is relative to baseURI not to current module",
+    "url": "https://github.com/vitejs/vite/issues/20860",
+    "label": "genuine"
+  },
+  {
+    "text": "WebWorker URL is not properly resolved in dev pre-bundled dependency",
+    "url": "https://github.com/vitejs/vite/issues/20859",
+    "label": "genuine"
+  },
+  {
+    "text": "import.meta.glob negative pattern hmr failure",
+    "url": "https://github.com/vitejs/vite/issues/20852",
+    "label": "genuine"
+  },
+  {
+    "text": "`external: true` ignored in ssr env when returned from `resolveId`",
+    "url": "https://github.com/vitejs/vite/issues/20850",
+    "label": "genuine"
+  },
+  {
+    "text": "[bug] SSR: CJS module instantiated twice when resolved via different specifier formats by a plugin",
+    "url": "https://github.com/vitejs/vite/issues/20849",
+    "label": "genuine"
+  },
+  {
+    "text": "`RegExp | RegExp[]` for `external` not supported",
+    "url": "https://github.com/vitejs/vite/issues/20843",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite plugin req.url should accept array",
+    "url": "https://github.com/vitejs/vite/issues/20842",
+    "label": "genuine"
+  },
+  {
+    "text": "Do the isBuiltin check on module runner side",
+    "url": "https://github.com/vitejs/vite/issues/20840",
+    "label": "genuine"
+  },
+  {
+    "text": "contributors guide suggests using codeflow but it is broken",
+    "url": "https://github.com/vitejs/vite/issues/20838",
+    "label": "genuine"
+  },
+  {
+    "text": "Don't ignore errors in plugin hooks",
+    "url": "https://github.com/vitejs/vite/issues/20835",
+    "label": "genuine"
+  },
+  {
+    "text": "The website certificate has expired",
+    "url": "https://github.com/vitejs/vite/issues/20831",
+    "label": "genuine"
+  },
+  {
+    "text": "`ssrLoadModule` errors on non-npm packages",
+    "url": "https://github.com/vitejs/vite/issues/20828",
+    "label": "genuine"
+  },
+  {
+    "text": "Error: [vite] (client) Pre-transform error: [sass] [sass] [sass] spawn EBADF",
+    "url": "https://github.com/vitejs/vite/issues/20825",
+    "label": "genuine"
+  },
+  {
+    "text": "create-vite does not work on Deno",
+    "url": "https://github.com/vitejs/vite/issues/20824",
+    "label": "genuine"
+  },
+  {
+    "text": "pnpm create vite - fresh project fails to start",
+    "url": "https://github.com/vitejs/vite/issues/20822",
+    "label": "genuine"
+  },
+  {
+    "text": "CSS Modules 场景下 :global 里的 keyframes 失效",
+    "url": "https://github.com/vitejs/vite/issues/20818",
+    "label": "genuine"
+  },
+  {
+    "text": "Configuration for lock file location to fix issues with dependency optimizer",
+    "url": "https://github.com/vitejs/vite/issues/20817",
+    "label": "genuine"
+  },
+  {
+    "text": "Inline <style> url() with escaped `\\\\)` is incorrectly transformed into invalid CSS",
+    "url": "https://github.com/vitejs/vite/issues/20816",
+    "label": "genuine"
+  },
+  {
+    "text": "Support --force (and/or pass-through of Vite flags) in vike CLI",
+    "url": "https://github.com/vitejs/vite/issues/20815",
+    "label": "genuine"
+  },
+  {
+    "text": "Incorrect create tanstack-router command with deno",
+    "url": "https://github.com/vitejs/vite/issues/20804",
+    "label": "genuine"
+  },
+  {
+    "text": "Virtual paths unexpectedly being rewritten",
+    "url": "https://github.com/vitejs/vite/issues/20803",
+    "label": "genuine"
+  },
+  {
+    "text": "On devserver public files cannot be loaded if they contain special url characters like #",
+    "url": "https://github.com/vitejs/vite/issues/20799",
+    "label": "genuine"
+  },
+  {
+    "text": "Pseudo element selectors with nested @starting-style doesn't build correctly",
+    "url": "https://github.com/vitejs/vite/issues/20790",
+    "label": "genuine"
+  },
+  {
+    "text": "per environment `cssMinify: false` doesn't work when `sharedPlugins: true`",
+    "url": "https://github.com/vitejs/vite/issues/20789",
+    "label": "genuine"
+  },
+  {
+    "text": "Cannot glob import from folders starting with dot",
+    "url": "https://github.com/vitejs/vite/issues/20788",
+    "label": "genuine"
+  },
+  {
+    "text": "Add an option to delete Vite's cache with npm run dev",
+    "url": "https://github.com/vitejs/vite/issues/20784",
+    "label": "genuine"
+  },
+  {
+    "text": "Wrong template copied: solid + tanstack resolves to React TanStack template",
+    "url": "https://github.com/vitejs/vite/issues/20782",
+    "label": "genuine"
+  },
+  {
+    "text": "prune event is not triggered when removing the last `import` of the parent module",
+    "url": "https://github.com/vitejs/vite/issues/20781",
+    "label": "genuine"
+  },
+  {
+    "text": "Unexpected early exit. This happens when Promises returned by plugins cannot resolve",
+    "url": "https://github.com/vitejs/vite/issues/20775",
+    "label": "genuine"
+  },
+  {
+    "text": "`environments.ssr.build.emitAssets: true` not working when `builder.sharedConfigBuild: true`",
+    "url": "https://github.com/vitejs/vite/issues/20774",
+    "label": "genuine"
+  },
+  {
+    "text": "Dependency pre-bundling doesn't respect the order of imports in source files",
+    "url": "https://github.com/vitejs/vite/issues/19668",
+    "label": "genuine"
+  },
+  {
+    "text": "A HMR `host` related breaking change in v5 to v6 is not listed",
+    "url": "https://github.com/vitejs/vite/issues/19662",
+    "label": "genuine"
+  },
+  {
+    "text": "Only a small fraction of my source files are being served with HTTP/2.0",
+    "url": "https://github.com/vitejs/vite/issues/19651",
+    "label": "genuine"
+  },
+  {
+    "text": "`?url` query import sometimes returns asset itself instead of url when used in external package with `optimizeDeps.exclude`",
+    "url": "https://github.com/vitejs/vite/issues/19639",
+    "label": "genuine"
+  },
+  {
+    "text": "Logger from `createLogger` does not always adhere to user's `logLevel` settings",
+    "url": "https://github.com/vitejs/vite/issues/19636",
+    "label": "genuine"
+  },
+  {
+    "text": "import.meta.glob from node_modules caches project files incorrectly",
+    "url": "https://github.com/vitejs/vite/issues/19632",
+    "label": "genuine"
+  },
+  {
+    "text": "import.meta.hot does not exist in a node environment in SSR",
+    "url": "https://github.com/vitejs/vite/issues/19630",
+    "label": "genuine"
+  },
+  {
+    "text": "package.json \"exports\" with array matcher only takes first",
+    "url": "https://github.com/vitejs/vite/issues/19628",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite module runner stacktrace on first line is incorrect",
+    "url": "https://github.com/vitejs/vite/issues/19627",
+    "label": "genuine"
+  },
+  {
+    "text": "Tsconfig lib version in react, solid and is 2020",
+    "url": "https://github.com/vitejs/vite/issues/19621",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite SSR doesn't fail when same name is declared via import",
+    "url": "https://github.com/vitejs/vite/issues/19617",
+    "label": "genuine"
+  },
+  {
+    "text": "Got 404 page on gh-page deployment",
+    "url": "https://github.com/vitejs/vite/issues/19614",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite + Preact: HMR doesn't update UI when using Fragment",
+    "url": "https://github.com/vitejs/vite/issues/19611",
+    "label": "genuine"
+  },
+  {
+    "text": "vite ignores type: \"module\" in package.json5",
+    "url": "https://github.com/vitejs/vite/issues/19609",
+    "label": "genuine"
+  },
+  {
+    "text": "`runnerImport` fails on css import without `perEnvironmentStartEndDuringDev: true`",
+    "url": "https://github.com/vitejs/vite/issues/19606",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite 6 does not load `/assets/img/**` as Vite 5 does",
+    "url": "https://github.com/vitejs/vite/issues/19605",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite HMR not working . Changing code does not reflect on page until restart vite server #16284",
+    "url": "https://github.com/vitejs/vite/issues/19597",
+    "label": "genuine"
+  },
+  {
+    "text": "[plugin-legacy]Regular literals are converted to new RegExp in modern mode, but not in legacy mode",
+    "url": "https://github.com/vitejs/vite/issues/19583",
+    "label": "genuine"
+  },
+  {
+    "text": "pnpm link xxx -global Causing vite:import-analysis Parsing Error：iconSize",
+    "url": "https://github.com/vitejs/vite/issues/19581",
+    "label": "genuine"
+  },
+  {
+    "text": "Generate HTML Snippets for Backend Integration",
+    "url": "https://github.com/vitejs/vite/issues/19578",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite build fails when base option has %",
+    "url": "https://github.com/vitejs/vite/issues/19576",
+    "label": "genuine"
+  },
+  {
+    "text": "`SyntaxError: Cannot use 'import.meta' outside a module` after bump to vite 6",
+    "url": "https://github.com/vitejs/vite/issues/19571",
+    "label": "genuine"
+  },
+  {
+    "text": "Crash when adding dependencies containing `#` in the filename",
+    "url": "https://github.com/vitejs/vite/issues/19563",
+    "label": "genuine"
+  },
+  {
+    "text": ".json files are imported as an object even with `?no-inline`",
+    "url": "https://github.com/vitejs/vite/issues/19562",
+    "label": "genuine"
+  },
+  {
+    "text": "Plugin resolver: Resolving `#` for SCSS files not working with modern API",
+    "url": "https://github.com/vitejs/vite/issues/19560",
+    "label": "genuine"
+  },
+  {
+    "text": "Page Breaks When Refreshing with Chrome DevTools Open",
+    "url": "https://github.com/vitejs/vite/issues/19549",
+    "label": "genuine"
+  },
+  {
+    "text": "Passing `--mode` to `vite preview` has no effect",
+    "url": "https://github.com/vitejs/vite/issues/19548",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite Build Error: Could Not Load (Windows Works, Linux Fails)",
+    "url": "https://github.com/vitejs/vite/issues/19546",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite does not resolve css url() paths correctly",
+    "url": "https://github.com/vitejs/vite/issues/18398",
+    "label": "genuine"
+  },
+  {
+    "text": "Special comment in index.html causes incorrect injection",
+    "url": "https://github.com/vitejs/vite/issues/18386",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite moves @import at the top leading to an erroneous layers order",
+    "url": "https://github.com/vitejs/vite/issues/18384",
+    "label": "genuine"
+  },
+  {
+    "text": "`build --watch` on WSL not detecting changes even with usePolling",
+    "url": "https://github.com/vitejs/vite/issues/18381",
+    "label": "genuine"
+  },
+  {
+    "text": "Treat package.json `browser` field similar to exports",
+    "url": "https://github.com/vitejs/vite/issues/18340",
+    "label": "genuine"
+  },
+  {
+    "text": "Upgrade to sirv 3.0",
+    "url": "https://github.com/vitejs/vite/issues/18337",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite SSR calls named export `then` on import",
+    "url": "https://github.com/vitejs/vite/issues/18328",
+    "label": "genuine"
+  },
+  {
+    "text": "SSR transformed named imported functions don't work with debuggers \"step-into\"",
+    "url": "https://github.com/vitejs/vite/issues/18325",
+    "label": "genuine"
+  },
+  {
+    "text": "Resolution allows extension-less import which is not aligned with package `exports` field",
+    "url": "https://github.com/vitejs/vite/issues/18300",
+    "label": "genuine"
+  },
+  {
+    "text": "Vite ignores `useDefineForClassFields` in nested tsconfigs when using ts project references",
+    "url": "https://github.com/vitejs/vite/issues/18297",
+    "label": "genuine"
+  },
+  {
+    "text": "File outside of Vite serving allow list",
+    "url": "https://github.com/vitejs/vite/issues/18291",
+    "label": "genuine"
+  },
+  {
+    "text": "optimzeDeps.exclude glob support for package names",
+    "url": "https://github.com/vitejs/vite/issues/18284",
+    "label": "genuine"
+  },
+  {
+    "text": "Certain Modules / Files not found when apps base path is part of the directory where the project is located in",
+    "url": "https://github.com/vitejs/vite/issues/18279",
+    "label": "genuine"
+  },
+  {
+    "text": "Preview in `v7.1.8` works differently in my environment",
+    "url": "https://github.com/vitejs/vite/issues/20880",
+    "label": "slop"
+  },
+  {
+    "text": "Optimizer behaviour change leading to errors",
+    "url": "https://github.com/vitejs/vite/issues/20867",
+    "label": "slop"
+  },
+  {
+    "text": "Backend Integration Guide Seems To be Missing Some Scenarios",
+    "url": "https://github.com/vitejs/vite/issues/20858",
+    "label": "slop"
+  },
+  {
+    "text": "Build problem for react tanstack router settings for new vite app",
+    "url": "https://github.com/vitejs/vite/issues/20848",
+    "label": "slop"
+  },
+  {
+    "text": "Has 4.0 stopped updating?",
+    "url": "https://github.com/vitejs/vite/issues/20845",
+    "label": "slop"
+  },
+  {
+    "text": "Unknown command: npm",
+    "url": "https://github.com/vitejs/vite/issues/20823",
+    "label": "slop"
+  },
+  {
+    "text": "http://vite.dev/",
+    "url": "https://github.com/vitejs/vite/issues/20776",
+    "label": "slop"
+  },
+  {
+    "text": "https documentation doesn't make any sense",
+    "url": "https://github.com/vitejs/vite/issues/19647",
+    "label": "slop"
+  },
+  {
+    "text": "Better Support for Debugging Config",
+    "url": "https://github.com/vitejs/vite/issues/19595",
+    "label": "slop"
+  },
+  {
+    "text": "Css font imports in manifest.json",
+    "url": "https://github.com/vitejs/vite/issues/18392",
+    "label": "slop"
+  },
+  {
+    "text": "AbortSignal.any() of another composite leaks: an observed outer composite outlives all of its sources",
+    "url": "https://github.com/nodejs/node/issues/66612",
+    "label": "genuine"
+  },
+  {
+    "text": "AbortSignal.any() keeps an AbortSignal.timeout() that has already fired alive forever",
+    "url": "https://github.com/nodejs/node/issues/66611",
+    "label": "genuine"
+  },
+  {
+    "text": "AbortSignal.any() stops following a timeout signal once a listener is added to the timeout and removed, so the composite never aborts after a GC",
+    "url": "https://github.com/nodejs/node/issues/66610",
+    "label": "genuine"
+  },
+  {
+    "text": "vm: exceptions from getters defined on contextified globalThis are swallowed",
+    "url": "https://github.com/nodejs/node/issues/66607",
+    "label": "genuine"
+  },
+  {
+    "text": "crypto.randomInt() can return the same value to a sync and an async caller",
+    "url": "https://github.com/nodejs/node/issues/66595",
+    "label": "genuine"
+  },
+  {
+    "text": "fs.mkdtempDisposableSync() / fsPromises.mkdtempDisposable() throw and leak the directory when the path is a Buffer",
+    "url": "https://github.com/nodejs/node/issues/66593",
+    "label": "genuine"
+  },
+  {
+    "text": "Buffer#indexOf()/lastIndexOf()/includes() abort the process when end is not a number",
+    "url": "https://github.com/nodejs/node/issues/66589",
+    "label": "genuine"
+  },
+  {
+    "text": "compile cache: one file per module makes the cache cost more than it saves on Windows; a packed layout fixes it",
+    "url": "https://github.com/nodejs/node/issues/66584",
+    "label": "genuine"
+  },
+  {
+    "text": "hdr_histogram.c: clang 23 -Wincompatible-pointer-types will be error insteadof warning(clang 19 is warning)",
+    "url": "https://github.com/nodejs/node/issues/66580",
+    "label": "genuine"
+  },
+  {
+    "text": "v24/v26: idle memory not released for ~100 s after load (V8 memory reducer regression)",
+    "url": "https://github.com/nodejs/node/issues/66564",
+    "label": "genuine"
+  },
+  {
+    "text": "`require('#x')` subpath imports fail with MODULE_NOT_FOUND under `--experimental-package-map`",
+    "url": "https://github.com/nodejs/node/issues/66562",
+    "label": "genuine"
+  },
+  {
+    "text": "node:internal/inspector/network_http: `TypeError: Missing dataLength` in event when response uses `setEncoding()`",
+    "url": "https://github.com/nodejs/node/issues/66551",
+    "label": "genuine"
+  },
+  {
+    "text": "test_runner: with --test-isolation=none, a file that throws after registering a test passes (exit 0, error not shown)",
+    "url": "https://github.com/nodejs/node/issues/66549",
+    "label": "genuine"
+  },
+  {
+    "text": "vfs: createVfsHandlers() does not implement writev(fd, buffers, position)",
+    "url": "https://github.com/nodejs/node/issues/66532",
+    "label": "genuine"
+  },
+  {
+    "text": "http2: server sends RST_STREAM(NO_ERROR) without END_STREAM when the connection window is exhausted, truncating complete responses",
+    "url": "https://github.com/nodejs/node/issues/66525",
+    "label": "genuine"
+  },
+  {
+    "text": "sqlite: process aborts when an authorizer argument or column metadata exceeds the V8 string limit",
+    "url": "https://github.com/nodejs/node/issues/66522",
+    "label": "genuine"
+  },
+  {
+    "text": "sqlite: process aborts when an SQLite error message exceeds the V8 string limit",
+    "url": "https://github.com/nodejs/node/issues/66520",
+    "label": "genuine"
+  },
+  {
+    "text": "sqlite: exhausted iterators incorrectly receive `return()`",
+    "url": "https://github.com/nodejs/node/issues/66518",
+    "label": "genuine"
+  },
+  {
+    "text": "Stream.prototype.forEach will block in first promise in queue before read more chunk",
+    "url": "https://github.com/nodejs/node/issues/66106",
+    "label": "genuine"
+  },
+  {
+    "text": "pnpm as future default package manager for node.js ?",
+    "url": "https://github.com/nodejs/node/issues/66101",
+    "label": "genuine"
+  },
+  {
+    "text": "zlib: reset() after flush() silently produces an undecodable zstd stream",
+    "url": "https://github.com/nodejs/node/issues/66087",
+    "label": "genuine"
+  },
+  {
+    "text": "zlib: createZstdCompress appends an empty frame when end() is called with writes still queued",
+    "url": "https://github.com/nodejs/node/issues/66078",
+    "label": "genuine"
+  },
+  {
+    "text": "v8: Node 26.9.0 crashes with `Check failed: new_capacity > 0.` when `Error.stackTraceLimit` is set above 357913941 with `--trace-uncaught`",
+    "url": "https://github.com/nodejs/node/issues/66074",
+    "label": "genuine"
+  },
+  {
+    "text": "buffer: utilities to check whether a Buffer or string fits in memory before creating it",
+    "url": "https://github.com/nodejs/node/issues/66062",
+    "label": "genuine"
+  },
+  {
+    "text": "build: test-permission-drop-ffi test fails with Missing FFI test fixture library error",
+    "url": "https://github.com/nodejs/node/issues/66055",
+    "label": "genuine"
+  },
+  {
+    "text": "v24: discarded vm contexts cause OOM; possible V8 backport",
+    "url": "https://github.com/nodejs/node/issues/66053",
+    "label": "genuine"
+  },
+  {
+    "text": "Package map entry whose url resolves to a directory-form URL never matches its files",
+    "url": "https://github.com/nodejs/node/issues/66043",
+    "label": "genuine"
+  },
+  {
+    "text": "util: `SuppressedError` should print `error`/`suppressed` properties during inspection",
+    "url": "https://github.com/nodejs/node/issues/66033",
+    "label": "genuine"
+  },
+  {
+    "text": "Regression in Node.js 26.8.0: aligned Buffer pool breaks multi-byte typed-array views",
+    "url": "https://github.com/nodejs/node/issues/65601",
+    "label": "genuine"
+  },
+  {
+    "text": "zlib: one-shot gzip()/deflate() results accumulate in arrayBuffers until OOM — GC never prompted (regression in v24.15.0)",
+    "url": "https://github.com/nodejs/node/issues/65600",
+    "label": "genuine"
+  },
+  {
+    "text": "Python 3.15 rc1 release candidate unsupported",
+    "url": "https://github.com/nodejs/node/issues/65599",
+    "label": "genuine"
+  },
+  {
+    "text": "sqlite: option getters run user JS mid-call, then stale state is used",
+    "url": "https://github.com/nodejs/node/issues/65586",
+    "label": "genuine"
+  },
+  {
+    "text": "REPL spamming and stuck when `Promise.any([]).` is typed",
+    "url": "https://github.com/nodejs/node/issues/65581",
+    "label": "genuine"
+  },
+  {
+    "text": "tls: server getPeerCertificate(true) drops the peer certificate chain since v26.8.0 (regressed by #64677)",
+    "url": "https://github.com/nodejs/node/issues/65579",
+    "label": "genuine"
+  },
+  {
+    "text": "fs.rm/fs.rmSync silently fail to delete files when path contains non-ASCII (CJK) characters on Windows (works ≤ v22, broken on v24)",
+    "url": "https://github.com/nodejs/node/issues/65578",
+    "label": "genuine"
+  },
+  {
+    "text": "tls: crl option only loads first CRL from concatenated PEM bundle",
+    "url": "https://github.com/nodejs/node/issues/65576",
+    "label": "genuine"
+  },
+  {
+    "text": "`node:test` Tests without callback should not be reported as ok",
+    "url": "https://github.com/nodejs/node/issues/65563",
+    "label": "genuine"
+  },
+  {
+    "text": "crash when trying to create large arrays (32 GB+) due to V8's check for kMaxReasonableBytes",
+    "url": "https://github.com/nodejs/node/issues/65534",
+    "label": "genuine"
+  },
+  {
+    "text": "net: setKeepAlive() ignores the error returned by the handle",
+    "url": "https://github.com/nodejs/node/issues/65529",
+    "label": "genuine"
+  },
+  {
+    "text": "fs.openAsBlob reports a missing file as ERR_INVALID_ARG_VALUE, discarding the ENOENT",
+    "url": "https://github.com/nodejs/node/issues/65514",
+    "label": "genuine"
+  },
+  {
+    "text": "child_process: timeout option never clears on spawn-time failure (ENOENT etc), hangs process for full timeoutMs",
+    "url": "https://github.com/nodejs/node/issues/65504",
+    "label": "genuine"
+  },
+  {
+    "text": "Missing html docs",
+    "url": "https://github.com/nodejs/node/issues/66571",
+    "label": "slop"
+  },
+  {
+    "text": "[spam]",
+    "url": "https://github.com/nodejs/node/issues/66031",
+    "label": "slop"
+  },
+  {
+    "text": "node upgraded to 24",
+    "url": "https://github.com/nodejs/node/issues/65525",
+    "label": "slop"
+  },
+  {
+    "text": "libnode unreproducible",
+    "url": "https://github.com/nodejs/node/issues/65508",
+    "label": "slop"
+  }
+]

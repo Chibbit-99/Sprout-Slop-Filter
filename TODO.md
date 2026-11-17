@@ -58,3 +58,25 @@
 - [x] Compare same-parameter training/weight-regularisation candidates against the expanded v4 baseline using original validation and independent-style challenge diagnostics; do not tune on held-out/probe scores.
 - [x] Ship only a change that improves at least the chosen validation objective while preserving v1–v3 compatibility, ≥3,000 observed alphabetic words, ≥1,000 actual training examples and offline browser scoring.
 - [x] Re-run model, architecture, vocabulary, context, domain, anchor, browser (31/31), subsystem (50 passed, 4 skipped) and legacy suites; report counts, FP/FN, unchanged cross-domain/multilingual limits and reproducible recipe in `experiments/ANCHOR_OPTIMISATION.md`. `git diff --check` passed.
+
+## Tenfold vocabulary and quality follow-up — coverage implemented; accuracy remains open
+
+- [x] User delegated the choice: keep 3,402 genuinely training-observed words distinct from a ≥34,020-word licensed offline lexical resource; make lexical relationships affect inference rather than padding `model.vocabulary`. Validate real quality impact before shipping.
+- [x] Preserve the 524,289-parameter offline browser model, existing 3,686 labelled training examples and frozen evaluation partitions while implementing the selected coverage approach. WordNet's 34,402 recognised alphabetic words are distinct from 3,402 actually observed in labelled training.
+- [x] Compare against the prior checkpoint on held-out task, unfamiliar-word, multilingual and cross-domain diagnostics; document the failed fresh-training candidate and unchanged accuracy of the grafted lexical head in `experiments/LEXICON_COVERAGE.md`.
+- [x] Add browser/CLI lexical coverage and uncertainty disclosures, licensed reproducible build, and regression/browser checks; no accuracy improvement was demonstrated. Rebuilt with `npm run train`; model/anchor/lexicon/architecture/vocabulary/context/domain/legacy tests passed, browser smoke 32/32, subsystem test page 50 passed/4 API-dependent skipped, `git diff --check` passed.
+- [ ] Collect real, independently labelled examples and a new locked external test set to improve generalisation and test whether lexical cues actually help. Existing developer-authored task and context examples are insufficient to claim an accuracy gain.
+
+## Context-sensitive quality follow-up — correction path complete; default accuracy remains open
+
+- [x] Try training-only context/specificity features rather than vocabulary-count changes; choose on the original validation partition before examining protected test/probe results. The best head improved validation 97/102 → 100/102 but regressed held-out 168/170 → 167/170 and unfamiliar 35/40 → 34/40; reject it rather than tuning on test results.
+- [x] Make genuine user corrections learnable in the offline browser: keep the seed-1 base validation/test partitions fixed, include the existing 2,900 supplement rows and same-size anchor/lexical head, reject duplicate protected examples, and add `--feedback` for reproducible CLI training. See `experiments/QUALITY_FOLLOWUP.md`.
+- [x] Verify one authored correction changes its own prediction (0.660 → 0.435) with the 170-case test still 98.8%; that is adaptation, **not a general accuracy claim**. CLI feedback regression and browser smoke (38/38, including atomic feedback reimport) pass. Model, anchor, lexicon, architecture, vocabulary, context, domain, legacy and subsystem tests (50 pass/4 skipped) passed; `git diff --check` passed.
+- [ ] Collect independently labelled real-world corrections and a new locked external test; only then can a more accurate default checkpoint be selected without overfitting the inspected synthetic partitions.
+
+## Real-text generalisation experiment — shipped, but independent accuracy remains open
+
+- [x] Manually title-label and attribute 131 real Vite/Node training issues; keep Axios validation (46 rows after excluding a punctuation-only duplicate) and SvelteKit/Express diagnostic (30 rows) out of training. These are selected, not random or independently multiply annotated.
+- [x] Select a 50% same-size anchor on original task + Axios validation, then inspect held-out sources once: real-title diagnostic 12/30 → 23/30, expanded task held-out 168/170 unchanged, unfamiliar authored set 35/40 unchanged, helpdesk-hard zero-shot 9/16 → 13/16. Do not tune on those test results.
+- [x] Ship the selected one-model v4 checkpoint with 3,817 actual training rows, 3,867 training-observed alphabetic words / 34,679 recognised with WordNet, 524,289 potential parameters, and the single-mode offline browser. Preserve the previous tests/splits and add `npm run test:real` with URL/provenance/leakage guards. Rebuilt via `npm run train`, tested model/real/feedback/lexicon/anchor/architecture/vocab/context/domain/browser (38/38)/legacy/subsystem (50 pass, 4 skipped), and checked `git diff --check`. See `experiments/REAL_ISSUE_GENERALISATION.md`.
+- [ ] Commission a genuinely sampled, multiple-rater, project-diverse locked test and more non-English/commit-specific data before claiming deployment accuracy or authenticity detection.

@@ -67,7 +67,8 @@ function initialise_model(settings) {
             accumulators: new Array(featureSize).fill(0),
             bias: 0,
             options: { encoder: config.encoder, useSynonyms: false,
-                learningRate: config.learningRate ?? 0.8, epochs: config.epochs ?? 120 }
+                learningRate: config.learningRate ?? 0.8, epochs: config.epochs ?? 120,
+                ...(v4 && config.lexicon ? { lexicon: config.lexicon } : {}) }
         };
     }
 
