@@ -1,0 +1,22 @@
+[
+  {"pair":"raven","text":"RavenBridge drops the final chunk when a compressed response is retried","label":"genuine"},
+  {"pair":"raven","text":"Improve RavenBridge reliability across scenarios","label":"slop"},
+  {"pair":"maple","text":"MapleStore returns the previous value after a transaction commits on another worker","label":"genuine"},
+  {"pair":"maple","text":"MapleStore needs better transaction behavior","label":"slop"},
+  {"pair":"coral","text":"CoralRenderer clips the footer only when the viewport narrows below 400 pixels","label":"genuine"},
+  {"pair":"coral","text":"Fix CoralRenderer footer issues someday","label":"slop"},
+  {"pair":"opal","text":"OpalCodec accepts a truncated frame if the checksum field is missing","label":"genuine"},
+  {"pair":"opal","text":"OpalCodec could support frames more effectively","label":"slop"},
+  {"pair":"frost","text":"FrostRunner launches a second job when the first attempt times out","label":"genuine"},
+  {"pair":"frost","text":"FrostRunner should improve job handling","label":"slop"},
+  {"pair":"moss","text":"MossIndex loses the last key after compaction reaches an empty page","label":"genuine"},
+  {"pair":"moss","text":"Make MossIndex key handling better","label":"slop"},
+  {"pair":"lumen","text":"LumenProxy forwards a stale token after a redirect to a different host","label":"genuine"},
+  {"pair":"lumen","text":"Address LumenProxy token concerns in general","label":"slop"},
+  {"pair":"onyx","text":"OnyxChart duplicates the label when a legend item is hidden then restored","label":"genuine"},
+  {"pair":"onyx","text":"OnyxChart labels could be improved","label":"slop"},
+  {"pair":"poppy","text":"PoppyScheduler ignores the retry delay after a worker restarts","label":"genuine"},
+  {"pair":"poppy","text":"Improve PoppyScheduler retry support","label":"slop"},
+  {"pair":"birch","text":"BirchLoader reads the wrong file when two paths differ only by case on Linux","label":"genuine"},
+  {"pair":"birch","text":"BirchLoader has file path issues to resolve","label":"slop"}
+]

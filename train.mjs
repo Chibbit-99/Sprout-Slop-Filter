@@ -28,7 +28,7 @@
 //   --temperature <n>   score softening, 1 = off (default 4)
 //   --encoder <name>   richer-subword-v4 (default), structured-subword-v3, hashed-subword-v2, legacy
 //   --structure        experimental v4 token-role/condition features (version 1)
-//   --structure-version 2|3 evidence-gated token-role/condition features; old checkpoints unchanged
+//   --structure-version 2|3|4 evidence-gated token-role/condition features; old checkpoints unchanged
 //   --quiet             only print the final summary
 
 import fs from "node:fs";
@@ -115,8 +115,8 @@ function parseArgs(argv) {
     if (options.anchorModel && options.splitSeed !== 1) {
         throw new Error("The task anchor requires split seed 1 to preserve its protected evaluation rows");
     }
-    if (options.structure !== false && (options.encoder !== "richer-subword-v4" || ![1, 2, 3].includes(options.structure))) {
-        throw new Error("--structure/--structure-version require v4 and version 1, 2 or 3");
+    if (options.structure !== false && (options.encoder !== "richer-subword-v4" || ![1, 2, 3, 4].includes(options.structure))) {
+        throw new Error("--structure/--structure-version require v4 and version 1, 2, 3 or 4");
     }
     if (options.lexicon && options.encoder !== "richer-subword-v4") {
         throw new Error("--lexicon requires the v4 encoder");

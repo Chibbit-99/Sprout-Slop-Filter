@@ -989,7 +989,7 @@
             ...(options.lexicon ? [`${lexicalWords.toLocaleString()} offline lexical entries (not labelled examples)`] : []),
             (state.model.version === 2 || state.model.version === 3 || state.model.version === 4) ? `${state.model.featureSize} hashed features` : `${state.model.weights.length} dimensions`,
             `softening ×${state.temperature}`,
-            ...([1, 2, 3].includes(options.structureVersion) ? ["learned abstract context patterns (same parameter budget)"] : [])
+            ...([1, 2, 3, 4].includes(options.structureVersion) ? ["learned abstract context patterns (same parameter budget)"] : [])
         ];
         if (options.trainedFrom) {
             bits.push(`trained on ${options.trainedFrom.trainSet} examples`);

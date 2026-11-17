@@ -1,0 +1,881 @@
+[
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66579",
+    "text": "BUG: read_excel(engine=\"odf\") ignores office:value on <table:covered-table-cell>",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66574",
+    "text": "DOC: rename_categories dict example is a no-op in categorical.rst",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66571",
+    "text": "BUG: partial-string slicing on a PeriodIndex with an anchored freq resolves bounds one period early",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66564",
+    "text": "DOC: 1.4 and earlier not available: 404 error",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66552",
+    "text": "BUG: datetimelike arithmetic landing on the NaT sentinel silently returns NaT",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66551",
+    "text": "BUG: datetimelike arithmetic landing on the NaT sentinel returns NaT, plus float64 precision loss in timedelta64 arithmetic/reductions",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66550",
+    "text": "BUG: tz_localize misreports wall times whose UTC value is unrepresentable (NaT sentinel, int64 wrap, OOB read)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66549",
+    "text": "BUG: remaining NaT-sentinel and out-of-bounds gaps in datetimelike arithmetic (GH-66510 follow-ups)",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66545",
+    "text": "ENH: Add limit_distance parameter to Series/DataFrame.interpolate",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66542",
+    "text": "BUG: to_datetime raises bare AssertionError for invalid errors= value",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66527",
+    "text": "BUG: DataFrame.loc assignment with boolean column indexer raises NotImplementedError for single-column DataFrame",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66525",
+    "text": "BUG: read_csv c engine collapses distinct fields sharing a NUL-terminated prefix with dtype=object or dtype='category'",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66524",
+    "text": "BUG: read_csv c engine silently truncates integer and boolean fields at an embedded NUL byte",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66523",
+    "text": "BUG/API: ewm with equally spaced times disagrees with no-times for adjust=False, ignore_na=False on NaN data",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66522",
+    "text": "BUG: DataFrame.ewm(...).online().mean() ignores the decay for single-column frames",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66518",
+    "text": "BUG: IntervalArray silently builds interval[int64] with an object-dtype right side",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66517",
+    "text": "BUG: convert_dtypes raises OverflowError for integers outside the int64 range",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66514",
+    "text": "BUG: object of type 'list_iterator' has no len()",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66510",
+    "text": "BUG: Timestamp.replace(nanosecond=...) can produce a Timestamp whose value is the NaT sentinel",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66509",
+    "text": "BUG: read_parquet(to_pandas_kwargs={\"self_destruct\": True}) segfaults",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66501",
+    "text": "BUG:",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "canonical duplicate of an earlier training/diagnostic title"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66499",
+    "text": "BUG: DataFrame.eq() incorrectly rejects scalar strings in type annotations",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66497",
+    "text": "DOC: Installation guide uses outdated \"source activate\" conda syntax",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66496",
+    "text": "DOC: On \"Contributing to the documentation\", Conflicting info on if Pandas uses Travis-CI or  GitHub Actions",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66493",
+    "text": "BUG: unexercised divmod/rdivmod in tests / always False assertion",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66490",
+    "text": "BUG: `factorize(use_na_sentinel=True)` ignores `use_na_sentinel` for pre-encoded PyArrow `DictionaryArray`s",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66489",
+    "text": "BUG: ujson_dumps can segfault when Python API return values are not checked during encoding",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66475",
+    "text": "BUG: read_sas segfaults on a SAS7BDAT file with an out-of-range row_length in the header",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66474",
+    "text": "ENH: Provide a Consistent Round-Trip Contract for Axis Metadata Across Excel and Other IO Formats",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66470",
+    "text": "API: read_sas should decode text by default instead of returning bytes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66451",
+    "text": "DOC: `io.excel._util.pop_header_name`, `read_{excel,csv}`: only the _last_ column is taken",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66443",
+    "text": "BUG: Series.dt.to_pydatetime() returns a Series with a reset RangeIndex instead of preserving the parent index",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66437",
+    "text": "DOC: Black text appears in dark mode, insufficient contrast",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66436",
+    "text": "BUG: A test_to_datetime.py test fails on Python 3.15",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66434",
+    "text": "DOC: what's new for 3.0.5 link broken",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66420",
+    "text": "ENH: Ability to specify locale in Datetime and strftime for format",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66413",
+    "text": "DOC: Fix plural mistakes in 10 minutes to pandas guide",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66411",
+    "text": "BUG: implicit inclusion of MinGW header `wingdi.h` causes conflict with `ERROR` ",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66410",
+    "text": "BUG: Cannot build `pandas` with MSVC",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66407",
+    "text": "BUG: styler.format.na_rep not respected inside pd.option_context",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66400",
+    "text": "BUG: pd.testing.assert_series_equal not respecting passed in `atol` argument",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66391",
+    "text": "ENH: UnicodeDecodeError from read_csv could suggest common alternative encodings",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66390",
+    "text": "BUG: ArrowDtype timestamp comparison with datetime.date scalar loses null propagation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66389",
+    "text": "ENH: Support `tz_convert` on naive timestamps when naive tz specified",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66382",
+    "text": "BUG: read_csv(dtype=\"category\") ignores dtype_backend for the c and python engines",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pandas-dev/pandas/issues/66379",
+    "text": "DOC: Minor typo in DataFrame.ewm",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/238699221e09d957b6008f894e8325e8bffbbac1",
+    "text": "chore: bump chromium to 147.0.7713.0 (main) (#49975)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/0ae46d71d37810e322fa28ae132f22d4cde6d103",
+    "text": "fix: add explicit JSON property mappings for `SQRLShipItRequest` model (#49980)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/9f9a5b8b9b702767f07cda5f1c1f6c0d51dde0a6",
+    "text": "fix: prevent use-after-free in permission request callbacks (#50032)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/21a2bfca161e51e03a3d665ea49b74b2f0cdc9dd",
+    "text": "fix(styles): add missing dot prefix to .hero-icon.loop-3 CSS selector (#49950)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/89483e7e89f3b95db4ed85171024e9de2ac9c529",
+    "text": "feat: add macOS-only api to determine if app is currently active (#49622)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/4c3565fb8820a52341742e8883dbf7ef69ccbf48",
+    "text": "feat: show toast dismissal reason on Windows (#49913)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/e1e11c8fbea69823b742ceb781f438eb3bda7912",
+    "text": "build: authenticate curl requests to googlesource in lint workflow (#50001)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/222c989f1315ef98d55408f17af7105dd6f81d85",
+    "text": "fix: bind offscreen paint callback to child `WebContents` (#49998)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/838d30510f30f9a3eb3a70121fcd6b87f13cc414",
+    "text": "fix: use destination context when wrapping VideoFrame in contextBridge (#49997)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ee76e549fa55af9955b12678ffe3ef8b543ceb12",
+    "text": "fix: use setter's creation context when proxying setter in OverrideGlobalPropertyFromIsolatedWorld (#49990)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/97fceb5f7cee5011ce96c2c169ddd4dea2019933",
+    "text": "docs: add PR labeling guidance to CLAUDE.md (#49992)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/6dcec79bbad7aa8c610dcae85fcb237c814b85a9",
+    "text": "chore: remove unused `commandLineSwitches` flag (#49993)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/07dcba74b39b1d1e10f274bc8fb4a4dbda9cc46f",
+    "text": "fix: potential UAF in `OnDownloadPathGenerated` (#50003)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/839cc5b87989e6d886b5070ec6d7b3d11aa0ec73",
+    "text": "fix: deliver Universal Links when NSUserActivity.userInfo is nil (#49986)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/d0241ea27d78c612f2ed515b3124a84e5b760f40",
+    "text": "fix: delete temporary blink* globals after restoring Blink implementations (#49991)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/20dfc93f3a3394a942a4a494ae7b09c1fc7f635e",
+    "text": "fix: menu bar hiding on two `setFullscreen(false)` (#45930)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/2bd7758ec1eebe6015ed0a381845781eaa07eca6",
+    "text": "chore: bump chromium to 147.0.7707.0 (main) (#49965)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/806b7e19a39793dc4548da5ccb36a184af73ee7f",
+    "text": "build(deps): bump basic-ftp from 5.0.5 to 5.1.0 in the npm_and_yarn group across 1 directory (#49954)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/3d1cc3970b770dba739789d1a2dfd020c8a2d319",
+    "text": "fix: update label/sublabel/icon in MenuItems on open (#49678)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/6a440f0bc9e21fa8e8c44fd60ab44a4604f467d1",
+    "text": "fix: correct window sizing on Linux when constraints on resizability are enforced (#49903)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/699445f5da9c702e8f06fb1f8e0491f94ca0f75f",
+    "text": "chore: bump chromium to 147.0.7705.0 (main) (#49958)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/e3d8c9fcdfc7a48711a0f68475f6903ac68a2fe6",
+    "text": "refactor: replace std::to_string() with base::NumberToString() (#49949)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/55d9e48c35a439957ba8def510358e0f75662077",
+    "text": "fix: menu close event missing after opening a submenu (#49783)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/96ad701dd01a3506771bf976a9b9ccfa30356210",
+    "text": "chore: bump node to v24.14.0 (main) (#49941)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/aee06610464e7a98870333bca452b9718d5c4ba6",
+    "text": "refactor: simplify `BaseWindow` parent<->child association code (#49537)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/227cc02aeed98395e8879b32d4bf20a43f5ed989",
+    "text": "chore: bump chromium to 147.0.7703.0 (main) (#49935)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/128880988ea488d99a2752de2e5c67c70ef19b2b",
+    "text": "test: correct typo in node-spec.ts comment (#49141)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/8d05285a1f39c759985b17c89a449e4a6b3960df",
+    "text": "fix: potential `std::stoi` crash in Windows Toasts (#49947)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/6a2571ee3d3692e727aaf766df2cd7183f6da90c",
+    "text": "ci: Wayland test job, helpers, and app spec (#49908)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/94aa90bb6480cf1e76429cab6a0d96af836d6592",
+    "text": "fix: recover network requests after Network Service restart (#49887)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/b9a09acff36d268fd4ade597be2d6ff8a051d59d",
+    "text": "docs: mark \"Show hidden files\" file dialog setting as deprecated on Linux (#46926)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/fd9bf54243f68083ce5716ddc5c8cb1032ae9f1d",
+    "text": "build: fix Chromium roll linting merge base determination in CI (#49937)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/d9170093aafcc111712a28909b4fdf06e50ae43a",
+    "text": "build: exit upload with error code if github upload fails (#49936)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/aca83afeef7cdebce10c6fa9835baed26c806b9f",
+    "text": "ci: add maintainer /request-review command (#49927)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/e5d3fbf6dca089c39f9f28191524008deb9161ef",
+    "text": "chore: bump chromium to 147.0.7699.0 (main) (#49831)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/0aaea4eaa04b581ef31e5befdd2fc0c7a997b0aa",
+    "text": "fix: crash after `win.showAllTabs()` new tab (#49917)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/818b28410f493c20fabfb27addeeec65f8166328",
+    "text": "build(deps): bump github/codeql-action from 4.32.3 to 4.32.4 (#49925)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/25db585a23bb14c9b2a5c23c1e99d4a71a88ad51",
+    "text": "docs: fix some string enum typings (#49923)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/02eed1ec0b7453a4ddbe2386d5e1d090596ae124",
+    "text": "build(deps): bump actions/stale from 10.1.1 to 10.2.0 (#49924)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/acd01e15e282bfd3a61585a37aaf53caf34bfe56",
+    "text": "fix: prevent crash on Windows when closing child windows (#49901)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/fc3a0abf19b9bad25a5ac312f72dbec8669ab268",
+    "text": "build: fix roller branch detection in CI (#49920)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/fa2b9ac466a9a9556e7b8f2ce4ac568c8e0c1469",
+    "text": "ci: fix checking latest release for website docs update (#49918)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/481e22499200f287825ebed4fa449bd39bd09641",
+    "text": "docs: remove documentation link to discontinued Touch Bar Simulator (#49899)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/90c9de70acc4dd36b2e5dc08c3730bbeca36ad45",
+    "text": "fix: updated Alt detection to explicitly exclude AltGraph/AltGr (#49778)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/9d0a0a54595a299328d4b54673f21e52cfcd1a34",
+    "text": "fix: apply `zoomFactor` from `setWindowOpenHandler` to `window.open()` windows (#49886)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/19d0c072d5cbf1247efc5b838ead7f123d6a36a7",
+    "text": "feat: lazy electron download (#49328)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/2b80f4ccc9b5d500f318a989f9936e3e0f2060c4",
+    "text": "fix: prevent GBytes leak in GdkPixbufFromSkBitmap on Linux/GTK (#49863)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/5795689fd929b3c5c77a75e55c78e5c4e4de9cd3",
+    "text": "fix: fullscreen restoration on Windows (#49872)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/3e58c6cb3adc2db649bf71e5347a00f73d6fa72d",
+    "text": "fix: refresh menu item state on key equivalent dispatch (#49875)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ea89ba5b8d4c7ccbe4415f280c74120c8c56115a",
+    "text": "feat:  Shadows and CSD for frameless windows on Wayland (#49295)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/5ddd8a020035970094df86efe8c266b3cca011ab",
+    "text": "feat: add support for `--experimental-transform-types` (#49711)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/8b81bfda8f5eea6682be621e2c6772778e5622ee",
+    "text": "ci: log mocha retries in spec runner (#49150)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/491fa0442b1dd7f2296035512a9c90f0a20b3f45",
+    "text": "fix: rgbaf16 shared texture remove keyed mutex. (#49798)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/b508510cab6d19b06c50b6fe16644cfc054c4ce2",
+    "text": "fix: update DBus signal signature for XDG GlobalShortcuts portal (#49842)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/469b2af0c05012f08a096a39e6531c8d0b90f0a8",
+    "text": "chore: use relative links from docs/ to files outside of docs/ (#49605)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/61b3d5d63c322a726bdcafd7491d5b3ba7ef73f2",
+    "text": "refactor: initialize libgdk stubs before use in `platform_util:Beep` (#49680)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/1e437c9a18f4b4170c110179673355d9a732b8ba",
+    "text": "feat: use 1.0f as default for offscreen scale factor. (#49683)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/efb3fd98c665d4b45ab35963af1a8e7932a9d7c6",
+    "text": "build: lint commits on Chromium roller branches (#49655)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/9ca9311b734d6e64b5bef81cf9dee6ef5acad784",
+    "text": "docs: note required windows in 'new-window-for-tab' event (#49851)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/8b057176618af9a47afed2a2e869932ebfc9093f",
+    "text": "docs: clarify ASAR integrity is supported in MAS builds (#49852)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/be45b5f8e76363d7217ce85f61fff900abff1070",
+    "text": "ci: fixup build stats upload on Windows (#49845)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/87597a99dea91db10c3623e180da7129b213489c",
+    "text": "build(deps-dev): bump webpack from 5.95.0 to 5.104.1 in the npm_and_yarn group across 1 directory (#49779)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/3ed52a3ded689823bca4d43863e5ec30faaedcc7",
+    "text": "build: roll sysroots (#49844)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/dfdf04976e3b0b2177fbac391fca9232c8d0d33d",
+    "text": "fix: draggable region position with docked DevTools (#49822)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/f4ba25a3daa41d6a9246e1c1c15fa55b595d50a9",
+    "text": "fix: frameless window resize in MAS builds (#49780)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/05061544ab7bada371d96f82674f0769af4b1fc3",
+    "text": "feat: enable WASM trap handlers in all Node.js processes (#48983)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/10566c2d5f41e2fc8b77de591f2bd3e0406c0042",
+    "text": "test: MAS for private API usage (#49712)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/931c257de7f077f104362122f2202810612dd347",
+    "text": "fix: accurate window sizing and support for content sizing on Linux/Wayland with CSD (#49209)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/459a88f78810e58ebe8ec2a3801f8cd984383304",
+    "text": "docs: fix typos across tutorial documentation (#49736)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/c98cf69f402d1af0afbd8286331dbf75a9ec58b5",
+    "text": "chore: bump chromium to 147.0.7687.0 (main) (#49782)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/0da0c3a47e950df206960bd33c424b109a166e2b",
+    "text": "build: use spawn instead of spawnSync for build (#49774)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/f19cfce43019831897f501530f83d275907ec7c1",
+    "text": "chore: add Copilot CLI instructions (#49784)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ca61f2d7dfa1d47ae48f0e83978874d03b3cfc2e",
+    "text": "build(deps): bump actions-cool/issues-helper from 3.7.5 to 3.7.6 (#49813)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/1322bee878d92da12a383b96982f400504f94510",
+    "text": "build(deps): bump github/codeql-action from 4.32.2 to 4.32.3 (#49814)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/dda71a464c04b32cb60785ef74327005c1a08157",
+    "text": "chore: add PR Notes section requirement to CLAUDE.md (#49816)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/a056c63fd81eb3c199972a9313f3d1615e2d31d9",
+    "text": "fix: excise `abort_report_np` usage in MAS (#49726)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/bf3eb098bda229c139aaae4f50c2304dc8306ecb",
+    "text": "fix: missing shared texture docs (#49797)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/67cced1270074a91075265fa1d7f6763988dc842",
+    "text": "build: remove *.star files (#49796)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/eb29568e451a84c14ef8a6f7b0648d86d09785bb",
+    "text": "feat: introduce `os_crypt_async` in `safeStorage` (#49054)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/dcdbb0397e2874dc28c643026fbb07c7c7501c11",
+    "text": "feat: allow defaulting to printer default page size (#49523)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/3a5f9e0a337a5d7b7dcb9984dde9876be725ddf7",
+    "text": "chore: bump node to v24.13.1 (main) (#49744)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/f90e35cb4566b410a543a38f57452ca84bb69923",
+    "text": "chore: cherry-pick e045399a1ecb from chromium (#49788)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/74fd10450f3fd85821ec158a4b87924526a6ae9d",
+    "text": "feat: improve Windows Toast actions support (#48132)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/a65cfed500c2bfac87307d4646eb481ae0637974",
+    "text": "chore: bump chromium to 146.0.7666.0 (main) (#49528)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/e9faa14cc0c57aad3e446cf32a6ae3599f94b9df",
+    "text": "test: drag region tests (#49266)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ce47542ccd1608db6b857eb989acf7c57d2bc482",
+    "text": "feat: add support for `long-animation-frame` script attribution (#49706)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ff2df2c98ab2b5e528f1eec716dc740c7f28837a",
+    "text": "build(deps): bump diff from 3.5.0 to 3.5.1 in the npm_and_yarn group across 1 directory (#49666)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/0284b9afcc1dbb7c01aac962ea585d80ac68cdd5",
+    "text": "build: fixup attestation for release assets (#49732)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/52061b4c28e0a7f208be5dbad6e4ea2e5663ffb5",
+    "text": "ci: add markdownlint problem matcher (#49751)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ec6d2fe549258c5ff174fe1870bd9371ce26aa54",
+    "text": "build(dev-deps): update micromark-core-commonmark to 2.0.3 (#49749)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/1c621cc98246413e141af26bab1eb46cecc8f83f",
+    "text": "docs: fix typos across documentation (#49734)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/57a6e430252a6ca1cbc3f24a5de39e779fdf985e",
+    "text": "fix: revoke Read access after removing file via FileSystemAccess API (#49620)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/ef5b232e9f734f8448a70a7dec10b8270d1df882",
+    "text": "build(deps): bump github/codeql-action from 4.32.1 to 4.32.2 (#49735)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/99fce5b6ca171ac92649ee6a71f89d967e331208",
+    "text": "fix: address upstream Chromium shift to enable `CoreAudio Tap API` for audio capture used in electron's `desktopCapturer` (🍏 macOS).  (#49717)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/7c66112e88e8401d07d1c2ce14e010e8093dd63e",
+    "text": "docs: link unlinked type references in API documentation (#49651)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/fd0108907a1623433f3aaf2ece4bca318f60873a",
+    "text": "build: fixup build attestation (#49730)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/3fa3e91f90ccb23f88d156fc8671ec4abfb652ae",
+    "text": "docs: fix framerate limit when osr with shared texture (#49705)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/a3563422c471adb2298f728184bedb053a5110e4",
+    "text": "ci: fix patches changes detected in apply patches workflow (#49701)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/9db2290bcddd5a6e1c1f40000e0272be49bd1a10",
+    "text": "fix: restore macos 12 support in Node 24 (#49697)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/electron/electron/commit/60d35bbaf4b52287c37b09e4f343fd8959998afb",
+    "text": "feat: add support for disclaiming utility processes (#49128)",
+    "label": "genuine",
+    "kind": "commit"
+  }
+]

@@ -41,8 +41,8 @@ function initialise_model(settings) {
         throw new RangeError("initialise_model: unsupported encoder " + config.encoder);
     }
     if (config.structureVersion !== undefined &&
-        (config.encoder !== "richer-subword-v4" || ![1, 2, 3].includes(config.structureVersion))) {
-        throw new RangeError("initialise_model: structural features require v4 structureVersion 1, 2 or 3");
+        (config.encoder !== "richer-subword-v4" || ![1, 2, 3, 4].includes(config.structureVersion))) {
+        throw new RangeError("initialise_model: structural features require v4 structureVersion 1, 2, 3 or 4");
     }
     const vectorSize = typeof config.vectorSize === "number" && config.vectorSize > 0
         ? Math.floor(config.vectorSize)

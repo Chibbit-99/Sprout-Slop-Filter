@@ -1,0 +1,18 @@
+[
+  {"pair":"quartz","text":"QuartzCache drops the final write when a second worker renews the lease","label":"genuine"},
+  {"pair":"quartz","text":"QuartzCache could use improvements to the write experience","label":"slop"},
+  {"pair":"harbor","text":"HarborView renders an empty tile after the viewport crosses the date line","label":"genuine"},
+  {"pair":"harbor","text":"Make HarborView tiles better in various situations","label":"slop"},
+  {"pair":"ember","text":"EmberMux returns stale headers if the retry begins before the socket closes","label":"genuine"},
+  {"pair":"ember","text":"EmberMux should handle headers more effectively","label":"slop"},
+  {"pair":"cobalt","text":"CobaltWriter truncates the last row when the chunk size is one byte","label":"genuine"},
+  {"pair":"cobalt","text":"Address some CobaltWriter row problems","label":"slop"},
+  {"pair":"cedar","text":"CedarQueue reports success even though the worker rejects the task","label":"genuine"},
+  {"pair":"cedar","text":"Review CedarQueue task handling for better outcomes","label":"slop"},
+  {"pair":"violet","text":"VioletSync fails to release its lock after a cancelled download","label":"genuine"},
+  {"pair":"violet","text":"Improve VioletSync lock support in general","label":"slop"},
+  {"pair":"atlas","text":"AtlasTable sorts null entries ahead of zero when descending order is selected","label":"genuine"},
+  {"pair":"atlas","text":"AtlasTable sort behavior could be more useful","label":"slop"},
+  {"pair":"ripple","text":"RippleParser accepts an invalid escape sequence after a quoted field","label":"genuine"},
+  {"pair":"ripple","text":"Make RippleParser parsing more robust somehow","label":"slop"}
+]

@@ -3,6 +3,19 @@
 // More capacity reduces cross-feature collisions; extra affix and skip
 // features let the classifier share evidence across inflected/new words.
 // Does not import a language model or assume that spelling implies meaning.
+// Reuse role inventories across predictions: the default v3 and experimental
+// v4 paths previously allocated five identical Sets for every input.
+const richerShapeFailures = new Set(["fail", "fails", "failed", "failing", "crash", "crashes", "crashed",
+    "error", "errors", "broken", "breaks", "incorrect", "wrong", "missing", "hangs", "stuck",
+    "doesn't", "don't", "cannot", "can't", "not", "never", "invalid", "unable", "regression"]);
+const richerShapeConditions = new Set(["when", "after", "before", "while", "unless", "without",
+    "during", "under", "with", "on", "if", "instead", "because", "since"]);
+const richerShapeActions = new Set(["add", "support", "allow", "remove", "fix", "make", "show", "return",
+    "update", "use", "prevent", "handle", "document", "implement", "enable", "disable", "change"]);
+const richerShapeVague = new Set(["things", "thing", "stuff", "something", "various", "misc", "general",
+    "better", "improve", "improvements", "issues", "problem", "problems", "somehow"]);
+const richerShapeFunctionWords = new Set(["the", "a", "an", "is", "are", "in", "to", "for", "from", "of",
+    "and", "or", "as", "by", "it", "this", "that", "at", "be", "should", "will", "can"]);
 function lexicon_entry_for(word, lexicon) {
     if (!lexicon || typeof lexicon !== "object") return null;
     if (Object.hasOwn(lexicon, word)) return lexicon[word];
@@ -64,28 +77,18 @@ function richer_features(text, size, lexicon, lexiconStrength = 1, structureVers
     // a previously unseen component can occupy the same role as a known one.
     // These are learned evidence, not hard-coded verdicts or a dictionary of
     // technical terms. All slots are in the existing position/affix banks.
-    if (structureVersion === 1 || structureVersion === 2 || structureVersion === 3) {
-        const failures = new Set(["fail", "fails", "failed", "failing", "crash", "crashes", "crashed",
-            "error", "errors", "broken", "breaks", "incorrect", "wrong", "missing", "hangs", "stuck",
-            "doesn't", "don't", "cannot", "can't", "not", "never", "invalid", "unable", "regression"]);
-        const conditions = new Set(["when", "after", "before", "while", "unless", "without",
-            "during", "under", "with", "on", "if", "instead", "because", "since"]);
-        const actions = new Set(["add", "support", "allow", "remove", "fix", "make", "show", "return",
-            "update", "use", "prevent", "handle", "document", "implement", "enable", "disable", "change"]);
-        const vague = new Set(["things", "thing", "stuff", "something", "various", "misc", "general",
-            "better", "improve", "improvements", "issues", "problem", "problems", "somehow"]);
-        const functionWords = new Set(["the", "a", "an", "is", "are", "in", "to", "for", "from", "of",
-            "and", "or", "as", "by", "it", "this", "that", "at", "be", "should", "will", "can"]);
-        const types = words.map(word => {
+    if (structureVersion === 1 || structureVersion === 2 || structureVersion === 3 || structureVersion === 4) {
+        const typeOf = word => {
             if (/^\d+(?:[.,]\d+)*$/.test(word)) return "NUM";
             if (!/[\p{L}\p{N}]/u.test(word)) return "PUNCT";
-            if (failures.has(word)) return "FAIL";
-            if (conditions.has(word)) return "COND:" + word;
-            if (actions.has(word)) return "ACTION";
-            if (vague.has(word)) return "VAGUE";
-            if (functionWords.has(word)) return "FUNC:" + word;
+            if (richerShapeFailures.has(word)) return "FAIL";
+            if (richerShapeConditions.has(word)) return "COND:" + word;
+            if (richerShapeActions.has(word)) return "ACTION";
+            if (richerShapeVague.has(word)) return "VAGUE";
+            if (richerShapeFunctionWords.has(word)) return "FUNC:" + word;
             return "TARGET";
-        });
+        };
+        const types = words.map(typeOf);
         const has = type => types.includes(type);
         const hasCondition = types.some(type => type.startsWith("COND:"));
         const targetCount = types.filter(type => type === "TARGET").length;
@@ -95,7 +98,7 @@ function richer_features(text, size, lexicon, lexiconStrength = 1, structureVers
         // Generic action-to-target requests are left to the normal v4 map.
         // This is not a project-name whitelist or an alternate threshold.
         const evidence = has("FAIL") || codeLike || (has("ACTION") && hasCondition) ||
-            (structureVersion === 3 && words.length >= 7);
+            (structureVersion >= 3 && words.length >= 7);
         if (structureVersion === 1 || evidence) {
             for (let i = 0; i < types.length; i++) {
                 if (i) add(6, "shape:pair:" + types[i - 1] + ":" + types[i], 0.35 * scale);
@@ -112,6 +115,44 @@ function richer_features(text, size, lexicon, lexiconStrength = 1, structureVers
         if (codeLike) {
             add(6, "shape:code-or-identifier", 0.55);
             if (has("FAIL")) add(6, "shape:code-failure", 0.55);
+        }
+        if (structureVersion === 4) {
+            // A component prefix is not itself evidence of an actionable
+            // request: learn whether the *clause after it* gives a symptom,
+            // change, condition or concrete target. No project names or
+            // title strings enter these feature keys. Empty/URL-like clauses
+            // do not create a spurious specificity cue.
+            const match = /^([^\n:]{1,70}):\s+([^\n]+)$/u.exec(text);
+            if (match) {
+                const clauseWords = tokenise(normalise_text(match[2])).slice(0, 128)
+                    .map(word => word.slice(0, 64));
+                const clause = clauseWords.map(typeOf);
+                const detail = clause.filter(type => type === "TARGET" || type === "NUM").length;
+                const bucket = detail >= 4 ? "4+" : String(detail);
+                const prefix = match[1];
+                const form = /[\/.`_#]|[A-Z][a-z]+[A-Z]/u.test(prefix) ? "code" : "plain";
+                const role = clause.includes("FAIL") ? "failure" :
+                    clause.some(type => type.startsWith("COND:")) ? "condition" :
+                    clause.includes("ACTION") ? "action" : "other";
+                if (clauseWords.length >= 2) {
+                    add(6, "relation:prefix-clause:" + form + ":" + role, 0.65);
+                    add(7, "relation:clause-detail:" + bucket + ":" + role, 0.55);
+                    if (clause.includes("VAGUE")) add(6, "relation:clause-vague", 0.6);
+                    if (clause.some(type => type.startsWith("COND:"))) {
+                        add(6, "relation:clause-condition:" + (detail >= 2 ? "targeted" : "bare"), 0.55);
+                    }
+                }
+            }
+            // Global role co-occurrence alone loses whether the condition
+            // actually scopes a failure. The first-occurrence ordering is a
+            // coarse, vocabulary-independent relation, not a hard verdict.
+            const failureAt = types.indexOf("FAIL");
+            const conditionAt = types.findIndex(type => type.startsWith("COND:"));
+            if (failureAt >= 0 && conditionAt >= 0) {
+                const gap = Math.abs(conditionAt - failureAt);
+                add(7, "relation:failure-condition:" +
+                    (conditionAt > failureAt ? "after:" : "before:") + (gap <= 4 ? "near" : "far"), 0.4);
+            }
         }
     }
     return [...features];

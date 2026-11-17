@@ -1,0 +1,985 @@
+[
+  {
+    "url": "https://github.com/angular/angular/issues/70469",
+    "text": "feat(common): add getOffset method to ViewportScroller",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70465",
+    "text": "Routed component host created in SVG namespace after an <svg> sibling (22.1.4)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70464",
+    "text": "Uncaught TypeError in reportAllChanges: \"Cannot read properties of undefined (reading 'startTime')\" during navigation in Chrome (zoneless)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70462",
+    "text": "Angular SSR can reconstruct fallback RAWTEXT closing tags across Text nodes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70452",
+    "text": "app/devtools fail with 'RangeError: Maximum call stack size exceeded' when inspecting apps containing angular based custom elements",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70447",
+    "text": "SSRF in `@angular/platform-server`: `http:/host/path` URLs bypass the GHSA-f6mr-pjwc-34m4 fix",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70444",
+    "text": "AOT can emit string-literal class member names as executable code",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70439",
+    "text": "SSR serialization of Comment nodes can produce unexpected markup",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70431",
+    "text": "zone.js: patched addEventListener drops options exposed as accessors or non-enumerable properties",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70418",
+    "text": "NG05106 false positive: insertBefore guard compares parentNode by object identity",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70405",
+    "text": "zone.js vitest-patch breaks test.each",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70367",
+    "text": "onSameUrlNavigation: 'reload' documentation is misleading about guards, resolvers, and component recreation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70365",
+    "text": "Duplicate headings lead to issues in navigation in Essentials > Forms with signals",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70342",
+    "text": "Wrong latest dist-tag for @angular/animations and @angular/platform-browser-dynamic",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70338",
+    "text": "Proposal: Introduce an Optional Flexible, Composition-First Angular Architecture Inspired by React",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70333",
+    "text": "RFC: Targeted Reactivity with an @isolated block",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70328",
+    "text": "Angular Language Service auto-import suggests outdated @ionic/angular/standalone path for Ionic 9 standalone projects",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70323",
+    "text": "TestBed.overrideComponent incorrectly overrides changeDetection to eager when not explicitly provided",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70316",
+    "text": "Component animation silently stops working in production when the animation rule is inside @media",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70308",
+    "text": "docs(in-memory-web-api): add prominent security warning about production use",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70307",
+    "text": "toObservable derived state is not properly in-sync with the base signal",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/angular/angular/issues/70269",
+    "text": "Router with inputs should not reset default input values when parameter is missing",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37805",
+    "text": "Allow the use of ephemeral values in the output for test modules",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37803",
+    "text": "Include link to Terraform repo in error messages about internal Terraform bugs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37802",
+    "text": "Windows 11 - Terraform - Still creating loop - Root is waiting for Provider",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37801",
+    "text": "Errors in test are skipped vs failed since 1.13.0",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37799",
+    "text": "Terraform test expect_failure doesn't work for permission errors",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37792",
+    "text": "Terraform >= v1.13.0 `apply` errors with `\"filebase64\" failed: function returned an inconsistent result` when reading file with temp credentials that differ between plan and apply",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37791",
+    "text": "Disable dependant resources automatically if \"parent\" resource was disabled",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37786",
+    "text": "terraform init takes a long time, is it related to DynamoDB outage?",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37785",
+    "text": "Using -invoke on Action with ref to resource causes unexpected error",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37784",
+    "text": "Nested dynamic block does not capture variables when using fixupBody",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37780",
+    "text": "Terraform crash when creating a dependency on action",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37779",
+    "text": "ResourceNotFound when creating that resource",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37771",
+    "text": "The S3 backend does not yet recognise New Zealand region ap-southeast-6",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37764",
+    "text": "Server error code ",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37761",
+    "text": "Avoid unnecessary data lookup deferral",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37754",
+    "text": "Terraform Test outputs variable referenced without definition deprecation warning",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37753",
+    "text": "Infer resource moves automatically?",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37749",
+    "text": "[Feature Request]: support for iterative assertions in validation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37748",
+    "text": "terraform 1.13.3 TERRAFORM CRASH",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37745",
+    "text": "-generate-config-out produces invalid HCL for optional list with MinItems constraint",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37730",
+    "text": "Re-running the destroy operation is causing issues with the count variable, which depends on the data block result.",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37729",
+    "text": "Allow augmenting resource errors with custom messages",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37722",
+    "text": "panic: checkable object status report for unexpected checkable object after 1.13.3 upgrade",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37720",
+    "text": "Terraform v1.13.3 \"The true and false result expressions must have consistent types\". Object variable",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37719",
+    "text": "Stacks: configuration upload fails on use of speculative option",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37714",
+    "text": "Improve TF output: (known after apply)",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37712",
+    "text": "Unable to run Terraform apply command using generated Terraform Query output file",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/hashicorp/terraform/issues/37710",
+    "text": "Terraform crash when using bloc moved from mongodbatlas_cluster to mongodbatlas_advanced_cluster",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2b5cf661cab461072b910f26bdc8d2e6512abe13",
+    "text": "📝 Update release notes",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/509ac59f5c8cd0914968beb64178c764e1a11e2f",
+    "text": "🌐 Update translations for uk (update-outdated) (#15900)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/ffcbd457ea065a17645a2a56c3fee588cbaca5a6",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/3b7cb60067b982ac682a21485ee413fe89832d80",
+    "text": "🌐 Update translations for ko (update-outdated) (#15890)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/6c0df1738dc8893e6415ec7c58251898bd63a7a0",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c5ab51d50f576a9e53e0f887d4046033234787cd",
+    "text": "🌐 Update translations for ru (update-outdated) (#15894)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/473acc1adf0218a07510a157a6995b61f2591cb9",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/86dd7b8a23fdbcc4ceafaaa92000a1a5ce874b88",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/bdc2dfc9aae56e7cf61fb14f9ca037a23c74255e",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/bfb663fa848e35d09b9d7bd21e3b346f442a7b80",
+    "text": "🌐 Update translations for es (add-missing) (#15880)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2c4f3e3ece230410893471e66dac68b26b4c915a",
+    "text": "🌐 Update translations for ko (add-missing) (#15888)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/4011c1231827ae472ff35545b7fe1e32be4ba570",
+    "text": "🌐 Update translations for zh-hant (add-missing) (#15889)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/78154e85a620556722d0b9318b61d7ba4a222c4d",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/eaace7a13e787e8fab3822165adbef36d21675dd",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/7a79b7e9fb4afa0ee10ccf0bdc800f56adda8732",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/65fd47ffa0077da9760d4ee1d51eeceda4a6dc0f",
+    "text": "🌐 Update translations for pt (add-missing) (#15883)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0982d3c2ae1059adcf64a2ec51a41e96c891bbd7",
+    "text": "🌐 Update translations for ja (add-missing) (#15882)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2b0f1561936a31291757304e52cd3ece5c90afd4",
+    "text": "🌐 Update translations for zh (add-missing) (#15885)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f382703ff71b1a45ecbfed754bc3eeb2e70b2902",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/75737c19da4b6b4e1e823b7a18cbbbc5d023c3c3",
+    "text": "🌐 Update translations for tr (add-missing) (#15887)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/92cf50e546b2ff92c97a0c16cf48370d7b8f23ad",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f3e6899127daf4949b868bd4aa2b8d2515884b36",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c9f99ef24f75e573690d49df2fac8d1b83dcf627",
+    "text": "🌐 Update translations for uk (add-missing) (#15886)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/241b9a70a89c390195ec1f0ba087d8418987692a",
+    "text": "🌐 Update translations for fr (add-missing) (#15881)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/a3aa0703a638886d2a72777a24804f57a54d94ac",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/065e7deee4b944684c12a8fa4a808760ff428759",
+    "text": "🌐 Update translations for de (add-missing) (#15884)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/bf41b93fafb6540f254edba93a007e79d65c1947",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f206f06f1a44e743720fdd5153a68af038098a5f",
+    "text": "🌐 Update translations for ru (add-missing) (#15879)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0df0261757e65fc8a8f22e2b8dff194ea349ddeb",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/3ac41743924ca9e8fb4e391fe3c7b5bbccacafc6",
+    "text": "👥 Update FastAPI People - Contributors and Translators (#15878)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/bf8283b4444acfbe6bd6ac1de923760acf5e167a",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/8da95e1842e2eaa9c12e3ee5a7e3c5522376922e",
+    "text": "👷 Remove not needed `allow-unsafe-pr-checkout: true` (#15876)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/fe450d9a414572cf9a7354cef77d99e8d16e7d73",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f6f3d25d1088045199209a234b8d106ac2c43163",
+    "text": "⬆ Bump the github-actions group with 5 updates (#15872)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/02f80bc4d026bbbcbfcd9a79d4c674086764d9e7",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/66a2ad87c17bae25e9e9cab44e285ba84b72734c",
+    "text": "⬆ Bump the python-packages group across 1 directory with 10 updates (#15870)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/a5d220ddbf49789f1d76d12e33b34b909ed4b019",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/4a298abff1d8c85c9d50e8f3600bb76b427b7f5a",
+    "text": "⬆ Bump CodSpeedHQ/action from 4.17.0 to 4.17.5 in the github-actions group (#15826)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/702fea83bb3ef0b558104835d7936af49650fb2d",
+    "text": "🔖 Release version 0.138.2 (#15864)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/6466865eec63cb545869d80e2ee6fbc54c4d364e",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/b790e14cb686506df663959ac4879053cfed38db",
+    "text": "♻️ Make `app.frontend()` return 404 for methods other than `GET` or `HEAD` with no static file matches (#15863)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c2708d981729c96437dcc1d7cfa40cd15128bc60",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/403b1fa16f9519f4b5ab52413daae059479fae4a",
+    "text": "🔧 Update sponsors: remove Stainless (#15862)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/1929ac23195136e8616ed1b7c3fd84c65b26d234",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/cba41585675ecb0e119d3ca258821659f07ec3f7",
+    "text": "♻️ Refactor how sponsors data is handled for banners (#15852)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/b90c49aefad4958abdfbcacf9c2f816940a8f0e2",
+    "text": "🔖 Release version 0.138.1 (#15842)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/1f2f3df4852bf7cb29be1187806d95a0fdc7ea40",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0af003a85da454dcf6b6783e0ad3f0dd687e944f",
+    "text": "♻️ Refactor Library Skills, make info easier to find for agents (#15841)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/d5494c1f01796350fa082cf8a82b124e95162e9d",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/82c527e714f16bf9e07202aff0fb91cada329844",
+    "text": "👷 Simplify pull request workflow triggers (#15836)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/3f28dbe6d84cdac19bdb2b41e1664981e37359ab",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f6ea6b1f12e6d1a45c630a8fdf5d4c7c0959dad9",
+    "text": "👷 Update issue-manager to 0.7.1 (#15833)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/219ac634ab82b6321492ef97fb223b618ce13948",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/fcc8e1f99431a0b381eaef03e07446e6975422b7",
+    "text": "⬆️ Update issue-manager to 0.7.0 (#15831)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/457f4c705c0287e49d7aa4ddec292db6185d16e3",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/29fc8f61660b52cb626190f865680364d0f32ff2",
+    "text": "🔧 Update sponsors: Add TestMu again (#15830)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/a497a025e7114ca442478ed28da7e0a1cdc6177a",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/8f3db3d3e79465a97cbfd9ae47506aca67a58e0f",
+    "text": "🔒️ Update zizmor workflow security checks (#15820)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0cb4a8e284b450abbccb71c543ad7757de46c0b2",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/d69774c23db11e12474d5237b832dc54fd12bffa",
+    "text": "⬆ Bump pydantic-settings from 2.14.1 to 2.14.2 (#15799)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/4b83b0d409009c8de9df4070fe163838b1a700c7",
+    "text": "🔖 Release version 0.138.0 (#15808)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/041cb0cdfa2d0f705d14ed07c2c2e0f92ef5f32c",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/10393846ede7a2947cec594d15a43f813001cab4",
+    "text": "📝 Fix typo in release notes (#15807)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0303491b69ff84a4632c0314e6db4df74f2f93f9",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/190f6e2033c8b886b25027be284d8c8c1893f28c",
+    "text": "📝 Add Frontend instructions to Agent Library Skill (#15805)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/17945e5ab7f25234340c152a40d232a98857e079",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2260afaf433103c8104b34d256cf0b96b058823b",
+    "text": "🐛 Fix failing test, update format for raised errors (#15804)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/0cd5001d0ef80a07e2d775c5c75522391a3e06d7",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/7cb1ab6264bc03319832f553730b511192a0c0d3",
+    "text": "👷 Fix test-alls-green (#15803)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/9c7eceb00ff6e1d37980954418f7c9dab30a4cd5",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/d176e00b9fb136ea8324c092c84528fdc3e16919",
+    "text": "📝 Udpate release notes link (#15802)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/71e608e00e16c88c90bd5b6ffd04b5253a5b4133",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/459a51097be8187115047149d77dab983a361fb3",
+    "text": "✏️ Update white space characters in bigger apps (#15801)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/e12833aaa2338d5ff31a71afb6b2d396ae18145f",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/4d3dc78b262c609daf8a23baa00f31221b386d52",
+    "text": "✨ Add support for `app.frontend(\"/\", directory=\"dist\")` and `router.frontend(\"/\", directory=\"dist\")` (#15800)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/f1d750fddad90e2faad6c3cc5c85c7687b787e89",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/22f99d9ad33676a60496379c749d3669f10f5410",
+    "text": "🔧 Enable checking `release-notes.md` for typos (#15796)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2d0047087526d2af3eca4cee77d56539c52651d1",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/6e6c74fc162a4cc6421deb928ad403c9ee0f9d4f",
+    "text": "🌐 Enable Hindi docs translations (#15554)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/1b68e378eff63dd6e5f26bbcffea364618965d25",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/da9d05bc7abe2803db8d892ae3d856b0d93739cb",
+    "text": "✏️ Fix grammar, typos, and broken links in docs (#15694)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c61384e3d72cc4d32050e05ee409fd8a5d345844",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/08321394abb9f5a3994f38b0fa3d3565f9e15946",
+    "text": "📝 Tweak wording about deploying to FastAPI Cloud (#15793)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c744991f968f44b5dc6eb3c1636866986e653747",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/2f4ba0bdd1f29c4aae3b308fb3aec8a9a5640f61",
+    "text": "🔨 Use `gpt-5.5` model in `translate.py`, specify `-chat` to avoid warnings (#15792)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/6a0ba7bb1f5015383cdceb3822ca1abed6e32b82",
+    "text": "🔖 Release version 0.137.2 (#15790)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/5d421ae9774acf3b15ceaaa4f4ed6d68a165e0a1",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/6ac122071d2c9e6add587e1271eb010dd6acbed0",
+    "text": "✨ Add `iter_route_contexts()` for advanced use cases that used to use `router.routes` (e.g. Jupyverse) (#15785)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/7feb17f80a483e70efa26f01addb94d0070d42ee",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/d514109e42fc90590a7050e982a37ac6ecf561ab",
+    "text": "🔧 Update sponsors: add BairesDev (#15787)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/1c1edb9b55c29b90762b7165cddbefd1276358cf",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/32d711f6d24224f2aed3395cac428222cbe9b1fb",
+    "text": "🔨 Update sponsors script to simplify previews (#15786)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/202b2d2f5f331db9102b5dbcef071a9e09bed10e",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/e26e64381c35ac6cf3d25bf6accb53b94a66dd8f",
+    "text": "⬆ Bump the python-packages group across 1 directory with 7 updates (#15777)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/c66d1c222bf0aa1c90d6436164292b84ca8d4361",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/705324ed2977f99dec4df45175ee27a2bf26c17f",
+    "text": "⬆ Bump cryptography from 46.0.7 to 48.0.1 (#15779)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/627636b617427794c56589814046db2e0669bf23",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/84304df58f837352cdd9503bef4f46f0da852111",
+    "text": "⬆ Bump aiohttp from 3.14.0 to 3.14.1 (#15781)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/aaf70c196c85bd9e0ba4b12f37a1b0650063773b",
+    "text": "📝 Update release notes",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only ambiguity or duplicate subject"
+  },
+  {
+    "url": "https://github.com/fastapi/fastapi/commit/69f8d87fb7aa2d6028331af16ec28d7b02636183",
+    "text": "⬆ Bump starlette from 1.2.1 to 1.3.1 (#15780)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "routine administration, translation details omitted, or ambiguous title-only policy"
+  }
+]

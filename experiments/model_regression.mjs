@@ -279,6 +279,22 @@ badShape.options.structureVersion = 99;
 assert.equal(sprout.load_model("bad-shape", { storage: () => JSON.stringify(badShape) }).success, false);
 assert.equal(sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", v3Model).score,
     sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", v3Loaded.model).score);
+const clauseExample = "moduleX: property `readValue` returns stale data after retry";
+const v4Relations = sprout.richer_features(clauseExample, 524288, null, 1, 4);
+assert.ok(v4Relations.length > sprout.richer_features(clauseExample, 524288, null, 1, 3).length);
+assert.deepEqual(sprout.richer_features(mundane, 524288, null, 1, 4),
+    sprout.richer_features(mundane, 524288, null, 1, 3));
+const relational = sprout.initialise_model({ encoder: "richer-subword-v4", structureVersion: 4,
+    vocabulary: ["modulex"], seed: 7 });
+const priorIds = new Set(sprout.richer_features(clauseExample, 524288, null, 1, 3).map(([id]) => id));
+relational.weights[v4Relations.find(([id]) => !priorIds.has(id))[0]] = -2;
+const relationalSaved = sprout.save_model(relational, "relations.json", { storage: () => {} });
+assert.ok(relationalSaved.success);
+const relationalLoaded = sprout.load_model("relations.json", { storage: () => relationalSaved.payload });
+assert.ok(relationalLoaded.success);
+assert.equal(relationalLoaded.model.options.structureVersion, 4);
+assert.equal(sprout.make_prediction_for_training(clauseExample, relational).score,
+    sprout.make_prediction_for_training(clauseExample, relationalLoaded.model).score);
 assert.throws(() => sprout.initialise_model({ encoder: "structured-subword-v3", structureVersion: 1 }),
     /require v4/);
 console.log("v4 structural opt-in, v4, v3, v2 and legacy regressions passed");
