@@ -15,9 +15,11 @@
 //   --data <file>       training data (JSON array of { text, label })
 //   --out <file>        where to write the trained model
 //   --extra <file>      labelled examples added to train partition only
+//   --feedback <file>   training-only corrections; repeat to combine real data and your own
 //   --extra-count <n>   prefix of supplemental examples (default: all)
 //   --anchor-model <file> compatible v4 checkpoint with the same label policy
 //   --anchor-mix <0..1> fraction of anchored weights after fitting/softening
+//   --lexicon <file>    offline WordNet class/synonym cues; same v4 parameter budget
 //   --epochs <n>        training rounds (default 120 for v2/v3/v4)
 //   --lr <float>        learning rate (default 0.8 for v2/v3/v4)
 //   --vector-size <n>   dimensions per word vector (default 24)
@@ -48,9 +50,11 @@ function parseArgs(argv) {
         temperature: 4,
         encoder: "richer-subword-v4",
         extra: null,
+        feedback: [],
         extraCount: null,
         anchorModel: null,
         anchorMix: 0,
+        lexicon: null,
         quiet: false
     };
 
@@ -60,9 +64,11 @@ function parseArgs(argv) {
         switch (arg) {
             case "--data":       options.data = argv[++i]; break;
             case "--extra":      options.extra = argv[++i]; break;
+            case "--feedback":   options.feedback.push(argv[++i]); break;
             case "--extra-count": options.extraCount = Number(argv[++i]); break;
             case "--anchor-model": options.anchorModel = argv[++i]; break;
             case "--anchor-mix": options.anchorMix = Number(argv[++i]); break;
+            case "--lexicon": options.lexicon = argv[++i]; break;
             case "--out":        options.out = argv[++i]; break;
             case "--epochs":     options.epochs = Number(argv[++i]); break;
             case "--lr":         options.learningRate = Number(argv[++i]); break;
@@ -100,6 +106,12 @@ function parseArgs(argv) {
         (!options.anchorModel && options.anchorMix !== 0) ||
         (options.anchorModel && (options.encoder !== "richer-subword-v4" || !Number.isFinite(options.temperature) || options.temperature <= 0))) {
         throw new Error("--anchor-model requires v4 and --anchor-mix in (0,1] with positive --temperature");
+    }
+    if (options.anchorModel && options.splitSeed !== 1) {
+        throw new Error("The task anchor requires split seed 1 to preserve its protected evaluation rows");
+    }
+    if (options.lexicon && options.encoder !== "richer-subword-v4") {
+        throw new Error("--lexicon requires the v4 encoder");
     }
     return options;
 }
@@ -152,13 +164,33 @@ for (const example of additional) {
     if (original.has(text) || checked.has(text)) throw new Error(`Supplemental duplicate / leakage: ${example.text}`);
     checked.add(text);
 }
-const trainSet = baseTrainSet.concat(additional);
+const feedback = options.feedback.flatMap(loadExamples);
+// Compare token sequences as well as exact text, so punctuation-only edits of
+// a protected example cannot silently become training feedback.
+const canonical = text => sprout.tokenise(sprout.normalise_text(text))
+    .filter(token => /[\p{L}\p{N}]/u.test(token)).join(" ");
+const protectedTexts = new Set(examples.concat(additional).map(row => canonical(row.text)));
+const feedbackTexts = new Set();
+for (const row of feedback) {
+    const text = canonical(row.text);
+    if (!text || protectedTexts.has(text) || feedbackTexts.has(text)) {
+        throw new Error(`Feedback duplicates a base/supplement/protected row: ${row.text}`);
+    }
+    feedbackTexts.add(text);
+}
+const trainSet = baseTrainSet.concat(additional, feedback);
 log(`supplement: ${additional.length} training-only examples from ${options.extra || "none"}`);
+log(`feedback  : ${feedback.length} training-only corrections from ${options.feedback.join(", ") || "none"}`);
 
 // The vocabulary is built from the training split only, so the held-out
 // test split stays a fair measure of how the model generalises.
 const vocabulary = buildVocabulary(trainSet);
+const lexicon = options.lexicon ? JSON.parse(fs.readFileSync(path.resolve(here, options.lexicon), "utf8")) : null;
+if (lexicon && (typeof lexicon !== "object" || Array.isArray(lexicon) || Object.keys(lexicon).length < 34000)) {
+    throw new Error("--lexicon requires the full offline WordNet lookup");
+}
 const model = sprout.initialise_model({
+    ...(lexicon ? { lexicon } : {}),
     vocabulary,
     encoder: options.encoder,
     vectorSize: options.vectorSize,
@@ -168,7 +200,8 @@ const model = sprout.initialise_model({
 });
 
 log(`split     : ${trainSet.length} train / ${validationSet.length} validation / ${testSet.length} test`);
-log(`vocabulary: ${model.vocabulary.length} observed tokens; encoder: ${options.encoder}`);
+log(`vocabulary: ${model.vocabulary.length - 1} observed tokens; ` +
+    `${lexicon ? new Set([...model.vocabulary, ...Object.keys(lexicon)]).size - 1 : 0} recognised with lexicon; encoder: ${options.encoder}`);
 log(`parameters: ${sprout.model_parameter_stats(model).trainable.toLocaleString()} trainable scalars (incl. bias)`);
 log("");
 log("training...");
@@ -245,6 +278,9 @@ model.options = {
         baseTrainSet: baseTrainSet.length,
         extra: options.extra,
         extraRows: additional.length,
+        feedback: options.feedback.length === 1 ? options.feedback[0] : options.feedback,
+        feedbackRows: feedback.length,
+        ...(options.lexicon ? { lexiconFile: options.lexicon, lexiconEntries: Object.keys(lexicon).length } : {}),
         ...(options.anchorModel ? { anchorModel: options.anchorModel, anchorMix: options.anchorMix } : {}),
         validationSet: validationSet.length,
         testSet: testSet.length,

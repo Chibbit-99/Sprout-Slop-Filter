@@ -34,5 +34,11 @@ const verdicts = { tasks: ["actionable", "generic/filler"],
     commits: ["informative message", "generic message"],
     helpdesk: ["specific report", "report needs detail"],
     agendas: ["specific agenda", "vague agenda"] };
+const tokens = sprout.tokenise(sprout.normalise_text(text));
+const seen = new Set(result.model.vocabulary);
+const lexicon = result.model.options?.lexicon || {};
+const coverage = { trainingObserved: tokens.filter(token => seen.has(token)).length,
+    lexiconOnly: tokens.filter(token => !seen.has(token) && sprout.lexicon_entry_for(token, lexicon)).length,
+    neither: tokens.filter(token => !seen.has(token) && !sprout.lexicon_entry_for(token, lexicon)).length };
 console.log(JSON.stringify({ text, domain, score: Number(score.toFixed(4)),
-    verdict: verdicts[domain][Number(score >= threshold)], threshold }));
+    verdict: verdicts[domain][Number(score >= threshold)], threshold, coverage }));

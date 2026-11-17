@@ -88,13 +88,14 @@ check("the browser reports v4 parameter capacity and active weights",
     $("modelDetails").textContent.includes("nonzero weights"),
     $("modelDetails").textContent.trim());
 check("browser counts actual training words and rows, not padded capacity",
-    $("pillVocab").textContent.includes("3402 words") &&
-    $("modelDetails").textContent.includes("3424 observed tokens") &&
-    $("modelDetails").textContent.includes("trained on 3686 examples"));
+    $("pillVocab").textContent.includes("34,679 recognised") &&
+    $("pillVocab").textContent.includes("3,867 training-observed") &&
+    $("modelDetails").textContent.includes("3946 observed tokens") &&
+    $("modelDetails").textContent.includes("trained on 3817 examples"));
 
 const datasetLoaded = await waitFor(() => $("statExamples").textContent !== "0");
 check("training.json is loaded", datasetLoaded, `${$("statExamples").textContent} examples`);
-check("task training-only vocabulary set loads", $("supplementCount").textContent === "2900 extra rows");
+check("task training-only vocabulary set loads", $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles");
 check("the dataset is balanced",
     $("statGenuine").textContent === $("statSlop").textContent,
     `${$("statGenuine").textContent} genuine / ${$("statSlop").textContent} slop`);
@@ -117,6 +118,15 @@ check("the tokens of the text are shown",
     $("tokenList").querySelectorAll(".token").length > 0,
     `${$("tokenList").querySelectorAll(".token").length} tokens`);
 
+$("testInput").value = "Inspect the ammeters and qzxylophone before Monday";
+$("btnScore").click();
+await wait(300);
+check("offline lexical cues are distinct from both trained and unknown tokens",
+    $("tokenList").querySelectorAll(".token.lexical").length === 1 &&
+    $("tokenList").querySelectorAll(".token.unknown").length === 1 &&
+    $("scoreMessage").textContent.includes("WordNet cue") &&
+    $("scoreMessage").textContent.includes("not seen in labelled training"));
+
 $("btnSampleList").click();
 await waitFor(() => $("batchRows").children.length > 0);
 check("a list of sentences is scored", $("batchRows").children.length === 8, `${$("batchRows").children.length} rows`);
@@ -132,8 +142,9 @@ check("browser trains on supplement without leaking into held-out rows",
     $("trainLog").textContent.split("\n").find(line => line.includes("training data")));
 check("browser retraining uses the same v4 parameter budget and anchor recipe",
     $("modelDetails").textContent.includes("524,289 trainable parameters") &&
-    $("modelDetails").textContent.includes("45% baseline-anchored") &&
-    $("trainLog").textContent.includes("anchor        : 45% old task checkpoint"));
+    $("modelDetails").textContent.includes("50% baseline-anchored") &&
+    $("trainLog").textContent.includes("anchor        : 50% old task checkpoint") &&
+    $("trainLog").textContent.includes("lexicon       : 34037 licensed lemmas"));
 check("the held-out split is evaluated", $("mTestAcc").textContent !== "—", `test accuracy ${$("mTestAcc").textContent}`);
 check("the confusion matrix is rendered", $("matrix").children.length === 9, `${$("matrix").children.length} cells`);
 check("every held-out example is listed", $("testRows").children.length > 0, `${$("testRows").children.length} rows`);
@@ -166,15 +177,49 @@ $("cfgTemperature").dispatchEvent(new window.Event("change"));
 await wait(300);
 
 const before = parseInt($("statExamples").textContent, 10);
-$("newExampleText").value = "Water the allotment";
-$("btnNewSlop").click();
+$("newExampleText").value = "review the data"; // locked original validation row
 $("btnAddExample").click();
+await wait(200);
+check("feedback cannot copy an existing held-out row into training",
+    parseInt($("statExamples").textContent, 10) === before &&
+    $("datasetMessage").textContent.includes("protected evaluation rows"));
+const feedbackText = "Rebuild core_runtime.so for arm64";
+$("testInput").value = feedbackText;
+$("btnScore").click();
+await wait(200);
+const scoreBeforeFeedback = Number($("scoreValue").textContent);
+const testBeforeFeedback = $("mTestAcc").textContent;
+$("btnCorrectGenuine").click();
 await wait(200);
 check("an example can be added and stale evaluation is cleared",
     parseInt($("statExamples").textContent, 10) === before + 1 &&
     $("mTestAcc").textContent === "—" &&
     $("resultsMessage").textContent.includes("earlier evaluation"),
     `${before} → ${$("statExamples").textContent}`);
+
+$("cfgEpochs").value = "40";
+$("cfgSplitSeed").value = "2";
+$("btnTrain").click();
+check("feedback refuses split changes that would move protected rows",
+    $("resultsMessage").textContent.includes("default seed-1") &&
+    $("trainStatus").textContent === "finished");
+$("cfgSplitSeed").value = "1";
+$("btnTrain").click();
+const feedbackTrained = await waitFor(() => $("trainStatus").textContent === "finished", 120000);
+check("feedback retraining retains supplement, anchor, lexicon, and locked test rows",
+    feedbackTrained && $("trainLog").textContent.includes("786 base + 2900 supplemental + 131 real issues + 1 feedback") &&
+    $("trainLog").textContent.includes("feedback      : 1 training-only") &&
+    $("trainLog").textContent.includes("anchor        : 50%") &&
+    $("trainLog").textContent.includes("lexicon       : 34037") &&
+    $("testRows").children.length === 170,
+    `${$("mTestAcc").textContent} (previous ${testBeforeFeedback}) · ` +
+        $("trainLog").textContent.split("\n").find(line => line.includes("training data")));
+$("testInput").value = feedbackText;
+$("btnScore").click();
+await wait(300);
+check("a labelled correction can lower its own slop score without leaking into test",
+    Number($("scoreValue").textContent) < scoreBeforeFeedback,
+    `${scoreBeforeFeedback} → ${$("scoreValue").textContent}`);
 
 $("btnSaveLocal").click();
 await wait(200);
@@ -198,7 +243,7 @@ await waitFor(() => $("pillModel").textContent.includes("model.json"));
 check("reset restores the one shipped model and its examples",
     $("statExamples").textContent === "1125" &&
     $("pillModel").textContent.includes("model.json") &&
-    $("supplementCount").textContent === "2900 extra rows");
+    $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles");
 $("btnReloadDataset").click();
 await waitFor(() => $("statExamples").textContent === "1124");
 check("reload restores the default corpus without a preset selector",
@@ -232,12 +277,33 @@ const customTrained = await waitFor(() => $("trainStatus").textContent === "fini
 check("custom dataset trains without task-only supplements or baseline anchor", customTrained &&
     $("trainLog").textContent.includes("0 supplemental") &&
     !$("trainLog").textContent.includes("anchor        :") &&
-    $("modelDetails").textContent.includes("524,289 trainable parameters"));
+    $("modelDetails").textContent.includes("524,289 trainable parameters") &&
+    !$("trainLog").textContent.includes("lexicon       :"));
 $("btnReloadDataset").click();
 await waitFor(() => $("statExamples").textContent === "1124");
 check("returning to default corpus clears custom evaluation",
     $("mTestAcc").textContent === "—" &&
     $("resultsMessage").textContent.includes("earlier evaluation"));
+const feedbackFile = $("fileImportFeedback");
+function importFeedback(rows) {
+    Object.defineProperty(feedbackFile, "files", { configurable: true, value: [
+        new window.File([JSON.stringify(rows)], "task_feedback.json", { type: "application/json" })
+    ] });
+    feedbackFile.dispatchEvent(new window.Event("change"));
+}
+importFeedback([
+    { text: "Rebuild core_runtime.so for arm64", label: "genuine" },
+    { text: "review the data!", label: "slop" }
+]);
+await waitFor(() => $("datasetMessage").textContent.includes("Could not import feedback"));
+check("feedback import is atomic and refuses protected duplicates",
+    $("statExamples").textContent === "1124" &&
+    $("datasetMessage").textContent.includes("Duplicate base/supplement"));
+importFeedback([{ text: "Rebuild core_runtime.so for arm64", label: "genuine" }]);
+await waitFor(() => $("statExamples").textContent === "1125");
+check("exported corrections can be reimported as training-only rows",
+    $("datasetMessage").textContent.includes("Imported 1 training-only corrections") &&
+    $("statExamples").textContent === "1125");
 
 console.log("");
 console.log(`${total - failures.length} passed, ${failures.length} failed`);

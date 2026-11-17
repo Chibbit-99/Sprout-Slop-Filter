@@ -1,0 +1,232 @@
+[
+  {
+    "text": "Invalid characters when making a request to an ISO-8859-1 endpoint",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6418"
+  },
+  {
+    "text": "`onDownloadProgress` changed after 1.6.8",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6417"
+  },
+  {
+    "text": "Fetch adapter with stream blocks other requests",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6416"
+  },
+  {
+    "text": "The server retures 0E6754 but axios gets 0",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6415"
+  },
+  {
+    "text": "Why axios return error `ETIMEDOUT` but when I do cURL it's running fine?",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6397"
+  },
+  {
+    "text": "formSerializer indexes:false not working as expected",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6396"
+  },
+  {
+    "text": "`null` parameters are getting passed in urls breaking requests in v0.x",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6393"
+  },
+  {
+    "text": "Symbol keys are not preserved when data is being passed to transformRequest",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6392"
+  },
+  {
+    "text": "No Content-Range in retrieved header",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6391"
+  },
+  {
+    "text": "If \"withCredentials: true\", then a 4xx response produces an error of type ERR_NETWORK, not allowing to access the response object",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6386"
+  },
+  {
+    "text": "In chrome incognito mode, download large files (>3GB) with axios always failed",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6382"
+  },
+  {
+    "text": "fetch adapter: Streaming request bodies is not supported [react-native]",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6375"
+  },
+  {
+    "text": "`fetch` adapter: handling of network errors different from `xhr`",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6374"
+  },
+  {
+    "text": "request interceptor error handling is not performed",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6372"
+  },
+  {
+    "text": "Using RawAxiosRequestHeaders cause compiler error ",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6369"
+  },
+  {
+    "text": "ERR_FR_TOO_MANY_REDIRECTS using Axios but not in browser, using curl or python-requests",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6367"
+  },
+  {
+    "text": "XSRF-TOKEN logic should utilize cookie domain instead of current page domain",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6363"
+  },
+  {
+    "text": "Axios stream aborts early during 204 response from prism cli.",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6353"
+  },
+  {
+    "text": "postForm's form-data serialization breaks for Blob in Node.js",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6352"
+  },
+  {
+    "text": "[0.28.1] options.paramsSerializer as function don't work",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6341"
+  },
+  {
+    "text": "Request body converted the params into string type causing wrong response as compare to network request using fetch (React native) ",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6328"
+  },
+  {
+    "text": "Security: Axios sends HTTPS data in cleartext to a proxy (regression)",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/6320"
+  },
+  {
+    "text": "Infinite cycle request",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/4182"
+  },
+  {
+    "text": "CSRF token could be incorrect when issuing multi requests at same time",
+    "label": "genuine",
+    "url": "https://github.com/axios/axios/issues/4173"
+  },
+  {
+    "text": "v1.7.0 release bug",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6412"
+  },
+  {
+    "text": "Unexpected token .",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6399"
+  },
+  {
+    "text": "Axios somthing question about version.",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6384"
+  },
+  {
+    "text": "Uncaught SyntaxError: Unexpected identifier",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6385"
+  },
+  {
+    "text": "Maximum call stack size exceeded",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6376"
+  },
+  {
+    "text": "Security vulnerability",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6351"
+  },
+  {
+    "text": "I am getting a error involving CancelToken.js...",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6354"
+  },
+  {
+    "text": "TypeError: Converting circular structure to JSON",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6355"
+  },
+  {
+    "text": "React native Android NETWORK ERROR",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6356"
+  },
+  {
+    "text": "RefferenceError: Axios is not defined.",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6350"
+  },
+  {
+    "text": "Axios 500 Error Problem",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/6319"
+  },
+  {
+    "text": "Like that",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4196"
+  },
+  {
+    "text": "Typescript types do not make sense",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4176"
+  },
+  {
+    "text": "Si",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4169"
+  },
+  {
+    "text": "Proxies are not working",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4165"
+  },
+  {
+    "text": "How to add logo",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4154"
+  },
+  {
+    "text": "how to solve ",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4151"
+  },
+  {
+    "text": "Unexpected type",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/4150"
+  },
+  {
+    "text": "400 requests",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/2142"
+  },
+  {
+    "text": "Denial of Service",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/2131"
+  },
+  {
+    "text": "Axios njson",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/2116"
+  },
+  {
+    "text": "formData limitation?",
+    "label": "slop",
+    "url": "https://github.com/axios/axios/issues/2079"
+  }
+]

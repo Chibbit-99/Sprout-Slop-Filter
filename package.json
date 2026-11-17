@@ -6,9 +6,12 @@
   "type": "module",
   "scripts": {
     "start": "node serve.mjs",
-    "train": "node train.mjs --extra experiments/task_supplement.json --anchor-model experiments/task_baseline_model.json --anchor-mix 0.45",
+    "train": "node train.mjs --extra experiments/task_supplement.json --anchor-model experiments/task_baseline_model.json --anchor-mix 0.5 --feedback experiments/real_issue_training.json && node experiments/assemble_lexicon_model.mjs",
     "test:model": "node experiments/model_regression.mjs",
     "test:anchor": "node experiments/anchor_benchmark.mjs",
+    "test:lexicon": "node experiments/lexicon_benchmark.mjs",
+    "test:real": "node experiments/real_issue_benchmark.mjs",
+    "test:feedback": "node experiments/feedback_regression.mjs",
     "test:contexts": "node experiments/context_challenge.mjs",
     "test:domains": "node experiments/domain_benchmark.mjs",
     "test:architecture": "node experiments/architecture_comparison.mjs",

@@ -3,7 +3,18 @@
 // More capacity reduces cross-feature collisions; extra affix and skip
 // features let the classifier share evidence across inflected/new words.
 // Does not import a language model or assume that spelling implies meaning.
-function richer_features(text, size) {
+function lexicon_entry_for(word, lexicon) {
+    if (!lexicon || typeof lexicon !== "object") return null;
+    if (Object.hasOwn(lexicon, word)) return lexicon[word];
+    const stems = [];
+    if (word.endsWith("ies")) stems.push(word.slice(0, -3) + "y");
+    if (word.endsWith("es")) stems.push(word.slice(0, -2));
+    if (word.endsWith("s")) stems.push(word.slice(0, -1));
+    for (const stem of stems) if (Object.hasOwn(lexicon, stem)) return lexicon[stem];
+    return null;
+}
+
+function richer_features(text, size, lexicon, lexiconStrength = 1) {
     if (size !== 524288) throw new RangeError("richer_features: expected 524288 features");
     const words = tokenise(normalise_text(text)).slice(0, 128).map(word => word.slice(0, 64));
     const features = new Map();
@@ -36,6 +47,16 @@ function richer_features(text, size) {
         }
         const affixScale = 0.35 * scale / Math.sqrt(Math.max(1, affixes.length));
         for (const affix of affixes) add(7, affix, affixScale);
+        // WordNet category is a shared, learned lexical cue. The optional
+        // direct first-sense synonym reuses an already trained unigram slot.
+        // Both are inside the existing hash banks: no new parameters.
+        if (lexicon) {
+            const entry = lexicon_entry_for(word, lexicon);
+            if (entry) {
+                add(7, "lex:" + entry[0], 0.45 * lexiconStrength * scale);
+                if (entry[1]) add(0, entry[1], 0.25 * lexiconStrength * scale);
+            }
+        }
     }
     return [...features];
 }

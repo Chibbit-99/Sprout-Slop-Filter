@@ -255,6 +255,7 @@
             border: 1px solid var(--border);
         }
         .token.known { background: var(--accent-soft); border-color: #c9e6d4; color: var(--accent-dark); }
+        .token.lexical { background: #f6f1df; border-color: #e0d3a9; color: #765b23; }
         .token.unknown { background: var(--slop-soft); border-color: #f0cdcb; color: #a33a37; }
 
         /* ---------- charts ---------- */
@@ -377,12 +378,15 @@
                                 </div>
                                 <button class="primary" id="btnAddExample">Add</button>
                             </div>
-                            <p class="hint small">Added examples are kept in the page only. Use <b>Download dataset</b> to save them to a file.</p>
+                            <p class="hint small">On the default dataset, new, non-duplicate corrections are <b>training-only</b>: they do not change the locked validation/test split or discard the supplemental and real-issue rows. Retrain to apply them. Download feedback to keep a separate copy and use <b>Import feedback</b> to restore it. Importing a whole dataset instead uses its own split and does not inherit the task prior.</p>
                         </div>
                     </details>
 
                     <div class="row">
                         <button class="tiny" id="btnDownloadDataset">Download dataset</button>
+                        <button class="tiny" id="btnDownloadFeedback">Download feedback</button>
+                        <button class="tiny" id="btnImportFeedback">Import feedback…</button>
+                        <input type="file" id="fileImportFeedback" accept=".json,application/json" class="sr-only">
                         <button class="tiny" id="btnImportDataset">Import JSON…</button>
                         <input type="file" id="fileImportDataset" accept=".json,application/json" class="sr-only">
                     </div>
@@ -444,7 +448,7 @@
                         <button class="primary" id="btnTrain">Train model</button>
                         <button id="btnStop" disabled>Stop</button>
                         <label class="check"><input type="checkbox" id="cfgAutoEvaluate" checked> evaluate on the test split afterwards</label>
-                        <label class="check"><input type="checkbox" id="cfgUseSupplement" checked> include training-only vocabulary examples (<span id="supplementCount">loading…</span>)</label>
+                        <label class="check"><input type="checkbox" id="cfgUseSupplement" checked> include training-only synthetic + real issue examples (<span id="supplementCount">loading…</span>)</label>
                     </div>
 
                     <div class="row">
@@ -558,11 +562,16 @@
                     </div>
 
                     <div>
-                        <h3 style="margin-bottom:.3rem">Tokens observed in training (unseen tokens still have subword features in v2/v3/v4)</h3>
+                        <h3 style="margin-bottom:.3rem">Token coverage: green = observed in labelled training, gold = WordNet lexical cue, red = neither</h3>
                         <div class="tokens" id="tokenList"><span class="hint small">score some text to see its tokens</span></div>
                     </div>
 
                     <div class="msg small" id="scoreMessage"></div>
+                    <div class="row" id="correctionButtons" hidden>
+                        <span class="hint small">Wrong? Mark the intended task label, then retrain:</span>
+                        <button class="tiny" id="btnCorrectGenuine">Actionable</button>
+                        <button class="tiny" id="btnCorrectSlop">Generic / filler</button>
+                    </div>
                 </div>
             </section>
 
@@ -608,7 +617,7 @@
                     <details class="help">
                         <summary>Where the numbers come from</summary>
                         <div class="body">
-                            <p>Training, evaluation and scoring all use the subsystem code in <code>subsystems/</code>. This page loads <code>model.json</code> and <code>training.json</code>; imported datasets and uploaded models can be used without switching modes. Browser retraining uses a fresh split of the loaded examples, not an independent real-world test.</p>
+                            <p>Training, evaluation and scoring all use the subsystem code in <code>subsystems/</code>. This page loads <code>model.json</code> and <code>training.json</code>; imported datasets and uploaded models can be used without switching modes. Browser retraining uses a fresh split for imported corpora; default-dataset corrections stay training-only beside a fixed seed-1 split. Neither result is an independent real-world test.</p>
                         </div>
                     </details>
                 </div>
@@ -661,7 +670,10 @@
         dataset: [],
         datasetSource: "",
         supplement: [],
+        realExamples: [],
         datasetDirty: false,
+        baseLength: 0,
+        feedbackOnly: false,
         model: null,
         rawModel: null,
         modelSource: "",
@@ -722,14 +734,18 @@
     const DATA_FILE = "training.json";
     const MODEL_FILE = "model.json";
     const SUPPLEMENT_FILE = "./experiments/task_supplement.json";
+    const REAL_FILE = "./experiments/real_issue_training.json";
+    const EXPECTED_REAL_ROWS = 131;
     const ANCHOR_FILE = "./experiments/task_baseline_model.json";
-    const ANCHOR_MIX = 0.45;
+    const ANCHOR_MIX = 0.5;
 
     // =====================================================================
     // Small helpers
     // =====================================================================
 
     const $ = id => document.getElementById(id);
+    const canonicalText = text => tokenise(normalise_text(text))
+        .filter(token => /[\p{L}\p{N}]/u.test(token)).join(" ");
 
     function pct(value) {
         if (typeof value !== "number" || Number.isNaN(value)) return "—";
@@ -816,21 +832,33 @@
     async function loadDataset() {
         const message = $("datasetMessage");
         state.supplement = [];
+        state.realExamples = [];
         state.datasetDirty = false;
+        state.baseLength = 0;
+        state.feedbackOnly = false;
         $("supplementCount").textContent = "unavailable";
         try {
             const examples = await load_training_data("./" + DATA_FILE);
             state.dataset = examples;
+            state.baseLength = examples.length;
+            state.feedbackOnly = true;
             state.datasetSource = DATA_FILE;
             message.className = "msg ok";
             message.textContent = `Loaded ${examples.length} labelled examples from ${DATA_FILE}.`;
             try {
                 const rows = await load_training_data(SUPPLEMENT_FILE);
                 state.supplement = rows;
-                $("supplementCount").textContent = `${state.supplement.length} extra rows`;
+                $("supplementCount").textContent = `${state.supplement.length} synthetic rows`;
             } catch (extraError) {
                 message.className = "msg warn";
                 message.textContent += ` Supplemental training examples unavailable (${extraError.message}).`;
+            }
+            try {
+                state.realExamples = await load_training_data(REAL_FILE);
+                $("supplementCount").textContent += ` + ${state.realExamples.length} real issue titles`;
+            } catch (realError) {
+                message.className = "msg warn";
+                message.textContent += ` Real issue examples unavailable (${realError.message}).`;
             }
         } catch (error) {
             state.dataset = FALLBACK_DATASET.map(entry => ({ ...entry }));
@@ -922,8 +950,12 @@
     function renderModel() {
         const hasModel = Boolean(state.model);
         setPill("pillModel", hasModel, hasModel ? state.modelSource : "not loaded");
+        const observedWords = hasModel ? state.model.vocabulary.filter(word => /^\p{L}+$/u.test(word)).length : 0;
+        const lexicalWords = hasModel && state.model.options?.lexicon
+            ? new Set([...state.model.vocabulary.filter(word => /^\p{L}+$/u.test(word)),
+                ...Object.keys(state.model.options.lexicon)]).size : observedWords;
         setPill("pillVocab", hasModel, hasModel
-            ? `${state.model.vocabulary.filter(word => /^\p{L}+$/u.test(word)).length} words`
+            ? `${lexicalWords.toLocaleString()} recognised · ${observedWords.toLocaleString()} training-observed`
             : "—");
 
         const meta = (state.model && state.model.options || {}).trainedFrom;
@@ -943,6 +975,7 @@
         const bits = [
             `${stats.trainable.toLocaleString()} trainable parameters (${stats.nonZeroWeights.toLocaleString()} nonzero weights)`,
             `${state.model.vocabulary.length - 1} observed tokens`,
+            ...(options.lexicon ? [`${lexicalWords.toLocaleString()} offline lexical entries (not labelled examples)`] : []),
             (state.model.version === 2 || state.model.version === 3 || state.model.version === 4) ? `${state.model.featureSize} hashed features` : `${state.model.weights.length} dimensions`,
             `softening ×${state.temperature}`
         ];
@@ -950,8 +983,11 @@
             bits.push(`trained on ${options.trainedFrom.trainSet} examples`);
             bits.push(`seed ${options.trainedFrom.seed}`);
             if (options.trainedFrom.extraRows) bits.push(`${options.trainedFrom.extraRows} training-only supplemental rows`);
+            if (options.trainedFrom.feedbackRows) bits.push(`${options.trainedFrom.feedbackRows} real issue / feedback rows`);
         }
-        if (options.extraRows) bits.push(`${options.extraRows} training-only supplemental rows`);
+        if (options.extraRows && !options.trainedFrom) bits.push(`${options.extraRows} training-only supplemental rows`);
+        if (options.realRows) bits.push(`${options.realRows} training-only real issue titles`);
+        if (options.feedbackRows) bits.push(`${options.feedbackRows} training-only corrections`);
         const anchorMix = options.anchorMix ?? options.trainedFrom?.anchorMix;
         if (anchorMix) bits.push(`${Math.round(anchorMix * 100)}% baseline-anchored weights (one model)`);
         if (options.domain && options.domain !== state.datasetSource) {
@@ -1015,6 +1051,15 @@
         }
 
         const config = readConfig();
+        const hasFeedback = state.datasetSource === DATA_FILE && state.feedbackOnly &&
+            state.dataset.length > state.baseLength;
+        if (hasFeedback && (config.splitSeed !== 1 || config.ratios.trainRatio !== 0.7 ||
+            config.ratios.validationRatio !== 0.15)) {
+            $("resultsMessage").hidden = false;
+            $("resultsMessage").className = "msg warn";
+            $("resultsMessage").textContent = "Corrections require the default seed-1 70/15/15 split to keep the original validation and test rows protected. Reset the split controls or export/import your own corpus.";
+            return;
+        }
 
         state.training = true;
         state.stopRequested = false;
@@ -1024,9 +1069,12 @@
         $("trainProgress").style.width = "0%";
         $("trainLog").textContent = "";
 
+        // Only appended feedback is allowed to keep the original default
+        // split. Imported/edited corpora get an ordinary fresh split instead.
+        const usesLockedBase = state.datasetSource === DATA_FILE && state.feedbackOnly;
         let split;
         try {
-            split = split_dataset(state.dataset, {
+            split = split_dataset(usesLockedBase ? state.dataset.slice(0, state.baseLength) : state.dataset, {
                 seed: config.splitSeed,
                 trainRatio: config.ratios.trainRatio,
                 validationRatio: config.ratios.validationRatio
@@ -1041,11 +1089,14 @@
         }
 
         const { trainSet: baseTrainSet, validationSet, testSet } = split;
-        const supplement = $("cfgUseSupplement").checked && !state.datasetDirty
+        const feedback = usesLockedBase ? state.dataset.slice(state.baseLength) : [];
+        const supplement = $("cfgUseSupplement").checked && (!state.datasetDirty || usesLockedBase)
             ? state.supplement : [];
         const original = new Set(state.dataset.map(row => normalise_text(row.text)));
         const extraRows = supplement.filter(row => !original.has(normalise_text(row.text)));
-        const trainSet = baseTrainSet.concat(extraRows);
+        const realRows = $("cfgUseSupplement").checked && usesLockedBase
+            ? state.realExamples.filter(row => !original.has(normalise_text(row.text))) : [];
+        const trainSet = baseTrainSet.concat(extraRows, realRows, feedback);
 
         const vocabulary = build_vocabulary(trainSet);
         const model = initialise_model({
@@ -1058,9 +1109,12 @@
         });
         model.options.domain = state.datasetSource;
         model.options.extraRows = extraRows.length;
+        model.options.realRows = realRows.length;
+        model.options.feedbackRows = feedback.length;
 
-        log(`training data : ${trainSet.length} examples (${baseTrainSet.length} base + ${extraRows.length} supplemental)`);
-        if (state.datasetDirty && $("cfgUseSupplement").checked) {
+        log(`training data : ${trainSet.length} examples (${baseTrainSet.length} base + ${extraRows.length} supplemental + ${realRows.length} real issues + ${feedback.length} feedback)`);
+        if (feedback.length) log(`feedback      : ${feedback.length} training-only corrections; original validation/test split unchanged`);
+        if (state.datasetDirty && !usesLockedBase && $("cfgUseSupplement").checked) {
             log("supplement skipped: dataset was edited/imported; retrain on your own examples");
         }
         log(`validation    : ${validationSet.length} examples`);
@@ -1097,8 +1151,10 @@
         // the task anchor when the untouched default split and all of its
         // training-only examples are present. A custom corpus stands alone.
         if (!state.stopRequested && config.encoder === "richer-subword-v4" &&
-            state.datasetSource === DATA_FILE && !state.datasetDirty &&
-            extraRows.length === state.supplement.length && extraRows.length > 0) {
+            usesLockedBase && config.splitSeed === 1 &&
+            config.ratios.trainRatio === 0.7 && config.ratios.validationRatio === 0.15 &&
+            extraRows.length === state.supplement.length && extraRows.length > 0 &&
+            realRows.length === EXPECTED_REAL_ROWS && realRows.length === state.realExamples.length) {
             try {
                 const loaded = await load_model(ANCHOR_FILE);
                 if (!loaded.success) throw new Error(loaded.error);
@@ -1112,6 +1168,30 @@
             } catch (error) {
                 log(`anchor skipped : ${error.message}; using the unanchored trained model`);
             }
+        }
+
+        // Default retraining reuses the checked-in, already trained 45-slot
+        // lexical class head from the shipped model, after ordinary fitting
+        // and task anchoring. Imported/edited data never inherits this prior.
+        const lexicalPrior = state.model;
+        if (!state.stopRequested && config.encoder === "richer-subword-v4" &&
+            usesLockedBase && config.splitSeed === 1 &&
+            config.ratios.trainRatio === 0.7 && config.ratios.validationRatio === 0.15 &&
+            extraRows.length === state.supplement.length && extraRows.length > 0 &&
+            realRows.length === EXPECTED_REAL_ROWS && realRows.length === state.realExamples.length &&
+            lexicalPrior?.version === 4 && lexicalPrior.options?.domain === DATA_FILE &&
+            lexicalPrior.options?.lexicon) {
+            const categories = new Set(Object.values(lexicalPrior.options.lexicon).map(record => record[0]));
+            const factor = lexicalPrior.options.temperature || 1;
+            for (const category of categories) {
+                const id = 7 * 65536 + hashed_feature_index("lex:" + category, 65536);
+                model.weights[id] = lexicalPrior.weights[id] * factor;
+            }
+            model.options.lexicon = lexicalPrior.options.lexicon;
+            model.options.lexiconStrength = lexicalPrior.options.lexiconStrength || 1;
+            model.options.lexiconSource = lexicalPrior.options.lexiconSource;
+            model.options.lexiconLicense = lexicalPrior.options.lexiconLicense;
+            log(`lexicon       : ${Object.keys(model.options.lexicon).length} licensed lemmas; class head shares existing weight slots`);
         }
 
         model.history = history;
@@ -1355,6 +1435,7 @@
     // =====================================================================
 
     async function scoreText() {
+        $("correctionButtons").hidden = true;
         const text = $("testInput").value;
 
         if (!state.model) {
@@ -1386,6 +1467,7 @@
         const verdict = score >= state.threshold ? "slop" : "genuine";
 
         $("scoreArea").hidden = false;
+        $("correctionButtons").hidden = false;
         $("scoreValue").textContent = score.toFixed(3);
         $("scoreValue").style.color = verdict === "slop" ? "#d9534f" : "#1d7444";
         $("scoreVerdict").textContent = (verdict === "slop" ? "reads like slop" : "reads like genuine text");
@@ -1395,20 +1477,23 @@
 
         const tokens = tokenise(normalise_text(text));
         const known = new Set(model.vocabulary);
-        const unknown = tokens.filter(token => !known.has(token));
+        const lexicon = model.options?.lexicon || {};
+        const unseen = tokens.filter(token => !known.has(token));
+        const lexical = unseen.filter(token => lexicon_entry_for(token, lexicon));
+        const unknown = unseen.length - lexical.length;
 
         $("tokenList").innerHTML = tokens.length
-            ? tokens.map(token => known.has(token)
-                ? `<span class="token known">${escapeHtml(token)}</span>`
-                : `<span class="token unknown">${escapeHtml(token)}</span>`).join("")
+            ? tokens.map(token => `<span class="token ${known.has(token) ? "known" :
+                lexicon_entry_for(token, lexicon) ? "lexical" : "unknown"}">${escapeHtml(token)}</span>`).join("")
             : `<span class="hint small">no tokens</span>`;
 
-        $("scoreMessage").className = unknown.length && ![2, 3, 4].includes(model.version)
-            ? "msg warn"
-            : "msg ok";
-        $("scoreMessage").textContent = unknown.length
-            ? `${unknown.length} of ${tokens.length} tokens were unseen in training; ${(model.version === 2 || model.version === 3 || model.version === 4) ? "subword clues still apply (not a meaning guarantee)" : "they count as <UNK>"}.`
-            : `Every token is in the model's vocabulary.`;
+        $("scoreMessage").className = unseen.length &&
+            (unknown / tokens.length > 0.3 || (score > 0.35 && score < 0.65)) ? "msg warn" : "msg ok";
+        $("scoreMessage").textContent = unseen.length
+            ? `${unseen.length} of ${tokens.length} tokens were not seen in labelled training; ` +
+              `${lexical.length} have an offline WordNet cue and ${unknown} rely on spelling alone. ` +
+              `Lexical coverage does not establish meaning or correctness; review uncertain scores.`
+            : `Every token was observed in labelled training (still not a guarantee).`;
     }
 
     async function scoreList() {
@@ -1526,6 +1611,8 @@
                 state.dataset = parse_training_data(parsed, file.name);
                 state.datasetSource = file.name;
                 state.datasetDirty = true;
+                state.feedbackOnly = false;
+                state.baseLength = 0;
                 $("datasetMessage").className = "msg ok";
                 $("datasetMessage").textContent = `Loaded ${state.dataset.length} examples from ${file.name}.`;
                 clearEvaluation();
@@ -1554,27 +1641,95 @@
         $("btnNewGenuine").addEventListener("click", () => setNewLabel("genuine"));
         $("btnNewSlop").addEventListener("click", () => setNewLabel("slop"));
 
-        $("btnAddExample").addEventListener("click", () => {
-            const input = $("newExampleText");
-            const text = input.value.trim();
-            if (!text) {
-                input.focus();
-                return;
+        function addLabeledExample(text, label) {
+            text = text.trim();
+            if (!text) return false;
+            if (state.training) {
+                $("datasetMessage").className = "msg warn";
+                $("datasetMessage").textContent = "Wait for the current training run to finish before adding feedback.";
+                return false;
             }
-            state.dataset.push({ text, label: state.newLabel });
+            if (state.feedbackOnly) {
+                const canonical = canonicalText(text);
+                const duplicate = !canonical || [...state.dataset, ...state.supplement, ...state.realExamples].some(row =>
+                    canonicalText(row.text) === canonical);
+                if (duplicate) {
+                    $("datasetMessage").className = "msg warn";
+                    $("datasetMessage").textContent = "That text is already in the default corpus or supplemental data. To relabel an existing example, import a custom dataset; protected evaluation rows cannot become training feedback.";
+                    return false;
+                }
+            }
+            state.dataset.push({ text, label });
             state.datasetDirty = true;
-            input.value = "";
             clearEvaluation();
             renderDataset();
             $("datasetMessage").className = "msg ok";
             $("datasetMessage").textContent =
-                `Added "${text}" as ${state.newLabel}. ${state.dataset.length} examples in total.`;
+                `Added "${text}" as ${label}. Retrain to apply the correction; ${state.dataset.length} examples in total.`;
+            return true;
+        }
+        $("btnAddExample").addEventListener("click", () => {
+            const input = $("newExampleText");
+            if (addLabeledExample(input.value, state.newLabel)) input.value = "";
+            else if (!input.value.trim()) input.focus();
         });
+        function recordCorrection(label) {
+            if (addLabeledExample(state.lastScoredText || "", label)) {
+                $("scoreMessage").className = "msg warn";
+                $("scoreMessage").textContent = "Correction queued as " + label + ". Retrain before interpreting the old score; download feedback to keep it.";
+            } else if (state.lastScoredText) {
+                $("scoreMessage").className = "msg warn";
+                $("scoreMessage").textContent = $("datasetMessage").textContent;
+            }
+        }
+        $("btnCorrectGenuine").addEventListener("click", () => recordCorrection("genuine"));
+        $("btnCorrectSlop").addEventListener("click", () => recordCorrection("slop"));
 
         $("btnDownloadDataset").addEventListener("click", () => {
             download(state.datasetSource, JSON.stringify(state.dataset, null, 2) + "\n");
         });
+        $("btnDownloadFeedback").addEventListener("click", () => {
+            const rows = state.feedbackOnly ? state.dataset.slice(state.baseLength) : [];
+            download("task_feedback.json", JSON.stringify(rows, null, 2) + "\n");
+        });
 
+        $("btnImportFeedback").addEventListener("click", () => $("fileImportFeedback").click());
+        $("fileImportFeedback").addEventListener("change", event => {
+            const file = event.target.files[0];
+            event.target.value = "";
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    if (!state.feedbackOnly || state.datasetSource !== DATA_FILE || state.training) {
+                        throw new Error("Training-only feedback requires the default task dataset and an idle trainer.");
+                    }
+                    const rows = parse_training_data(JSON.parse(String(reader.result)), file.name);
+                    const seen = new Set([...state.dataset, ...state.supplement, ...state.realExamples].map(row => canonicalText(row.text)));
+                    for (const row of rows) {
+                        const text = canonicalText(row.text);
+                        if (!text || seen.has(text)) throw new Error(`Duplicate base/supplement/feedback text: ${row.text}`);
+                        seen.add(text);
+                    }
+                    state.dataset.push(...rows);
+                    if (rows.length) {
+                        state.datasetDirty = true;
+                        clearEvaluation();
+                        renderDataset();
+                    }
+                    $("datasetMessage").className = "msg ok";
+                    $("datasetMessage").textContent = `Imported ${rows.length} training-only corrections; retrain to apply them.`;
+                } catch (error) {
+                    $("datasetMessage").className = "msg warn";
+                    $("datasetMessage").textContent = `Could not import feedback: ${error.message}`;
+                }
+            };
+            reader.onerror = () => {
+                $("datasetMessage").className = "msg error";
+                $("datasetMessage").textContent = "Could not read feedback file.";
+            };
+            reader.readAsText(file);
+        });
         $("btnImportDataset").addEventListener("click", () => $("fileImportDataset").click());
         $("fileImportDataset").addEventListener("change", event => {
             const file = event.target.files[0];

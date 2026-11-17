@@ -1,0 +1,152 @@
+[
+  {
+    "text": "Remote functions: radios / `fields.value()` out of sync after same-URL `form()` success",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16820"
+  },
+  {
+    "text": "Remote functions: `form.action` throws `Cannot access event.url in a query` after `await query()` in WebContainer / StackBlitz",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16818"
+  },
+  {
+    "text": "[adapter-vercel] EEXIST in create_function_bundle when a workspace lib and the app resolve the same dependency through different pnpm symlink chains",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16806"
+  },
+  {
+    "text": "Type error when passing dynamic asset paths to resolve() in SvelteKit 3 service worker",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16802"
+  },
+  {
+    "text": "write_client_manifest resolves route components against process.cwd() instead of Vite root",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16785"
+  },
+  {
+    "text": "`query.live`: \"Invalid state: Controller is already closed\" when a stream is torn down mid-`generator.next()`",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16778"
+  },
+  {
+    "text": "Every SSR request 500s with \"Cannot read properties of undefined (reading 'updated')\" at app/state/client.js when using $app/state",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16762"
+  },
+  {
+    "text": "Attempting to use a constant `prerender` remote function in the inputs for another causes confusing internal error",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16756"
+  },
+  {
+    "text": "adapter-cloudflare: concurrent first requests each create a platform proxy, so Miniflare instances collide on the same SQLite",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16623"
+  },
+  {
+    "text": "Client runtime uses `Promise.withResolvers`, which needs Safari 17.4",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16617"
+  },
+  {
+    "text": "adapter-cloudflare marks 404 responses for immutable assets as cacheable for one year",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16615"
+  },
+  {
+    "text": "adapter-cloudflare: HEAD requests with `Content-Length: 0` return 500 on every route (worktop cache lookup throws pre-routing)",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16607"
+  },
+  {
+    "text": "query.live fetch headers must contain \"accept: text/event-stream\" so bypass MITM anti-viruses and proxies",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16606"
+  },
+  {
+    "text": "Remote function returning a Node.js Buffer generates invalid JavaScript during SSR",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16603"
+  },
+  {
+    "text": "static assets (_app/immutable/*) return 404 with adapter-netlify, despite preferStatic: true being correctly set",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16592"
+  },
+  {
+    "text": "Prerendered pages with an extension in the filename collide with their `__route.js` under `router.resolution: 'server'`",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16579"
+  },
+  {
+    "text": "<svelte:boundary> catchall in root layout breaks SSR of <svelte:head> in pages",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16557"
+  },
+  {
+    "text": "Remotes are duplicated in generated manifest (version-3)",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16530"
+  },
+  {
+    "text": "query.live connections are only released by garbage collection",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16422"
+  },
+  {
+    "text": "Remote query with URL dependency is run again when navigating away via redirect",
+    "label": "genuine",
+    "url": "https://github.com/sveltejs/kit/issues/16362"
+  },
+  {
+    "text": "exprés/express ",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7383"
+  },
+  {
+    "text": "[Test]",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7110"
+  },
+  {
+    "text": "[Test] issue creation",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7109"
+  },
+  {
+    "text": "Problems: identify security issues and risky patterns",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7026"
+  },
+  {
+    "text": "Quality: review security-related files and code",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7025"
+  },
+  {
+    "text": "Mapping: repository tree, branches, commits",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7024"
+  },
+  {
+    "text": "🔍 Security Practices Analysis: expressjs/express",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/7023"
+  },
+  {
+    "text": "Problems with npm install in docker",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/6764"
+  },
+  {
+    "text": "Security audit with criticals",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/6751"
+  },
+  {
+    "text": "The Great Monkey-Patch Safari",
+    "label": "slop",
+    "url": "https://github.com/expressjs/express/issues/6669"
+  }
+]
