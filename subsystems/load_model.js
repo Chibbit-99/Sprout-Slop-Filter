@@ -56,6 +56,8 @@ function parsePayload(raw) {
         const expectedEncoder = parsed.version === 4 ? "richer-subword-v4" :
             parsed.version === 3 ? "structured-subword-v3" : "hashed-subword-v2";
         if (parsed.options?.encoder !== expectedEncoder ||
+            (parsed.options?.structureVersion !== undefined &&
+                (parsed.version !== 4 || ![1, 2, 3].includes(parsed.options.structureVersion))) ||
             (parsed.version === 3 && parsed.featureSize !== 131072) ||
             (parsed.version === 4 && parsed.featureSize !== 524288) ||
             !Number.isInteger(parsed.featureSize) || parsed.featureSize < 1024 || parsed.featureSize > 524288 ||

@@ -37,13 +37,17 @@ for (const [domain, dataFile, modelFile] of [
             return result.model;
         };
         const old = loadCheckpoint("task_baseline_model.json");
-        const plain = loadCheckpoint("task_real_unanchored_model.json");
+        const plain = loadCheckpoint("task_structure_v3_unanchored_model.json");
         const reconstructed = { ...plain, weights: plain.weights.slice() };
-        assert.equal(model.options.trainedFrom.anchorMix, 0.5);
-        assert.equal(model.options.trainedFrom.feedbackRows, 131);
-        assert.equal(model.options.trainedFrom.feedback, "experiments/real_issue_training.json");
+        assert.equal(model.options.trainedFrom.anchorMix, 0.4);
+        assert.equal(model.options.structureVersion, 3);
+        assert.equal(model.options.trainedFrom.structureVersion, 3);
+        assert.equal(model.options.trainedFrom.feedbackRows, 242);
+        assert.deepEqual([...model.options.trainedFrom.feedback], [
+            "experiments/real_issue_training.json", "experiments/issue_corrections_training.json"
+        ]);
         assert.equal(model.options.trainedFrom.anchorModel, "experiments/task_baseline_model.json");
-        sprout.blend_models(reconstructed, old, 0.5);
+        sprout.blend_models(reconstructed, old, 0.4);
         assert.equal(model.bias, reconstructed.bias);
         const lexicon = model.options.lexicon;
         assert.equal(Object.keys(lexicon).length, 34037);
@@ -53,7 +57,7 @@ for (const [domain, dataFile, modelFile] of [
         assert.ok(model.options.lexiconLicense.includes("Princeton University"),
             "bundled lookup must carry its redistribution notice");
         const recognised = new Set([...model.vocabulary, ...Object.keys(lexicon)]);
-        assert.equal([...recognised].filter(word => /^\p{L}+$/u.test(word)).length, 34679);
+        assert.equal([...recognised].filter(word => /^\p{L}+$/u.test(word)).length, 34791);
         const head = JSON.parse(fs.readFileSync(new URL("lexicon_class_weights.json", import.meta.url)));
         const classSlots = new Set(Object.keys(head).map(category =>
             7 * 65536 + sprout.hashed_feature_index("lex:" + category, 65536)));
@@ -73,8 +77,9 @@ for (const [domain, dataFile, modelFile] of [
         for (const text of ["Reupholster the armchair with velvet offcuts", "Fix the leaking tap", "Do something eventually"]) {
             const score = sprout.make_prediction_for_training(text, reconstructed).score;
             const original = sprout.make_prediction_for_training(text, plain).score;
-            const prior = sprout.make_prediction_for_training(text, old).score;
-            assert.ok(Math.abs(logit(score) - (0.5 * logit(original) + 0.5 * logit(prior))) < 1e-8,
+            const priorWithStructure = { ...old, options: { ...old.options, structureVersion: 3 } };
+            const prior = sprout.make_prediction_for_training(text, priorWithStructure).score;
+            assert.ok(Math.abs(logit(score) - (0.6 * logit(original) + 0.4 * logit(prior))) < 1e-8,
                 "one weight array exactly represents a convex blend of logits");
         }
         assert.throws(() => sprout.blend_models(reconstructed, { ...old, version: 3 }, 0.5), /compatible v4/);
@@ -98,7 +103,9 @@ for (const [domain, dataFile, modelFile] of [
     const usedExtras = extras.slice(0, domain === "tasks" ? extras.length : 80);
     const realRowsForVocab = domain === "tasks"
         ? JSON.parse(fs.readFileSync(new URL("real_issue_training.json", import.meta.url))) : [];
-    const trainWords = buildVocabulary(split.trainSet.concat(usedExtras, realRowsForVocab));
+    const correctionsForVocab = domain === "tasks"
+        ? JSON.parse(fs.readFileSync(new URL("issue_corrections_training.json", import.meta.url))) : [];
+    const trainWords = buildVocabulary(split.trainSet.concat(usedExtras, realRowsForVocab, correctionsForVocab));
     if (domain === "tasks") {
         const old = JSON.parse(fs.readFileSync(new URL("task_baseline_training.json", import.meta.url)));
         const frozen = sprout.split_dataset(old, { seed: 1 });
@@ -106,7 +113,8 @@ for (const [domain, dataFile, modelFile] of [
         for (const row of [...frozen.validationSet, ...frozen.testSet]) {
             assert.ok(!trainTexts.has(sprout.normalise_text(row.text)), "original held-out row leaked into expanded training");
         }
-        const realRows = JSON.parse(fs.readFileSync(new URL("real_issue_training.json", import.meta.url)));
+        const realRows = JSON.parse(fs.readFileSync(new URL("real_issue_training.json", import.meta.url)))
+            .concat(correctionsForVocab);
         const realTexts = new Set(realRows.map(row => sprout.normalise_text(row.text)));
         for (const row of [...split.validationSet, ...split.testSet, ...frozen.validationSet, ...frozen.testSet]) {
             assert.ok(!realTexts.has(sprout.normalise_text(row.text)), "real title leaked into protected evaluation");
@@ -233,4 +241,44 @@ const v4 = sprout.richer_features("buy milk", 524288);
 assert.ok([0, 1, 2, 3, 4, 6, 7].every(family =>
     v4.some(([id]) => id >= family * 65536 && id < (family + 1) * 65536)));
 assert.notDeepEqual(v4, sprout.richer_features("milk buy", 524288));
-console.log("v4, v3, v2 and legacy regressions passed");
+// An opt-in structural view adds shared, word-identity-independent context
+// slots without changing old v4 feature maps or their saved predictions.
+const structureA = sprout.richer_features("Widget QZX1 crashes when loading AB72", 524288, null, 1, 1);
+const structureB = sprout.richer_features("Gadget YTR9 crashes when loading UV83", 524288, null, 1, 1);
+const common = new Set(structureA.map(([id]) => id));
+assert.ok(structureB.some(([id]) => id >= 6 * 65536 && common.has(id)));
+assert.ok(structureA.length > sprout.richer_features("Widget QZX1 crashes when loading AB72", 524288).length);
+const structuredV4 = sprout.initialise_model({ encoder: "richer-subword-v4", structureVersion: 1,
+    vocabulary: ["widget"], seed: 7 });
+const structuralId = structureA.find(([id]) => id >= 6 * 65536 && !v4.some(([other]) => other === id))[0];
+structuredV4.weights[structuralId] = -2;
+const savedStructure = sprout.save_model(structuredV4, "x", { storage: value => value });
+assert.ok(savedStructure.success);
+const reloadedStructure = sprout.load_model("x", { storage: () => savedStructure.payload });
+assert.ok(reloadedStructure.success);
+assert.equal(reloadedStructure.model.options.structureVersion, 1);
+assert.equal(sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", structuredV4).score,
+    sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", reloadedStructure.model).score);
+// The shipped gated view has no abstract cue on a short, ordinary request,
+// but does share a cue across unfamiliar identifiers in a failure context.
+const mundane = "Carry the blue folder to reception";
+assert.deepEqual(sprout.richer_features(mundane, 524288, null, 1, 3),
+    sprout.richer_features(mundane, 524288));
+const v3features = sprout.richer_features("Widget QZX1 crashes when loading AB72", 524288, null, 1, 3);
+assert.ok(v3features.length > sprout.richer_features("Widget QZX1 crashes when loading AB72", 524288).length);
+const v3Model = sprout.initialise_model({ encoder: "richer-subword-v4", structureVersion: 3,
+    vocabulary: ["widget"], seed: 7 });
+v3Model.weights[structuralId] = -2;
+const v3Saved = sprout.save_model(v3Model, "v3shape.json", { storage: () => {} });
+assert.ok(v3Saved.success);
+const v3Loaded = sprout.load_model("v3shape.json", { storage: () => v3Saved.payload });
+assert.ok(v3Loaded.success);
+assert.equal(v3Loaded.model.options.structureVersion, 3);
+const badShape = JSON.parse(v3Saved.payload);
+badShape.options.structureVersion = 99;
+assert.equal(sprout.load_model("bad-shape", { storage: () => JSON.stringify(badShape) }).success, false);
+assert.equal(sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", v3Model).score,
+    sprout.make_prediction_for_training("Widget QZX1 crashes when loading AB72", v3Loaded.model).score);
+assert.throws(() => sprout.initialise_model({ encoder: "structured-subword-v3", structureVersion: 1 }),
+    /require v4/);
+console.log("v4 structural opt-in, v4, v3, v2 and legacy regressions passed");

@@ -1,0 +1,546 @@
+[
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9992",
+    "text": "Improve GitHub actions reporter with test name if set in config",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9987",
+    "text": "Vite 8 CI fails with `ReferenceError: TextDecoder is not defined`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9985",
+    "text": "Incomplete diff of `toMatchSnapshot(properties)` mismatch error",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9984",
+    "text": "obsolete snapshot reported when snapshot fails with `toMatchSnapshot(propertes)`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9980",
+    "text": "Imposible to compare results.",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9979",
+    "text": "Coverage report indicates inexistant else path",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9977",
+    "text": "Negated project filtering (`!`) broken on browser projects",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9975",
+    "text": "Release new vitest version to include update of flatted for CVE-2026-33228",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9972",
+    "text": "Rolldown PARSE_ERROR on Typescript files importing virtual modules",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9971",
+    "text": "feat: hosted viewer for HTML report artifacts (zero-install, browser-only)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9970",
+    "text": "We need it.only.only to run ONLY the specified test",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9964",
+    "text": "Snapshots do not render completely anymore since 4.1.1",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9961",
+    "text": "getNames() infinite loops on cyclic task.suite chain",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9957",
+    "text": "Browser Mode leaks a manual mock across spec files when the same module is mocked via two ids",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9955",
+    "text": "Fails to run with `setupFile` when inside git worktree",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9954",
+    "text": "Support merging reports for non-sharded multi-environment runs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9952",
+    "text": "Define convention for test reporter output directory",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9951",
+    "text": "Test hangs when module contains then function",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9948",
+    "text": "Support building custom snapshot matchers with expect.extend",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9947",
+    "text": "Support `toMatchAriaFileSnapshot` for ARIA snapshots stored in dedicated files",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9946",
+    "text": "Support snapshot assertions with `expect.poll`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9945",
+    "text": "Built-in trace viewer with DOM snapshots for browser mode",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9941",
+    "text": "Playwright: logs causes timeouts across parallel tests and across browsers",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9935",
+    "text": "vitest/coverage-istanbul crashes with TypeError: template is not a function when used with cloudflare/vitest-pool-workers",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9934",
+    "text": "`it.todo` / `it.skip` in `.test-d.ts` files should suppress type errors attributed to skipped tests",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9932",
+    "text": "Vitest + WSL + coverage",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9927",
+    "text": "DOMException [DataCloneError]: Object that needs transfer was found in message but not listed in transferList",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9924",
+    "text": "Feature Request: support network mocking",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9922",
+    "text": "Vitest 4 & Vite 8 - Consistent CommonJS Interop",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9921",
+    "text": "4.1.0 upgrade breaking sinon-chai",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9918",
+    "text": "Coverage ignore hints (/* istanbul ignore next */, /* v8 ignore next */) are broken with Vite 8",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9917",
+    "text": "feat: add --stale CLI option for agentic coding systems",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9915",
+    "text": "@vitest/mocker 4.1.0: vite declared as optional peer dependency but imported unconditionally in dist/node.js",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9907",
+    "text": "`startVitest` with `runner: forks` has incorrect SIGTERM fallback on windows; fails to produce profiling logs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9904",
+    "text": "screenshotFailures does not attach screenshots to JUnit reporter output",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9901",
+    "text": "Allow idle start for Browser Mode",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9900",
+    "text": "App is refusing to deloy",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9899",
+    "text": "vmThreads/vmForks pool crashes with ERR_MODULE_NOT_FOUND when deps.optimizer.client.enabled is true",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9890",
+    "text": "error output of \"toHaveBeenCalledExactlyOnceWith\" broken",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/issues/9888",
+    "text": "vi.mock importOriginal is empty when vi.resetModules is used (since 4.1.0)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/773b10e049ad278d75a9f80cef0a85a5a9eedeea",
+    "text": "fix: fix already hoisted mock (#7815)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/29084f10fe37e3b02bc0acf350c4bc19ee598da9",
+    "text": "chore(deps): update all non-major dependencies (#7802)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/3dabc22105681da5f36a77ddd667cbe4e8576cb1",
+    "text": "test: tweak timeout to fix flake (#7800)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/795a64336330f330a5193831c7314fb40d337c5d",
+    "text": "fix(coverage): `await` profiler calls (#7763)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/c45097ea9903bd21ccd46359af2abdfc17b2b8d6",
+    "text": "refactor: use bg* colors in reporter instead of reversing (#7785)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/ce2a06b7bde0e8acd25e262a97624c3c4d6a472e",
+    "text": "Revert \"feat: draft implementation\"",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/86010b34a6b0cdddc3e507117af327d768ca263e",
+    "text": "feat: draft implementation",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/6373ecc8ba2b273085288aa05355d36ff6edd6a0",
+    "text": "docs: show both test options examples (#7786)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/14409088166152c920ce7fa4ad4c0ba57149b869",
+    "text": "docs(guide): update coverage.md (#7781)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/5f762ec5cf41b9cfd28b277b54561b4058e83aaf",
+    "text": "fix(browser): fix transform error before browser server initialization (#7783)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/3c00c875753d75fd90a3a06bcdc285132cad7748",
+    "text": "fix(runner): correctly call test hooks and teardown functions (#7775)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/033ccc7e437f2ca8b91e213700ea72f08f373077",
+    "text": "chore: tweak \"vitest\" import error message (#7782)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/c375101d459a4ef5eb44fe1d4392a800b91c5434",
+    "text": "fix: prevent modifying `test.exclude` when same object passed in `coverage.exclude` (#7774)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/d9297920c03c6b1c8ecb9c24f56e328c5e9195a1",
+    "text": "fix: add global `chai` variable in `vitest/globals` (fix: #7474) (#7771)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/7c3dfb174ac7158a7239a2dd2d676f56ca6a61fb",
+    "text": "fix(deps): update all non-major dependencies (#7765)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/c3a2c5994db11b9206a0918ccce5596108a5069d",
+    "text": "chore(deps): update eslint packages (#7727)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/2472a30e8dbe4be7644bf093646be4aa0f434b44",
+    "text": "chore(deps): update dependency @antfu/ni to v24 (#7728)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/a9d36c719f8ce5551f61da20181490d3673bdf99",
+    "text": "chore: release v3.1.1",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/69ca425c695805ee19e5d14840df9c9ef6d8e7a4",
+    "text": "fix(reporter): print test only once in the verbose mode (#7738)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/b166efa285f4f678914008edf4a1b96e9d936dab",
+    "text": "fix(reporter): report tests in correct order (#7752)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/b8eda4bb1c7a586fb4c8622e3989513e7d57c6a5",
+    "text": "chore: release v3.1.0",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/0aead43e8e22f35bfb6b86d2bc670f5d09b79b48",
+    "text": "chore: remove `examples/sveltekit` (#7767)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/279f57b06a44fe1bf36cec3d640e645cf7bccd0b",
+    "text": "test: refactor coverage snapshot tests (#7762)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/938da77ee063748cfb12a7f302d2efcef249cf1f",
+    "text": "fix (ui): rerun individually tests with special chars in name (#7707)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/7883acd636192e541860bba436dfb00bb5eaf0e2",
+    "text": "feat: use providers request interception for module mocking (#7576)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/a7ecd0f495de081ea4819b243da8c48b0b35f1c9",
+    "text": "refactor: remove direct imports from rollup (#7751)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/716b0294ea57832b59f802e180e29af49c200178",
+    "text": "refactor(browser): apply optimize deps plugin for rolldown (#7750)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/a550551801c18ebbea2c40b345d7fe4488ff780d",
+    "text": "fix(browser): correctly calculate timeout in hooks when actions are performed (#7747)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/8299709d21c947e2fb0776b0725efa91dd6be16a",
+    "text": "fix(snapshot): fix indent normalization (#7400)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/f3420653662ef6942257632ba2af8efe6b10c51a",
+    "text": "fix: set `diff.expand: false` as default (#7697)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/5659a0e0ce748f9574c74c2cf90f65bfcf8c0ab8",
+    "text": "feat: Added `vitest-browser-lit` to `vitest init browser` and docs (#7705)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/2702cf4245ffa543f5b5b2335ab299453870a4e3",
+    "text": "fix: fix vm tests flakiness (#7741)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/12762ea6cc1a295cbf6c4cac53b3710fd766fd32",
+    "text": "perf(browser): fork jest-dom instead of bundling it (#7605)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/2a8520a8373944e42f24de2075d8c32f1866cd45",
+    "text": " feat: support `--configLoader` CLI option (#7574)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/1ef31a7bbac1370c4211b27a8191b9aea9dfbc3c",
+    "text": "feat(vitest): support rolldown-vite in NormalizeUrlPlugin (#7739)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/7fc5a290835780867c48b26fc496ef28a2bcf5ea",
+    "text": "fix(deps): update all non-major dependencies (#7600)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/3230fe74388bce0bd3004e78a88e1e2cd015841f",
+    "text": "chore(deps): update react monorepo to v19 (major) (#7724)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/42960393f81a79c133504294008771dd13bb322d",
+    "text": "chore: ignore react-is-18 on renovate (#7720)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/b01a2bf5bce8d4404378067579d04c6c2453c858",
+    "text": "chore(deps): use catalog for ws in tests (#7722)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/b7953487be737f94e24014eed06b293ce9ec66fd",
+    "text": "fix: update test stats regularly (#7700)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/82215a1bff3ddfb422dd376e248951cb1b0e367c",
+    "text": "test: replace googleapis with minimal repro (#7721)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/9525aa84efce1793d73272b51b38deeb16868037",
+    "text": "chore(deps): update dependency axios to ^0.28.0 [security] (#7715)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/e569add1e9f2cc157b400e64f3963db1cf33ca0d",
+    "text": "chore(config): migrate renovate config (#7719)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/5c879b05109450754197fd282045ff94de638770",
+    "text": "ci: include `examples` and `test` on renovate (#7714)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/983c026cd1898870c0a76e904030817721d4faff",
+    "text": "chore(deps): update dependency @antfu/eslint-config to ^4.10.2 (#7683)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/18becc6e514128b62e96adada439c488cdd7384e",
+    "text": "docs: fix default fixture value (#7711)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/f32c5377a2e9a82c773ad2411b824c4008a75819",
+    "text": "chore: release v3.1.0-beta.2",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/63949b1d735914dbccfc8d56ac1a4fdc2b3f1553",
+    "text": "feat(browser): introduce `and`, `or` and `filter` locators (#7463)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/e5851e4b8658eacf7c8e579f7c27185396a3fd30",
+    "text": "feat(runner): add `test.scoped` to override `test.extend` fixtures per-suite (#7233)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/vitest-dev/vitest/commit/20a5d4bfc45e0e4d3022d61fd16c3c52f9536fe5",
+    "text": "feat: add \"configureVitest\" plugin hook (#7349)",
+    "label": "genuine",
+    "kind": "commit"
+  }
+]

@@ -81,6 +81,9 @@ async function waitFor(predicate, timeout = 20000) {
 console.log(`=== App smoke test: ${url} ===`);
 console.log("");
 
+const hiddenResponse = await fetch(new URL('/.git/config', url));
+check("static server blocks hidden repository metadata", hiddenResponse.status === 403);
+
 const booted = await waitFor(() => $("pillModel").textContent.includes("model.json"));
 check("the page boots and loads the shipped model", booted, $("pillModel").textContent.trim());
 check("the browser reports v4 parameter capacity and active weights",
@@ -88,14 +91,14 @@ check("the browser reports v4 parameter capacity and active weights",
     $("modelDetails").textContent.includes("nonzero weights"),
     $("modelDetails").textContent.trim());
 check("browser counts actual training words and rows, not padded capacity",
-    $("pillVocab").textContent.includes("34,679 recognised") &&
-    $("pillVocab").textContent.includes("3,867 training-observed") &&
-    $("modelDetails").textContent.includes("3946 observed tokens") &&
-    $("modelDetails").textContent.includes("trained on 3817 examples"));
+    $("pillVocab").textContent.includes("34,791 recognised") &&
+    $("pillVocab").textContent.includes("4,080 training-observed") &&
+    $("modelDetails").textContent.includes("4170 observed tokens") &&
+    $("modelDetails").textContent.includes("trained on 3928 examples"));
 
 const datasetLoaded = await waitFor(() => $("statExamples").textContent !== "0");
 check("training.json is loaded", datasetLoaded, `${$("statExamples").textContent} examples`);
-check("task training-only vocabulary set loads", $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles");
+check("task training-only vocabulary set loads", $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles + 111 inspected issue corrections");
 check("the dataset is balanced",
     $("statGenuine").textContent === $("statSlop").textContent,
     `${$("statGenuine").textContent} genuine / ${$("statSlop").textContent} slop`);
@@ -104,6 +107,17 @@ const scored = await waitFor(() => $("scoreValue").textContent !== "—");
 check("a sentence is scored on load", scored, `${$("scoreValue").textContent} → ${$("scoreVerdict").textContent}`);
 check("a genuine sentence scores below 0.5",
     parseFloat($("scoreValue").textContent) < 0.5, $("scoreValue").textContent);
+
+// These previously missed titles are now training examples; checking them
+// verifies the correction is loaded, NOT generalisation to new projects.
+$("testInput").value = "Method 'HEAD' already declared for route - regression in 4.24.0";
+$("btnScore").click();
+await wait(200);
+check("a formerly false-positive correction is applied", parseFloat($("scoreValue").textContent) < 0.5);
+$("testInput").value = "Bug: (fill in)";
+$("btnScore").click();
+await wait(200);
+check("a formerly false-negative correction is applied", parseFloat($("scoreValue").textContent) >= 0.5);
 
 $("testInput").value = "asdfghjkl";
 $("btnScore").click();
@@ -142,8 +156,9 @@ check("browser trains on supplement without leaking into held-out rows",
     $("trainLog").textContent.split("\n").find(line => line.includes("training data")));
 check("browser retraining uses the same v4 parameter budget and anchor recipe",
     $("modelDetails").textContent.includes("524,289 trainable parameters") &&
-    $("modelDetails").textContent.includes("50% baseline-anchored") &&
-    $("trainLog").textContent.includes("anchor        : 50% old task checkpoint") &&
+    $("modelDetails").textContent.includes("40% baseline-anchored") &&
+    $("modelDetails").textContent.includes("abstract context patterns") &&
+    $("trainLog").textContent.includes("anchor        : 40% old task checkpoint") &&
     $("trainLog").textContent.includes("lexicon       : 34037 licensed lemmas"));
 check("the held-out split is evaluated", $("mTestAcc").textContent !== "—", `test accuracy ${$("mTestAcc").textContent}`);
 check("the confusion matrix is rendered", $("matrix").children.length === 9, `${$("matrix").children.length} cells`);
@@ -183,6 +198,12 @@ await wait(200);
 check("feedback cannot copy an existing held-out row into training",
     parseInt($("statExamples").textContent, 10) === before &&
     $("datasetMessage").textContent.includes("protected evaluation rows"));
+$("newExampleText").value = "Bug: (fill in)";
+$("btnAddExample").click();
+await wait(200);
+check("feedback cannot duplicate an inspected issue now used for training",
+    parseInt($("statExamples").textContent, 10) === before &&
+    $("datasetMessage").textContent.includes("already in the default corpus or supplemental data"));
 const feedbackText = "Rebuild core_runtime.so for arm64";
 $("testInput").value = feedbackText;
 $("btnScore").click();
@@ -207,9 +228,9 @@ $("cfgSplitSeed").value = "1";
 $("btnTrain").click();
 const feedbackTrained = await waitFor(() => $("trainStatus").textContent === "finished", 120000);
 check("feedback retraining retains supplement, anchor, lexicon, and locked test rows",
-    feedbackTrained && $("trainLog").textContent.includes("786 base + 2900 supplemental + 131 real issues + 1 feedback") &&
+    feedbackTrained && $("trainLog").textContent.includes("786 base + 2900 supplemental + 131 real issues + 111 inspected corrections + 1 feedback") &&
     $("trainLog").textContent.includes("feedback      : 1 training-only") &&
-    $("trainLog").textContent.includes("anchor        : 50%") &&
+    $("trainLog").textContent.includes("anchor        : 40%") &&
     $("trainLog").textContent.includes("lexicon       : 34037") &&
     $("testRows").children.length === 170,
     `${$("mTestAcc").textContent} (previous ${testBeforeFeedback}) · ` +
@@ -243,7 +264,7 @@ await waitFor(() => $("pillModel").textContent.includes("model.json"));
 check("reset restores the one shipped model and its examples",
     $("statExamples").textContent === "1125" &&
     $("pillModel").textContent.includes("model.json") &&
-    $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles");
+    $("supplementCount").textContent === "2900 synthetic rows + 131 real issue titles + 111 inspected issue corrections");
 $("btnReloadDataset").click();
 await waitFor(() => $("statExamples").textContent === "1124");
 check("reload restores the default corpus without a preset selector",
@@ -278,6 +299,7 @@ check("custom dataset trains without task-only supplements or baseline anchor", 
     $("trainLog").textContent.includes("0 supplemental") &&
     !$("trainLog").textContent.includes("anchor        :") &&
     $("modelDetails").textContent.includes("524,289 trainable parameters") &&
+    !$("modelDetails").textContent.includes("abstract context patterns") &&
     !$("trainLog").textContent.includes("lexicon       :"));
 $("btnReloadDataset").click();
 await waitFor(() => $("statExamples").textContent === "1124");

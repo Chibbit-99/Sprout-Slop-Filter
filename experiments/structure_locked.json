@@ -1,0 +1,920 @@
+[
+  {
+    "url": "https://github.com/home-assistant/core/issues/188144",
+    "text": "Reolink intergration doesn’t oet me add a relink camera with a password specifically character",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188139",
+    "text": "problem with bt",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188138",
+    "text": "Anglian Water get_usage_details returns 500 error",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188137",
+    "text": "Jinja2 relative_time does not translate",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188136",
+    "text": "[aw] quality-scale-reviewer is missing required tool",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188134",
+    "text": "Getting error on Alexa integration",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188129",
+    "text": "Alexa Device integration error",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188124",
+    "text": "'cloud' attempted to create another Zeroconf instance",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188120",
+    "text": "navimov error in log",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188117",
+    "text": "ESPHome ffmpeg_proxy: Music playback interruptions and FFmpeg process exit timeouts on ReSpeaker Lite",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188115",
+    "text": "Error with the Izone integration",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188107",
+    "text": "Theben Conexa Smart Meter Gateway  onls shows energy consumed",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188100",
+    "text": "Shutter opened trigger triggers also if a closed shutter switches to closing",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188098",
+    "text": "homekit_controller: Vimar dimmer restores its last brightness 2-4 s after an `On` write and overrides the value sent with it",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188095",
+    "text": "Tado: KeyError 'type' in _async_fetch_heating_circuits, setup fails and then loops into re-authentication",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188091",
+    "text": "Portainer: setup fails for all entities when a container’s image returns 404",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188078",
+    "text": "Rain Bird: ESP-TM2 + LNK2 (fw 4.136) local polling fails intermittently (timeouts / connection reset)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188075",
+    "text": "Victron BLE config flow rejects a correct key if the device key changed after discovery (validates against stale advertisement)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188068",
+    "text": "Vodafone Station repeatedly requires reauthentication after overview.json redirects to login.html (CannotAuthenticate)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188055",
+    "text": "Tempature show F. but when you change it it converts to C.",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188054",
+    "text": "GoodWe: unreachable inverter blocks startup for ~6 minutes (async_check_port probes on every error, no setup deadline)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188052",
+    "text": "Tapo L530 losing connectivity to HA due to HTTP 403",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188051",
+    "text": "Pre Shared Keys are not redacted in diagnostics export",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/home-assistant/core/issues/188048",
+    "text": "Eve Thermo / Eve Thermostat: several Matter attributes are not updated by the device firmware",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191837",
+    "text": "[iOS] AppLifecycleListener uses application lifecycle instead of its hosting UIWindowScene lifecycle",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191834",
+    "text": "flutter build ios-framework does not yet support Swift Package Manager",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191832",
+    "text": "[in_app_purchase_android] IllegalStateException \"Reply already submitted\": Play Billing can invoke a response listener twice for one call; only startConnection is guarded",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191831",
+    "text": "[in_app_purchase_android] Uncatchable SIGABRT: reconnect issues startConnection synchronously from the onBillingServiceDisconnected platform-message upcall",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191829",
+    "text": "[Flutter GPU] Multiple render passes in one CommandBuffer crash flutter_tester",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191820",
+    "text": "[Impeller] Use backend/platform-specific max texture size for gradient ramp textures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191819",
+    "text": "win-18 is dead.",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191818",
+    "text": "[a11y][Android][regression] Checkbox semantics doesn't report \"not checked\" steady state on Android",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191812",
+    "text": "[beta] [hotfix] Flutter Release Version 3.48.0-0.3.pre",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191807",
+    "text": "Make errors in unified check dashboard clearer",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191805",
+    "text": "[iOS] HDR image renders with artifacts on real device, using Image widget",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191804",
+    "text": "[local_auth] Resumed sticky auth isn't cancelable on Android",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191801",
+    "text": "flutter build apk --release does not rebuild when only --dart-define changes (debug does)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191800",
+    "text": "[web][canvaskit] Images loaded via createImageCodecFromUrl turn black after their ui.Image is disposed (e.g. by ImageCache eviction) — regression in 3.47.0",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191799",
+    "text": "[pigeon] Redundant `return` in generated Kotlin code",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191797",
+    "text": "[Impeller][macOS] scene.toImage of a layer tree containing a platform texture fails: \"Could not create external texture\"",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191790",
+    "text": "[camera] Support setJpegImageQuality on web and Windows",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191786",
+    "text": "Missing type 'FlutterSceneLifeCycleDelegate'",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191783",
+    "text": "Flutter Web Build Lags on Mobile Devices While Android and iOS Builds Perform Smoothly",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191775",
+    "text": "[Linux] Maximizing default app segfaults in GDK after eglMakeCurrent fails on NVIDIA/Wayland",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191774",
+    "text": "is there any way to add duration for video if pickMultipleMedia is used",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191771",
+    "text": "[iOS] Non-rect clip breaks platform-view effects and overlay composition in 3.47.1",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191770",
+    "text": "[windows] ACCESS_VIOLATION in ANGLE/D3D11 init on legacy Intel GMA — crash or permanently transparent window",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191765",
+    "text": "Track analytics for architecture on Flutter tool calls",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191761",
+    "text": "win-12 in quarantined state because the local Temp directory exceeded 1024 files.",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191759",
+    "text": "[tool_crash] ProcessException: Une stratégie de contrôle d’application a bloqué ce fichier (at ../../runtime/bin/process_win.cc:579) Command: C:\\\\Mobile\\\\flutter\\\\bin\\\\cache\\\\dart-sdk\\\\bin\\\\dartaotruntime.exe, OS error code: 4551",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191758",
+    "text": "[stable] [hotfix] Flutter Release Version 3.47.2",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191757",
+    "text": "LiveTestWidgetsFlutterBinding swallows Navigator's synthetic PointerCancelEvent; gestures on a widget permanently stop working after a route is pushed mid-gesture",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191756",
+    "text": "Add waiting for response label/workflow to flutter/packages",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191755",
+    "text": "[tool_crash] _TypeError: (#0      PreviewCodeGenerator._buildPreviewsLsp (package:flutter_tools/src/widget_preview/preview_code_generator.dart:309:58))",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191744",
+    "text": "Teach Cocoon test bot about pending changelogs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/flutter/flutter/issues/191742",
+    "text": "The 'prompt_suggestion' icon does not flip in RTL languages",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42235",
+    "text": "Why does playwright pin exactly fsevent version 2.3.2, which is years old?",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42234",
+    "text": "[Bug]: `page.screencast.start()` still declares removed `annotate` option in TypeScript types (stale type)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42233",
+    "text": "[BUG] playwright-cli skillCheck.js does not understand formatting",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42231",
+    "text": "[Bug]: [Regression] BrowserContext.close() hangs during teardown with recordHar after upgrading from 1.61.0 to 1.62.1",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42227",
+    "text": "[Bug]:tests/tsconfig.json references non-existent path alias @dvtools/*",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42223",
+    "text": "[Bug]: error-context.md Page snapshot includes content excluded by ariaSnapshot()",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42220",
+    "text": "[internal] library/video.spec.ts \"should work with video+trace\" occasionally throws reading .sha1 of undefined",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42219",
+    "text": "[internal] library/video.spec.ts \"should capture full viewport on hidpi\" flaky on headless chromium",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42218",
+    "text": "[Bug]: Record at cursor inserts stale/previous action after editing test while recording (browser focus loss)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42216",
+    "text": "trace console: add --grep filter for parity with trace requests",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42214",
+    "text": "[Feature]: Browser download without removing old browsers",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42213",
+    "text": "[Feature]: Extensibility for trace files",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42205",
+    "text": "[WebKit] WebSocket handshake request headers missing from HAR on macOS 26+",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42203",
+    "text": "[Bug]: captureGitInfo diff capture shallows the user's repository via `git fetch --depth=1`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42199",
+    "text": "[Bug]: Bundled Firefox never enables the optimizing wasm tier: wasm 14-18x slower than stock Firefox, invalidating perf measurement",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42197",
+    "text": "[BUG] Playwright Test for VSCode Context for AI button does not show content properly in Test Results",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42194",
+    "text": "client_certificates: SOCKS5 proxy crashes with 'Invalid IPv6 token' for IPv4 addresses on macOS + Node 24 (ERR_CONNECTION_CLOSED)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42193",
+    "text": "[Bug]: Browser download retries do not reach IPv4 after an IPv6 TLS timeout",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42187",
+    "text": "[Release] provenance tracking with new npm publish workflow",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42184",
+    "text": "[BUG] Playwright process does not exit when using channel: 'chrome'",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42183",
+    "text": "[Bug]: page.goto never resolves in Firefox (~0.5-1.2% of navigations) while the page is fully loaded (readyState complete, load fired)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42182",
+    "text": "Three doc defects in the bundled playwright-cli agent skill (v0.1.18)",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42188",
+    "text": "browser_navigate reports success but the page context is about:blank on the next tool call (v0.0.79, headless, HTTP transport)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42176",
+    "text": "Add visual regression testing guide with component screenshots",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42174",
+    "text": "Chromium: page born into setOffline(true) context keeps navigator.onLine === true (1.62.0)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42172",
+    "text": "trace CLI: request timing cannot be correlated with actions",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42166",
+    "text": "[Bug]: Playwright not supporting in Mac12",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42163",
+    "text": "[MCP]: --user-data-dir has no effect when combined with --extension (no warning)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42156",
+    "text": "[MCP]: --browser arg not recognized",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42154",
+    "text": "[Feature]: Generics for APIRequestContext and APIResponse",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42153",
+    "text": "CLI daemon socket path silently truncated past sun_path (104 B on macOS) — stale-socket cleanup never fires, session is permanently EADDRINUSE",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42152",
+    "text": "[BUG] session daemon opens a console window on Windows",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/43398",
+    "text": "[Bug]: Edge channel browser process crashes/closes page context during cross-origin SAML/OIDC redirect in v1.62.0",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42143",
+    "text": "[Feature]: Provide groups to reporter preprocess hook so custom sharding can handle serial mode",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42142",
+    "text": "[Regression]: middle / modifier click intermittently fails to open a new tab on Playwright 1.62.x",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/microsoft/playwright/issues/42139",
+    "text": "Component testing has a new story",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/e23822a9b417e24e08f44dd18cbd368e61970325",
+    "text": "fix(compile): don't rebuild resource table on Windows (#29010)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/4f5ac0acfc0e5395cd62ecb5278df71d5a4e86eb",
+    "text": "v2.3.0-rc.2 (#29006)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/edba5ff3c85de8a98e79afd541bc3f123de54548",
+    "text": "fix(compile): read resource name in executable as uppercase on Windows (#29005)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/40c5dff82f7ed0731dd0f695cf58e92f87b6276a",
+    "text": "fix(ext/node): update node version in process object (#27044)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/ff6fe8254cc9084e26e3804e3061e65abbe9cd9d",
+    "text": "v2.3.0-rc.1 (#28998)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/762adb51b25f84728f5cdfb4cd822c7e2e6f9de4",
+    "text": "fix(compile): revert multi-icon support in compile (#28997)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/1feb2b642195a7daaf037448786f2fa704eadd22",
+    "text": "fix(ext/node): honor flags with respect to reuseAddress when binding to a UDP socket (#28156)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/b77871e0c81b29aa64624b1d1b76e49be82f27e4",
+    "text": "fix(publish): support `virtual:` and `cloudflare:` schemes (#28922)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/66185e0d1d6d52761fdebdd6b89016eaf82a6e28",
+    "text": "fix(coverage): improve responsiveness of HTML reporter on small screens (#28993)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/de3ce49f29727bb376f6272e845e34fdb6972dde",
+    "text": "perf(lockfile): slightly terser lockfile formatting, remove old lockfile code (#28992)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/e7c8870010d613f943b7a85e5afa040bf9c612b4",
+    "text": "fix(lsp): use markup content variant for hover response (#28987)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/74fd529219be202c7970dd9473ad6a48b8895e23",
+    "text": "fix(lsp): show a diagnostic for managed npm non-existent subpaths (#28981)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/713bf3266bc59a17e4fc4cdb3913b86f4fb95d38",
+    "text": "fix(npm): only print deprecation warnings on first install (#28990)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/79e36b0ccd84afeb296ac9ef5f29bf922aba7bc6",
+    "text": "feat(doc): add darkmode for HTML output (#28989)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/d26be983776be774ef859c81a2a4971c6b5fee60",
+    "text": "fix(lsp): remove redirect diagnostic (#28988)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/104514b06dfbbb899235fb1147aa1fa62477a6d5",
+    "text": "fix(compile): error when cannot extract binary section (#28986)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/5bee29223deb081be8d6b0c7ad7c93d1a0015c0b",
+    "text": "fix: use proper version for v2.3.0-rc.0 (#28967)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/c1e037b8161a3901fe062045b030f8562cadfe6f",
+    "text": "v2.3.0-rc.0 (#28955)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "title-only policy ambiguous, routine release metadata, or duplicate"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/dbb5373eab5a416d2178d26e7caa3d92c80b6f3e",
+    "text": "fix(lockfile): re-fetch packuments if version not found, properly pass patch packages (#28964)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/6ce1e9b7f76fb99e89656bcb1785258fe8c1ddf3",
+    "text": "fix(install): error gracefully if user passes `--no-config` to `deno install <package>` (#28965)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/750476486a127afbf00873acb1072233a8e3d401",
+    "text": "fix: don't show panic traces for non-official builds (#28931)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/9591c1163377dd0a4aec96dd92baa43f9a109252",
+    "text": "chore: forward v2.2.11 release commit to main (#28958)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/33b4d3a6eb873bb3d89d3360bc416db8cd44da93",
+    "text": "test: temporarily ignore `specs::install::package_extra_nmd` test (#28954)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/83f15ece09067cbd1cc1125ca271c85f624cb25f",
+    "text": "feat(test): create coverage reports when --coverage specified in deno test (#28260)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/0bb16651c0b71cb98c820148bd52f0aceaafa012",
+    "text": "chore(lsp): fix semantic cache cleanup exemptions (#28951)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/4f7117a081f47cc68c3c554661fdc11859c808be",
+    "text": "perf(npm): don't try to cache npm packages we've already cached (#28938)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/f411ccd692e6e7afa8929b1a3e1dd0fbc4e0302b",
+    "text": "feat(lockfile): default to lockfile v5 (#28950)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/16d305449d94770b316c6b3d11fdf47054e5fb5b",
+    "text": "feat(compile): support for ffi and node native addons (#28934)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/0cb2ec22a448926189b0ecdec0bb344b44ae3ce0",
+    "text": "feat(lsp): jupyter cell continuity using classic scripts (#28769)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/24debe9546cb9f7e365f05de548c7d6ea267af22",
+    "text": "docs: contributing guidelines (#28945)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/c12709196ce469d9a1d541c9ba61a96f5586a871",
+    "text": "fix: support vsock in DENO_SERVE_ADDRESS (#28941)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/560e8cf0e3197a9508039694cfba9b32f92723c3",
+    "text": "docs(test): document DENO_COVERAGE_DIR in help message (#28939)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/016b02d374094d14132ee0ae36893db694e7fd4c",
+    "text": "fix(ext/node): add `assert` property to test context object (#28904)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/e12d9b49467cf116375f6f4c3ec44293bd2eb5ad",
+    "text": "docs: move WPT guide to `tests/wpt` (#28695)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/252ea8e289caa9150111af9f76a3ff8e3e9f4aea",
+    "text": "fix: remove unnecessary whitespace in prompt function (#28868)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/bfbf9018f45b7ede17a21ec75e47d8e9e605f25d",
+    "text": "fix(task): document source of tasks, fix punctuation (#28413)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/066a205d5f4143dde665751bc18ac4411436d4e8",
+    "text": "feat(unstable/webgpu): add `deviceStartCapture` and `deviceStopCapture` (#28192)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/1820fee42797fedc4fd67f7614a9a65c9252965f",
+    "text": "docs: fix DENO_TLS_CA_STORE help text (#28124)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/202f5f39108159f21a6c85c4a91a7d5f61bd23e8",
+    "text": "feat(test): support DENO_COVERAGE_DIR env var (#28291)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/a5b407c390de99afc998c998a56b133d204651cd",
+    "text": "chore: make node test-process-cpuUsage pass (#28912)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/302a5dd12a023368c2903e055a114fe59b81f29b",
+    "text": "fix: resolve shebang parse error in deno doc --test (#26079)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/27651d3c774dc3b8fc1f0075bc9ab803b5514b6e",
+    "text": "refactor(ext/node): use Promise.withResolvers (#28917)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/9b2c02fc290b7d6f9083c9062274c7ba0ca4a072",
+    "text": "fix(install/global): do not append `bin` to `DENO_INSTALL_ROOT` when ends with `bin` (#26446)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/3071aa2759a6092fcd56b06eee63303aa3425df0",
+    "text": "feat(compile): ability to exclude embedded files (#28805)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/e0fc1e19ad9acb0cc7dd481fd6569561c903b5d5",
+    "text": "feat(cli): `deno check` maps to `deno check .` (#28655)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/5867988bae5f71cfc6031a3d13fd8835f28f0049",
+    "text": "fix(ext/node): Fix `Writable.toWeb()` (#28914)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/a5d39b085dd89a68432117940081f5751dec37c0",
+    "text": "feat(fmt/lint): add `--permit-no-files` (#28753)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/f4659619649f3d92114781e70edac7a5cce5df52",
+    "text": "feat(coverage): add coverage ignore comments (#26590)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/ef431b2336d8635dcb951cdd337a3f9ff5cf8f21",
+    "text": "feat(runtime): add `Deno.build.standalone` for telling if running in self-contained executable (#28750)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/6a3db6ce47d602f46330d03f31c2ced192430fe0",
+    "text": "fix: better cjs vs esm module detection and upgrade swc (#28810)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/c539e20f9fb39a3f0dad15768a1e03730baacb3b",
+    "text": "fix(npm): panic when using tag with patched package (#28900)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/8908ec31bfd7d703f159b1d28c33d9f10d5c833f",
+    "text": "chore: use 'deno test' command when 'node:test' is imported in run_node_test script (#28885)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/951137a4455eddb844d5e9e321673bea28a75f56",
+    "text": "chore: don't shallow clone in publish job (#28899)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/2e826dfc9d0eaefb85e6afa93a5e2c81f86944ab",
+    "text": "chore: forward v2.2.10 release commit to main (#28897)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/914549292ecd9fde1abd9c2dcad9e2fc06de32cc",
+    "text": "fix(install): read extra package info from node_modules and fallback to registry (#28893)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/01b6da9d9bfc37b0be5b296043f32acf4ba98488",
+    "text": "fix(ext/node): upgrade `node:stream` (#28855)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/6e49a4b3bdc21f8ee38eda8a355958cb31c254fa",
+    "text": "docs: fix stability note of isTerminal and setRaw (#28886)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/9c201aee7d6f623828169e4f4198c4b7f21e40cb",
+    "text": "feat(serve): env var DENO_SERVE_ADDRESS for configuring default listen address (#28877)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/cc8b5217f31c528587d154b6310d3f0a014608c2",
+    "text": "fix(ext/node): querystring fallback to default decoder (#28838)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/denoland/deno/commit/3a6cdc251693d022003bc1f4cfb06cf2cabe5570",
+    "text": "chore(ext/node): fix run_all_test script for windows (#28883)",
+    "label": "genuine",
+    "kind": "commit"
+  }
+]

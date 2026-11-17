@@ -1,0 +1,1424 @@
+[
+  {
+    "url": "https://github.com/golang/go/issues/82444",
+    "text": "crypto/mlkem: unrecognized failures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82443",
+    "text": "cmd/go: TestScript/mod_why failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82442",
+    "text": "crypto/internal/fips140test: TestCASTFailures failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82441",
+    "text": "cmd/go: TestScript/mod_why failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82440",
+    "text": "crypto/internal/fips140test: TestCASTFailures failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82439",
+    "text": "archive/zip.FuzzReader: unrecognized failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82438",
+    "text": "cmd/go: go list -export output depends on the temporary build directory for cgo packages",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82437",
+    "text": "cmd/go: TestScript/mod_why failures on darwin due to slow race builders",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82436",
+    "text": "archive/zip.FuzzReader: unrecognized failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82435",
+    "text": "runtime:cpu2: TestArenaHintChainGeneration failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82434",
+    "text": "archive/zip.FuzzReader: unrecognized failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82433",
+    "text": "runtime:cpu2: TestArenaHintChainGeneration failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82431",
+    "text": "net/http/httputil: ReverseProxy.SetURL and NewSingleHostReverseProxy do not clear URL.Opaque",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82430",
+    "text": "archive/zip.FuzzReader: unrecognized failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82429",
+    "text": "runtime:cpu2: TestArenaHintChainGeneration failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82428",
+    "text": "x/pkgsite: package removal request for github.com/ni/systemlink-cli",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82427",
+    "text": "proposal: io/fs: add ErrNotDir",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82426",
+    "text": "archive/zip.FuzzReader: unrecognized failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82425",
+    "text": "runtime:cpu2: TestArenaHintChainGeneration failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82423",
+    "text": "doc: does the recommendation against fips140=only stand after go 1.26?",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82422",
+    "text": "cmd/compile: generic receiver types cause compilation errors when using the type parameter type",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82421",
+    "text": "runtime:cpu2: TestArenaHintChainGeneration failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82420",
+    "text": "net/http: race-y RoundTripper contract violation: Client reads Response.Request after closing Response.Body",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82419",
+    "text": "cmd/go: panic on \"go doc nonExisting\" in a module with only test files",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82417",
+    "text": "cmd/go: TestScript/test2json_interrupt failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82416",
+    "text": "proposal: syscall: support Linux's seccomp-bpf in subprocess executions",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82415",
+    "text": "x/tools/gopls: implementation on '(' of an interface method call fails with \"not a dynamic function call\"",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82414",
+    "text": "cmd/go: TestScript/test_vet_vetall failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82412",
+    "text": "cmd/link: support -buildmode=pie with internal linking on freebsd/amd64",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82410",
+    "text": "cmd/go: TestScript/mod_get_commit failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82409",
+    "text": "cmd/internal/obj/arm64: -d=maymorestack fails to assemble SVE register-argument spills (ZSTR Z0, 16(RSP))",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82408",
+    "text": "simd/archsimd/internal/simd_test: TestMulHighSVE crash: SVE result vector overwrites adjacent stack slot on linux/arm64",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82407",
+    "text": "cmd/compile: quadratic branch lookup in prove for large switches",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82406",
+    "text": "archive/zip: TestZip64LargeDirectory/uint32max_HasZip64 failures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82405",
+    "text": "archive/zip: TestZip64LargeDirectory/uint32max-1_NoZip64 failures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82404",
+    "text": "os/user: Lookup can return an environment-derived current UID instead of an existing username's passwd entry",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82403",
+    "text": "cmd/go: TestScript/build_git_sha256_moddep failures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82402",
+    "text": "proposal: crypto/tls: support UPKI revocation checking",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82401",
+    "text": "x/build: upgrade freebsd builders to 14.5 and 15.1",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82400",
+    "text": "x/build: add OpenBSD 8.0 builder",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82399",
+    "text": "cmd/cgo/internal/testcarchive: TestPreemption failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82397",
+    "text": "x/tools/gopls: \"cannot convert term\" panic in ssa.emitConv",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82396",
+    "text": "x/crypto: Optimize ChaCha20 + Poly1305 using fused logic implementation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82395",
+    "text": "runtime: missing ARM64 CPU features in non-dumpable Android processes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82394",
+    "text": "runtime: _panic.fp makes a dead stack object reachable during Goexit/panic, so the GC marks a freed object",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82393",
+    "text": "net/url: URL parser is broken.",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82392",
+    "text": "x/tools/gopls: mcp: mark read-only tools with ReadOnlyHint",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82391",
+    "text": "archive/zip: macOS ditto fails on entries over 4 GiB written by Writer.CreateHeader",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82390",
+    "text": "x/tools/gopls/internal/cache: TestMatchingPortsStdlib failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82389",
+    "text": "net/http/cookiejar: bespoke, incorrect IDNA translation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82388",
+    "text": "x/net/dns/dnsmessage: NewName accepts a label longer than 63 bytes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82387",
+    "text": "regexp: Split returns too few substrings when the expression matches empty at the start",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82385",
+    "text": "net/http: a failed Hijack leaves the connection marked hijacked with no owner",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82383",
+    "text": "net: errors for a missing interface do not say which interface",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82381",
+    "text": "net: InterfaceByIndex and InterfaceByName dump every link on Linux",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82380",
+    "text": "net/http:nethttpomithttp2: TestServerRequestContextCancel_ServeHTTPDone/h3 failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82379",
+    "text": "crypto/mldsa: TestAccumulated failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82376",
+    "text": "TestGoAMD64v1 fails on 1.26.10",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82375",
+    "text": "net/http: HTTP/2 server truncates fully-written responses with a TCP RST during graceful Shutdown when the client reads slowly",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82374",
+    "text": "x/net/idna, net/http: Punycode encoding happens after length checks, enabling excessive HTTP client CPU usage",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82373",
+    "text": "reflect: Value.SetIterKey and Value.SetIterValue corrupt entry flags",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82372",
+    "text": "x/image/tiff: Decode returns io.EOF for truncated input",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82371",
+    "text": "net/http: TestServerRequestContextCancel_ServeHTTPDone/h3 failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82370",
+    "text": "net/http:nethttpomithttp2client: TestServerRequestContextCancel_ServeHTTPDone/h3 failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82367",
+    "text": "x/net/html: quadratic complexity when coalescing text nodes [1.27 backport]",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82366",
+    "text": "x/net/html: quadratic complexity when coalescing text nodes [1.26 backport]",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82365",
+    "text": "x/net/http2: ClientConn.State().Closing not set after receiving GOAWAY with the go1.27 wrapped implementation",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82363",
+    "text": "testing: Fuzz testing with `fuzztime` flag sometimes fails incorrectly with \"context deadline exceeded\" [1.27 backport]",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82362",
+    "text": "testing: Fuzz testing with `fuzztime` flag sometimes fails incorrectly with \"context deadline exceeded\" [1.26 backport]",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82361",
+    "text": "x/tools/imports: Process spawns a go env subprocess on every call, even when no fixes are needed",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82360",
+    "text": "net: HardwareAddr fails to round-trip through JSON for non-standard lengths with GODEBUG=netmarshal=1",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82358",
+    "text": "x/website: Link in blog is broken",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82357",
+    "text": "Explicit version",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82356",
+    "text": "cmd/go/internal/modfetch: TestCodeRepo/rsc.io_quote/v1.0.0 failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82355",
+    "text": "cmd/go/internal/modfetch: TestLatest/github.com_rsc_vgotest1 failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82354",
+    "text": "x/tools/go/analysis/passes/timeformat: suggested fix corrupts string literals that contain escape sequences",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82353",
+    "text": "cmd/go/internal/modfetch: TestCodeRepo/github.com_rsc_quote_buggy/c4d4236f failures",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82352",
+    "text": "wiki:https://github.com/2dust/v2rayNG.wiki.git",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82351",
+    "text": "os, syscall, x/sys/windows: invalid slice bounds and missing validation when parsing reparse points in Readlink",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82350",
+    "text": "net/http: Client preserves Request.Host across scheme relative redirects",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82349",
+    "text": "security: fix CVE-2026-111943 [1.27 backport]",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82348",
+    "text": "security: fix CVE-2026-111943 [1.26 backport]",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82347",
+    "text": "crypto/x509: CreateCertificate doesn't serialize policyMappings, policyConstraints, or inhibitAnyPolicy",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82346",
+    "text": "os/exec: Cmd.Start on Windows can execute .bat/.cmd files from Cmd.Dir instead of Cmd.Path",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/golang/go/issues/82345",
+    "text": "crypto/x509: mitigation for security concerns with a specific Certificate Authority",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58732",
+    "text": "Building (not saving) a has_one association deletes the existing one",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58723",
+    "text": "Active Storage fails to start on a new Mac without libvips installed",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58715",
+    "text": "Connection checkout can block for up to 100s regardless of checkout_timeout when queued behind background maintenance",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58713",
+    "text": "keepalive: false in database.yml is silently ignored",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58705",
+    "text": "SQLite table reconstruction cascade-deletes child rows inside transactional migrations",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58701",
+    "text": "ActiveSupport::JSON.decode raises ArgumentError with json gem >= 3.0 (positional options arg removed)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58694",
+    "text": "Upgrade to gem 'json' 3.0.1 broke `ActiveSupport::JSON.decode`",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58685",
+    "text": "After update gem json to 3.0.0 Rails 8.1.3.1 raise the error: wrong number of arguments (given 2, expected 1)",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58654",
+    "text": "NameError: uninitialized constant ActiveSupport::Ractors::Ractor on JRuby",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58652",
+    "text": "bin/docker-entrypoint not working when passing parameters to bin/rails server",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58650",
+    "text": "Ractor.store_if_absent deadlock in SchemaContext#attributes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58644",
+    "text": "TypeCaster::Connection#type_for_attribute leases a connection that ActionController::Live worker threads never release (8.1)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58637",
+    "text": "Rails.cache.fetch_multi returns keys in a non-deterministic order when LocalCache is active",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58630",
+    "text": "`ApplicationRecord.connected_to(role: :writing)` stops lifting the readonly guard after `ActiveRecord::Base` re-establishes the primary pool",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58624",
+    "text": "Exception NameError  thrown in \"Sign Up and Settings\" guide (3.3)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58610",
+    "text": "Action Cable 8.1 Redis adapter rejects redis-rb 6 despite compatible adapter API",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58609",
+    "text": "ActiveRecord::Coders::JSON encode_options raises NameError on stable/main",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58608",
+    "text": "ActiveModel integer string cap drops values after leading zeroes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58607",
+    "text": "SourceAnnotationExtractor.enumerate mutates caller options",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58579",
+    "text": "bounty-should-fail",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58573",
+    "text": "RedisCacheStore#clear raises NoMethodError when url is an array",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58572",
+    "text": "RedisCacheStore#clear raises NoMethodError when url is an array",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58564",
+    "text": "dependent: :destroy_async on has_many :through destroys target records instead of join records",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rails/rails/issues/58556",
+    "text": "PostgreSQL primary key introspection includes INCLUDE columns",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141842",
+    "text": "Node.status.volumesAttached[].devicePath is block-device/unix-specific; Windows semantics undefined",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141841",
+    "text": "Dynamic Resource Allocation (DeviceClass/Device) is not supported on Windows nodes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141840",
+    "text": "Node capacity/allocatable never advertise hugepages-* on Windows nodes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141839",
+    "text": "in-tree iSCSI: DetachBlockISCSIDisk fails permanently when the by-path link is already gone, stranding the volume in volumesInUse",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141838",
+    "text": "[Umbrella] Supporting ML-DSA for PQC requirements",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141836",
+    "text": "[Flaky test candidate][sig-scheduling] TestCallQueue: hardcoded 100ms sleep/timeout race in pkg/scheduler/backend/api_dispatcher",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141829",
+    "text": "DRA: AllocationMode All errors for incomplete or invalid pools are not per-node failures",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141819",
+    "text": "E2E testing: check for goroutine leaks",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141818",
+    "text": "apiserver_init_events_total counts events after watcher was already terminated",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141814",
+    "text": "[PodLevelResources] In-place Pod resize drops CPU/memory keys from PodStatus.Resources depending on resize dimension",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141806",
+    "text": "ImageGarbageCollect when ImageMaximumGCAge is set should not GC unused images prematurely consistently timing out",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141803",
+    "text": "[Flaking tests] k8s.io/kubernetes/test/integration/scheduler/preemption/podgroup tests timing out",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141799",
+    "text": "DRA: Add audit-log visibility for the adminAccess self-escalation entry points (namespace labeling, claim creation)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141798",
+    "text": "CVE-2026-84304 gRPC-Go: Heap Memory Exhaustion (OOM) via HTTP/2 DATA Frame Fragmentation",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141794",
+    "text": "TestPodGroupPreemption/Binding_first_before_preemption_for_gang_policy: Unexpected event order",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141787",
+    "text": "[Flaking Test] Containers Lifecycle when A pod with restartable init containers is terminating",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141786",
+    "text": "[Flaking Test] restarted with a non-local redirect http liveness probe",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141781",
+    "text": "NodeResourcesFit / NodeResourcesBalancedAllocation score real node load as 0 when a scheduler extender is configured (regression from #130537)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141773",
+    "text": "keyutil.ParsePublicKeysPEM rejects PKCS#8-encoded ECDSA keys",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141760",
+    "text": "[InPlacePodLevelResourcesVerticalScaling] kubelet: \"not implemented\" cgroup errors on Windows nodes during pod status sync & logging typo in `convertToAPIPodLevelResourcesStatus`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/kubernetes/kubernetes/issues/141749",
+    "text": "[Failing Test] [sig-auth] Projected PodCertificate conformance test cannot bind port 443 under Restricted Linux settings",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "title-only ambiguity, duplicate/automated failure, routine release, or insufficient detail"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/42ecbb10b809264646c749e90bbc1003c81a7292",
+    "text": "Revert \"binary-expectations: aarch64 glibc ASan builds keep the loader in NEEDED (#41794)\"",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/3f2610e24af70b9eca8d7e8201fbfbd7e4b5051a",
+    "text": "FileSink: keep the event loop alive until end() has drained a pipe (#41709)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/5baea6630dbde44d3ad4023d56d55e1403ffa054",
+    "text": "jsx: remove the dead Solid runtime from bunfig, the CLI, and tsconfig (#41699)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/66c669c962c50112e9f4a7e6c2ca8890967d774a",
+    "text": "fetch: never send the URL fragment in the request-target (#41771)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/85c9f6e60da1283ccf4447ed0407cfa1639a7019",
+    "text": "Report unhandled early rejections from fetch(), Bun.write(), server.fetch() and Bun.resolve() (#41796)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/8940b0eec723ac85af4810d3b066188cfe5e04a6",
+    "text": "minify: do not fold new Array(x, ...spread) into an array literal (#41828)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ae3c3ad753358b87045ddd1a8c04d7507e9cf025",
+    "text": "binary-expectations: aarch64 glibc ASan builds keep the loader in NEEDED (#41794)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/d316760e8cae0d69ae927898d5afc933ecf34671",
+    "text": "verify-baseline: resync the x86 decoder at symbol starts (fixes x64-musl lane on main) (#41549)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ae7b8f4abb3ed1da023d61c9a33a54364efd5e27",
+    "text": "Build JavaScriptCore and ICU from source in bun's own build graph on every target (#41330)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/16eb85a67ba82efd1269420816bf819ad2eaba50",
+    "text": "test: run the issue 13696 http.request regression test in-process (#41422)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ee8f9846c4dc6c1a1df4e253e15f55164295cf17",
+    "text": "docs: correct stale claims on the Node.js compatibility page (#41352)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/4593030feca2e140405007aec3195953ae9558a9",
+    "text": "util.inspect: freeze builtInObjects to Node's 47-name bootstrap set (#36138)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/988ce730e56dc96a221d1228d8499128e16634b8",
+    "text": "Make Bun.indexOfLine find a newline after an invalid UTF-8 lead byte (#41483)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/46bae4c262f94a59b44bb7782e80cf3d7dcd8b04",
+    "text": "bun test --parallel: exit 128 + signal, kill what a crashed worker spawned (#41467)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/0d0b28b906727a232caf9993a0c05e6ac70548bd",
+    "text": "shell: reject the promise when the interpreter fails to start instead of throwing from then() (#41434)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e49f3007a7ab8f1176d2979bf5e42f09f25fb892",
+    "text": "subprocess: surface stdio read and write errors instead of dropping them (#41456)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/9711c25bc17cde6d3530f5b301150560e6402b8b",
+    "text": "test: run the --bail JUnit regression tests concurrently and assert the full report (#41423)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/09927e3f613bf228a738e6111b06887fa078c33d",
+    "text": "test: run the WPT url-constructor fixture one test per section (#41425)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/bbeaa60830556846b55292cfb21bbe683dd58492",
+    "text": "test(timers): run timer-heap-race fixtures concurrently and bound the atomics fixture by iterations (#41428)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/30cda5751f41ef623936a6b0e992f3c193eb1dd4",
+    "text": "test(websocket): saturate the socket instead of sending 64 MiB in websocket-buffered-amount.test.ts (#41430)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e8541037c477762d38b5e163e8432d9facb8783c",
+    "text": "Take path scratch buffers from the pool instead of uninitialized stack arrays (#41442)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/4a47e202fec84197a7f50dff5fe7bbf68c26a891",
+    "text": "test: hold the fixture port on both loopback addresses in dns-interleave (#41448)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/3e3637716f982095a76f41c65fb12dc914873cf4",
+    "text": "shell: close un-started stdio pipes on a failed spawn and finish a command from whichever stdio closes last (#41436)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/7cc48e5e091d16872b2c24e47be2411f05283227",
+    "text": "ipc: reject an empty internal JSON line and non-Uint8Array views in the Buffer envelope (#41469)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/b88d9369c7fea3102b4e78d133d67620f5783ce6",
+    "text": "Release the poll and surface the error when a Bun.file() stream read fails (#41420)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/4bedd526ea7c23497fad1056c82c4a608f1e43c5",
+    "text": "test(fetch.tls): listen dual-stack in the cert-mismatch churn fixture (#41455)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/07f629a4c6c7b6d9ccc07c18cd25a126dc7411e0",
+    "text": "dns: report a temporary getaddrinfo failure as EAI_AGAIN (#41462)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/0131d750166c751d119ed7480235567edb22abd0",
+    "text": "Validate a cached sourcemap section header before use (#41457)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/f42e980255adb47153d5b8100f0f5cf7b2fb67d8",
+    "text": "fetch: drain all decoded zstd output before waiting for more input (#41450)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/bdbe669b15395b72322a7b98937cb8bc254a3dab",
+    "text": "fetch: drain all decoded brotli output before waiting for more input (#41441)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/c01965ff724cabd72936c3b517d85902712731e0",
+    "text": "bundler: widen `[hash]` output names when two would collide; add `[hashN]` (#41317)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/76e9dcc6ad272a4fb1ee4a4dbbde4809201b71d1",
+    "text": "worker: keep browser delivery semantics for Worker messages; document it and test it alongside parentPort's queueing (#40162)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/655da4f91b009885da512392b7324179a34546c6",
+    "text": "bump versions",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/744846f844374847c902b5e7fd59b4342a51ef99",
+    "text": "Bump to 1.4.2",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/7b0b70ece52704561a8f9ee36a2b6f10cd588acf",
+    "text": "Decode CMYK and YCCK JPEGs in Bun.Image (#31898)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/7e3744509ce9417b209b45d93419cebdc1123755",
+    "text": "WebKit 2e2aa2290fac: JSArray shift/splice/setLength cleared live butterfly slots through libc memset (oven-sh/WebKit#564) (#41407)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/814fa03b0eab3431969c0571f089d420b85d3ca3",
+    "text": "Remove the unused function-slot vector from JSCommonJSExtensions (#41405)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/9584239284e187ef8a79bc7cc5456c1921e3c7d2",
+    "text": "WebKit fbd894680a6c: IC stub routine watchpoints could outlive the cells their conditions are keyed on (oven-sh/WebKit#562) (#41378)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/86b2e060cff00c02743aa61126a19bc811991d21",
+    "text": "install: key the lockfile string pool by the bytes, not a stored hash (#41366)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/5fb9ecbf844650e55b7453162956a17db4b653e6",
+    "text": "Reject json() with the JSON.parse SyntaxError on the buffered path (#41387)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/74326db585fe67c2a02bef1119c9e54ab05addf9",
+    "text": "AsyncLocalStorage: don't retain the outer store from exit() / nested run() (#41359)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/3044dc6834e5449d20317ad7c41f04013d32e5b0",
+    "text": "io: leave the fd with the caller when a POSIX pipe writer fails to start (#38354)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/9fdcf5af20726a8416349c2afb3d366908d6fd77",
+    "text": "worker_threads: post 'online' before the entry point runs (#41383)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/9eb082ab7fc6addd4307f7ab8c6d4cdff112b745",
+    "text": "bundler: count a binding's declaration as a use of its name in the scope that prints it (#41354)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/d296efbb4e5bfcd45cd0e93da312c793a1f5b701",
+    "text": "Upgrade WebKit to 0d58b764 (#41332)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/4661e494f052c83c80dade1318e5710238340be6",
+    "text": "lexer: only treat __PURE__ as an annotation when it starts a // comment (#41284)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/aad89dabf9fa50c9ae1e7dbb55ba7f2c0a0bd45d",
+    "text": "bundler: no export table for a lifted CommonJS file that stays wrapped (#41334)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/f0bcb1aaba62af869162b21138025a9dd52e760a",
+    "text": "run --filter: show all output by default, clearer missing-script errors (#41323)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e40940d1cede4287997ceb7a2cc4bee16f6e03cf",
+    "text": "build: run bindgenv2 with cfg.jsRuntime (#41313)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/2c2b984126d7ce6f13666c9939a820a366e574ae",
+    "text": "build: run generate-classes.ts with cfg.jsRuntime (#41311)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/d6d966119ff24e3b93cecf31823b96ec883d087f",
+    "text": "build: run cppbind.ts with cfg.jsRuntime (#41310)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/b1f7b8e36f5368c18c4c902c30ec7e403e5c4850",
+    "text": "Bump WebKit to 6119947592b6 (#41324)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/edc668cbd192d096c4a427feaa22f5e589a07924",
+    "text": "build: run create-hash-table.ts and generate-jssink.ts with cfg.jsRuntime (#41309)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/17198347a14dbdfdcc13904ff696e4d10c8df676",
+    "text": "build: run generate-host-exports.ts with cfg.jsRuntime (#41308)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/c83c9c3fd6ef8c61fca5816d315a19437b57b1db",
+    "text": "build: run compress-embed.ts with cfg.jsRuntime (#41307)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/11fb51ffb6c7e0ac8ba4098b7b9a70df8e9799d2",
+    "text": "build: run the first two codegen scripts with cfg.jsRuntime (#41306)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/f942cb004953245b759298ec1d590ff5ff189b86",
+    "text": "install: one workspace-link rule so bun.lock reloads match package.json (#41302)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/2a64fab49c5a00f31a29cec8b4c8213294b47d81",
+    "text": "bundler: let a nested binding keep its name unless it would capture a reference (#41286)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/858f4e70023df50e7617ffdea6ec972083bd8503",
+    "text": "Remove the @types/bun alias, pin the root devDependencies, and add --package-manager=npm (#41225)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/6c06195725247f9acafb15d46e907a542f83db5e",
+    "text": "Let idle FTL code age out once the heap goes quiet (WebKit#557/#558) (#41297)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/43f4c8c611e2f3eae75f37bec3fa098504234e6c",
+    "text": "bundler: keep the default export of a lifted module.exports = require() (#41298)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/9fac6f166474a9764f811aa1b0d427a2721b1bde",
+    "text": "node:http2: emit the SETTINGS ACK before DATA the new settings unblocked (#40360)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/b36143acb4d71bad1e42fe900517eaf6ca0004f8",
+    "text": "node:http2: saturate numeric session options instead of wrapping to the minimum (#41295)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ef619002e48cc8733e7c64bdde0c0d0e5427eda6",
+    "text": "codegen: use node:zlib instead of Bun.zstdCompressSync (#41222)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/77ac31a4884306196f1343d4a01f1f806d5cfb1d",
+    "text": "codegen: use node:fs instead of Bun.file and Bun.write (#41223)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/97c1096e01f57e365d2d4afb29cb111eec2a77aa",
+    "text": "codegen: use node:crypto instead of Bun.CryptoHasher (#41224)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/939e3f4918ee84851d14a0536106e3876ea8de38",
+    "text": "node:http2: send an object origin unchanged in session.altsvc() (#41256)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/5f4940e91aa3c3710f88ec16065fdb4e265f0440",
+    "text": "bundler: keep this for a call of an export in its own lifted file (#41273)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e0a2b82fd135a9f775c0b4dbf6eba772fbd12a28",
+    "text": "fs(macOS): retry EINTR in the Darwin syscall wrappers instead of surfacing it (#41086)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/eec87370f3746b8f3b34a555bc2c1afba224c356",
+    "text": "docs: Bun.serve development mode is the default; explain what the error page sends (#41277)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/eaee5c6f6d8783517661d48df85b480d79ed9dd4",
+    "text": "bundler: keep the CommonJS wrapper when a var has the name of a top-level function (#41269)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/497069ec59bce678a262ed439ad31ca95ffd4445",
+    "text": "compile: name the entry point's chunk after the outfile, so other chunks can load it (#41264)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/14ab660f7c63332748e7d7000e14f9ca4c5fa015",
+    "text": "bundler: give each entry point its own output and module order without --splitting (#41263)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/dfa2b122c77053f3fac92a75e56b9025257c813a",
+    "text": "ci: retry only the test files listed in test/flaky-tests.txt (#41204)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/2ce05ce463fb84251f86824b060fd414c87a0692",
+    "text": "bundler: list the chunks and assets reached through dynamic imports in the HTML import manifest (#38347)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/f4840f6beb918536b5f98f411dab98b794ec8f64",
+    "text": "bundler: keep the CommonJS wrapper when a file uses module beyond module.exports (#41262)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/79f50aedff63b59513bcd9ee5e711c031afa9f57",
+    "text": "Bump mimalloc (#41253)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ebc90be0e943f3a312d7cc9a831a5eeb5b2a71c2",
+    "text": "install: keep a self-contained workspace's packages on `bun update`/`dedupe`/`audit fix` (#41260)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/30f815988867dc6dacf5b2493ae3d1331f572725",
+    "text": "install: stop the copy backend from emptying hardlinked cache files (#41228)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/f31440d21d491ab403e322fe539429c2ebaa9661",
+    "text": "bundler: keep this for a method call on a lifted CommonJS export (#41251)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/685180aca5caceaab4061bc182aa08130fd16433",
+    "text": "AsyncLocalStorage: drop enterWith() frames at the event-loop boundary, stop allocating per await/then (#41190)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/8f9aece153a7984787058e5ad986c454509f0cac",
+    "text": "bundler: read ns[\"a\" + \"b\"] as the export \"ab\", not \"a\" (#41250)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/c2a2b28b353bbb67aa8d1694144c7eb395048744",
+    "text": "Bun.serve: pause the file reader while the response is backpressured (#41244)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e9367be00141254e782e25dfbf2c4b3554c4621c",
+    "text": "node:http2: write latin-1 header values as one byte per code unit (#41245)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/473335d85f18774cdce216daf942d25fa08360f1",
+    "text": "bundler: wrap a split import() with __toESM when the target is CommonJS at link time (#41237)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/1d1f4319b8863b95c7c4b7d05b5a68d1b5a97ef4",
+    "text": "Read x86 CPU features with cpuid, without libgcc's startup constructor (#41233)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e62f2e8ce4b41cc2c486b3eac1cabbcce6349f12",
+    "text": "StackCheck: compute a thread's stack bounds once (#41238)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/4b540e6d292907967acf6200757acf2b6e361f43",
+    "text": "install: accept installConfig.hoistingLimits \"none\" without a warning (#41240)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/c34a1a5c43e622d8ed0ca6bd2b32c81d0aab687d",
+    "text": "bundler: print an external onResolve import with the returned path (#41230)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/5d6dc96108e0e3000c2d5b616c6929f23d1dcf72",
+    "text": "bundler: read .default of a split require() whose target is CommonJS at link time (#41243)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/ee7af8b14137063905a96efb2e15bf05c3edacbe",
+    "text": "install: keep the self-contained workspace setting out of the lockfile (#41215)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/dcd85697ac232ae2ca3aba5ddc8fa2a491131c89",
+    "text": "js_printer: print integers as plain digits in JSON output (#41184)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/50731fcf083b272da7ec8188f234491e4d9fbf91",
+    "text": "bundler: give a split import() of a lifted CommonJS module its namespace as default (#41231)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/467e74144939eb475742289822d081877680c035",
+    "text": "resolver: read package.json \"type\" from the nearest package.json, named or not (#41232)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/e8c8d8150a7317940380f4bb00f12b522f492cff",
+    "text": "bundler: tree-shake an unused destructuring of an import namespace (#41180)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/b0cf0f40e7f103a3c247e9b7a7b5b0b199da5638",
+    "text": "bundler: read import() / require() exports without a namespace object (#41186)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/1b315c2abb80f967edc7a23fae8602684ad3143d",
+    "text": "Bun.serve: report a rejection from a handler that upgraded before it returned (#41227)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/c29e839111df14720ef652a49ca975d55148f4e4",
+    "text": "test: cover the s3.write(key, Bun.file(path)) hang when a GC runs during part backpressure (#41189)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/fd10aefe40c27b222a6e89757a59265dcbb39996",
+    "text": "bundler: use module.exports as the default import when __esModule has no default (#41213)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/oven-sh/bun/commit/36fc0d9d4f3fad343deb77fdce42c15375a3de39",
+    "text": "bundler: keep an unused destructuring declaration unless the pattern is side-effect free (#41172)",
+    "label": "genuine",
+    "kind": "commit"
+  }
+]

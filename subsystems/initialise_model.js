@@ -40,6 +40,10 @@ function initialise_model(settings) {
     if (config.encoder && !["richer-subword-v4", "structured-subword-v3", "hashed-subword-v2", "legacy"].includes(config.encoder)) {
         throw new RangeError("initialise_model: unsupported encoder " + config.encoder);
     }
+    if (config.structureVersion !== undefined &&
+        (config.encoder !== "richer-subword-v4" || ![1, 2, 3].includes(config.structureVersion))) {
+        throw new RangeError("initialise_model: structural features require v4 structureVersion 1, 2 or 3");
+    }
     const vectorSize = typeof config.vectorSize === "number" && config.vectorSize > 0
         ? Math.floor(config.vectorSize)
         : 8;
@@ -68,7 +72,8 @@ function initialise_model(settings) {
             bias: 0,
             options: { encoder: config.encoder, useSynonyms: false,
                 learningRate: config.learningRate ?? 0.8, epochs: config.epochs ?? 120,
-                ...(v4 && config.lexicon ? { lexicon: config.lexicon } : {}) }
+                ...(v4 && config.lexicon ? { lexicon: config.lexicon } : {}),
+                ...(v4 && config.structureVersion ? { structureVersion: config.structureVersion } : {}) }
         };
     }
 

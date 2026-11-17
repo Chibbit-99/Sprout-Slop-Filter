@@ -60,13 +60,13 @@ const metrics = (model, rows) => {
     return { correct: result.truePositive + result.trueNegative, count: result.count,
         fp: result.falsePositive, fn: result.falseNegative };
 };
-console.log('Curated source-separated titles (training Vite/Node, validation Axios, held-out Svelte/Express):');
+console.log('Inspected titles (training Vite/Node/Fastify/ESLint; Axios selection; old Svelte/Express diagnostic):');
 for (const [name, rows] of Object.entries(groups)) {
     const before = metrics(old, rows), after = metrics(shipped, rows);
     console.log(`${name.padEnd(23)} ${before.correct}/${before.count} FP${before.fp} FN${before.fn} → ` +
         `${after.correct}/${after.count} FP${after.fp} FN${after.fn}`);
     if (name === 'svelteExpressHoldout') {
-        assert.deepEqual([before.correct, after.correct], [12, 23]);
+        assert.deepEqual([before.correct, after.correct], [12, 27]);
     }
 }
 console.log('Titles were selected/labelled manually, not randomly sampled; results are not deployment estimates.');

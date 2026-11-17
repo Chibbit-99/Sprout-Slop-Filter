@@ -1,0 +1,602 @@
+[
+  {
+    "url": "https://github.com/fastify/fastify/issues/6264",
+    "text": "require.cache on pluginUtils.js should be optional",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6253",
+    "text": "macOS CI (almost) always fails",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6248",
+    "text": "Offer to help translate documentation to Portuguese (pt-BR)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6236",
+    "text": "Adopt prohibition on probabilistic generated code",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6230",
+    "text": "Aborting `signal` of server.lister method before actual listeting begin put a `listen` promise into a floating state",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6222",
+    "text": "Decorators document suddenly has non-JavaScript",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6216",
+    "text": "Add missing error types",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6214",
+    "text": "async preValidation with custom validator does not trigger error handler",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6208",
+    "text": "onResponse hook is not executed when Client close the connection",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/6206",
+    "text": "Types: export more schema related types",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5151",
+    "text": "reply.routeOptions is not available in decorators",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5150",
+    "text": "declaration merging not working on FastifyInstance ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5148",
+    "text": "App crashes on curl requests with 'content-type': 'application/json' and empty body",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5146",
+    "text": "Add hooks in app.register() options. ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5143",
+    "text": "recommended plugins on docs",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5142",
+    "text": "docs: align errors and warning docs",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5135",
+    "text": "Unable to set Content type when status code is 204 or 304",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5130",
+    "text": "Unwanted body type conversion happening when applying schema",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5125",
+    "text": "preHandler types are broken for version >= v4.23.2",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5122",
+    "text": "Basic typescript types are broken in 4.24.x",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5120",
+    "text": "like operator not works and return error",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5118",
+    "text": "Sending a Uint8Array as a view on a larger ArrayBuffer sends the whole ArrayBuffer",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5117",
+    "text": "tests get connection refused for localhost",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5116",
+    "text": "Update modules for v5",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5114",
+    "text": "hooks doesn't wait for async handlers",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5113",
+    "text": "handler doesn't exist in routerOptions",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5112",
+    "text": "throw an error for wrong plugin interfaces",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5109",
+    "text": "Error with ajv when i build the typescript",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5104",
+    "text": "Fastify Schema Validation is not working as expected with minProperties: 1 + additionalProperties: false",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5103",
+    "text": "Broken fastify types",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5099",
+    "text": "TypeScript doesn't compile a project with Fastify",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5098",
+    "text": "HMR of server side with webpack / rspack",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5094",
+    "text": "Bump to 4.24.1 breaks build",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5092",
+    "text": "Use `fmw.hasRoute` for `fastify.hasRoute`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5089",
+    "text": "Method 'HEAD' already declared for route - regression in 4.24.0",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5077",
+    "text": "Version 4.19 breaks decorator",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5074",
+    "text": "Lots of broken links in the docs",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5071",
+    "text": "Cant listen to 0.0.0.0 in node 18",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5068",
+    "text": "bug: FST_ERR_HOOK_INVALID_ASYNC_HANDLER not thrown",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5066",
+    "text": "Named parameter paths such as `/:path`, when the path is too long, the route cannot be hit and throws a 404.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5065",
+    "text": "Update benchmarks",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5061",
+    "text": "Removal of declaration merging",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5059",
+    "text": "Test log flaky",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5053",
+    "text": "PreSerialization hook is being called when reply payload is null",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5052",
+    "text": "Security Audit ",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5050",
+    "text": "Semicolon is used as a separator between path and query-string",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5049",
+    "text": "onReady might be executed twice",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5044",
+    "text": "`FastifyPlugin` type deprecation notice in code JSdoc is unhelpful",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5040",
+    "text": "docs: missing docs about warnings or deprecation warnings",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5039",
+    "text": "`FastifySchema` type should include the `security` property",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5038",
+    "text": "fs.createReadStream isn't working. \"dest.on is not a function\"",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/5033",
+    "text": "reply.context.config is marked as deprecated in typescript but documented",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4015",
+    "text": "Syntax Error On Fastify 4 and node docker latest (18 version)",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4014",
+    "text": "reply send empty",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4012",
+    "text": "Property 'user' does not exist on type FastifyRequest",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4008",
+    "text": "Server RequestTimeout not working",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4007",
+    "text": "Server will also listen on a random port when calling app.listen({path: 'foo.sock'})",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4006",
+    "text": "Add integration CI step",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4048",
+    "text": "Additional error logging when using setErrorHandler",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/fastify/fastify/issues/4002",
+    "text": "Documentation and type defs mismatch schemaController bucket factory implementation",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19495",
+    "text": "Change Request: Enable JSX reference tracking",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19494",
+    "text": "Bug: [no-array-constructor] Does not detect Array in a sequence expression",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19491",
+    "text": "Bug: (fill in)",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19485",
+    "text": "Bug: Typescript config for node >23",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19484",
+    "text": "Bug: `no-unused-vars` false positive on singleton pattern",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19482",
+    "text": "Bug: `prefer-regex-literals` rule matches more scenarios",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19481",
+    "text": "New Rule: no-top-level-await",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19479",
+    "text": "Bug: eslint is extremely slow in Dev Container when only running on two small files (25 lines)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19478",
+    "text": "Change Request: having `TIMING` show more details about other parts of the process",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19477",
+    "text": "Bug: `no-console` bad suggestion message with non-literal method names",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19474",
+    "text": "Doc: regexp/require-unicode-regexp must be turned off when both of `i` flag and `\\\\w` are used",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19471",
+    "text": "Bug: Can't test cases that filename contains `node_modules/`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19470",
+    "text": "Bug: file in eslint.config.js not respected",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19468",
+    "text": "Rule Change: Provide autofix for `no-useless-concat`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19467",
+    "text": "Bug: typescript-eslint type incompatibilities",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19466",
+    "text": "Bug: no-restricted-imports doesn't follow exclusion rules",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19463",
+    "text": "Change Request: no-restricted-syntax support disable single rule",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19462",
+    "text": "Change Request: Allow rules to specify the languages/dialects they work on",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19460",
+    "text": "Scheduled release for March 7th, 2025",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19451",
+    "text": "Rule Change: change default behavior of no-unused-vars to warning instead of error",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19447",
+    "text": "feature_request(config): eslint.config.coffee",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19446",
+    "text": "Bug: eslint fails with Error: Cannot find module './globals.json'",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19444",
+    "text": "Rule Change: Enhance `no-self-assign`",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19443",
+    "text": "Rule Change: Enhance `prefer-object-has-own` to flag `Object.keys(obj).includes(key)`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19441",
+    "text": "Bug: Types are broken in 9.20.1",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19440",
+    "text": "Bug: Parser returning a falsy value not handled well by JS language",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19438",
+    "text": "Change Request: Provide config file path -or directory- to parsers",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19435",
+    "text": "Bug: linterOptions.reportUnusedDisableDirectives does not take effect",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19430",
+    "text": "Bug: Unexpected Token error for valid class field declarations",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19429",
+    "text": "Docs: \"quotes\" rule is deprecated or what is the alternative in flat configuration?",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19428",
+    "text": "Bug: no-unused-expression false positive",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19427",
+    "text": "Scheduled release for February 21st, 2025",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19421",
+    "text": "Change Request: Recommend custom .npmrc for pnpm use of ESLint",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19418",
+    "text": "Bug: @types/estree type errors after upgrading ESLint to 9.20.0",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19414",
+    "text": "Bug: Types seem to have gotten broken from 9.19.0 to 9.20.0",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19413",
+    "text": "Bug: Error using eslint-plugin-react-compiler in a TypeScript config (`eslint.config.ts`)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19410",
+    "text": "Rule Change: (no-template-curly-in-string)",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19406",
+    "text": "Deprecation Warning: punycode Module Used by Dependencies",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19403",
+    "text": "Change Request: Global ignores helper",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19400",
+    "text": "New Rule: Enforce De Morgan transformations in boolean expressions",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19388",
+    "text": "Bug: (fill in): eslint.config.js",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19385",
+    "text": "New Rule: (No empty file)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19381",
+    "text": "Docs: Search box doesn't allow typing while dropdown is open",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19378",
+    "text": "Support for import attributes",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19377",
+    "text": "Bug: trigger require-atomic-updates error when Passing a useRef  param to function in React",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19376",
+    "text": "Scheduled release for February 7th, 2025",
+    "label": "unclear"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/19375",
+    "text": "Bug: Deprecation warnings from punycode module",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18268",
+    "text": "Inline comments to push/pop state instead of replacing it",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18267",
+    "text": "Change Request: Processor may provide parser options",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18264",
+    "text": "Change Request: Support applying suggestions",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18263",
+    "text": "Bug: Misleading message for non-configured files",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18261",
+    "text": "Bug: `--no-ignore` applies to non-global ignores",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18259",
+    "text": "Change Request: explicitly handle `undefined` being passed as a config value",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18255",
+    "text": "Change Request: `--inspect-config` CLI option",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18253",
+    "text": "Docs: no-restricted-imports doesn't explain paths vs. patterns",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18250",
+    "text": "Bug: unhandled error in `lintFiles` with glob patterns when config is invalid",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18247",
+    "text": "Bug: plugins field in eslintrc not working as expected",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18245",
+    "text": "Change Request: (Consider moving .eslintcache to node_modules/.cache)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18242",
+    "text": "Change Request: Creating variants of a rule to apply to separate files",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/eslint/eslint/issues/18240",
+    "text": "Bug: ignorePatterns is ignored",
+    "label": "genuine"
+  }
+]

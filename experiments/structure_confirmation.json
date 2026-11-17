@@ -1,0 +1,680 @@
+[
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162161",
+    "text": "Rustdoc search doesn't show workspace crates in results",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162150",
+    "text": "Type inference regression on nightly (E0282)",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162147",
+    "text": "[ICE]: `AliasConst::type_of got InherentSelf - args should always be InherentImpl at this point`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162146",
+    "text": "[ICE]: `This ought to be unreachable, the entrypoints of WF should still have InherentSelf-form alias consts.`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162144",
+    "text": "[ICE]: `it should not be possible to encounter unnormalized aliases in borrowck`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162143",
+    "text": "[ICE]: `mismatched projections in place_element_conflict`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162142",
+    "text": "[ICE]: `Reborrow source field type is &mut T but target field is not a reference`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162141",
+    "text": "[ICE]: `Cannot implement Reborrow on a type containing a &'static mut T field`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162134",
+    "text": "`try_as_dyn` does not work with builtin impls",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162131",
+    "text": "1.99 beta crater regression: expected item after attributes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162130",
+    "text": "Types FCP v2: Supertrait item shadowing stabilization",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162129",
+    "text": "1.99 beta crater regression with two doc comments in one line",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162127",
+    "text": "`field_representing_type_raw` mishandles const generics",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162125",
+    "text": "`field_projections` incorrectly handles recursion limits",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162124",
+    "text": "1.99 beta crater regression: panic when formatting bitflags",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162118",
+    "text": "Regression: explicit TCO and Fat LTO jump table size explosion with inline",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162116",
+    "text": "stability attribute checking assumes that `!` is unstable",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162112",
+    "text": "1.99 beta crater regression: unresolved import in doctest",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162109",
+    "text": "1.99 beta crater regression: type annotations needed",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162108",
+    "text": "[rustc] ICE: ADT containing no '&mut T' or 'T: Reborrow' fields must only have one lifetime to implement Reborrow",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162107",
+    "text": "[rustc] panicked at compiler/rustc_errors/src/lib.rs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162094",
+    "text": "[ICE]: Calling TypeId::info while evaluating constant triggers ICE",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162093",
+    "text": "Worse error message with TAIT + next_solver",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162090",
+    "text": "rustc does not warn in a safe fn when a trivially unsafe operation is used on an argument",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162085",
+    "text": "`doc(cfg())` doesn't follow `hide`/`show` rules",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162083",
+    "text": "Tracking Issue for `std::fs::MediaDirs` (`feature(fs_media_dirs)`)",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "metadata-only merge or title-only ambiguity"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162082",
+    "text": "Tracking Issue for `std::fs::HomeDirs` (`feature(fs_home_dirs)`)",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "metadata-only merge or title-only ambiguity"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162080",
+    "text": "False circular module error with #[path], inner attribute, and nested mod.rs",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162078",
+    "text": "Miscompile from LLVM assuming that globals don't get merged",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/rust-lang/rust/issues/162074",
+    "text": "Bad codegen for aarch64 when using one `else if` instead of two",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158234",
+    "text": "tracemalloc: _compare_grouped_stats mutates old_group, and a typo in _group_by",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158231",
+    "text": "urllib.parse.urlparse identifies incorrect hostname when URL contains backslash",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158225",
+    "text": "wsgiref.headers.Headers.__setitem__ deletes the old header before validating the new value",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158219",
+    "text": "bytearray.take_bytes() bytes object may have incorrect hash",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158217",
+    "text": "dbm.dumb: bytearray keys raise TypeError instead of being converted to bytes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158215",
+    "text": "sqlite3: _completer raises OperationalError when an attached database name contains a double quote",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158213",
+    "text": "`io.StringIO` corrupts its contents after writing a `str` subclass",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158208",
+    "text": "`xml.dom.minidom` writes a duplicate `xmlns` attribute",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158203",
+    "text": "Using a static extension type from an isolated subinterpreter crashes",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158200",
+    "text": "faulthandler.dump_traceback_later() can segfault while another thread frees code metadata",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158198",
+    "text": "Free-threading: dict resize can write to a freed instance's inline values",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158197",
+    "text": "Free-threading: iterating an instance dict can crash during concurrent deletion",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158196",
+    "text": "Free-threading: concurrent FileIO close/truncate can double-free stat_atopen",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158195",
+    "text": "Free-threading: stop-the-world from a callback under TYPE_LOCK can deadlock",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158194",
+    "text": "Free-threading: PyType_Freeze() can deadlock with concurrent class updates",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158192",
+    "text": "asyncio: expose the Future in FutureIter for introspection?",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158182",
+    "text": "http.client: AssertionError in putrequest() on an absolute-URL netloc with percent-encoded userinfo",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158181",
+    "text": "tarfile: IndexError instead of ReadError on a truncated GNU sparse member's extended header",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158178",
+    "text": "Python 3.14.7 tkinter fails when per-user installation path contains a space",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158172",
+    "text": "struct: non-ASCII bytes format raises UnicodeEncodeError instead of struct.error on 3.13/3.14",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158169",
+    "text": "zlib: Decompress.unconsumed_tail should be cleared on eof",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158166",
+    "text": "xml Python and C version ParseError difference",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158165",
+    "text": "_Py_get_machine_stack_pointer() does not compile with MinGW on Windows",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158159",
+    "text": "Use-after-free in asyncio Task.get_name() when a finalizer logs while the lazy name is formatted",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158158",
+    "text": "Use-after-free in asyncio Task.get_name() when a finalizer logs while the lazy name is formatted",
+    "label": "unclear",
+    "kind": "issue",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158151",
+    "text": "madeli",
+    "label": "slop",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158146",
+    "text": "Add coverage for keyword arguments to warnings.warn_explicit",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158140",
+    "text": "Accessing one lazily imported submodule (`lazy import pkg.a`) also imports a later imported `pkg.b`",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/python/cpython/issues/158139",
+    "text": "DEPR: timestamp/fromtimestamp tz-naive behavior",
+    "label": "genuine",
+    "kind": "issue"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/24c6508d39ad7fabd4c017b9a47d12539ea6b708",
+    "text": "Bump pypa/gh-action-pypi-publish from 1.8.8 to 1.8.10",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/98cef9fcca23677f436b2d6d7297d14bb93b59fc",
+    "text": "Bump slsa-framework/slsa-github-generator from 1.7.0 to 1.9.0",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/0c97a411b430f96694e9980515b5e253ad999327",
+    "text": "Bump actions/checkout from 3.5.3 to 3.6.0",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/faef9a0fcef307f1a1c380a477b392fa4371d83d",
+    "text": "deprecate `__version__` attribute (#5242)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/293041a290178dc1d526075372960c3ca589d366",
+    "text": "deprecate __version__ attribute",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/153433f612585409f3494a3c44160d888c02612d",
+    "text": "Merge remote-tracking branch 'origin/2.3.x'",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "metadata-only merge or title-only ambiguity"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/65271c105f7c247ecffc9a7121815276e092bd10",
+    "text": "Remove print left in by accident",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/a6007373b5c521297e2ec24f820b9c7c32659af8",
+    "text": "release version 2.3.3 (#5232)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/3205b53c7cf69d17fee49cac6b84978175b7dd73",
+    "text": "release version 2.3.3",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/9f9550247a2798b9dcc28081c15e266442f4e28a",
+    "text": "bump werkzeug 2.3.7",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/90967ccb9ab1f757c2637a68ea2e16b8da2605f4",
+    "text": "bump werkzeug 2.3.7 (#5231)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/5bb30270d2e68d8d9278ac6f5abf67049acba662",
+    "text": "bump werkzeug 2.3.7",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/1d8b53f782570b56296d7682cbbf104b6737e805",
+    "text": "Split the App and Blueprint into Sansio and IO parts (#5127)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/bc5dd3894b4b19e07abfe6a23d87d66c02e4061f",
+    "text": "Add a changelog for the sans-io changes",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/318592511c9c7156599fd02e3edf625097ecb434",
+    "text": "Add a brief README to the sansio",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/80cf589a26d792820f135591eb8007bca891bf4f",
+    "text": "Correct the error handler typing",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/cc80a47f5be6c60e53c42ef9378e6db3b0e183b1",
+    "text": "Widen the response typing",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/3f6b243cec6859185ea4064e84b33c07cc7febf6",
+    "text": "Support async template context processors",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/72c85e80c8ef9e6d5b5644f7bb23cdc175ca3873",
+    "text": "Provide an extendable merge blueprint funcs method",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/0ec7f713d679ceed2c605e62ac5d38d579f29fa0",
+    "text": "Split the App and Blueprint into Sansio and IO parts",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/a64588f87a2bd7ba557814ec039e3b2af2ce842d",
+    "text": "Move file to sansio",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/0e0e8ddcdc2bd572cdecd371bc0f309ac62ee9c4",
+    "text": "remove deprecated code (#5223)",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/04994df59f2f642e52ba46ca656088bcdb931262",
+    "text": "remove deprecated code",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/6a12b191f7058a179237b4b3dfc146e559777d9b",
+    "text": "start version 3.0.0",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/9e9acfb3fe5cf33549da1a8324b395e1fb4145b0",
+    "text": "Merge branch '2.3.x'",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "metadata-only merge or title-only ambiguity"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/02736640095ed6d5a4a409a9658eaca373fd1d48",
+    "text": "Update dispatch by path example (#5217)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/a887e179b8af6a9c582a7918f9f8499ab58032cc",
+    "text": "clean up",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "token-normalised duplicate of prior task training"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/aa6d4c3e92bd11a7d449f49f524e54bbb88b89c0",
+    "text": "update dispatch-by-path example",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/6d49a1e4b74fe4361cc8ab58767effece56c1f0c",
+    "text": "Merge branch '2.3.x'",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/826514b8eb18f6c314cf566630253d35c89e42c3",
+    "text": "fix flake8 bugbear findings",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/c49ce2e1eb8b598e724388bead0943837bab8027",
+    "text": "fix flake8 bugbear findings",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/3237fff4b86227a84913d3885b600738bb9479a0",
+    "text": "Merge branch '2.3.x'",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/6d266f63633f5f127165d4ef836db14a59bbc106",
+    "text": "Pass maxsplit via kwarg to re.split (#5215)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/17e146ad949b3d80438faf95e81b53c543cb50f5",
+    "text": "Pass maxsplit via kwarg to re.split",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/80ae10f402facf375be30eb62fdaf0d34d57a66d",
+    "text": "update dev requirements",
+    "label": "slop",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/7d399e80c34df8daff66f45b74fdde0edd58d63c",
+    "text": "Merge branch '2.3.x'",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/b1385919bea3238d49a6e2cfc8261771775cd6e9",
+    "text": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8 (#5213)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/6a5277d3417b30d6e7f5c93745e8a445dcb02b1c",
+    "text": "Bump actions/setup-python from 4.6.1 to 4.7.0 (#5212)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/dcc86ebfce71bf2829bce429134d6424355f159a",
+    "text": "Bump pypa/gh-action-pypi-publish from 1.8.7 to 1.8.8",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/180ff8853c69240a3d214734da8d78f8d4d6f0bc",
+    "text": "Bump actions/setup-python from 4.6.1 to 4.7.0",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/8a72b741616556b4f739ea79ab502c2d2038844a",
+    "text": "[pre-commit.ci] pre-commit autoupdate (#5211)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/7255be9626ab56d81bc0ab86db939fcc1da9bca1",
+    "text": "[pre-commit.ci] pre-commit autoupdate",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/f215de030e4bb66205e39c786437b41aa86a5dd6",
+    "text": "[pre-commit.ci] pre-commit autoupdate (#5187)",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/65bc7636348a9ca32ccafb9f685ab4377e1e446d",
+    "text": "[pre-commit.ci] pre-commit autoupdate",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/a0db8908530769e83f388d6b61438a6a2ee0bded",
+    "text": "Update install.rst with required description (#5182)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/11da927fd993c941618a67b443cc0649402f4de0",
+    "text": "Update install.rst with required description",
+    "label": "unclear",
+    "kind": "commit",
+    "reason": "repeated subject in this sampled page"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/cb825687a592709f902f3d320d93987a0546fd28",
+    "text": "Bump actions/checkout from 3.5.2 to 3.5.3 (#5186)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/51bf0fdd9018d63b7bc09db52a66b726c2c4bad8",
+    "text": "Bump slsa-framework/slsa-github-generator from 1.6.0 to 1.7.0 (#5185)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/0da5788efbda92b6b6239352c2b9a835efe0888f",
+    "text": "Bump dessant/lock-threads from 4.0.0 to 4.0.1 (#5184)",
+    "label": "genuine",
+    "kind": "commit"
+  },
+  {
+    "url": "https://github.com/pallets/flask/commit/326484a8d107c3af490d7d294c17832afabae785",
+    "text": "Bump pypa/gh-action-pypi-publish from 1.8.6 to 1.8.7 (#5183)",
+    "label": "genuine",
+    "kind": "commit"
+  }
+]

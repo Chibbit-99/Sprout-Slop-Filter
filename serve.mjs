@@ -38,7 +38,8 @@ export function startServer(port = 8000, host = "0.0.0.0") {
         const filePath = path.resolve(here, relative);
 
         // Never serve anything outside the project folder.
-        if (!filePath.startsWith(here + path.sep)) {
+        if (!filePath.startsWith(here + path.sep) ||
+            relative.split(/[\\/]/).some(segment => segment.startsWith(".") || segment === "node_modules")) {
             response.writeHead(403, { "Content-Type": "text/plain" });
             response.end("Forbidden");
             return;

@@ -14,7 +14,7 @@ function lexicon_entry_for(word, lexicon) {
     return null;
 }
 
-function richer_features(text, size, lexicon, lexiconStrength = 1) {
+function richer_features(text, size, lexicon, lexiconStrength = 1, structureVersion = 0) {
     if (size !== 524288) throw new RangeError("richer_features: expected 524288 features");
     const words = tokenise(normalise_text(text)).slice(0, 128).map(word => word.slice(0, 64));
     const features = new Map();
@@ -56,6 +56,62 @@ function richer_features(text, size, lexicon, lexiconStrength = 1) {
                 add(7, "lex:" + entry[0], 0.45 * lexiconStrength * scale);
                 if (entry[1]) add(0, entry[1], 0.25 * lexiconStrength * scale);
             }
+        }
+    }
+    // Opt-in v4 structural view. The existing v4 feature map stays exactly
+    // unchanged when structureVersion is absent, so old checkpoints keep
+    // their scores. Abstractions deliberately ignore content-word identity:
+    // a previously unseen component can occupy the same role as a known one.
+    // These are learned evidence, not hard-coded verdicts or a dictionary of
+    // technical terms. All slots are in the existing position/affix banks.
+    if (structureVersion === 1 || structureVersion === 2 || structureVersion === 3) {
+        const failures = new Set(["fail", "fails", "failed", "failing", "crash", "crashes", "crashed",
+            "error", "errors", "broken", "breaks", "incorrect", "wrong", "missing", "hangs", "stuck",
+            "doesn't", "don't", "cannot", "can't", "not", "never", "invalid", "unable", "regression"]);
+        const conditions = new Set(["when", "after", "before", "while", "unless", "without",
+            "during", "under", "with", "on", "if", "instead", "because", "since"]);
+        const actions = new Set(["add", "support", "allow", "remove", "fix", "make", "show", "return",
+            "update", "use", "prevent", "handle", "document", "implement", "enable", "disable", "change"]);
+        const vague = new Set(["things", "thing", "stuff", "something", "various", "misc", "general",
+            "better", "improve", "improvements", "issues", "problem", "problems", "somehow"]);
+        const functionWords = new Set(["the", "a", "an", "is", "are", "in", "to", "for", "from", "of",
+            "and", "or", "as", "by", "it", "this", "that", "at", "be", "should", "will", "can"]);
+        const types = words.map(word => {
+            if (/^\d+(?:[.,]\d+)*$/.test(word)) return "NUM";
+            if (!/[\p{L}\p{N}]/u.test(word)) return "PUNCT";
+            if (failures.has(word)) return "FAIL";
+            if (conditions.has(word)) return "COND:" + word;
+            if (actions.has(word)) return "ACTION";
+            if (vague.has(word)) return "VAGUE";
+            if (functionWords.has(word)) return "FUNC:" + word;
+            return "TARGET";
+        });
+        const has = type => types.includes(type);
+        const hasCondition = types.some(type => type.startsWith("COND:"));
+        const targetCount = types.filter(type => type === "TARGET").length;
+        const codeLike = /`[^`]+`|[\p{L}_]+\.[\p{L}_]+|\b[A-Z][A-Z_\d]{2,}\b/u.test(text);
+        // v2 learns abstract relations *only* where there is evidence of a
+        // specific symptom, conditional behaviour, or code-shaped target.
+        // Generic action-to-target requests are left to the normal v4 map.
+        // This is not a project-name whitelist or an alternate threshold.
+        const evidence = has("FAIL") || codeLike || (has("ACTION") && hasCondition) ||
+            (structureVersion === 3 && words.length >= 7);
+        if (structureVersion === 1 || evidence) {
+            for (let i = 0; i < types.length; i++) {
+                if (i) add(6, "shape:pair:" + types[i - 1] + ":" + types[i], 0.35 * scale);
+                if (i > 1) add(7, "shape:triple:" + types[i - 2] + ":" + types[i - 1] + ":" + types[i], 0.26 * scale);
+            }
+        }
+        if (has("FAIL") && hasCondition) add(6, "shape:failure-condition", 0.85);
+        if (has("ACTION") && hasCondition) add(6, "shape:action-condition", 0.55);
+        if (has("FAIL") && targetCount >= 2) add(6, "shape:failure-targets", 0.55);
+        if (has("ACTION") && targetCount >= 2 && (structureVersion === 1 || evidence)) add(6, "shape:action-targets", 0.55);
+        if (has("VAGUE") && targetCount < 2 && (structureVersion === 1 || evidence)) add(6, "shape:vague-without-target", 0.7);
+        if (has("FAIL") && targetCount < 2) add(6, "shape:failure-without-target", 0.55);
+        if (has("NUM") && has("FAIL")) add(6, "shape:number-failure", 0.5);
+        if (codeLike) {
+            add(6, "shape:code-or-identifier", 0.55);
+            if (has("FAIL")) add(6, "shape:code-failure", 0.55);
         }
     }
     return [...features];

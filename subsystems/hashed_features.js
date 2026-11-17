@@ -42,7 +42,7 @@ function hashed_features(text, size) {
 }
 
 function hashed_predict(text, model) {
-    const representation = model.version === 4 ? richer_features(text, model.featureSize, model.options?.lexicon, model.options?.lexiconStrength ?? 1)
+    const representation = model.version === 4 ? richer_features(text, model.featureSize, model.options?.lexicon, model.options?.lexiconStrength ?? 1, model.options?.structureVersion ?? 0)
         : model.version === 3 ? structured_features(text, model.featureSize)
         : hashed_features(text, model.featureSize);
     let logit = model.bias;

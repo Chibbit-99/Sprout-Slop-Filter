@@ -1,0 +1,833 @@
+[
+  {
+    "url": "https://github.com/react/react/issues/36145",
+    "text": "[Feature Request]: Add fetch and Server-Sent Events supports",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36143",
+    "text": "Performance: RSC rendering pipeline performance analysis",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36137",
+    "text": "[Compiler Bug]: incorrectly handles `use` hook when called on a non-`React` object",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36128",
+    "text": "[Compiler Bug]: React Compiler bug: closure is lost in `useEffect` when component is returned from a factory (causes `ReferenceError: <identifier> is not defined`)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36124",
+    "text": "[DevTools Bug] Commit tree already contains fiber \"288\". This is a bug in React DevTools.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36122",
+    "text": "Bug:",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36120",
+    "text": "Bug: Suspense wrapped component does not update correctly",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36104",
+    "text": "Add block-no-verify PreToolUse hook to .claude/settings.json",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36101",
+    "text": "Bug: react-hooks/set-state-in-effect fails to flag violation if prop has a `NewExpression` default value",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36100",
+    "text": "[spam]",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36099",
+    "text": "[spam]",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36098",
+    "text": "[spam]",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36097",
+    "text": "Bug: Flight Client wraps elements in lazy chunks when `debugChannel` is enabled, causing `isValidElement()` to return false",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36057",
+    "text": "[Compiler Bug]: React Compiler removes optional chaining due to incorrect assumption from `useEffect` access",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36056",
+    "text": "Bug:",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36049",
+    "text": "Unexpected hydration mismatch on production build",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36048",
+    "text": "[DevTools Bug] Cannot add child \"3843\" to parent \"316\" because parent node was not found in the Store.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36046",
+    "text": "Bug: Não esta carregando a pagina",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36045",
+    "text": "🧪 <AutoGrader> Infinite Loop on \"Divide by Zero\" Submission ♾️",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36040",
+    "text": "Bug: Server functions work on event handler props in Server Components; is this intended?",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36039",
+    "text": "Bug:",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36038",
+    "text": "Bug:",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36036",
+    "text": "Bug: UwU mode \"logo by\" incorrect rendering on different pages",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/36016",
+    "text": "Bug: eslint-plugin-react-hooks Typescript types are broken",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35017",
+    "text": "Bug: useEffect does not run twice due to remounting in strict mode and dev run",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35015",
+    "text": "Bug: View Transitions occasionally stall with default `onDefaultTransitionIndicator`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35009",
+    "text": "[Compiler Bug]: False positive on closure var reassignment in useMemo store",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35007",
+    "text": "[Compiler Bug]: MDX content isn’t handled by React compiler",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35006",
+    "text": "'Splitter' button is not accessible using keyboard in windows.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35004",
+    "text": "Bug: React 19 Uncaught TypeError: Do not know how to serialize a BigInt",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/35000",
+    "text": "Activity mode=“hidden” does not hide nested portals",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34998",
+    "text": "Bug: eslint(react-hooks/set-state-in-effect) not work with try catch function",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34989",
+    "text": "[Compiler Bug]: Callback ref wrapped in `useCallback` not being recreated and rerun",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34986",
+    "text": "Bug: `eslint-plugin-react-hooks` causes weird lint error: `react-hooks/use-memo`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34982",
+    "text": "Bug:",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34976",
+    "text": "[Compiler Bug]:",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34975",
+    "text": "[Compiler Bug]:",
+    "label": "unclear",
+    "reason": "duplicate title within new test"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34971",
+    "text": "[Compiler Bug]: Memoization is not correctly applied around `for` loops",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34966",
+    "text": "Bug: [19.2.0] Streaming scripts injected in `onAllReady` in `renderToPipeableStream` and `prerenderToNodeStream`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34960",
+    "text": "[Compiler: suggestion] Performance improvement: Replace template literals with single quotes for static strings",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34957",
+    "text": "[Compiler Bug]: `react-hooks/preserve-manual-memoization` is triggered for state setter depending on position of `useState`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34955",
+    "text": "[Compiler Bug]: react-hooks/immutability false positive on ref assignment",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34954",
+    "text": "[Compiler Bug]: react-hooks/refs false positive on ref forwarding",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34952",
+    "text": "Bug: View transitions don't work in Firefox",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34944",
+    "text": "Bug: Form submitter is missing, if form includes input with name 'id'",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34943",
+    "text": "Screen reader is incorrectly announcing table information on the whole tile section in windows.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34942",
+    "text": "[DevTools Bug]: React Developer Tools extension causes rendering exception",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34941",
+    "text": "Bug: eslint-plugin-react-hooks treat `use` as a react hook",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34939",
+    "text": "Bug: Dev hydration false-positive for equivalent class token sets",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34936",
+    "text": "Consider Adopting NPM Trusted Publishing",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34934",
+    "text": "Bug: Unable to run `yarn build` on the newest main",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34931",
+    "text": "[Compiler Bug]: Using useMemo with an sync function should not be reported, or should be able to be configured",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34930",
+    "text": "Signal & Observable [Updated]",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34924",
+    "text": "[Compiler Bug]: \"This dependency may be mutated later\" error is inconsistent",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34919",
+    "text": "react devtools version for firefox is outdated",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/react/react/issues/34917",
+    "text": "[Compiler: suggestion] Use const for strings",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62369",
+    "text": "[ServerErrors][TypeScript] 6.0.0-dev.20250831 vs 5.9.2",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62368",
+    "text": "\"basic\"/\"relative\" moduleResolution",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62367",
+    "text": "[ServerErrors][JavaScript] 6.0.0-dev.20250831 vs 5.9.2",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62366",
+    "text": "Mapped types not fully resolved for generic object parameter (extending a base object)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62365",
+    "text": "[NewErrors] 6.0.0-dev.20250831 vs 5.9.2",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62364",
+    "text": "Allowing using the current type in class generic",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62363",
+    "text": "New intrinsic for Hashing a type to a string",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62362",
+    "text": "Class generic default inferred as constraint when class is instantiated inside an inline, array-returning function argument in Container class.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62360",
+    "text": "type question: (dynamic) typeof import",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62359",
+    "text": "Allow to use a generic type with inferred parameters as RHS of `satisfies`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62358",
+    "text": "JSX Fragments are in-properly typed with `<></>` syntax, when using `react-jsx` JSX option",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62356",
+    "text": "Support pull diagnostics in `tsserver`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62355",
+    "text": "Design Meeting Notes, 8/29/2025",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62354",
+    "text": "Array.isArray(a: readonly unknown[]) is not recognized as array resulting in wrong result type",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62353",
+    "text": "TS 5.7+ fails to transpile plain JS code (lit)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62352",
+    "text": "null as null, undefined as undefined even when strictNullChecks are not enabled",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62348",
+    "text": "Usage references can't be found for symbols exported through an exported namespace",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62347",
+    "text": "Spreading an extra `{}[]` to an array results in bad inference",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62345",
+    "text": "`silentNeverType` leak in contextual parameter types coming from anonymous non-aliased object type instantiations",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62344",
+    "text": "VS Code adds wrong `type` import on save for function used at runtime",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62343",
+    "text": "Float16Array's definition is incompatible with other typedarrays",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62342",
+    "text": "Enable `--allowImportingTsExtensions` by default",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62340",
+    "text": "Support `@deprecated` marker on namespace aliases",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62336",
+    "text": "Function argument is not infered correctly",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62335",
+    "text": "Since TS v5.7 there's no way to resolve path (#import) to TS & JS files without emitting/overcompiling",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62337",
+    "text": "Bug in VSCode and Typescript - TSServer exited. Code: null. Signal: SIGTERM - Even on empty project while tsc build works",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62334",
+    "text": "[Workarounded] TS Error 7044 is insuppressible",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62333",
+    "text": "Enable `--strict` by default",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62332",
+    "text": "Nullish coalescing assignment operator does not narrow correctly on nested readonly string.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62330",
+    "text": "[ServerErrors][TypeScript] 6.0.0-dev.20250824 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62329",
+    "text": "[ServerErrors][JavaScript] 6.0.0-dev.20250824 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62328",
+    "text": "Identical classes with a private property are incomparable across module systems (ESM / CJS)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62327",
+    "text": "[NewErrors] 6.0.0-dev.20250824 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62326",
+    "text": "TypeScript plugins do not support ESM-only packages",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62325",
+    "text": "union with undefined not shown in type hint tooltip regression bug",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62324",
+    "text": "Blob constructor no longer accepts a TypedArray input (ts5.9)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62322",
+    "text": "`type readonly = ...` and `interface readonly ...` are considered valid",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62321",
+    "text": "Design Meeting Notes, 8/22/2025",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62318",
+    "text": "Multiple keys being remapped to same key causes unstable modifier propagation",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62317",
+    "text": "Support for `throws` keyword like Java",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62316",
+    "text": "Types for new `CookieStore` API",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62319",
+    "text": "Automatically added TypeScript import on save is incorrectly type import",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62315",
+    "text": "Path aliases should work with `require.context`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/63779",
+    "text": "The last overload gave the following error. Type 'unknown' is not assignable to type 'Foo'",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62312",
+    "text": "const/readonly assertion support for `Map` and `Set`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62313",
+    "text": "Import intellisense not working when installing non-compiled package as a devDependency",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62309",
+    "text": "JSDoc present in mapped types is not output in generated type literals in declaration files",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62308",
+    "text": "Improved `NumberConstructor` for literal types",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62307",
+    "text": "Manually constructed nullish coalescing + OR AST is missing parentheses when printed",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62306",
+    "text": "Contextual typing doesn't work when mixing up discriminated unions with function variant",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/63778",
+    "text": "TS2322 error in tsgo but not tsc",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62305",
+    "text": "Incorrect emitted declaration for unique symbol re-assignment",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62303",
+    "text": "in operator as type guard / narrowing for partial records and similar objects",
+    "label": "unclear",
+    "reason": "title-only policy ambiguous or off-topic/spam"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62302",
+    "text": "Weird behaviour when parsing enum names with JSON.parse()",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62301",
+    "text": "IntelliSense is broken for Angular Material in standalone Components in VSCode",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62298",
+    "text": "[ServerErrors][TypeScript] 6.0.0-dev.20250817 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62297",
+    "text": "[ServerErrors][JavaScript] 6.0.0-dev.20250817 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62296",
+    "text": "[NewErrors] 6.0.0-dev.20250817 vs 5.9.2",
+    "label": "unclear",
+    "reason": "near-duplicate of another dated auto-generated title in this test"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62295",
+    "text": "Allow explicit fallthrough when noFallthroughCasesInSwitch is enabled",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/TypeScript/issues/62294",
+    "text": "Missing error about inability to access conflicting private properties on generic types involving intersections",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343841",
+    "text": "GPT-6.1 Sol continues to show the same image after edit",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343839",
+    "text": "Copilot Fails to Upload/Update the Code Index",
+    "label": "unclear",
+    "reason": "ambiguous title-only policy or duplicate title"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343838",
+    "text": "rawan ",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343837",
+    "text": "Relaunched terminals ignore windowsReparentConsoleWindow being turned off",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343835",
+    "text": "Workspace extension recommendation notification does not appear when extensions.json is created after opening the folder",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343834",
+    "text": "Copilot applies changes despite being in Ask mode",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343832",
+    "text": "Flaky: Markdown pull diagnostics are not cleared after an edit with only a custom-editor tab open (Remote)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343831",
+    "text": "Agent plugin recommendations ignore plugins installed with the Copilot CLI",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343830",
+    "text": "Test: Sessions input-needed and reduced-motion states",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343827",
+    "text": "Codex models unavailable in Agents Window when connected to WSL Remote Agent Host",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343825",
+    "text": "Create session (+) on session with worktree opens new session not indicating worktree",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343823",
+    "text": "Panel header controls overlap when the panel is narrow (Debug Console filter, search, session picker)",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343820",
+    "text": "remove",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343819",
+    "text": "Test Agent Extensions customization view",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343818",
+    "text": "Keep/Undo",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343809",
+    "text": "ok",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343808",
+    "text": "ok",
+    "label": "unclear",
+    "reason": "ambiguous title-only policy or duplicate title"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343806",
+    "text": "Copilot agent host returns 402 \"You have exceeded your monthly quota\" while the chat panel succeeds with the same account",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343804",
+    "text": "Agent Host: terminal confirmation in Copilot (Agent Host) chat omits the command explanation and description shown by the Local harness",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343797",
+    "text": "Copilot harness needs ability to disable execute permissions",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343796",
+    "text": "copilot not work after update ",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343795",
+    "text": "Updates",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343793",
+    "text": "Agents Window: Settings editor silently drops changes when settings.json is invalid",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343792",
+    "text": "The Terminal",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343791",
+    "text": "explorer",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343790",
+    "text": "Test: Remotes management",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343785",
+    "text": "Agent mode: Keep/Undo missing and changed-files list does not expand after update to 1.143.1",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343781",
+    "text": "Workspace inoperable after drag drop tab to other screen.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343779",
+    "text": "Test: Move Chats in the Agents window: worktrees, sessions without a workspace and New Nested Session",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343778",
+    "text": "Test: Move Chats in the Agents window: reorder, move, promote and nest sessions",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343776",
+    "text": "Copilot/AHP: Unsandboxed retries can repeat non-idempotent side effects without informing the agent",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343775",
+    "text": "Agent Merge: CI-only repair always waits 10 minutes after it is enabled, even when the CI failures are old (the approval check keeps CI \"pending\")",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343772",
+    "text": "Feedback: Copilot/AHP removes essential capabilities from my Local workflow",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343767",
+    "text": "Terminal in Agent Window",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343766",
+    "text": "Plan mode missing from agent roles menu",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343762",
+    "text": "This repo is missing important files",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343761",
+    "text": "This repo is missing a LICENSE file",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343760",
+    "text": "Feedback about copilot",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343756",
+    "text": "Copilot Chat Agent fails when accumulated image context exceeds the model’s 20-image limit",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343755",
+    "text": "Built-in Chat: timestamp tooltips should respect regional date and time preferences",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343754",
+    "text": "Local GithHub Copilot harness does not receive correct tools available",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343753",
+    "text": "dont remove keep/undo, stop trying to switch to copilot from local session",
+    "label": "unclear",
+    "reason": "ambiguous title-only policy or duplicate title"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343751",
+    "text": "Agent sandbox: `allowRead` ancestor of an `allowWrite` path shadows the write bind — workspace becomes read-only (`EROFS`) in sandboxed terminal",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343749",
+    "text": "Agent-host chats ignore chat.agentSkillsLocations, so personal skills in ~/.claude/skills are no longer loaded",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/microsoft/vscode/issues/343747",
+    "text": "Test: Agent plugin lifecycle across marketplace, source, settings, and extensions",
+    "label": "genuine"
+  }
+]
