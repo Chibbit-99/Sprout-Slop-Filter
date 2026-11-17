@@ -1,0 +1,17 @@
+[
+  {"text":"Carry the blue folder to reception before noon.","label":"genuine"},
+  {"text":"Leave the remaining sandwich on the top shelf.","label":"genuine"},
+  {"text":"Send the final invoice to Mara after lunch.","label":"genuine"},
+  {"text":"Take the empty bottles to the recycling bin.","label":"genuine"},
+  {"text":"Move the red chair beside the window.","label":"genuine"},
+  {"text":"Bring the clean towels to the guest room.","label":"genuine"},
+  {"text":"Place the spare batteries in the kitchen drawer.","label":"genuine"},
+  {"text":"Label the three crates for the afternoon shipment.","label":"genuine"},
+  {"text":"Post the signed letter to the council on Tuesday.","label":"genuine"},
+  {"text":"Feed the dog before the vet appointment.","label":"genuine"},
+  {"text":"Fix things with better ideas later.","label":"slop"},
+  {"text":"Make improvements to some stuff.","label":"slop"},
+  {"text":"Sort out the issue in general.","label":"slop"},
+  {"text":"Do the important changes sometime.","label":"slop"},
+  {"text":"Update whatever needs work.","label":"slop"}
+]

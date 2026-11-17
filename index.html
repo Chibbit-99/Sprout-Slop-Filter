@@ -448,7 +448,7 @@
                         <button class="primary" id="btnTrain">Train model</button>
                         <button id="btnStop" disabled>Stop</button>
                         <label class="check"><input type="checkbox" id="cfgAutoEvaluate" checked> evaluate on the test split afterwards</label>
-                        <label class="check"><input type="checkbox" id="cfgUseSupplement" checked> include training-only synthetic + real issue examples (<span id="supplementCount">loading…</span>)</label>
+                        <label class="check"><input type="checkbox" id="cfgUseSupplement" checked> include training-only synthetic + real issue examples and inspected corrections (<span id="supplementCount">loading…</span>)</label>
                     </div>
 
                     <div class="row">
@@ -671,6 +671,7 @@
         datasetSource: "",
         supplement: [],
         realExamples: [],
+        correctionExamples: [],
         datasetDirty: false,
         baseLength: 0,
         feedbackOnly: false,
@@ -735,9 +736,11 @@
     const MODEL_FILE = "model.json";
     const SUPPLEMENT_FILE = "./experiments/task_supplement.json";
     const REAL_FILE = "./experiments/real_issue_training.json";
+    const CORRECTION_FILE = "./experiments/issue_corrections_training.json";
     const EXPECTED_REAL_ROWS = 131;
+    const EXPECTED_CORRECTION_ROWS = 111;
     const ANCHOR_FILE = "./experiments/task_baseline_model.json";
-    const ANCHOR_MIX = 0.5;
+    const ANCHOR_MIX = 0.4;
 
     // =====================================================================
     // Small helpers
@@ -833,6 +836,7 @@
         const message = $("datasetMessage");
         state.supplement = [];
         state.realExamples = [];
+        state.correctionExamples = [];
         state.datasetDirty = false;
         state.baseLength = 0;
         state.feedbackOnly = false;
@@ -859,6 +863,13 @@
             } catch (realError) {
                 message.className = "msg warn";
                 message.textContent += ` Real issue examples unavailable (${realError.message}).`;
+            }
+            try {
+                state.correctionExamples = await load_training_data(CORRECTION_FILE);
+                $("supplementCount").textContent += ` + ${state.correctionExamples.length} inspected issue corrections`;
+            } catch (correctionError) {
+                message.className = "msg warn";
+                message.textContent += ` Issue corrections unavailable (${correctionError.message}).`;
             }
         } catch (error) {
             state.dataset = FALLBACK_DATASET.map(entry => ({ ...entry }));
@@ -977,7 +988,8 @@
             `${state.model.vocabulary.length - 1} observed tokens`,
             ...(options.lexicon ? [`${lexicalWords.toLocaleString()} offline lexical entries (not labelled examples)`] : []),
             (state.model.version === 2 || state.model.version === 3 || state.model.version === 4) ? `${state.model.featureSize} hashed features` : `${state.model.weights.length} dimensions`,
-            `softening ×${state.temperature}`
+            `softening ×${state.temperature}`,
+            ...([1, 2, 3].includes(options.structureVersion) ? ["learned abstract context patterns (same parameter budget)"] : [])
         ];
         if (options.trainedFrom) {
             bits.push(`trained on ${options.trainedFrom.trainSet} examples`);
@@ -987,6 +999,7 @@
         }
         if (options.extraRows && !options.trainedFrom) bits.push(`${options.extraRows} training-only supplemental rows`);
         if (options.realRows) bits.push(`${options.realRows} training-only real issue titles`);
+        if (options.correctionRows) bits.push(`${options.correctionRows} inspected issue corrections in training`);
         if (options.feedbackRows) bits.push(`${options.feedbackRows} training-only corrections`);
         const anchorMix = options.anchorMix ?? options.trainedFrom?.anchorMix;
         if (anchorMix) bits.push(`${Math.round(anchorMix * 100)}% baseline-anchored weights (one model)`);
@@ -1096,12 +1109,22 @@
         const extraRows = supplement.filter(row => !original.has(normalise_text(row.text)));
         const realRows = $("cfgUseSupplement").checked && usesLockedBase
             ? state.realExamples.filter(row => !original.has(normalise_text(row.text))) : [];
-        const trainSet = baseTrainSet.concat(extraRows, realRows, feedback);
+        const correctionRows = $("cfgUseSupplement").checked && usesLockedBase
+            ? state.correctionExamples.filter(row => !original.has(normalise_text(row.text))) : [];
+        const trainSet = baseTrainSet.concat(extraRows, realRows, correctionRows, feedback);
+        const defaultRecipe = usesLockedBase && config.encoder === "richer-subword-v4" &&
+            config.splitSeed === 1 && config.ratios.trainRatio === 0.7 &&
+            config.ratios.validationRatio === 0.15 &&
+            extraRows.length === state.supplement.length && extraRows.length > 0 &&
+            realRows.length === EXPECTED_REAL_ROWS && realRows.length === state.realExamples.length &&
+            correctionRows.length === EXPECTED_CORRECTION_ROWS &&
+            correctionRows.length === state.correctionExamples.length;
 
         const vocabulary = build_vocabulary(trainSet);
         const model = initialise_model({
             vocabulary,
             encoder: config.encoder,
+            ...(defaultRecipe ? { structureVersion: 3 } : {}),
             vectorSize: config.vectorSize,
             seed: config.seed,
             learningRate: config.learningRate,
@@ -1110,9 +1133,10 @@
         model.options.domain = state.datasetSource;
         model.options.extraRows = extraRows.length;
         model.options.realRows = realRows.length;
+        model.options.correctionRows = correctionRows.length;
         model.options.feedbackRows = feedback.length;
 
-        log(`training data : ${trainSet.length} examples (${baseTrainSet.length} base + ${extraRows.length} supplemental + ${realRows.length} real issues + ${feedback.length} feedback)`);
+        log(`training data : ${trainSet.length} examples (${baseTrainSet.length} base + ${extraRows.length} supplemental + ${realRows.length} real issues + ${correctionRows.length} inspected corrections + ${feedback.length} feedback)`);
         if (feedback.length) log(`feedback      : ${feedback.length} training-only corrections; original validation/test split unchanged`);
         if (state.datasetDirty && !usesLockedBase && $("cfgUseSupplement").checked) {
             log("supplement skipped: dataset was edited/imported; retrain on your own examples");
@@ -1150,11 +1174,7 @@
         // compatible v4 weight arrays into the same 524,288 slots. Only use
         // the task anchor when the untouched default split and all of its
         // training-only examples are present. A custom corpus stands alone.
-        if (!state.stopRequested && config.encoder === "richer-subword-v4" &&
-            usesLockedBase && config.splitSeed === 1 &&
-            config.ratios.trainRatio === 0.7 && config.ratios.validationRatio === 0.15 &&
-            extraRows.length === state.supplement.length && extraRows.length > 0 &&
-            realRows.length === EXPECTED_REAL_ROWS && realRows.length === state.realExamples.length) {
+        if (!state.stopRequested && defaultRecipe) {
             try {
                 const loaded = await load_model(ANCHOR_FILE);
                 if (!loaded.success) throw new Error(loaded.error);
@@ -1174,13 +1194,8 @@
         // lexical class head from the shipped model, after ordinary fitting
         // and task anchoring. Imported/edited data never inherits this prior.
         const lexicalPrior = state.model;
-        if (!state.stopRequested && config.encoder === "richer-subword-v4" &&
-            usesLockedBase && config.splitSeed === 1 &&
-            config.ratios.trainRatio === 0.7 && config.ratios.validationRatio === 0.15 &&
-            extraRows.length === state.supplement.length && extraRows.length > 0 &&
-            realRows.length === EXPECTED_REAL_ROWS && realRows.length === state.realExamples.length &&
-            lexicalPrior?.version === 4 && lexicalPrior.options?.domain === DATA_FILE &&
-            lexicalPrior.options?.lexicon) {
+        if (!state.stopRequested && defaultRecipe && lexicalPrior?.version === 4 &&
+            lexicalPrior.options?.domain === DATA_FILE && lexicalPrior.options?.lexicon) {
             const categories = new Set(Object.values(lexicalPrior.options.lexicon).map(record => record[0]));
             const factor = lexicalPrior.options.temperature || 1;
             for (const category of categories) {
@@ -1651,7 +1666,7 @@
             }
             if (state.feedbackOnly) {
                 const canonical = canonicalText(text);
-                const duplicate = !canonical || [...state.dataset, ...state.supplement, ...state.realExamples].some(row =>
+                const duplicate = !canonical || [...state.dataset, ...state.supplement, ...state.realExamples, ...state.correctionExamples].some(row =>
                     canonicalText(row.text) === canonical);
                 if (duplicate) {
                     $("datasetMessage").className = "msg warn";
@@ -1705,7 +1720,7 @@
                         throw new Error("Training-only feedback requires the default task dataset and an idle trainer.");
                     }
                     const rows = parse_training_data(JSON.parse(String(reader.result)), file.name);
-                    const seen = new Set([...state.dataset, ...state.supplement, ...state.realExamples].map(row => canonicalText(row.text)));
+                    const seen = new Set([...state.dataset, ...state.supplement, ...state.realExamples, ...state.correctionExamples].map(row => canonicalText(row.text)));
                     for (const row of rows) {
                         const text = canonicalText(row.text);
                         if (!text || seen.has(text)) throw new Error(`Duplicate base/supplement/feedback text: ${row.text}`);

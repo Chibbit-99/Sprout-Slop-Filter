@@ -1,0 +1,177 @@
+[
+  {
+    "url": "https://github.com/babel/babel/issues/15503",
+    "text": "[Bug]: Babel watch goes into endless loop transpiling its own output.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15501",
+    "text": "[Bug]: babel exited with code 1 and printed `{ valid: true, value: null }`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15493",
+    "text": "[Bug]: `export { type <ident> }` doesn't mark `<ident>` as a type",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15490",
+    "text": "No actual version @babel/code-frame on npmjs.org",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15488",
+    "text": "[Bug]:  [@babel/traverse ] DEPRECATED_ALIASES is undefined ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15486",
+    "text": "[Bug]: Missing registerDeclaration in plugin-transform-typescript",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15477",
+    "text": "[Bug]: [ts] Enum with enum merging is not exported if `export` is on the second declaration",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15475",
+    "text": "[Bug]: ['@babel/plugin-transform-runtime', { corejs: 3 }] complains \"Module not found: Error: Can't resolve 'core-js/modules/es6.regexp.to-string.js'\"",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15472",
+    "text": "[Bug]: Generates wrong JS for StringLiteral reused from JSXAttribute.value",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15471",
+    "text": "[Feature] Run babel on specific file",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15466",
+    "text": "[Bug]: `isModuleDeclaration` has been deprecated, please migrate to `isImportOrExportDeclaration`",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15463",
+    "text": "[Bug]: Spreading a set incorrectly transpiles to [].concat(set, [value])",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15460",
+    "text": "[Bug]: No matching version found for @babel/traverse@^7.21.2.",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15457",
+    "text": "[Bug]:  BABEL_PARSER_SYNTAX_ERROR on Windows if parse code include \"utils\" ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15455",
+    "text": "[Bug]: Array.prototype.at not included in `useBuiltIns: 'usage'` ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15454",
+    "text": "[Bug]: @babel/types@7.21.0 is breaking our application build",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15453",
+    "text": "Not seeing 7.21.1 - in yarn add - but it shows as release ?",
+    "label": "unclear",
+    "reason": "not enough title-only evidence to resolve specificity"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15452",
+    "text": "[Bug]: Object can be Array deconstruction",
+    "label": "unclear",
+    "reason": "not enough title-only evidence to resolve specificity"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15450",
+    "text": "[Bug]:  After Upgrading to babel core pacakage , getting below module declaration issue",
+    "label": "unclear",
+    "reason": "not enough title-only evidence to resolve specificity"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15447",
+    "text": "[Bug]: Different compat data for `?.` between Babel and caniuse",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15446",
+    "text": "[Bug]: @babel/core  dependencies  \"module\"  but not in the package.json",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15444",
+    "text": "[Bug]: generating source maps fails due to `sourcesContent` being undefined",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15425",
+    "text": "Polyfilled methods cannot be accessed from within webworker",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15421",
+    "text": "[Bug]: bundle exec error which should output a dependency tree built by rollup,  ansiStyles.color.close",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15420",
+    "text": "[Bug]:  babel/parser parse typescript file error 「Unexpected token ':'」",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15419",
+    "text": "[Bug]: babel-node --test internal-errors: Could not find '/app/node_modules/@babel/node/lib/_babel-node'",
+    "label": "unclear",
+    "reason": "not enough title-only evidence to resolve specificity"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15412",
+    "text": "[Bug]: Some of the proposed methods do not seem to have been realised",
+    "label": "slop"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15410",
+    "text": "[Bug]: arithmetic overflow occurred while processing enums",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15409",
+    "text": "[Bug]: @babel/preset-typescript parses ImportDeclaration as ExportNamedDeclaration",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15404",
+    "text": "[Bug]: Tuple members cannot use type keywords as names",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15403",
+    "text": "[Bug]: @babel/eslint-parser can't find config file",
+    "label": "unclear",
+    "reason": "not enough title-only evidence to resolve specificity"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15399",
+    "text": "[Bug]: replaceChildren polyfill is not emitted",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15397",
+    "text": "[Bug]: Endless loop found in code transformed by plugin @babel/plugin-transform-block-scoping ",
+    "label": "genuine"
+  },
+  {
+    "url": "https://github.com/babel/babel/issues/15396",
+    "text": "[Bug]: Typescript error -  A binding pattern parameter cannot be optional in an implementation signature",
+    "label": "genuine"
+  }
+]

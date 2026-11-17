@@ -1,5 +1,7 @@
 # Dependencies are never needed to run the app or the trainer.
 node_modules/
+# Local experiment candidates are not shipped.
+.cache/
 
 # Editor and OS noise.
 .DS_Store

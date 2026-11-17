@@ -1,0 +1,31 @@
+{
+  "mix": 0.4,
+  "gain": 10,
+  "scores": {
+    "task": {
+      "correct": 97,
+      "fp": 2,
+      "fn": 3
+    },
+    "commitValidation": {
+      "correct": 19,
+      "fp": 8,
+      "fn": 2
+    },
+    "ordinary": {
+      "correct": 15,
+      "fp": 0,
+      "fn": 0
+    },
+    "issue": {
+      "correct": 33,
+      "fp": 6,
+      "fn": 1
+    },
+    "commit": {
+      "correct": 35,
+      "fp": 9,
+      "fn": 2
+    }
+  }
+}
